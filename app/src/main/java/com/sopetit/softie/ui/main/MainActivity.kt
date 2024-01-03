@@ -1,7 +1,8 @@
-package com.sopetit.softie
+package com.sopetit.softie.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.sopetit.softie.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
