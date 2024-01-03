@@ -6,10 +6,8 @@ import com.sopetit.softie.data.entity.response.SampleResponse
 import com.sopetit.softie.data.service.SampleService
 import javax.inject.Inject
 
-class SampleDataSource
-    @Inject
-    constructor(
-        private val sampleService: SampleService,
-    ) {
-        suspend fun postLogin(name: String): BaseResponse<SampleResponse> = sampleService.postLogin(SampleRequest(name))
-    }
+class SampleDataSource @Inject constructor(
+    private val sampleService: SampleService
+) {
+    suspend fun postLogin(name: String): BaseResponse<SampleResponse> = sampleService.postLogin(SampleRequest(name))
+}
