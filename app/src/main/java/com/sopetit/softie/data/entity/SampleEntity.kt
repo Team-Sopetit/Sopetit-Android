@@ -5,9 +5,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class SampleEntity(
-    val name: String
-){
-    fun toSample(): Sample = Sample(
-        name = this.name
-    )
+    val name: String,
+) {
+    fun toSample(): Sample =
+        Sample(
+            name = this.name,
+        )
 }

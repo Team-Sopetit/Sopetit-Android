@@ -9,6 +9,6 @@ import retrofit2.http.POST
 interface SampleService {
     @POST
     suspend fun postLogin(
-        @Body body: SampleRequest
+        @Body body: SampleRequest,
     ): BaseResponse<SampleResponse>
 }

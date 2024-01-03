@@ -5,5 +5,5 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Sample(
-    val name: String
+    val name: String,
 ) : Parcelable

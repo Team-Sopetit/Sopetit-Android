@@ -12,7 +12,10 @@ fun Context.hideKeyboard(view: View) {
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
 }
 
-fun snackBar(anchorView: View, message: String) {
+fun snackBar(
+    anchorView: View,
+    message: String,
+) {
     Snackbar.make(anchorView, message, Snackbar.LENGTH_SHORT).show()
 }
 
