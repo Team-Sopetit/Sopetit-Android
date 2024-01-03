@@ -6,7 +6,7 @@ plugins {
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
     id("kotlin-parcelize")
-    id("org.jlleitschuh.gradle.ktlint") version "10.3.0"
+    id("org.jlleitschuh.gradle.ktlint")
     id("org.jetbrains.kotlin.plugin.serialization") version "1.7.20"
 }
 
@@ -16,7 +16,7 @@ android {
 
     defaultConfig {
         applicationId = "com.sopetit.softie"
-        minSdk = 30
+        minSdk = 28
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -57,9 +57,9 @@ dependencies {
     kapt("com.github.bumptech.glide:glide:4.13.2")
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.44.2")
+    implementation("com.google.dagger:hilt-android:2.47")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    kapt("com.google.dagger:hilt-compiler:2.44")
+    kapt("com.google.dagger:hilt-compiler:2.47")
 
     // Shared Preference
     implementation("androidx.security:security-crypto-ktx:1.1.0-alpha06")
@@ -108,6 +108,14 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:29.0.0"))
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.android.gms:play-services-tagmanager:18.0.4")
+
+    //viewPager2
+    implementation("androidx.viewpager2:viewpager2:1.1.0-beta02")
+    implementation("me.relex:circleindicator:2.1.6")
+    implementation("com.tbuonomo:dotsindicator:4.2")
+
+    // Splash Screen
+    implementation("androidx.core:core-splashscreen:1.0.1")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
