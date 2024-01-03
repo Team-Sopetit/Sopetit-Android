@@ -29,7 +29,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -109,7 +109,7 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.android.gms:play-services-tagmanager:18.0.4")
 
-    //viewPager2
+    // viewPager2
     implementation("androidx.viewpager2:viewpager2:1.1.0-beta02")
     implementation("me.relex:circleindicator:2.1.6")
     implementation("com.tbuonomo:dotsindicator:4.2")
