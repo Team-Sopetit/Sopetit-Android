@@ -1,9 +1,7 @@
 name: Softie PR CI
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "develop" ]
 
 jobs:
   build:
@@ -12,7 +10,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: set up JDK 11
+    
+    - name: set up JDK 17
       uses: actions/setup-java@v3
       with:
         java-version: '17'
@@ -21,5 +20,43 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+      
     - name: Build with Gradle
       run: ./gradlew build
+
+    - name: Create Local Properties
+      run: touch local.properties
+
+    - name: Access Local Properties
+      env:
+        API_KEY: ${{ secrets.API_KEY }}
+      run: |
+        echo BASE_URI=\"$API_KEY\" >> local.properties
+        
+    - name: Lint Check
+      run: ./gradlew ktlintCheck
+
+    - name: AssembleDebug with Gradle
+      run: ./gradlew assembleDebug
+
+    - name: On Success!! Congratulations
+      if: ${{ success() }}
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_COLOR: '#53A551'
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_TITLE: 'Sofite/PR Check SUCCESS💚'
+        MSG_MINIMAL: true
+        SLACK_USERNAME: Peekabook-AOS
+        SLACK_MESSAGE: 'PR이 완료되었습니다'
+
+    - name: On Failed, Notify in Slack
+      if: ${{ failure() }}
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_COLOR: '#ff0000'
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_TITLE: 'Sofite/Android Debug build Fail❌'
+        MSG_MINIMAL: true
+        SLACK_USERNAME: Peekabook-AOS
+        SLACK_MESSAGE: '에러를 확인해주세요'
