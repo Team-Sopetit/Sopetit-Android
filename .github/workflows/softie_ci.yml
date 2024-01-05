@@ -20,9 +20,6 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-      
-    - name: Build with Gradle
-      run: ./gradlew build
 
     - name: Create Local Properties
       run: touch local.properties
@@ -34,10 +31,10 @@ jobs:
         echo BASE_URI=\"$API_KEY\" >> local.properties
         
     - name: Lint Check
-      run: ./gradlew ktlintCheck
+      run: ./gradlew ktlintCheck -PcompileSdkVersion=34
 
-    - name: AssembleDebug with Gradle
-      run: ./gradlew assembleDebug
+    - name: Build with Gradle
+      run: ./gradlew build -PcompileSdkVersion=34
 
     - name: On Success!! Congratulations
       if: ${{ success() }}
