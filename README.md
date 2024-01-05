@@ -13,7 +13,7 @@
 |Home|강희 ```@stellar-halo```|<img src="https://avatars.githubusercontent.com/u/91793891?v=4"  width="200" height="200"/>|
 |Routine|민정 ```@emjayMJkim```|<img src="https://github.com/Team-Sopetit/Sopetit-Android/assets/125239880/a28bbeab-017f-41cf-af85-0129b0355565"  width="200" height="200"/>|
 |Happy|호연 ```@pump9918```|<img src="https://avatars.githubusercontent.com/u/125239880?v=4"  width="200" height="200"/>|
-|Daily|민회 ```@minemi00```| <img src="[https://avatars.githubusercontent.com/u/106955456?v=4](https://github.com/Team-Sopetit/Sopetit-Android/assets/125239880/1ef969bf-276e-4892-a72a-40109c6fc566)"  width="200" height="200"/>|
+|Daily|민회 ```@minemi00```| <img src="https://github.com/Team-Sopetit/Sopetit-Android/assets/125239880/1ef969bf-276e-4892-a72a-40109c6fc566"  width="200" height="200"/>|
 
 
 ## 📖 Foldering
