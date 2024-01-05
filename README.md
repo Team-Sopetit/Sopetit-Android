@@ -5,9 +5,11 @@
 
 
 # 시연 이미지 📸
-<img src="https://github.com/DO-SOPT-CDS-APP-7/Kurly-AOS/assets/91793891/703e8b7e-0a51-42fe-bad7-bc4c9371912f" width="200" height="433"/>
+
+
 
 # Contributors 💜
+
 |View|담당자||
 |------|---|---|
 |Detail|강희 ```@stellar-halo```|<img src="https://avatars.githubusercontent.com/u/91793891?v=4"  width="200" height="200"/>|
