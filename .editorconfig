@@ -1,0 +1,13 @@
+root = true
+
+[*]
+# 파일 끝 개행문자 추가
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{kt,kts}]
+ij_kotlin_code_style_defaults = KOTLIN_OFFICIAL
+# 후행쉼표 제약 비활성화
+ij_kotlin_allow_trailing_comma = false
+ij_kotlin_allow_trailing_comma_on_call_site = false
