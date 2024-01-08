@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- head -->
+    <style name="head1">
+        <item name="android:fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="head2">
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="head3">
+        <item name="android:fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="head4">
+        <item name="android:fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- body -->
+    <style name="body1">
+        <item name="android:fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="body2">
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="body3">
+        <item name="android:fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="body4">
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- caption -->
+    <style name="caption1">
+        <item name="android:fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="caption2">
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="caption3">
+        <item name="android:fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="caption4">
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <!-- speech bubble -->
+    <style name="bubble18">
+        <item name="android:fontFamily">@font/omyu_pretty</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="bubble16">
+        <item name="android:fontFamily">@font/omyu_pretty</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="bubble14">
+        <item name="android:fontFamily">@font/omyu_pretty</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+</resources>
