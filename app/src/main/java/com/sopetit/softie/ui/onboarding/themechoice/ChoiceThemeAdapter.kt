@@ -2,7 +2,6 @@ package com.sopetit.softie.ui.onboarding.themechoice
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sopetit.softie.R
@@ -52,17 +51,11 @@ class ChoiceThemeAdapter :
     ) {
         when (selected) {
             true -> {
-                binding.ivThemeBackground.background = ContextCompat.getDrawable(
-                    binding.root.context,
-                    R.drawable.shape_gray100_filll_100_circle
-                )
+                binding.ivThemeBackground.setBackgroundResource(R.drawable.shape_gray100_filll_100_circle)
             }
 
             false -> {
-                binding.ivThemeBackground.background = ContextCompat.getDrawable(
-                    binding.root.context,
-                    R.drawable.shape_white_fill_100_circle
-                )
+                binding.ivThemeBackground.setBackgroundResource(R.drawable.shape_white_fill_100_circle)
             }
         }
     }
