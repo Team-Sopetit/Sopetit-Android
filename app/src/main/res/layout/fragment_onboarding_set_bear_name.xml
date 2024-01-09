@@ -10,13 +10,14 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_onboarding_set_bear_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="온보딩 - 관심 있는 루틴 선택"
+            android:text="온보딩 - 애착인형 이름 세팅"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -24,3 +25,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+
