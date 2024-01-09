@@ -36,12 +36,19 @@ class ChoiceThemeAdapter :
     var selectedThemeArray = arrayListOf<Int>()
 
     private fun themeSelection(binding: ItemOnboardingChoiceThemeBinding, theme: Theme) {
-        if (selectedThemeArray.contains(theme.themeId)) {
-            selectedThemeArray.removeAt(selectedThemeArray.indexOf(theme.themeId))
-            changeThemeBackground(binding, false)
+        if (selectedThemeArray.size == 3) {
+            if (selectedThemeArray.contains(theme.themeId)) {
+                selectedThemeArray.removeAt(selectedThemeArray.indexOf(theme.themeId))
+                changeThemeBackground(binding, false)
+            }
         } else {
-            selectedThemeArray.add(theme.themeId)
-            changeThemeBackground(binding, true)
+            if (selectedThemeArray.contains(theme.themeId)) {
+                selectedThemeArray.removeAt(selectedThemeArray.indexOf(theme.themeId))
+                changeThemeBackground(binding, false)
+            } else {
+                selectedThemeArray.add(theme.themeId)
+                changeThemeBackground(binding, true)
+            }
         }
     }
 
