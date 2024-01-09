@@ -68,13 +68,13 @@ class ChoiceThemeFragment :
 
     private fun selectThemes() {
         choiceThemeAdapter.setOnThemeClickListener {
-            themeViewModel.setSelectedThemeArray(choiceThemeAdapter.selectedThemeArray)
+            viewModel.setSelectedThemeArray(choiceThemeAdapter.selectedThemeArray)
             setThemeBtn()
         }
     }
 
     private fun setThemeBtn() {
-        themeViewModel.selectedThemeArray.observe(viewLifecycleOwner) {
+        viewModel.selectedThemeArray.observe(viewLifecycleOwner) {
             if (it.size == 3) {
                 themeViewModel.setThemeBtnEnabled(true)
             } else {
