@@ -40,6 +40,7 @@ class ChoiceThemeFragment :
     private fun initSetTranslucentBackground() {
         binding.clOnboardingChoiceThemeTranslucentBackground.setOnClickListener {
             themeViewModel.setLayoutTranslucent(false)
+            viewModel.setLayoutTranslucent(false)
             binding.tvOnboardingChoiceThemeSpeech.text =
                 getString(R.string.onboarding_choice_theme_speech_after)
         }
