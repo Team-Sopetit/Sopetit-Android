@@ -13,6 +13,7 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentOnboardingChoiceThemeBinding
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
 import com.sopetit.softie.util.binding.BindingFragment
+import timber.log.Timber
 
 class ChoiceThemeFragment :
     BindingFragment<FragmentOnboardingChoiceThemeBinding>(R.layout.fragment_onboarding_choice_theme) {
@@ -30,6 +31,11 @@ class ChoiceThemeFragment :
         viewModel = ViewModelProvider(requireActivity()).get(OnboardingViewModel::class.java)
         binding.viewModel = viewModel
 
+        initSetSpeechText()
+        initMakeThemeAdapter()
+    }
+
+    private fun initSetSpeechText() {
         binding.tvOnboardingChoiceThemeSpeech.text =
             SpannableStringBuilder(getString(R.string.onboarding_choice_theme_speech)).apply {
                 setSpan(
@@ -44,8 +50,6 @@ class ChoiceThemeFragment :
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
             }
-
-        initMakeThemeAdapter()
     }
 
     private fun initMakeThemeAdapter() {
@@ -56,6 +60,14 @@ class ChoiceThemeFragment :
         }
         themeViewModel.mockThemeList.observe(viewLifecycleOwner) {
             choiceThemeAdapter.submitList(it)
+        }
+
+        selectThemes()
+    }
+
+    private fun selectThemes() {
+        choiceThemeAdapter.setOnThemeClickListener {
+            Timber.d("themeFragment: ${choiceThemeAdapter.selectedThemeArray}")
         }
     }
 
