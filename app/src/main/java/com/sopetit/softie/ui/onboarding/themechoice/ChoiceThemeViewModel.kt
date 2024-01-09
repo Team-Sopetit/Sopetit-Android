@@ -87,4 +87,20 @@ class ChoiceThemeViewModel : ViewModel() {
 
     val mockThemeList: LiveData<List<Theme>>
         get() = _mockThemeList
+
+    private val _themeBtnEnabled: MutableLiveData<Boolean> = MutableLiveData()
+    val themeBtnEnabled: LiveData<Boolean>
+        get() = _themeBtnEnabled
+
+    private val _selectedThemeArray: MutableLiveData<ArrayList<Int>> = MutableLiveData()
+    val selectedThemeArray: LiveData<ArrayList<Int>>
+        get() = _selectedThemeArray
+
+    fun setThemeBtnEnabled(boolean: Boolean) {
+        _themeBtnEnabled.value = boolean
+    }
+
+    fun setSelectedThemeArray(themeArray: ArrayList<Int>) {
+        _selectedThemeArray.value = themeArray
+    }
 }

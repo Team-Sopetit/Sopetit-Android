@@ -13,7 +13,6 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentOnboardingChoiceThemeBinding
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
 import com.sopetit.softie.util.binding.BindingFragment
-import timber.log.Timber
 
 class ChoiceThemeFragment :
     BindingFragment<FragmentOnboardingChoiceThemeBinding>(R.layout.fragment_onboarding_choice_theme) {
@@ -30,9 +29,11 @@ class ChoiceThemeFragment :
 
         viewModel = ViewModelProvider(requireActivity()).get(OnboardingViewModel::class.java)
         binding.viewModel = viewModel
+        binding.themeViewModel = themeViewModel
 
         initSetSpeechText()
         initMakeThemeAdapter()
+        initChangeFragment()
     }
 
     private fun initSetSpeechText() {
@@ -67,15 +68,30 @@ class ChoiceThemeFragment :
 
     private fun selectThemes() {
         choiceThemeAdapter.setOnThemeClickListener {
-            Timber.d("themeFragment: ${choiceThemeAdapter.selectedThemeArray}")
+            themeViewModel.setSelectedThemeArray(choiceThemeAdapter.selectedThemeArray)
+            setThemeBtn()
+        }
+    }
+
+    private fun setThemeBtn() {
+        themeViewModel.selectedThemeArray.observe(viewLifecycleOwner) {
+            if (it.size == 3) {
+                themeViewModel.setThemeBtnEnabled(true)
+            } else {
+                themeViewModel.setThemeBtnEnabled(false)
+            }
         }
     }
 
     private fun initChangeFragment() {
-        // TODO 버튼 클릭시 '루틴 선택' fragment로 화면 전환 (밑의 주석 삭제 예정)
-//        binding.clOnboardingChoiceTheme.setOnClickListener {
-//            viewModel.changeRoutineChoiceView()
-//        }
+        themeViewModel.themeBtnEnabled.observe(viewLifecycleOwner) {
+            if (it) {
+                binding.btnOnboardingChoiceTheme.setOnClickListener {
+                    viewModel.changeRoutineChoiceView()
+                    // TODO 선택된 테마 아이디 넘기기
+                }
+            }
+        }
     }
 
     companion object {

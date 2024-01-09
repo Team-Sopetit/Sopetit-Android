@@ -8,6 +8,10 @@
         <variable
             name="viewModel"
             type="com.sopetit.softie.ui.onboarding.OnboardingViewModel" />
+
+        <variable
+            name="themeViewModel"
+            type="com.sopetit.softie.ui.onboarding.themechoice.ChoiceThemeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -71,9 +75,9 @@
             android:text="@string/onboarding_choice_theme_btn"
             android:textAppearance="@style/body1"
             android:textColor="@color/gray000"
-            android:background="@drawable/selector_onboarding_theme_choose_btn"
-            android:enabled="false"
-            android:clickable="false"
+            android:background="@{themeViewModel.themeBtnEnabled ? @drawable/shape_main1_fill_12_rect : @drawable/shape_gray200_fill_12_rect}"
+            android:enabled="@{themeViewModel.themeBtnEnabled ? true : false}"
+            android:clickable="@{themeViewModel.themeBtnEnabled ? true : false}"
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="34dp"
             app:layout_constraintStart_toStartOf="parent"
