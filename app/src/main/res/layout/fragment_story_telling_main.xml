@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_spotlight2">
+
+    <ImageView
+        android:id="@+id/iv_story_telling_main_girl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="194dp"
+        android:src="@drawable/ic_girl2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_story_telling_main_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-79dp"
+        android:layout_marginBottom="210dp"
+        android:src="@drawable/ic_box_closed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_story_telling_main"
+        style="@style/bubble20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="74dp"
+        android:background="@drawable/shape_white_fill_12_rect"
+        android:gravity="center"
+        android:paddingTop="23dp"
+        android:paddingBottom="22dp"
+        android:text="@string/story_telling_main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/btn_story_telling_main_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_onboard_next"
+        app:layout_constraintBottom_toBottomOf="@id/tv_story_telling_main"
+        app:layout_constraintEnd_toEndOf="@id/tv_story_telling_main"
+        app:layout_constraintTop_toTopOf="@id/tv_story_telling_main" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
