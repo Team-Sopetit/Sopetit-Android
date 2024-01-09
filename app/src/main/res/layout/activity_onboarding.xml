@@ -57,6 +57,7 @@
                 android:id="@+id/iv_onboarding_top_bar_fourth"
                 android:layout_width="76dp"
                 android:layout_height="6dp"
+                android:layout_marginEnd="20dp"
                 android:src="@{viewModel.routineChoiceView ? @drawable/shape_main1_fill_99_rect : @drawable/shape_gray100_fill_99_rect}"
                 app:layout_constraintTop_toTopOf="@id/iv_onboarding_top_bar_first"
                 app:layout_constraintStart_toEndOf="@id/iv_onboarding_top_bar_third"
