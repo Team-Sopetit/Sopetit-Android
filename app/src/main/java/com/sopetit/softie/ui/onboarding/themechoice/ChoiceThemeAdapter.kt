@@ -9,10 +9,12 @@ import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.util.ItemDiffCallback
 
 class ChoiceThemeAdapter :
-    ListAdapter<Theme, ChoiceThemeAdapter.ChoiceThemeViewHolder>(ItemDiffCallback<Theme>(
-        onItemsTheSame = { old, new -> old.themeId == new.themeId },
-        onContentsTheSame = { old, new -> old == new }
-    )) {
+    ListAdapter<Theme, ChoiceThemeAdapter.ChoiceThemeViewHolder>(
+        ItemDiffCallback<Theme>(
+            onItemsTheSame = { old, new -> old.themeId == new.themeId },
+            onContentsTheSame = { old, new -> old == new }
+        )
+    ) {
 
     class ChoiceThemeViewHolder(private val binding: ItemOnboardingChoiceThemeBinding) :
         RecyclerView.ViewHolder(binding.root) {

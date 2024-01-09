@@ -24,7 +24,6 @@ class ChoiceThemeFragment :
     private val choiceThemeAdapter
         get() = requireNotNull(_choiceThemeAdapter)
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
