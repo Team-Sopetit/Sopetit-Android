@@ -31,9 +31,18 @@ class ChoiceThemeFragment :
         binding.viewModel = viewModel
         binding.themeViewModel = themeViewModel
 
+        initSetTranslucentBackground()
         initSetSpeechText()
         initMakeThemeAdapter()
         initChangeFragment()
+    }
+
+    private fun initSetTranslucentBackground() {
+        binding.clOnboardingChoiceThemeTranslucentBackground.setOnClickListener {
+            themeViewModel.setLayoutTranslucent(false)
+            binding.tvOnboardingChoiceThemeSpeech.text =
+                getString(R.string.onboarding_choice_theme_speech_after)
+        }
     }
 
     private fun initSetSpeechText() {
