@@ -6,13 +6,13 @@ import androidx.fragment.app.Fragment
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityOnboardingBinding
 import com.sopetit.softie.ui.onboarding.routinechoice.RoutineChoiceFragment
-import com.sopetit.softie.ui.onboarding.routinechoice.RoutineChoiceViewModel
+import com.sopetit.softie.ui.onboarding.themechoice.ChoiceThemeFragment
 import com.sopetit.softie.util.binding.BindingActivity
 
 class OnboardingActivity :
     BindingActivity<ActivityOnboardingBinding>(R.layout.activity_onboarding) {
 
-    private val viewModel by viewModels<RoutineChoiceViewModel>()
+    private val viewModel by viewModels<OnboardingViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

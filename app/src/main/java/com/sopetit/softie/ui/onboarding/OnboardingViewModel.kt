@@ -1,10 +1,10 @@
-package com.sopetit.softie.ui.onboarding.routinechoice
+package com.sopetit.softie.ui.onboarding
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class RoutineChoiceViewModel : ViewModel() {
+class OnboardingViewModel : ViewModel() {
 
     private val _bearChoiceView: MutableLiveData<Boolean> = MutableLiveData(false)
     val bearChoiceView: LiveData<Boolean>

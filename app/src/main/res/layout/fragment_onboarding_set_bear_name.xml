@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.sopetit.softie.ui.onboarding.routinechoice.RoutineChoiceViewModel" />
+            type="com.sopetit.softie.ui.onboarding.OnboardingViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
