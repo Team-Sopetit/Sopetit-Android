@@ -77,6 +77,12 @@
     </style>
 
     <!-- speech bubble -->
+    <style name="bubble20">
+        <item name="android:fontFamily">@font/omyu_pretty</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
     <style name="bubble18">
         <item name="android:fontFamily">@font/omyu_pretty</item>
         <item name="android:textStyle">normal</item>
