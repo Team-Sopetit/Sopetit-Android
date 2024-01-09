@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.sopetit.softie.databinding.ItemDailyThemeBinding
 import com.sopetit.softie.domain.entity.DailyTheme
 import com.sopetit.softie.util.ItemDiffCallback
@@ -23,14 +22,13 @@ class DailyThemeAdapter : ListAdapter<DailyTheme, DailyThemeAdapter.DailyThemeVi
     }
 
     override fun onBindViewHolder(holder: DailyThemeViewHolder, position: Int) {
-        holder.onBind(currentList[position])
+        holder.onBind(getItem(position))
     }
 
     class DailyThemeViewHolder(private val binding: ItemDailyThemeBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: DailyTheme) {
-            binding.ivDailyTheme.load(data.iconImageUrl)
-            binding.tvThemeDaily.text = data.content
+            binding.data = data
         }
     }
 }
