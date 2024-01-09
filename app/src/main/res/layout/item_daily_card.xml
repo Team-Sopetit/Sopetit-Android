@@ -18,7 +18,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="       일어나면 \n5분 안에 이불 개기"
+            android:text="@string/tv_daily_card"
+            android:gravity="center"
             android:textAppearance="@style/head1"
             android:layout_marginTop="84dp"
             android:layout_marginStart="65dp" />

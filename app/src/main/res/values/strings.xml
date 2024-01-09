@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Softie</string>
+
+    <!-- add daily routine -->
+    <string name="tv_add_daily_routine">데일리 루틴 추가</string>
+    <string name="btn_add_daily">이 루틴을 추가할래</string>
+    <string name="tv_theme_daily">상쾌한 아침</string>
+    <string name="tv_daily_card">일어나면 \n5분 안에 이불 개기</string>
 </resources>

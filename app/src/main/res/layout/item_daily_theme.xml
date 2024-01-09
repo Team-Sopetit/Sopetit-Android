@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@id/cl_daily_theme"
         android:layout_marginTop="6dp"
         app:layout_constraintStart_toStartOf="@id/cl_daily_theme"
-        android:text="상쾌한 아침"
+        android:text="@string/tv_theme_daily"
         android:textAppearance="@style/caption1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
