@@ -1,7 +1,11 @@
 package com.sopetit.softie.ui.onboarding.themechoice
 
 import android.os.Bundle
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -20,13 +24,28 @@ class ChoiceThemeFragment :
     private val choiceThemeAdapter
         get() = requireNotNull(_choiceThemeAdapter)
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(requireActivity()).get(OnboardingViewModel::class.java)
         binding.viewModel = viewModel
 
-        initChangeFragment()
+        binding.tvOnboardingChoiceThemeSpeech.text =
+            SpannableStringBuilder(getString(R.string.onboarding_choice_theme_speech)).apply {
+                setSpan(
+                    ForegroundColorSpan(
+                        ContextCompat.getColor(
+                            requireActivity(),
+                            R.color.onboarding_speech
+                        )
+                    ),
+                    5,
+                    8,
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+            }
+
         initMakeThemeAdapter()
     }
 
