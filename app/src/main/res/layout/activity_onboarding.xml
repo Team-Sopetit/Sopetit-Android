@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread_inside">
+
+            <ImageView
+                android:id="@+id/iv_onboarding_top_bar_first"
+                android:layout_width="76dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/shape_gray100_fill_99_rect"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/iv_onboarding_top_bar_second" />
+
+            <ImageView
+                android:id="@+id/iv_onboarding_top_bar_second"
+                android:layout_width="76dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="28dp"
+                android:src="@drawable/shape_gray100_fill_99_rect"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_onboarding_top_bar_first"
+                app:layout_constraintEnd_toStartOf="@id/iv_onboarding_top_bar_third" />
+
+            <ImageView
+                android:id="@+id/iv_onboarding_top_bar_third"
+                android:layout_width="76dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="28dp"
+                android:src="@drawable/shape_gray100_fill_99_rect"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_onboarding_top_bar_second"
+                app:layout_constraintEnd_toStartOf="@id/iv_onboarding_top_bar_fourth" />
+
+            <ImageView
+                android:id="@+id/iv_onboarding_top_bar_fourth"
+                android:layout_width="76dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/shape_gray100_fill_99_rect"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_onboarding_top_bar_third"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
