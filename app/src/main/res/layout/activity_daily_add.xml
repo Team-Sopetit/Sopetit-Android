@@ -39,14 +39,13 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_theme_daily"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="23dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_back"
-            tools:itemCount="12"
             tools:listitem="@layout/item_daily_theme" />
 
         <View
@@ -64,23 +63,24 @@
             android:layout_marginTop="27dp"
             android:clipChildren="false"
             android:clipToPadding="false"
+            android:paddingHorizontal="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/v_line" />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tl_daily_indicator"
-            android:layout_width="0dp"
+        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+            android:id="@+id/di_daily_indicator"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:layout_marginBottom="55dp"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toTopOf="@id/btn_add_daily"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:foregroundGravity="center"
             app:layout_constraintTop_toBottomOf="@id/vp_daily_card"
-            app:tabBackground="@drawable/selector_daily_indicator"
-            app:tabGravity="center"
-            app:tabIndicatorHeight="0dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:dotsColor="@color/gray200"
+            app:dotsSize="12dp"
+            app:dotsSpacing="6dp"
+            app:dotsWidthFactor="1"
+            app:selectedDotColor="@color/main1" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_add_daily"

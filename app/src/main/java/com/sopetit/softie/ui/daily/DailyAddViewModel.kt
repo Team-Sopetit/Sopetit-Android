@@ -8,23 +8,23 @@ class DailyAddViewModel : ViewModel() {
     val mockDailyList = listOf<DailyCard>(
         DailyCard(
             card = R.drawable.shape_gray_fill_20_rect,
-            routine = "hi"
+            routine = "@string/daily_card_name"
         ),
         DailyCard(
             card = R.drawable.shape_gray_fill_20_rect,
-            routine = "hi"
+            routine = "@string/daily_card_name"
         ),
         DailyCard(
             card = R.drawable.shape_gray_fill_20_rect,
-            routine = "hi"
+            routine = "@string/daily_card_name"
         ),
         DailyCard(
             card = R.drawable.shape_gray_fill_20_rect,
-            routine = "hi"
+            routine = "@string/daily_card_name"
         ),
         DailyCard(
             card = R.drawable.shape_gray_fill_20_rect,
-            routine = "hi"
+            routine = "@string/daily_card_name"
         )
     )
 }

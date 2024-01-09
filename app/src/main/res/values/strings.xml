@@ -2,10 +2,10 @@
     <string name="app_name">Softie</string>
 
     <!-- add daily routine -->
-    <string name="tv_add_daily_routine">데일리 루틴 추가</string>
-    <string name="btn_add_daily">이 루틴을 추가할래</string>
-    <string name="tv_theme_daily">상쾌한 아침</string>
-    <string name="tv_daily_card">일어나면 \n5분 안에 이불 개기</string>
+    <string name="daily_routine_title">데일리 루틴 추가</string>
+    <string name="daily_add_btn">이 루틴을 추가할래</string>
+    <string name="daily_theme_name">상쾌한 아침</string>
+    <string name="daily_card_name">일어나면 \n5분 안에 이불 개기</string>
     <!-- onboarding -->
     <string name="onboarding_choice_theme_btn">다 선택했어</string>
     <string name="theme_text">하루의 시작</string>
