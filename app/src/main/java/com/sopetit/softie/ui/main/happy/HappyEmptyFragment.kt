@@ -15,7 +15,7 @@ class HappyEmptyFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?,
+        savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHappyEmptyBinding.inflate(inflater, container, false)
         return binding.root
