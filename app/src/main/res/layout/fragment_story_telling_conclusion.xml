@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/story_telling_background">
+
+        <ImageView
+            android:id="@+id/iv_story_telling_main_spotlight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_spotlight3" />
+
+        <ImageView
+            android:id="@+id/iv_story_telling_conclusion_door"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="242dp"
+            android:src="@drawable/ic_door"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_story_telling_conclusion_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="210dp"
+            android:src="@drawable/ic_box_closed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_story_telling_conclusion"
+            style="@style/bubble20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="74dp"
+            android:background="@drawable/shape_white_fill_12_rect"
+            android:gravity="center"
+            android:paddingTop="23dp"
+            android:paddingBottom="22dp"
+            android:text="@string/story_telling_conclusion"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/btn_story_telling_conclusion_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_onboard_next"
+            app:layout_constraintBottom_toBottomOf="@id/tv_story_telling_conclusion"
+            app:layout_constraintEnd_toEndOf="@id/tv_story_telling_conclusion"
+            app:layout_constraintTop_toTopOf="@id/tv_story_telling_conclusion" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
