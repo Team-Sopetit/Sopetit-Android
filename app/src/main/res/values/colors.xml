@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <!-- main -->
+    <color name="main1">#FF4A4A4A</color>
+    <color name="main2">#FFFFF7E6</color>
+
+    <!-- gray -->
     <color name="white">#FFFFFFFF</color>
+    <color name="gray000">#FFF4F4F4</color>
+    <color name="gray100">#FFE9EBED</color>
+    <color name="gray200">#FFCACDD2</color>
+    <color name="gray300">#FF9FA4A9</color>
+    <color name="gray400">#FF73787E</color>
+    <color name="gray500">#FF464C52</color>
+    <color name="gray600">#FF26282B</color>
+    <color name="gray700">#FF1B1D1F</color>
+
+    <!-- system -->
+    <color name="red">#FFF76D6D</color>
+
+    <!-- back -->
+    <color name="background_home">#FFFBF9F1</color>
+    <color name="background">#FFF8F8F8</color>
+
+    <!-- happy -->
+    <color name="happyroutine_red">#FFFF5D76</color>
+    <color name="happyroutine_purple">#FFBC73E6</color>
+    <color name="happyroutine_green">#FF3DB96F</color>
+    <color name="happyroutine_blue">#FF7B89D1</color>
+    <color name="happyroutine_orange">#FFF27400</color>
+
+    <!-- home name -->
+    <color name="name_fill">#FFD4BBA5</color>
+    <color name="name_stroke">#FFC4AC98</color>
 </resources>
