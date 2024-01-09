@@ -39,24 +39,24 @@ class OnboardingActivity :
     }
 
     private fun initChangeSetBearName() {
-        viewModel.bearNameChoiceView.observe(this) {
-            if (it) {
+        viewModel.bearNameChoiceView.observe(this) { bearNameChoice ->
+            if (bearNameChoice) {
                 changeFragment(SetBearNameFragment())
             }
         }
     }
 
     private fun initChangeThemeChoice() {
-        viewModel.themeChoiceView.observe(this) {
-            if (it) {
+        viewModel.themeChoiceView.observe(this) { themeChoiceView ->
+            if (themeChoiceView) {
                 changeFragment(ChoiceThemeFragment())
             }
         }
     }
 
     private fun initChangeRoutineChoice() {
-        viewModel.routineChoiceView.observe(this) {
-            if (it) {
+        viewModel.routineChoiceView.observe(this) { routineChoiceView ->
+            if (routineChoiceView) {
                 changeFragment(RoutineChoiceFragment())
             }
         }

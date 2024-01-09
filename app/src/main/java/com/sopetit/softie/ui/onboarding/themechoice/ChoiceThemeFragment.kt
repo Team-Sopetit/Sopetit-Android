@@ -39,8 +39,8 @@ class ChoiceThemeFragment :
                             R.color.onboarding_speech
                         )
                     ),
-                    5,
-                    8,
+                    SPAN_START,
+                    SPAN_END,
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
             }
@@ -50,7 +50,7 @@ class ChoiceThemeFragment :
 
     private fun initMakeThemeAdapter() {
         _choiceThemeAdapter = ChoiceThemeAdapter()
-        binding.rcvOnboardingChoiceTheme.apply {
+        binding.rvOnboardingChoiceTheme.apply {
             layoutManager = GridLayoutManager(requireContext(), 3)
             adapter = choiceThemeAdapter
         }
@@ -64,5 +64,10 @@ class ChoiceThemeFragment :
 //        binding.clOnboardingChoiceTheme.setOnClickListener {
 //            viewModel.changeRoutineChoiceView()
 //        }
+    }
+
+    companion object {
+        const val SPAN_START = 5
+        const val SPAN_END = 8
     }
 }
