@@ -21,16 +21,16 @@
         android:layout_height="50dp"
         android:layout_marginStart="22dp"
         android:layout_marginTop="28dp"
-        android:src="@drawable/svg_face_red"
+        android:src="@drawable/img_face_red"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_happy_title" />
+        app:layout_constraintTop_toBottomOf="@id/tv_happy_title" />
 
     <ImageView
         android:id="@+id/iv_happy_default_mention"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
-        android:src="@drawable/svg_speech_long"
+        android:src="@drawable/img_speech_long"
         app:layout_constraintBottom_toBottomOf="@id/iv_happy_character"
         app:layout_constraintStart_toEndOf="@id/iv_happy_character"
         app:layout_constraintTop_toTopOf="@id/iv_happy_character" />
@@ -42,10 +42,10 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/happy_default_mention"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_happy_default_mention"
-        app:layout_constraintEnd_toEndOf="@+id/iv_happy_default_mention"
-        app:layout_constraintStart_toStartOf="@+id/iv_happy_default_mention"
-        app:layout_constraintTop_toTopOf="@+id/iv_happy_default_mention" />
+        app:layout_constraintBottom_toBottomOf="@id/iv_happy_default_mention"
+        app:layout_constraintEnd_toEndOf="@id/iv_happy_default_mention"
+        app:layout_constraintStart_toStartOf="@id/iv_happy_default_mention"
+        app:layout_constraintTop_toTopOf="@id/iv_happy_default_mention" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rl_happy_empty_card"
@@ -77,20 +77,20 @@
             android:gravity="center"
             android:text="@string/happy_empty_card"
             android:textColor="@color/gray300"
-            app:layout_constraintEnd_toEndOf="@+id/iv_happy_empty_card"
-            app:layout_constraintStart_toStartOf="@+id/iv_happy_empty_card"
-            app:layout_constraintTop_toTopOf="@+id/iv_happy_empty_card"
-            app:layout_constraintBottom_toTopOf="@+id/iv_happy_empty_card_bear" />
+            app:layout_constraintEnd_toEndOf="@id/iv_happy_empty_card"
+            app:layout_constraintStart_toStartOf="@id/iv_happy_empty_card"
+            app:layout_constraintTop_toTopOf="@id/iv_happy_empty_card"
+            app:layout_constraintBottom_toTopOf="@id/iv_happy_empty_card_bear" />
 
         <ImageView
             android:id="@+id/iv_happy_empty_card_bear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="62dp"
-            android:src="@drawable/svg_happy_add"
-            app:layout_constraintEnd_toEndOf="@+id/iv_happy_empty_card"
-            app:layout_constraintStart_toStartOf="@+id/iv_happy_empty_card"
-            app:layout_constraintTop_toBottomOf="@+id/tv_happy_empty_card" />
+            android:src="@drawable/img_happy_add"
+            app:layout_constraintEnd_toEndOf="@id/iv_happy_empty_card"
+            app:layout_constraintStart_toStartOf="@id/iv_happy_empty_card"
+            app:layout_constraintTop_toBottomOf="@id/tv_happy_empty_card" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
