@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/tv_daily_card"
+            android:text="@string/daily_card_name"
             android:gravity="center"
             android:textAppearance="@style/head1"
             android:layout_marginTop="84dp"

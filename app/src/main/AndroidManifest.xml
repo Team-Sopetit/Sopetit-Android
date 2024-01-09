@@ -27,6 +27,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.main.happy.HappyActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.onboarding.OnboardingActivity"
+            android:exported="false"></activity>
     </application>
 
 </manifest>
