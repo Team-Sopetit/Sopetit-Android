@@ -2,8 +2,10 @@ package com.sopetit.softie.ui.onboarding.themechoice
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ItemOnboardingChoiceThemeBinding
 import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.util.ItemDiffCallback
@@ -16,10 +18,52 @@ class ChoiceThemeAdapter :
         )
     ) {
 
-    class ChoiceThemeViewHolder(private val binding: ItemOnboardingChoiceThemeBinding) :
+    inner class ChoiceThemeViewHolder(private val binding: ItemOnboardingChoiceThemeBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Theme) {
             binding.tvThemeName.text = data.name
+            binding.root.setOnClickListener {
+                themeSelection(binding, data)
+                onItemClickListener?.let { it(data) }
+            }
+        }
+    }
+
+    private var onItemClickListener: ((Theme) -> Unit)? = null
+    fun setOnThemeClickListener(listener: (Theme) -> Unit) {
+        onItemClickListener = listener
+    }
+
+    var selectedThemeArray = arrayListOf<Int>()
+
+    private fun themeSelection(binding: ItemOnboardingChoiceThemeBinding, theme: Theme) {
+        if (selectedThemeArray.contains(theme.themeId)) {
+            selectedThemeArray.removeAt(selectedThemeArray.indexOf(theme.themeId))
+            changeThemeBackground(binding, false)
+        } else {
+            selectedThemeArray.add(theme.themeId)
+            changeThemeBackground(binding, true)
+        }
+    }
+
+    private fun changeThemeBackground(
+        binding: ItemOnboardingChoiceThemeBinding,
+        selected: Boolean
+    ) {
+        when (selected) {
+            true -> {
+                binding.ivThemeBackground.background = ContextCompat.getDrawable(
+                    binding.root.context,
+                    R.drawable.shape_gray100_filll_100_circle
+                )
+            }
+
+            false -> {
+                binding.ivThemeBackground.background = ContextCompat.getDrawable(
+                    binding.root.context,
+                    R.drawable.shape_white_fill_100_circle
+                )
+            }
         }
     }
 
