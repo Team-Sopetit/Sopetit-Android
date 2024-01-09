@@ -57,8 +57,7 @@
         android:layout_marginBottom="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_happy_default_mention"
-        android:onClick="onRelativeLayoutClick">
+        app:layout_constraintTop_toBottomOf="@id/iv_happy_default_mention">
 
         <ImageView
             android:id="@+id/iv_happy_empty_card"
