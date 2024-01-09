@@ -35,6 +35,7 @@
 
     <!-- onboarding -->
     <color name="onboarding_speech">#FF259560</color>
+    <color name="onboarding_translucent">#80000000</color>
 
     <!-- story telling -->
     <color name="story_telling_background">#FFE1E1E1</color>

@@ -29,7 +29,24 @@ class ChoiceThemeFragment :
 
         viewModel = ViewModelProvider(requireActivity()).get(OnboardingViewModel::class.java)
         binding.viewModel = viewModel
+        binding.themeViewModel = themeViewModel
 
+        initSetTranslucentBackground()
+        initSetSpeechText()
+        initMakeThemeAdapter()
+        initChangeFragment()
+    }
+
+    private fun initSetTranslucentBackground() {
+        binding.clOnboardingChoiceThemeTranslucentBackground.setOnClickListener {
+            themeViewModel.setLayoutTranslucent(false)
+            viewModel.setLayoutTranslucent(false)
+            binding.tvOnboardingChoiceThemeSpeech.text =
+                getString(R.string.onboarding_choice_theme_speech_after)
+        }
+    }
+
+    private fun initSetSpeechText() {
         binding.tvOnboardingChoiceThemeSpeech.text =
             SpannableStringBuilder(getString(R.string.onboarding_choice_theme_speech)).apply {
                 setSpan(
@@ -44,8 +61,6 @@ class ChoiceThemeFragment :
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
             }
-
-        initMakeThemeAdapter()
     }
 
     private fun initMakeThemeAdapter() {
@@ -57,13 +72,36 @@ class ChoiceThemeFragment :
         themeViewModel.mockThemeList.observe(viewLifecycleOwner) {
             choiceThemeAdapter.submitList(it)
         }
+
+        selectThemes()
+    }
+
+    private fun selectThemes() {
+        choiceThemeAdapter.setOnThemeClickListener {
+            viewModel.setSelectedThemeArray(choiceThemeAdapter.selectedThemeArray)
+            setThemeBtn()
+        }
+    }
+
+    private fun setThemeBtn() {
+        viewModel.selectedThemeArray.observe(viewLifecycleOwner) {
+            if (it.size == 3) {
+                themeViewModel.setThemeBtnEnabled(true)
+            } else {
+                themeViewModel.setThemeBtnEnabled(false)
+            }
+        }
     }
 
     private fun initChangeFragment() {
-        // TODO 버튼 클릭시 '루틴 선택' fragment로 화면 전환 (밑의 주석 삭제 예정)
-//        binding.clOnboardingChoiceTheme.setOnClickListener {
-//            viewModel.changeRoutineChoiceView()
-//        }
+        themeViewModel.themeBtnEnabled.observe(viewLifecycleOwner) {
+            if (it) {
+                binding.btnOnboardingChoiceTheme.setOnClickListener {
+                    viewModel.changeRoutineChoiceView()
+                    // TODO 선택된 테마 아이디 넘기기
+                }
+            }
+        }
     }
 
     companion object {
