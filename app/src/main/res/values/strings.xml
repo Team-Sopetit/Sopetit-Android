@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">Softie</string>
+    <!-- onboarding -->
+    <string name="onboarding_choice_theme_btn">다 선택했어</string>
+    <string name="theme_text">하루의 시작</string>
+    <string name="onboarding_choice_theme_speech">안녕 난 애착이야!\n나와 함께 루틴을 만들어볼까?</string>
+
+    <!-- story telling -->
+    <string name="story_telling_intro">오늘도 고된 하루였어..</string>
+    <string name="story_telling_main">어?집 앞에 이건 뭐지?</string>
+    <string name="story_telling_conclusion">한 번 열어볼까?</string>
 
     <!-- happy -->
     <string name="happy_title">행복 루틴</string>

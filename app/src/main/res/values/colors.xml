@@ -32,4 +32,10 @@
     <!-- home name -->
     <color name="name_fill">#FFD4BBA5</color>
     <color name="name_stroke">#FFC4AC98</color>
+
+    <!-- onboarding -->
+    <color name="onboarding_speech">#FF259560</color>
+
+    <!-- story telling -->
+    <color name="story_telling_background">#FFE1E1E1</color>
 </resources>

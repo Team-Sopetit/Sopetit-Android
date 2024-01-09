@@ -24,6 +24,16 @@
 
         <activity
             android:name=".ui.main.happy.HappyActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.onboarding.OnboardingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.storytelling.StoryTellingActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>

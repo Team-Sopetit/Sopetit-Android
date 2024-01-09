@@ -3,6 +3,7 @@
     <style name="Base.Theme.Softie" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="android:includeFontPadding">false</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="Theme.Softie" parent="Base.Theme.Softie" />
