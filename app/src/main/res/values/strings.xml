@@ -4,6 +4,7 @@
     <!-- story telling -->
     <string name="story_telling_intro">오늘도 고된 하루였어..</string>
     <string name="story_telling_main">어?집 앞에 이건 뭐지?</string>
+    <string name="story_telling_conclusion">한 번 열어볼까?</string>
 
     <!-- happy -->
     <string name="happy_title">행복루틴</string>
