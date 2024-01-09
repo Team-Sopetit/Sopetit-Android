@@ -27,12 +27,12 @@ class DailyAddActivity : BindingActivity<ActivityDailyAddBinding>(R.layout.activ
 
         viewPager = binding.vpDailyCard
 
-
         setupAdapter()
         //marginPage()
         initViewPager()
         setIndicator()
         setDiv()
+        initPagerDiv(19, 20)
     }
 
     private fun setupAdapter() {
@@ -41,7 +41,7 @@ class DailyAddActivity : BindingActivity<ActivityDailyAddBinding>(R.layout.activ
             rvThemeDaily.adapter = dailyThemeAdapter
         }
         dailyPagerAdapter.submitList(dailyAddViewModel.mockDailyList)
-        dailyThemeAdapter.submitList(dailyThemeViewModel.mockDailyThemeList)
+        dailyThemeAdapter.submitList(dailyThemeViewModel.mockDailyThemeList.value)
     }
 
     private fun marginPage() {
@@ -78,6 +78,33 @@ class DailyAddActivity : BindingActivity<ActivityDailyAddBinding>(R.layout.activ
 
     private fun setIndicator() {
         binding.diDailyIndicator.attachTo(binding.vpDailyCard)
+    }
+
+    private fun initPagerDiv(previewWidth: Int, itemMargin: Int) {
+        val decoMargin = previewWidth + itemMargin
+        val pageTransX = decoMargin + previewWidth
+        val decoration = PageDecoration(decoMargin)
+
+        binding.vpDailyCard.also {
+            it.offscreenPageLimit = 1
+            it.addItemDecoration(decoration)
+            it.setPageTransformer { page, position ->
+                page.translationX = position * -pageTransX
+            }
+        }
+    }
+
+    private class PageDecoration(private val margin: Int) : RecyclerView.ItemDecoration() {
+
+        override fun getItemOffsets(
+            outRect: Rect,
+            view: View,
+            parent: RecyclerView,
+            state: RecyclerView.State
+        ) {
+            outRect.left = margin
+            outRect.right = margin
+        }
     }
 
     class HorizontalItemDecorator(private val divHeight: Int) : RecyclerView.ItemDecoration() {
