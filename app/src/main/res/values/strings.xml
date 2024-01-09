@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Softie</string>
     <string name="onboarding_choice_theme_btn">다 선택했어</string>
+    <string name="theme_text">하루의 시작</string>
 </resources>
