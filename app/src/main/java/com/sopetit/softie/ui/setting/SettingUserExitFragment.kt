@@ -37,9 +37,19 @@ class SettingUserExitFragment :
             }
     }
 
+    private fun initSetBear() {
+        // TODO bear type 받아서 bear 이미지 띄우기
+    }
+
     private fun initSetClickBackBtn() {
         binding.btnUserExitBack.setOnClickListener {
             (activity as SettingActivity).backInitView(this)
+        }
+    }
+
+    private fun initSetClickExitBtn() {
+        binding.btnUserExitExit.setOnClickListener {
+            // TODO 회원탈퇴 로직 추가
         }
     }
 
