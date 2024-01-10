@@ -29,7 +29,14 @@ class RoutineChoiceFragment :
 
         Timber.d("routineChoice: theme -> ${viewModel.selectedThemeArray.value}")
 
+        initBackThemeFragment()
         initMakeRoutineAdapter()
+    }
+
+    private fun initBackThemeFragment() {
+        binding.btnOnboardingRoutineBackTheme.setOnClickListener {
+            viewModel.changeThemeChoiceView()
+        }
     }
 
     private fun initMakeRoutineAdapter() {
