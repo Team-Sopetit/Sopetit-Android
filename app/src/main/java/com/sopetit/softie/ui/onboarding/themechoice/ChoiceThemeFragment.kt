@@ -41,8 +41,6 @@ class ChoiceThemeFragment :
         binding.clOnboardingChoiceThemeTranslucentBackground.setOnClickListener {
             themeViewModel.setLayoutTranslucent(false)
             viewModel.setLayoutTranslucent(false)
-            binding.tvOnboardingChoiceThemeSpeech.text =
-                getString(R.string.onboarding_choice_theme_speech_after)
         }
     }
 
@@ -98,10 +96,14 @@ class ChoiceThemeFragment :
             if (it) {
                 binding.btnOnboardingChoiceTheme.setOnClickListener {
                     viewModel.changeRoutineChoiceView()
-                    // TODO 선택된 테마 아이디 넘기기
                 }
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _choiceThemeAdapter = null
     }
 
     companion object {
