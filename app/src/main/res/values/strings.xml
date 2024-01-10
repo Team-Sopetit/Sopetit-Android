@@ -40,4 +40,5 @@
     <string name="user_exit_speech_content">정말 가는 거야..?\n나는 영영 사라져</string>
     <string name="user_exit_back">더 써볼래</string>
     <string name="user_exit_exit">탈퇴할래</string>
+    <string name="user_security_title">소프티 개인정보처리방침</string>
 </resources>

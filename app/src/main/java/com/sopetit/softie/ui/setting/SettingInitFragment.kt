@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentSettingInitBinding
 import com.sopetit.softie.ui.setting.SettingActivity.Companion.USER_EXIT
+import com.sopetit.softie.ui.setting.SettingActivity.Companion.USER_SECURITY
 import com.sopetit.softie.util.binding.BindingFragment
 
 class SettingInitFragment :
@@ -23,11 +24,14 @@ class SettingInitFragment :
     }
 
     private fun initChangeFragment() {
+        clickUserSecurity()
         clickUserExit()
     }
 
     private fun clickUserSecurity() {
-        // TODO 개인정보 처리방침
+        binding.clSettingUserSecurity.setOnClickListener {
+            viewModel.setSettingFragment(USER_SECURITY)
+        }
     }
 
     private fun clickDocument() {

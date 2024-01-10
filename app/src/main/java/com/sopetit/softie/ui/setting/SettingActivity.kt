@@ -31,24 +31,29 @@ class SettingActivity : BindingActivity<ActivitySettingBinding>(R.layout.activit
     private fun initChangeFragment() {
         viewModel.settingFragment.observe(this) { clickSetting ->
             when (clickSetting) {
-                USER_EXIT -> changeSettingDetail(SettingUserExitFragment())
+                SETTING_INIT -> changeFragment(SettingInitFragment())
+                USER_SECURITY -> changeFragment(SettingUserSecurityFragment())
+                USER_EXIT -> changeFragment(SettingUserExitFragment())
             }
         }
-    }
-
-    private fun changeSettingDetail(fragment: Fragment) {
-        changeFragment(fragment)
     }
 
     private fun changeFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fcv_setting, fragment)
             .commit()
+
+        setClickBackBtnInDetailView()
     }
 
-    private fun changeTopBarTitle() {}
+    private fun setClickBackBtnInDetailView() {
+        binding.btnSettingBack.setOnClickListener {
+            viewModel.setIsClickUserSecurityBackBtn(true)
+        }
+    }
 
     companion object {
+        const val SETTING_INIT = "설정"
         const val USER_SECURITY = "개인정보 처리방침"
         const val DOCUMENT = "서비스 이용 약관"
         const val GUIDE = "서비스 이용 가이드"
