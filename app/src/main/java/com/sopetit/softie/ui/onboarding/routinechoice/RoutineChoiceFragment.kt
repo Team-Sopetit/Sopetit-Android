@@ -52,11 +52,14 @@ class RoutineChoiceFragment :
             layoutManager = LinearLayoutManager(requireContext())
             adapter = choiceRoutineAdapter
         }
+        updateRoutines()
+        selectRoutines()
+    }
+
+    private fun updateRoutines() {
         routineViewModel.mockRoutineList.observe(viewLifecycleOwner) {
             choiceRoutineAdapter.submitList(it)
         }
-
-        selectRoutines()
     }
 
     private fun selectRoutines() {
