@@ -22,6 +22,9 @@
     <string name="bear_selection_button">이 친구와 함께 할래</string>
 
     <!-- bear naming -->
-    <string name="bear_naming_question">좋은 선택이에요!/n친구 이름도 지어볼까요?</string>
+    <string name="bear_naming_question">좋은 선택이에요!\n친구 이름도 지어볼까요?</string>
     <string name="bear_naming_subtitle">한 번 지은 이름은 평생 가요.</string>
+    <string name="bear_naming_hint">소프티</string>
+    <string name="bear_naming_button">이 이름이 좋겠어</string>
+    <string name="bear_naming_warning">*특수문자는 사용할 수 없어요</string>
 </resources>
