@@ -8,6 +8,7 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ItemOnboardingChoiceThemeBinding
 import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.util.ItemDiffCallback
+import com.sopetit.softie.util.toast
 
 class ChoiceThemeAdapter :
     ListAdapter<Theme, ChoiceThemeAdapter.ChoiceThemeViewHolder>(
@@ -40,6 +41,8 @@ class ChoiceThemeAdapter :
             if (selectedThemeArray.contains(theme.themeId)) {
                 selectedThemeArray.removeAt(selectedThemeArray.indexOf(theme.themeId))
                 changeThemeBackground(binding, false)
+            } else {
+                binding.root.context.toast("테마는 최대 3개 선택 가능해요")
             }
         } else {
             if (selectedThemeArray.contains(theme.themeId)) {
