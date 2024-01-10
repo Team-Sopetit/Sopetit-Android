@@ -1,4 +1,4 @@
-package com.sopetit.softie.ui.main.happy
+package com.sopetit.softie.ui.main.happy.empty
 
 import android.os.Bundle
 import android.view.LayoutInflater

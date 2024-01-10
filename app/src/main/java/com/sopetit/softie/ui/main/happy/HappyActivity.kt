@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityHappyBinding
+import com.sopetit.softie.ui.main.happy.empty.HappyEmptyFragment
 
 class HappyActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHappyBinding
