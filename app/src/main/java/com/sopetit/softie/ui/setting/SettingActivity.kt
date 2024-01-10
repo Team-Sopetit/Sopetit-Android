@@ -9,5 +9,16 @@ class SettingActivity : BindingActivity<ActivitySettingBinding>(R.layout.activit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        initMakeInitFragment()
+    }
+
+    private fun initMakeInitFragment() {
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.fcv_setting)
+        if (currentFragment == null) {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.fcv_setting, SettingInitFragment())
+                .commit()
+        }
     }
 }

@@ -35,4 +35,9 @@
     <string name="setting_version">현재 버전 1.0.0</string>
     <string name="setting_logout">로그아웃</string>
     <string name="setting_user_exit"><u>회원 탈퇴</u></string>
+    <string name="user_exit_title">소프티를 정말 탈퇴하시나요?</string>
+    <string name="user_exit_content">탈퇴하면 계정이 삭제되고 모든 데이터가 사라집니다.</string>
+    <string name="user_exit_speech_content">정말 가는 거야..?\n나는 영영 사라져</string>
+    <string name="user_exit_back">더 써볼래</string>
+    <string name="user_exit_exit">탈퇴할래</string>
 </resources>
