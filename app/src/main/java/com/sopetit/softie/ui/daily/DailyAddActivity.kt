@@ -121,6 +121,12 @@ class DailyAddActivity : BindingActivity<ActivityDailyAddBinding>(R.layout.activ
         }
     }
 
+    private fun selectTheme() {
+        dailyThemeAdapter.setOnThemeClickListener {
+
+        }
+    }
+
     private fun setDiv() {
         binding.rvThemeDaily.addItemDecoration(HorizontalItemDecorator(16))
     }
