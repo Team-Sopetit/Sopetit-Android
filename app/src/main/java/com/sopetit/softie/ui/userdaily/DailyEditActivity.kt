@@ -2,6 +2,7 @@ package com.sopetit.softie.ui.userdaily
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityDailyEditBinding
@@ -27,22 +28,17 @@ class DailyEditActivity : BindingActivity<ActivityDailyEditBinding>(R.layout.act
         }
     }
 
-    private var isBtnSelected = false
-
     private fun selectBtn() {
         with(binding) {
-            btnRadioEmpty.setOnClickListener {
-                isBtnSelected = !isBtnSelected
-                btnRadioEmpty.isSelected = isBtnSelected
-            }
-            btnRadioEmptySecond.setOnClickListener {
-                isBtnSelected = !isBtnSelected
-                btnRadioEmptySecond.isSelected = isBtnSelected
-            }
-            btnRadioEmptyThird.setOnClickListener {
-                isBtnSelected = !isBtnSelected
-                btnRadioEmptyThird.isSelected = isBtnSelected
-            }
+            setButtonClickListener(btnRadioEmpty)
+            setButtonClickListener(btnRadioEmptySecond)
+            setButtonClickListener(btnRadioEmptyThird)
+        }
+    }
+
+    private fun setButtonClickListener(button: View) {
+        button.setOnClickListener {
+            it.isSelected = !it.isSelected
         }
     }
 }
