@@ -3,6 +3,7 @@ package com.sopetit.softie.ui.onboarding.dollselection
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.NONE
 
 class DollSelectionViewModel : ViewModel() {
     private val _selectedDollType: MutableLiveData<Int> = MutableLiveData(NONE)
@@ -13,13 +14,5 @@ class DollSelectionViewModel : ViewModel() {
 
         if (isSameBearSelected) _selectedDollType.value = NONE
         else _selectedDollType.value = dollType
-    }
-
-    companion object {
-        val NONE = 0
-        val BROWN_BEAR = 1
-        val GRAY_BEAR = 2
-        val PANDA_BEAR = 3
-        val RED_BEAR = 4
     }
 }
