@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.sopetit.softie.ui.setting.SettingViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,7 +31,7 @@
             android:id="@+id/tv_setting_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/setting_title"
+            android:text="@{viewModel.settingFragment != null ? viewModel.settingFragment : @string/setting_title}"
             android:textAppearance="@style/body1"
             android:textColor="@color/gray700"
             android:layout_marginStart="12dp"
