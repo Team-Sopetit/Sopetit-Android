@@ -2,9 +2,11 @@ package com.sopetit.softie.ui.onboarding
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityOnboardingBinding
+import com.sopetit.softie.ui.onboarding.bearselection.BearSelectionFragment
 import com.sopetit.softie.ui.onboarding.routinechoice.RoutineChoiceFragment
 import com.sopetit.softie.ui.onboarding.themechoice.ChoiceThemeFragment
 import com.sopetit.softie.util.binding.BindingActivity
@@ -18,8 +20,13 @@ class OnboardingActivity :
         super.onCreate(savedInstanceState)
         binding.viewModel = viewModel
 
+        initStatusBarColor()
         initMakeFragment()
         initChangeFragment()
+    }
+
+    private fun initStatusBarColor() {
+        window.statusBarColor = ContextCompat.getColor(this, R.color.background)
     }
 
     private fun initMakeFragment() {
@@ -27,7 +34,7 @@ class OnboardingActivity :
         if (currentFragment == null) {
             viewModel.changeBearChoiceView()
             supportFragmentManager.beginTransaction()
-                .add(R.id.fcv_onboarding_fragment, BearChoiceFragment())
+                .add(R.id.fcv_onboarding_fragment, BearSelectionFragment())
                 .commit()
         }
     }

@@ -13,11 +13,16 @@
 
     <!-- story telling -->
     <string name="story_telling_intro">오늘도 고된 하루였어..</string>
-    <string name="story_telling_main">어?집 앞에 이건 뭐지?</string>
+    <string name="story_telling_main">어? 집 앞에 이건 뭐지?</string>
     <string name="story_telling_conclusion">한 번 열어볼까?</string>
 
     <!-- happy -->
     <string name="happy_title">행복루틴</string>
     <string name="happy_default_mention">행복 루틴은 매일 조금씩 너에 대해\n알아갈 수 있는 특별한 이벤트형 루틴이야!</string>
     <string name="happy_empty_card">진행 중인 행복루틴이 없어요.\n루틴을 추가할까요?</string>
+
+    <!-- doll selection -->
+    <string name="doll_selection_question">어떤 친구와 함께 할까요?</string>
+    <string name="doll_selection_subtitle">한 번 선택한 인형은 바꿀 수 없어요</string>
+    <string name="doll_selection_button">이 친구와 함께 할래</string>
 </resources>
