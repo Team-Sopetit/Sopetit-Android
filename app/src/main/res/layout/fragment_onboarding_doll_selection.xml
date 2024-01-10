@@ -6,22 +6,87 @@
 
         <variable
             name="viewModel"
-            type="com.sopetit.softie.ui.onboarding.OnboardingViewModel" />
+            type="com.sopetit.softie.ui.onboarding.dollselection.DollSelectionViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_onboarding_choice_bear"
+        android:id="@+id/cl_doll_selection"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/tv_doll_selection_question"
+            style="@style/head1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="온보딩 - 애착인형 선택"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="38dp"
+            android:text="@string/doll_selection_question"
+            android:textColor="@color/gray700"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_doll_selection_subtitle"
+            style="@style/body4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/doll_selection_subtitle"
+            android:textColor="@color/gray400"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_doll_selection_question" />
+
+        <ImageView
+            android:id="@+id/iv_doll_selection_brown_bear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="105dp"
+            android:onClick="@{() -> viewModel.clickBear(1)}"
+            android:src="@{viewModel.selectedDollType == 1 ? @drawable/ic_bear_brown: @drawable/ic_bear_brown_down}"
+            app:layout_constraintEnd_toStartOf="@id/iv_doll_selection_gray_bear"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_doll_selection_subtitle" />
+
+        <ImageView
+            android:id="@+id/iv_doll_selection_gray_bear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="105dp"
+            android:onClick="@{() -> viewModel.clickBear(2)}"
+            android:src="@{viewModel.selectedDollType == 2 ? @drawable/ic_bear_gray: @drawable/ic_bear_gray_down}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/iv_doll_selection_brown_bear"
+            app:layout_constraintTop_toBottomOf="@id/tv_doll_selection_subtitle" />
+
+        <ImageView
+            android:id="@+id/iv_doll_selection_panda_bear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:onClick="@{() -> viewModel.clickBear(3)}"
+            android:src="@{viewModel.selectedDollType == 3 ? @drawable/ic_bear_panda: @drawable/ic_bear_panda_down}"
+            app:layout_constraintEnd_toStartOf="@id/iv_doll_selection_red_bear"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_doll_selection_brown_bear" />
+
+        <ImageView
+            android:id="@+id/iv_doll_selection_red_bear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:onClick="@{() -> viewModel.clickBear(4)}"
+            android:src="@{viewModel.selectedDollType == 4 ? @drawable/ic_bear_red: @drawable/ic_bear_red_down}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/iv_doll_selection_panda_bear"
+            app:layout_constraintTop_toBottomOf="@id/iv_doll_selection_gray_bear" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
