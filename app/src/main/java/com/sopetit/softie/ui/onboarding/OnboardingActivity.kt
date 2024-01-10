@@ -2,7 +2,6 @@ package com.sopetit.softie.ui.onboarding
 
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityOnboardingBinding
@@ -20,13 +19,8 @@ class OnboardingActivity :
         super.onCreate(savedInstanceState)
         binding.viewModel = viewModel
 
-        initStatusBarColor()
         initMakeFragment()
         initChangeFragment()
-    }
-
-    private fun initStatusBarColor() {
-        window.statusBarColor = ContextCompat.getColor(this, R.color.background)
     }
 
     private fun initMakeFragment() {
