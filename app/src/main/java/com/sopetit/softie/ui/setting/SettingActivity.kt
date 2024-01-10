@@ -52,7 +52,7 @@ class SettingActivity : BindingActivity<ActivitySettingBinding>(R.layout.activit
         }
     }
 
-    private fun backInitView(fragment: Fragment) {
+    fun backInitView(fragment: Fragment) {
         with(supportFragmentManager) {
             beginTransaction().remove(fragment).commit()
             popBackStack()
