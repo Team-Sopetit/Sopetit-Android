@@ -20,70 +20,76 @@
             android:id="@+id/cl_onboarding_top_bar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:paddingHorizontal="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_chainStyle="spread_inside">
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/iv_onboarding_top_bar_first"
-                android:layout_width="76dp"
+                android:layout_width="0dp"
                 android:layout_height="6dp"
                 android:layout_marginTop="28dp"
-                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
                 android:src="@{viewModel.bearChoiceView ? @drawable/shape_main1_fill_99_rect : @drawable/shape_gray100_fill_99_rect}"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/iv_onboarding_top_bar_second"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/iv_onboarding_top_bar_second" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/iv_onboarding_top_bar_second"
-                android:layout_width="76dp"
+                android:layout_width="0dp"
                 android:layout_height="6dp"
+                android:layout_marginEnd="5dp"
                 android:src="@{viewModel.bearNameChoiceView ? @drawable/shape_main1_fill_99_rect : @drawable/shape_gray100_fill_99_rect}"
-                app:layout_constraintTop_toTopOf="@id/iv_onboarding_top_bar_first"
+                app:layout_constraintEnd_toStartOf="@id/iv_onboarding_top_bar_third"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toEndOf="@id/iv_onboarding_top_bar_first"
-                app:layout_constraintEnd_toStartOf="@id/iv_onboarding_top_bar_third" />
+                app:layout_constraintTop_toTopOf="@id/iv_onboarding_top_bar_first" />
 
             <ImageView
                 android:id="@+id/iv_onboarding_top_bar_third"
-                android:layout_width="76dp"
+                android:layout_width="0dp"
                 android:layout_height="6dp"
+                android:layout_marginEnd="5dp"
                 android:src="@{viewModel.themeChoiceView ? @drawable/shape_main1_fill_99_rect : @drawable/shape_gray100_fill_99_rect}"
-                app:layout_constraintTop_toTopOf="@id/iv_onboarding_top_bar_first"
+                app:layout_constraintEnd_toStartOf="@id/iv_onboarding_top_bar_fourth"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toEndOf="@id/iv_onboarding_top_bar_second"
-                app:layout_constraintEnd_toStartOf="@id/iv_onboarding_top_bar_fourth" />
+                app:layout_constraintTop_toTopOf="@id/iv_onboarding_top_bar_first" />
 
             <ImageView
                 android:id="@+id/iv_onboarding_top_bar_fourth"
-                android:layout_width="76dp"
-                android:layout_height="6dp"
-                android:layout_marginEnd="20dp"
-                android:src="@{viewModel.routineChoiceView ? @drawable/shape_main1_fill_99_rect : @drawable/shape_gray100_fill_99_rect}"
-                app:layout_constraintTop_toTopOf="@id/iv_onboarding_top_bar_first"
-                app:layout_constraintStart_toEndOf="@id/iv_onboarding_top_bar_third"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_onboarding_choice_theme_translucent_background"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@color/onboarding_translucent"
-                android:visibility="@{viewModel.layoutTranslucent ? View.VISIBLE : View.GONE}"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:layout_height="6dp"
+                android:src="@{viewModel.routineChoiceView ? @drawable/shape_main1_fill_99_rect : @drawable/shape_gray100_fill_99_rect}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/iv_onboarding_top_bar_third"
+                app:layout_constraintTop_toTopOf="@id/iv_onboarding_top_bar_first" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_onboarding_choice_theme_translucent_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/onboarding_translucent"
+            android:visibility="@{viewModel.layoutTranslucent ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@id/cl_onboarding_top_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fcv_onboarding_fragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/cl_onboarding_top_bar"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/cl_onboarding_top_bar" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
