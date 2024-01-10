@@ -41,4 +41,10 @@
     <string name="user_exit_back">더 써볼래</string>
     <string name="user_exit_exit">탈퇴할래</string>
     <string name="user_security_title">소프티 개인정보처리방침</string>
+
+    <!-- bottom sheet -->
+    <string name="bottom_sheet_title">정말 로그아웃할까요?</string>
+    <string name="bottom_sheet_content">&quot;잠시만 안녕..다음에 또 봐!&quot;</string>
+    <string name="bottom_sheet_back">취소</string>
+    <string name="bottom_sheet_do">로그아웃 할래</string>
 </resources>
