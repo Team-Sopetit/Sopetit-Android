@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentOnboardingDollSelectionBinding
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
+import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.BROWN_BEAR
 import com.sopetit.softie.util.binding.BindingFragment
 
 class DollSelectionFragment :
@@ -26,8 +27,9 @@ class DollSelectionFragment :
     }
 
     private fun initChangeFragment() {
-        binding.clDollSelection.setOnClickListener {
+        binding.btnDollSelection.setOnClickListener {
             activityViewModel.changeBearNameChoiceView()
+            activityViewModel.setSelectedBearType(viewModel.selectedDollType.value ?: BROWN_BEAR)
         }
     }
 }
