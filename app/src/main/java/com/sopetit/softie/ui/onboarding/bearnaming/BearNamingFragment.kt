@@ -23,8 +23,7 @@ class BearNamingFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        activityViewModel =
-            ViewModelProvider(requireActivity())[OnboardingViewModel::class.java]
+        activityViewModel = ViewModelProvider(requireActivity())[OnboardingViewModel::class.java]
         binding.viewModel = viewModel
 
         setLottieFile()
@@ -59,6 +58,7 @@ class BearNamingFragment :
 
     private fun initChangeFragment() {
         binding.btnBearSelection.setOnClickListener {
+            activityViewModel.setBearNickname(viewModel.nickname.value ?: "")
             activityViewModel.changeThemeChoiceView()
         }
     }
