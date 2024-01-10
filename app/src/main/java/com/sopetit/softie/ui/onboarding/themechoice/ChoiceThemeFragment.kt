@@ -85,7 +85,7 @@ class ChoiceThemeFragment :
 
     private fun setThemeBtn() {
         viewModel.selectedThemeArray.observe(viewLifecycleOwner) {
-            if (it.size == 3) {
+            if (it.size == MAXIMUM_THEME_SELECTION) {
                 themeViewModel.setThemeBtnEnabled(true)
             } else {
                 themeViewModel.setThemeBtnEnabled(false)
@@ -107,5 +107,6 @@ class ChoiceThemeFragment :
     companion object {
         const val SPAN_START = 5
         const val SPAN_END = 8
+        const val MAXIMUM_THEME_SELECTION = 3
     }
 }

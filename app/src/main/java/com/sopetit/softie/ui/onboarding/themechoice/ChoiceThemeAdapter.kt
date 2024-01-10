@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ItemOnboardingChoiceThemeBinding
 import com.sopetit.softie.domain.entity.Theme
+import com.sopetit.softie.ui.onboarding.themechoice.ChoiceThemeFragment.Companion.MAXIMUM_THEME_SELECTION
 import com.sopetit.softie.util.ItemDiffCallback
 import com.sopetit.softie.util.toast
 
@@ -17,6 +18,9 @@ class ChoiceThemeAdapter :
             onContentsTheSame = { old, new -> old == new }
         )
     ) {
+
+    private var onItemClickListener: ((Theme) -> Unit)? = null
+    var selectedThemeArray = arrayListOf<Int>()
 
     inner class ChoiceThemeViewHolder(private val binding: ItemOnboardingChoiceThemeBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -29,30 +33,44 @@ class ChoiceThemeAdapter :
         }
     }
 
-    private var onItemClickListener: ((Theme) -> Unit)? = null
     fun setOnThemeClickListener(listener: (Theme) -> Unit) {
         onItemClickListener = listener
     }
 
-    var selectedThemeArray = arrayListOf<Int>()
-
     private fun themeSelection(binding: ItemOnboardingChoiceThemeBinding, theme: Theme) {
-        if (selectedThemeArray.size == 3) {
-            if (selectedThemeArray.contains(theme.themeId)) {
-                selectedThemeArray.removeAt(selectedThemeArray.indexOf(theme.themeId))
-                changeThemeBackground(binding, false)
+        val isThemeSelected: Boolean = selectedThemeArray.contains(theme.themeId)
+
+        if (selectedThemeArray.size == MAXIMUM_THEME_SELECTION) {
+            if (isThemeSelected) {
+                removeThemeItem(
+                    selectedThemeArray,
+                    selectedThemeArray.indexOf(theme.themeId),
+                    binding
+                )
             } else {
                 binding.root.context.toast("테마는 최대 3개 선택 가능해요")
             }
         } else {
-            if (selectedThemeArray.contains(theme.themeId)) {
-                selectedThemeArray.removeAt(selectedThemeArray.indexOf(theme.themeId))
-                changeThemeBackground(binding, false)
+            if (isThemeSelected) {
+                removeThemeItem(
+                    selectedThemeArray,
+                    selectedThemeArray.indexOf(theme.themeId),
+                    binding
+                )
             } else {
                 selectedThemeArray.add(theme.themeId)
                 changeThemeBackground(binding, true)
             }
         }
+    }
+
+    private fun removeThemeItem(
+        themeArray: ArrayList<Int>,
+        selectedIndex: Int,
+        binding: ItemOnboardingChoiceThemeBinding
+    ) {
+        themeArray.removeAt(selectedIndex)
+        changeThemeBackground(binding, false)
     }
 
     private fun changeThemeBackground(
