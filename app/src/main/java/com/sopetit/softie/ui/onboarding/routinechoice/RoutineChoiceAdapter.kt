@@ -90,24 +90,31 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
     ) {
         when (selected) {
             true -> {
-                binding.tvRoutineContent.setBackgroundResource(R.drawable.shape_gray100_fill_gray400_stroke_99_rect)
-                binding.tvRoutineContent.setTextColor(
-                    ContextCompat.getColor(
-                        binding.root.context,
-                        R.color.gray700
-                    )
+                setContent(
+                    R.drawable.shape_gray100_fill_gray400_stroke_99_rect,
+                    R.color.gray700,
+                    binding
                 )
             }
 
             false -> {
-                binding.tvRoutineContent.setBackgroundResource(R.drawable.shape_white_fill_gray000_stroke_99_rect)
-                binding.tvRoutineContent.setTextColor(
-                    ContextCompat.getColor(
-                        binding.root.context,
-                        R.color.gray400
-                    )
+                setContent(
+                    R.drawable.shape_white_fill_gray000_stroke_99_rect,
+                    R.color.gray400,
+                    binding
                 )
             }
+        }
+    }
+
+    private fun setContent(
+        background: Int,
+        color: Int,
+        binding: ItemOnboardingChoiceRoutineBinding
+    ) {
+        with(binding.tvRoutineContent) {
+            setBackgroundResource(background)
+            setTextColor(ContextCompat.getColor(binding.root.context, color))
         }
     }
 
