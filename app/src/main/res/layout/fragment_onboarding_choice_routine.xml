@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.sopetit.softie.ui.onboarding.OnboardingViewModel" />
@@ -69,6 +71,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:listitem="@layout/item_onboarding_choice_routine" />
+
+        <TextView
+            android:id="@+id/tv_onboarding_choice_routine_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="27dp"
+            android:text="@string/onboarding_routine_notice"
+            android:textAppearance="@style/body4"
+            android:textColor="@color/red"
+            android:visibility="@{routineViewModel.isNoticeVisible ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toTopOf="@id/cl_onboarding_choice_routine_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_onboarding_choice_routine_btn"

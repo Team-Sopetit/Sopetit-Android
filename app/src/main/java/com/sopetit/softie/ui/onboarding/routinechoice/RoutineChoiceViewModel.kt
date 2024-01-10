@@ -54,4 +54,12 @@ class RoutineChoiceViewModel : ViewModel() {
 
     val mockRoutineList: LiveData<List<Routine>>
         get() = _mockRoutineList
+
+    private val _isNoticeVisible: MutableLiveData<Boolean> = MutableLiveData(false)
+    val isNoticeVisible: LiveData<Boolean>
+        get() = _isNoticeVisible
+
+    fun setNoticeVisible(visible: Boolean) {
+        _isNoticeVisible.value = visible
+    }
 }

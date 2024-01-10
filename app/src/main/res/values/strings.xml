@@ -9,6 +9,7 @@
     <string name="routine_text">하루 한 번 엘레베이터 대신 계단 이용하기</string>
     <string name="onboarding_routine_back_btn">테마 다시 고를래</string>
     <string name="onboarding_routine_select_btn">친구 만날 준비 끝!</string>
+    <string name="onboarding_routine_notice">최대 3개 선택 가능합니다</string>
 
     <!-- story telling -->
     <string name="story_telling_intro">오늘도 고된 하루였어..</string>

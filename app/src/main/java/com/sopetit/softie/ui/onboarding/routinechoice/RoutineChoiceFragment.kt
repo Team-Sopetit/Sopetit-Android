@@ -51,6 +51,10 @@ class RoutineChoiceFragment :
         }
     }
 
+    private fun setNoticeVisible() {
+        // TODO 4번째 루틴 선택 시도 시 경고 띄우기
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _choiceRoutineAdapter = null
