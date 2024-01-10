@@ -8,6 +8,10 @@
         <variable
             name="viewModel"
             type="com.sopetit.softie.ui.onboarding.OnboardingViewModel" />
+
+        <variable
+            name="routineViewModel"
+            type="com.sopetit.softie.ui.onboarding.routinechoice.RoutineChoiceViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
