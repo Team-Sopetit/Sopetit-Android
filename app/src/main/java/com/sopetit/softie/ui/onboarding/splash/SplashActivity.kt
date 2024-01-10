@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.fragment.app.Fragment
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivitySplashBinding
 import com.sopetit.softie.ui.storytelling.StoryTellingActivity
@@ -14,16 +15,28 @@ class SplashActivity : BindingActivity<ActivitySplashBinding>(R.layout.activity_
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        initMakeFragment()
+        initCreateRandomVersion()
     }
 
-    private fun initMakeFragment() {
+    private fun initCreateRandomVersion() {
+        val versionList: List<Int> = listOf(1, 2, 3, 4)
+
+        when (versionList.random()) {
+            1 -> initMakeFragment(SplashVersionFirstFragment())
+            2 -> initMakeFragment(SplashVersionSecondFragment())
+            3 -> initMakeFragment(SplashVersionThirdFragment())
+            4 -> initMakeFragment(SplashVersionFourthFragment())
+        }
+    }
+
+    private fun initMakeFragment(fragmentVersion: Fragment) {
         val currentFragment = supportFragmentManager.findFragmentById(R.id.fcv_splash)
         if (currentFragment == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.fcv_splash, SplashVersionFirstFragment())
+                .add(R.id.fcv_splash, fragmentVersion)
                 .commit()
         }
+
         initMakeSplash()
     }
 
@@ -32,6 +45,10 @@ class SplashActivity : BindingActivity<ActivitySplashBinding>(R.layout.activity_
             val intent = Intent(this, StoryTellingActivity::class.java)
             startActivity(intent)
             finish()
-        }, 1000)
+        }, SPLASH_DELAY)
+    }
+
+    companion object {
+        const val SPLASH_DELAY = 2000L
     }
 }
