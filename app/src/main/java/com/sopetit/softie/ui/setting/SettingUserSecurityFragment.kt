@@ -23,7 +23,7 @@ class SettingUserSecurityFragment :
     }
 
     private fun initSetBackBtn() {
-        viewModel.isClickUserSecurityBackBtn.observe(viewLifecycleOwner) { isClick ->
+        viewModel.isClickBackBtn.observe(viewLifecycleOwner) { isClick ->
             if (isClick) {
                 viewModel.setSettingFragment(SETTING_INIT)
             }

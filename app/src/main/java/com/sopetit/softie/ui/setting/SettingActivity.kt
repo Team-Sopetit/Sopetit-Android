@@ -48,7 +48,7 @@ class SettingActivity : BindingActivity<ActivitySettingBinding>(R.layout.activit
 
     private fun setClickBackBtnInDetailView() {
         binding.btnSettingBack.setOnClickListener {
-            viewModel.setIsClickUserSecurityBackBtn(true)
+            viewModel.setIsClickBackBtn(true)
         }
     }
 

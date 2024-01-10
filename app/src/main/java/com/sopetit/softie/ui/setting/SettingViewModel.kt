@@ -10,15 +10,15 @@ class SettingViewModel : ViewModel() {
     val settingFragment: LiveData<String>
         get() = _settingFragment
 
-    private val _isClickUserSecurityBackBtn: MutableLiveData<Boolean> = MutableLiveData(false)
-    val isClickUserSecurityBackBtn: LiveData<Boolean>
-        get() = _isClickUserSecurityBackBtn
+    private val _isClickBackBtn: MutableLiveData<Boolean> = MutableLiveData(false)
+    val isClickBackBtn: LiveData<Boolean>
+        get() = _isClickBackBtn
 
     fun setSettingFragment(clickFragment: String) {
         _settingFragment.value = clickFragment
     }
 
-    fun setIsClickUserSecurityBackBtn(isClick: Boolean) {
-        _isClickUserSecurityBackBtn.value = isClick
+    fun setIsClickBackBtn(isClick: Boolean) {
+        _isClickBackBtn.value = isClick
     }
 }
