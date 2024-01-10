@@ -23,15 +23,15 @@
         <item name="chipEndPadding">0dp</item>
         <item name="chipMinHeight">0dp</item>
         <item name="chipStartPadding">0dp</item>
-        <item name="chipCornerRadius">15dp</item>
-        <item name="chipBackgroundColor">@color/main1</item>
+        <item name="chipCornerRadius">99dp</item>
+        <item name="chipBackgroundColor">@color/white</item>
         <item name="textStartPadding">14dp</item>
         <item name="textEndPadding">14dp</item>
         <item name="rippleColor">#00FFFFFF</item>
         <item name="android:paddingVertical">10dp</item>
         <item name="chipStrokeWidth">1dp</item>
         <item name="chipStrokeColor">@color/gray100</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/gray400</item>
     </style>
 
 
