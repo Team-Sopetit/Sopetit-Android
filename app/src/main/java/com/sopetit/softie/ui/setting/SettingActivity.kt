@@ -31,9 +31,9 @@ class SettingActivity : BindingActivity<ActivitySettingBinding>(R.layout.activit
     private fun initChangeFragment() {
         viewModel.settingFragment.observe(this) { clickSetting ->
             when (clickSetting) {
-                SETTING_INIT -> changeFragment(SettingInitFragment())
                 USER_SECURITY -> changeFragment(SettingUserSecurityFragment())
                 USER_EXIT -> changeFragment(SettingUserExitFragment())
+                // TODO 다른 세부 설정 화면 추가
             }
         }
     }
@@ -41,15 +41,23 @@ class SettingActivity : BindingActivity<ActivitySettingBinding>(R.layout.activit
     private fun changeFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fcv_setting, fragment)
-            .commit()
+            .addToBackStack(FRAGMENT_STACK_TAG).commitAllowingStateLoss()
 
-        setClickBackBtnInDetailView()
+        setClickBackBtnInDetailView(fragment)
     }
 
-    private fun setClickBackBtnInDetailView() {
+    private fun setClickBackBtnInDetailView(fragment: Fragment) {
         binding.btnSettingBack.setOnClickListener {
-            viewModel.setIsClickBackBtn(true)
+            backInitView(fragment)
         }
+    }
+
+    private fun backInitView(fragment: Fragment) {
+        with(supportFragmentManager) {
+            beginTransaction().remove(fragment).commit()
+            popBackStack()
+        }
+        viewModel.setSettingFragment(SETTING_INIT)
     }
 
     companion object {
@@ -59,5 +67,6 @@ class SettingActivity : BindingActivity<ActivitySettingBinding>(R.layout.activit
         const val GUIDE = "서비스 이용 가이드"
         const val FEEDBACK = "피드백"
         const val USER_EXIT = "회원 탈퇴"
+        const val FRAGMENT_STACK_TAG = "BACK_STACK_TAG"
     }
 }
