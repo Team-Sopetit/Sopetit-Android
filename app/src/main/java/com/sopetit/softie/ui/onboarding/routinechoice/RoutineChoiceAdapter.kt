@@ -3,6 +3,8 @@ package com.sopetit.softie.ui.onboarding.routinechoice
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sopetit.softie.R
@@ -20,6 +22,10 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
 
     private var onItemClickListener: ((Routine) -> Unit)? = null
     var selectedRoutineArray = arrayListOf<Int>()
+
+    private var _isRoutineNoticeVisible: MutableLiveData<Boolean> = MutableLiveData(false)
+    val isRoutineNoticeVisible: LiveData<Boolean>
+        get() = _isRoutineNoticeVisible
 
     inner class RoutineChoiceViewHolder(private val binding: ItemOnboardingChoiceRoutineBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -46,6 +52,9 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
                     selectedRoutineArray.indexOf(routine.routineId),
                     binding
                 )
+                setNoticeVisible(false)
+            } else {
+                setNoticeVisible(true)
             }
         } else {
             if (isRoutineSelected) {
@@ -58,7 +67,12 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
                 selectedRoutineArray.add(routine.routineId)
                 changeRoutineBackground(binding, true)
             }
+            setNoticeVisible(false)
         }
+    }
+
+    private fun setNoticeVisible(isVisible: Boolean) {
+        _isRoutineNoticeVisible.value = isVisible
     }
 
     private fun removeRoutineItem(

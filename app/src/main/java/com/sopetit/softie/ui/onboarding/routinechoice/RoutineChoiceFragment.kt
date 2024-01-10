@@ -29,13 +29,20 @@ class RoutineChoiceFragment :
 
         Timber.d("routineChoice: theme -> ${viewModel.selectedThemeArray.value}")
 
-        initBackThemeFragment()
+        initSetThemeBackBtn()
+        initSetRoutineBtn()
         initMakeRoutineAdapter()
     }
 
-    private fun initBackThemeFragment() {
+    private fun initSetThemeBackBtn() {
         binding.btnOnboardingRoutineBackTheme.setOnClickListener {
             viewModel.changeThemeChoiceView()
+        }
+    }
+
+    private fun initSetRoutineBtn() {
+        binding.rvOnboardingChoiceRoutine.setOnClickListener {
+            // TODO 프로필 생성 서버 통신 & home으로 이동
         }
     }
 
@@ -55,11 +62,14 @@ class RoutineChoiceFragment :
     private fun selectRoutines() {
         choiceRoutineAdapter.setOnRoutineClickListener {
             Timber.d("routineChoice: routine -> ${choiceRoutineAdapter.selectedRoutineArray}")
+            setNoticeVisible()
         }
     }
 
     private fun setNoticeVisible() {
-        // TODO 4번째 루틴 선택 시도 시 경고 띄우기
+        choiceRoutineAdapter.isRoutineNoticeVisible.observe(viewLifecycleOwner) { isVisible ->
+            routineViewModel.setNoticeVisible(isVisible)
+        }
     }
 
     override fun onDestroyView() {
