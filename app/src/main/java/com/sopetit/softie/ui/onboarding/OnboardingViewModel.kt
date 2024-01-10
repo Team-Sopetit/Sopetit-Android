@@ -30,6 +30,9 @@ class OnboardingViewModel : ViewModel() {
     val layoutTranslucent: LiveData<Boolean>
         get() = _layoutTranslucent
 
+    private val _selectedBearType: MutableLiveData<Int> = MutableLiveData(NONE)
+    val selectedBearType: LiveData<Int> get() = _selectedBearType
+
     fun changeBearChoiceView() {
         _bearChoiceView.value = true
     }
@@ -52,5 +55,17 @@ class OnboardingViewModel : ViewModel() {
 
     fun setLayoutTranslucent(boolean: Boolean) {
         _layoutTranslucent.value = boolean
+    }
+
+    fun setSelectedBearType(bearType: Int) {
+        _selectedBearType.value = bearType
+    }
+
+    companion object {
+        const val NONE = 0
+        const val BROWN_BEAR = 1
+        const val GRAY_BEAR = 2
+        const val PANDA_BEAR = 3
+        const val RED_BEAR = 4
     }
 }
