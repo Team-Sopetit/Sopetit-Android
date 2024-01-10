@@ -62,10 +62,10 @@ class OnboardingViewModel : ViewModel() {
     }
 
     companion object {
-        val NONE = 0
-        val BROWN_BEAR = 1
-        val GRAY_BEAR = 2
-        val PANDA_BEAR = 3
-        val RED_BEAR = 4
+        const val NONE = 0
+        const val BROWN_BEAR = 1
+        const val GRAY_BEAR = 2
+        const val PANDA_BEAR = 3
+        const val RED_BEAR = 4
     }
 }
