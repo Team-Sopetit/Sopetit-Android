@@ -3,7 +3,7 @@ package com.sopetit.softie.ui.userdaily
 import androidx.lifecycle.ViewModel
 
 class DailyEmptyViewModel : ViewModel() {
-    val routineAddList = listOf<Int>(0, 0, 0)
+    val routineAddList = listOf<Int>(1)
 
     companion object {
         const val NONE = 0

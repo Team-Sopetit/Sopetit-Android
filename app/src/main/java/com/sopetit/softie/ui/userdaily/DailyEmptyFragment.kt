@@ -1,5 +1,6 @@
 package com.sopetit.softie.ui.userdaily
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -17,5 +18,14 @@ class DailyEmptyFragment :
 
         binding.lifecycleOwner = this
         binding.dailyEmptyViewModel = dailyEmptyViewModel
+
+        moveEdit()
+    }
+
+    private fun moveEdit() {
+        binding.tvEdit.setOnClickListener {
+            val intent = Intent(requireActivity(), DailyEditActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

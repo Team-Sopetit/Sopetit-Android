@@ -20,4 +20,7 @@
     <string name="doll_selection_question">어떤 친구와 함께 할까요?</string>
     <string name="doll_selection_subtitle">한 번 선택한 인형은 바꿀 수 없어요</string>
     <string name="doll_selection_button">이 친구와 함께 할래</string>
+
+    <!-- daily edit -->
+    <string name="daily_edit_delete">n개 삭제</string>
 </resources>
