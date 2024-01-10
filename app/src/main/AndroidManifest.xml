@@ -33,6 +33,11 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".ui.daily.DailyAddActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".ui.storytelling.StoryTellingActivity"
             android:exported="true"
             android:screenOrientation="portrait">
