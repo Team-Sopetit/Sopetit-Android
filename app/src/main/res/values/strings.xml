@@ -14,4 +14,8 @@
     <string name="happy_title">행복루틴</string>
     <string name="happy_default_mention">행복 루틴은 매일 조금씩 너에 대해\n알아갈 수 있는 특별한 이벤트형 루틴이야!</string>
     <string name="happy_empty_card">진행 중인 행복루틴이 없어요.\n루틴을 추가할까요?</string>
+
+    <!-- doll selection -->
+    <string name="doll_selection_question">어떤 친구와 함께 할까요?</string>
+    <string name="doll_selection_subtitle">힌 번 선택한 인형은 바꿀 수 없어요</string>
 </resources>
