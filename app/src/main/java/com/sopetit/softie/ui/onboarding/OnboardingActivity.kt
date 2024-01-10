@@ -50,6 +50,7 @@ class OnboardingActivity :
         viewModel.themeChoiceView.observe(this) { themeChoiceView ->
             if (themeChoiceView) {
                 changeFragment(ChoiceThemeFragment())
+                viewModel.setLayoutTranslucent(true)
             }
         }
     }
