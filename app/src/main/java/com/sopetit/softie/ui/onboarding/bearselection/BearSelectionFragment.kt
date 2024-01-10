@@ -1,20 +1,20 @@
-package com.sopetit.softie.ui.onboarding.dollselection
+package com.sopetit.softie.ui.onboarding.bearselection
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.sopetit.softie.R
-import com.sopetit.softie.databinding.FragmentOnboardingDollSelectionBinding
+import com.sopetit.softie.databinding.FragmentOnboardingBearSelectionBinding
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.BROWN_BEAR
 import com.sopetit.softie.util.binding.BindingFragment
 
-class DollSelectionFragment :
-    BindingFragment<FragmentOnboardingDollSelectionBinding>(R.layout.fragment_onboarding_doll_selection) {
+class BearSelectionFragment :
+    BindingFragment<FragmentOnboardingBearSelectionBinding>(R.layout.fragment_onboarding_bear_selection) {
 
     private lateinit var activityViewModel: OnboardingViewModel
-    private val viewModel by viewModels<DollSelectionViewModel>()
+    private val viewModel by viewModels<BearSelectionViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,9 +27,9 @@ class DollSelectionFragment :
     }
 
     private fun initChangeFragment() {
-        binding.btnDollSelection.setOnClickListener {
+        binding.btnBearSelection.setOnClickListener {
             activityViewModel.changeBearNameChoiceView()
-            activityViewModel.setSelectedBearType(viewModel.selectedDollType.value ?: BROWN_BEAR)
+            activityViewModel.setSelectedBearType(viewModel.selectedBearType.value ?: BROWN_BEAR)
         }
     }
 }
