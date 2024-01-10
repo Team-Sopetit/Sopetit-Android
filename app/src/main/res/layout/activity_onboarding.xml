@@ -63,25 +63,24 @@
                 android:id="@+id/iv_onboarding_top_bar_fourth"
                 android:layout_width="0dp"
                 android:layout_height="6dp"
-                android:layout_marginEnd="20dp"
                 android:src="@{viewModel.routineChoiceView ? @drawable/shape_main1_fill_99_rect : @drawable/shape_gray100_fill_99_rect}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toEndOf="@id/iv_onboarding_top_bar_third"
                 app:layout_constraintTop_toTopOf="@id/iv_onboarding_top_bar_first" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_onboarding_choice_theme_translucent_background"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@color/onboarding_translucent"
-                android:visibility="@{viewModel.layoutTranslucent ? View.VISIBLE : View.GONE}"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_onboarding_choice_theme_translucent_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/onboarding_translucent"
+            android:visibility="@{viewModel.layoutTranslucent ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@id/cl_onboarding_top_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fcv_onboarding_fragment"
