@@ -1,5 +1,6 @@
 package com.sopetit.softie.ui.userdaily
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.sopetit.softie.R
@@ -21,10 +22,8 @@ class DailyEditActivity : BindingActivity<ActivityDailyEditBinding>(R.layout.act
 
     private fun moveDaily() {
         binding.tvCancel.setOnClickListener {
-            val fragment = DailyEmptyFragment()
-            val fragmentManager = supportFragmentManager
-            val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.fcv_empty_fragment, fragment).commit()
+            val intent = Intent(this, DailyEmptyActivity::class.java)
+            startActivity(intent)
         }
     }
 

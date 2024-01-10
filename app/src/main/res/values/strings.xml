@@ -23,4 +23,11 @@
 
     <!-- daily edit -->
     <string name="daily_edit_delete">n개 삭제</string>
+    <string name="daily_edit_routine_name">데일리 루틴</string>
+    <string name="daily_edit_cancel">취소</string>
+    <string name="daily_routine_user_add">이불 개기</string>
+    <string name="daily_routine_ing">n번째 달성 중</string>
+    <string name="daily_routine_fin_btn">완료하기</string>
+    <string name="daily_routine_fin">달성완료</string>
+    <string name="daily_edit">편집</string>
 </resources>
