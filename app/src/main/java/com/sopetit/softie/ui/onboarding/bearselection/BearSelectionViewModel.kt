@@ -7,7 +7,7 @@ import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.NONE
 
 class BearSelectionViewModel : ViewModel() {
     private val _selectedBearType: MutableLiveData<Int> = MutableLiveData(NONE)
-    val selectedBearType: LiveData<Int> = _selectedBearType
+    val selectedBearType: LiveData<Int> get() = _selectedBearType
 
     fun selectBearType(dollType: Int) {
         val isSameBearSelected = _selectedBearType.value == dollType
