@@ -8,7 +8,6 @@ import com.sopetit.softie.databinding.ItemHappyAddListChipBinding
 import com.sopetit.softie.domain.entity.HappyChip
 import com.sopetit.softie.util.ItemDiffCallback
 
-
 class HappyAddListChipContentAdapter :
     ListAdapter<HappyChip, HappyAddListChipContentAdapter.HappyAddListChipContentViewHolder>(
         ItemDiffCallback<HappyChip>(
