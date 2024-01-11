@@ -32,7 +32,7 @@ class DailyRoutineEditActivity :
 
     private fun selectBtn() {
         with(binding) {
-            setButtonClickListener(btnDailyRoutineEditRadioEmpty)
+            setButtonClickListener(btnDailyRoutineEditRadioEmptyFirst)
             setButtonClickListener(btnDailyRoutineEditRadioEmptySecond)
             setButtonClickListener(btnDailyRoutineEditRadioEmptyThird)
         }
