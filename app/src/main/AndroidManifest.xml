@@ -23,11 +23,6 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.main.happy.HappyActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-
-        <activity
             android:name=".ui.onboarding.OnboardingActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
