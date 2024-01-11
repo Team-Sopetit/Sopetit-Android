@@ -10,4 +10,9 @@
     </style>
 
     <style name="Theme.Softie" parent="Base.Theme.Softie" />
+
+    <style name="BottomNavigationViewNoRipple" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:itemBackground">@android:color/transparent</item>
+        <item name="android:colorControlHighlight">@android:color/transparent</item>
+    </style>
 </resources>
