@@ -16,7 +16,7 @@
         android:fitsSystemWindows="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_setting_user_security"
+            android:id="@+id/cl_setting_init_user_security"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:clickable="true"
@@ -66,7 +66,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:clickable="true"
-            app:layout_constraintTop_toBottomOf="@id/cl_setting_user_security"
+            app:layout_constraintTop_toBottomOf="@id/cl_setting_init_user_security"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 

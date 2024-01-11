@@ -31,7 +31,7 @@ class SettingInitFragment :
     }
 
     private fun clickUserSecurity() {
-        binding.clSettingUserSecurity.setOnClickListener {
+        binding.clSettingInitUserSecurity.setOnClickListener {
             viewModel.setSettingFragment(USER_SECURITY)
         }
     }
