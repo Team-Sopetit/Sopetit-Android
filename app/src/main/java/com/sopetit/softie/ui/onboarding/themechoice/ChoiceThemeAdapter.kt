@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ItemOnboardingChoiceThemeBinding
 import com.sopetit.softie.domain.entity.Theme
-import com.sopetit.softie.ui.onboarding.themechoice.ChoiceThemeFragment.Companion.MAXIMUM_THEME_SELECTION
+import com.sopetit.softie.ui.onboarding.OnboardingActivity.Companion.MAXIMUM_THEME_SELECTION
 import com.sopetit.softie.util.ItemDiffCallback
 import com.sopetit.softie.util.toast
 
