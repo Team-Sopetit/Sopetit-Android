@@ -49,7 +49,7 @@ class SettingInitFragment :
     }
 
     private fun clickLogOut() {
-        binding.btnSettingLogout.setOnClickListener {
+        binding.btnSettingInitLogout.setOnClickListener {
             BindingBottomSheet.Builder().build(
                 isDrawable = true,
                 imageDrawable = R.drawable.ic_bear_face_crying,
@@ -68,7 +68,7 @@ class SettingInitFragment :
     }
 
     private fun clickUserExit() {
-        binding.btnSettingUserExit.setOnClickListener {
+        binding.btnSettingInitUserExit.setOnClickListener {
             viewModel.setSettingFragment(USER_EXIT)
         }
     }

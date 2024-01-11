@@ -26,7 +26,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <ImageView
-                android:id="@+id/iv_user_security"
+                android:id="@+id/iv_setting_init_user_security"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_user_security"
@@ -37,32 +37,32 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/tv_user_security"
+                android:id="@+id/tv_setting_init_user_security"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/setting_user_security"
                 android:textAppearance="@style/body2"
                 android:textColor="@color/gray600"
                 android:layout_marginStart="8dp"
-                app:layout_constraintTop_toTopOf="@id/iv_user_security"
-                app:layout_constraintBottom_toBottomOf="@id/iv_user_security"
-                app:layout_constraintStart_toEndOf="@id/iv_user_security" />
+                app:layout_constraintTop_toTopOf="@id/iv_setting_init_user_security"
+                app:layout_constraintBottom_toBottomOf="@id/iv_setting_init_user_security"
+                app:layout_constraintStart_toEndOf="@id/iv_setting_init_user_security" />
 
             <ImageView
-                android:id="@+id/iv_user_security_right_btn"
+                android:id="@+id/iv_setting_init_user_security_right_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_right_btn"
                 android:paddingVertical="6dp"
                 android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/iv_user_security"
-                app:layout_constraintBottom_toBottomOf="@id/iv_user_security" />
+                app:layout_constraintTop_toTopOf="@id/iv_setting_init_user_security"
+                app:layout_constraintBottom_toBottomOf="@id/iv_setting_init_user_security" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_setting_document"
+            android:id="@+id/cl_setting_init_document"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:clickable="true"
@@ -71,7 +71,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <ImageView
-                android:id="@+id/iv_document"
+                android:id="@+id/iv_setting_init_document"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_document"
@@ -82,51 +82,51 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/tv_document"
+                android:id="@+id/tv_setting_init_document"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/setting_document"
                 android:textAppearance="@style/body2"
                 android:textColor="@color/gray600"
                 android:layout_marginStart="8dp"
-                app:layout_constraintTop_toTopOf="@id/iv_document"
-                app:layout_constraintBottom_toBottomOf="@id/iv_document"
-                app:layout_constraintStart_toEndOf="@id/iv_document" />
+                app:layout_constraintTop_toTopOf="@id/iv_setting_init_document"
+                app:layout_constraintBottom_toBottomOf="@id/iv_setting_init_document"
+                app:layout_constraintStart_toEndOf="@id/iv_setting_init_document" />
 
             <ImageView
-                android:id="@+id/iv_document_right_btn"
+                android:id="@+id/iv_setting_init_document_right_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_right_btn"
                 android:paddingVertical="6dp"
                 android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/iv_document"
-                app:layout_constraintBottom_toBottomOf="@id/iv_document" />
+                app:layout_constraintTop_toTopOf="@id/iv_setting_init_document"
+                app:layout_constraintBottom_toBottomOf="@id/iv_setting_init_document" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.divider.MaterialDivider
-            android:id="@+id/divider_setting_service"
+            android:id="@+id/divider_setting_init_service"
             android:layout_width="0dp"
             android:layout_height="2dp"
             android:layout_marginHorizontal="13dp"
             app:dividerColor="@color/background"
-            app:layout_constraintTop_toBottomOf="@id/cl_setting_document"
+            app:layout_constraintTop_toBottomOf="@id/cl_setting_init_document"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_setting_guide"
+            android:id="@+id/cl_setting_init_guide"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:clickable="true"
-            app:layout_constraintTop_toBottomOf="@id/divider_setting_service"
+            app:layout_constraintTop_toBottomOf="@id/divider_setting_init_service"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
             <ImageView
-                android:id="@+id/iv_guide"
+                android:id="@+id/iv_setting_init_guide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_guide"
@@ -137,50 +137,50 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/tv_guide"
+                android:id="@+id/tv_setting_init_guide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/setting_guide"
                 android:textAppearance="@style/body2"
                 android:textColor="@color/gray600"
                 android:layout_marginStart="8dp"
-                app:layout_constraintTop_toTopOf="@id/iv_guide"
-                app:layout_constraintBottom_toBottomOf="@id/iv_guide"
-                app:layout_constraintStart_toEndOf="@id/iv_guide" />
+                app:layout_constraintTop_toTopOf="@id/iv_setting_init_guide"
+                app:layout_constraintBottom_toBottomOf="@id/iv_setting_init_guide"
+                app:layout_constraintStart_toEndOf="@id/iv_setting_init_guide" />
 
             <ImageView
-                android:id="@+id/iv_guide_right_btn"
+                android:id="@+id/iv_setting_init_guide_right_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_right_btn"
                 android:paddingVertical="6dp"
                 android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/iv_guide"
-                app:layout_constraintBottom_toBottomOf="@id/iv_guide" />
+                app:layout_constraintTop_toTopOf="@id/iv_setting_init_guide"
+                app:layout_constraintBottom_toBottomOf="@id/iv_setting_init_guide" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.divider.MaterialDivider
-            android:id="@+id/divider_setting_guide"
+            android:id="@+id/divider_setting_init_guide"
             android:layout_width="0dp"
             android:layout_height="8dp"
             app:dividerColor="@color/background"
-            app:layout_constraintTop_toBottomOf="@id/cl_setting_guide"
+            app:layout_constraintTop_toBottomOf="@id/cl_setting_init_guide"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_setting_feedback"
+            android:id="@+id/cl_setting_init_feedback"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:clickable="true"
-            app:layout_constraintTop_toBottomOf="@id/divider_setting_guide"
+            app:layout_constraintTop_toBottomOf="@id/divider_setting_init_guide"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
             <ImageView
-                android:id="@+id/iv_feedback"
+                android:id="@+id/iv_setting_init_feedback"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_feedback"
@@ -191,50 +191,50 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/tv_feedback"
+                android:id="@+id/tv_setting_init_feedback"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/setting_feedback"
                 android:textAppearance="@style/body2"
                 android:textColor="@color/gray600"
                 android:layout_marginStart="8dp"
-                app:layout_constraintTop_toTopOf="@id/iv_feedback"
-                app:layout_constraintBottom_toBottomOf="@id/iv_feedback"
-                app:layout_constraintStart_toEndOf="@id/iv_feedback" />
+                app:layout_constraintTop_toTopOf="@id/iv_setting_init_feedback"
+                app:layout_constraintBottom_toBottomOf="@id/iv_setting_init_feedback"
+                app:layout_constraintStart_toEndOf="@id/iv_setting_init_feedback" />
 
             <ImageView
-                android:id="@+id/iv_feedback_right_btn"
+                android:id="@+id/iv_setting_init_feedback_right_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_right_btn"
                 android:paddingVertical="6dp"
                 android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/iv_feedback"
-                app:layout_constraintBottom_toBottomOf="@id/iv_feedback" />
+                app:layout_constraintTop_toTopOf="@id/iv_setting_init_feedback"
+                app:layout_constraintBottom_toBottomOf="@id/iv_setting_init_feedback" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.divider.MaterialDivider
-            android:id="@+id/divider_setting_feedback"
+            android:id="@+id/divider_setting_init_feedback"
             android:layout_width="0dp"
             android:layout_height="8dp"
             app:dividerColor="@color/background"
-            app:layout_constraintTop_toBottomOf="@id/cl_setting_feedback"
+            app:layout_constraintTop_toBottomOf="@id/cl_setting_init_feedback"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_setting_version"
+            android:id="@+id/cl_setting_init_version"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:clickable="true"
-            app:layout_constraintTop_toBottomOf="@id/divider_setting_feedback"
+            app:layout_constraintTop_toBottomOf="@id/divider_setting_init_feedback"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
             <TextView
-                android:id="@+id/tv_version"
+                android:id="@+id/tv_setting_init_version"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/setting_version"
@@ -249,16 +249,16 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.divider.MaterialDivider
-            android:id="@+id/divider_setting_version"
+            android:id="@+id/divider_setting_init_version"
             android:layout_width="0dp"
             android:layout_height="8dp"
             app:dividerColor="@color/background"
-            app:layout_constraintTop_toBottomOf="@id/cl_setting_version"
+            app:layout_constraintTop_toBottomOf="@id/cl_setting_init_version"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
-            android:id="@+id/btn_setting_logout"
+            android:id="@+id/btn_setting_init_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/setting_logout"
@@ -267,11 +267,11 @@
             android:paddingVertical="7dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@id/divider_setting_version"
+            app:layout_constraintTop_toBottomOf="@id/divider_setting_init_version"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/btn_setting_user_exit"
+            android:id="@+id/btn_setting_init_user_exit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/setting_user_exit"
@@ -279,8 +279,8 @@
             android:textColor="@color/gray300"
             android:paddingVertical="3dp"
             android:layout_marginTop="34dp"
-            app:layout_constraintTop_toBottomOf="@id/btn_setting_logout"
-            app:layout_constraintStart_toStartOf="@id/btn_setting_logout" />
+            app:layout_constraintTop_toBottomOf="@id/btn_setting_init_logout"
+            app:layout_constraintStart_toStartOf="@id/btn_setting_init_logout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
