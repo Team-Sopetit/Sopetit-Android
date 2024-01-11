@@ -26,13 +26,15 @@
     <string name="doll_selection_subtitle">한 번 선택한 인형은 바꿀 수 없어요</string>
     <string name="doll_selection_button">이 친구와 함께 할래</string>
 
-    <!-- daily edit -->
-    <string name="daily_edit_delete">n개 삭제</string>
-    <string name="daily_edit_routine_name">데일리 루틴</string>
-    <string name="daily_edit_cancel">취소</string>
+    <!-- daily routine edit -->
+    <string name="daily_routine_edit_delete">n개 삭제</string>
+    <string name="daily_routine_edit_name">데일리 루틴</string>
+    <string name="daily_routine_edit_cancel">취소</string>
+
+    <!-- daily routine -->
     <string name="daily_routine_user_add">이불 개기</string>
     <string name="daily_routine_ing">n번째 달성 중</string>
     <string name="daily_routine_fin_btn">완료하기</string>
     <string name="daily_routine_fin">달성완료</string>
-    <string name="daily_edit">편집</string>
+    <string name="daily_routine_edit">편집</string>
 </resources>

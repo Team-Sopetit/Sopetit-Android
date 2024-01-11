@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.sopetit.softie.R
-import com.sopetit.softie.databinding.FragmentDailyEmptyBinding
-import com.sopetit.softie.ui.dailyroutine.dailyedit.DailyEditActivity
+import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
+import com.sopetit.softie.ui.dailyroutine.dailyroutineedit.DailyRoutineEditActivity
 import com.sopetit.softie.util.binding.BindingFragment
 
 class DailyRoutineFragment :
-    BindingFragment<FragmentDailyEmptyBinding>(R.layout.fragment_daily_routine) {
+    BindingFragment<FragmentDailyRoutineBinding>(R.layout.fragment_daily_routine) {
 
     private val dailyRoutineViewModel by viewModels<DailyRoutineViewModel>()
 
@@ -24,8 +24,8 @@ class DailyRoutineFragment :
     }
 
     private fun moveEdit() {
-        binding.tvEdit.setOnClickListener {
-            val intent = Intent(requireActivity(), DailyEditActivity::class.java)
+        binding.tvDailyRoutineEdit.setOnClickListener {
+            val intent = Intent(requireActivity(), DailyRoutineEditActivity::class.java)
             startActivity(intent)
         }
     }

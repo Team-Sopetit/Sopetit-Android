@@ -1,17 +1,17 @@
-package com.sopetit.softie.ui.dailyroutine.dailyedit
+package com.sopetit.softie.ui.dailyroutine.dailyroutineedit
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import com.sopetit.softie.R
-import com.sopetit.softie.databinding.ActivityDailyEditBinding
+import com.sopetit.softie.databinding.ActivityDailyRoutineEditBinding
 import com.sopetit.softie.ui.dailyroutine.DailyRoutineActivity
 import com.sopetit.softie.ui.dailyroutine.DailyRoutineViewModel
 import com.sopetit.softie.util.binding.BindingActivity
 
-class DailyEditActivity :
-    BindingActivity<ActivityDailyEditBinding>(R.layout.activity_daily_routine_edit) {
+class DailyRoutineEditActivity :
+    BindingActivity<ActivityDailyRoutineEditBinding>(R.layout.activity_daily_routine_edit) {
     private val dailyRoutineViewModel by viewModels<DailyRoutineViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +25,7 @@ class DailyEditActivity :
     }
 
     private fun moveDaily() {
-        binding.tvCancel.setOnClickListener {
+        binding.tvDailyRoutineEditCancel.setOnClickListener {
             val intent = Intent(this, DailyRoutineActivity::class.java)
             startActivity(intent)
         }
@@ -33,9 +33,9 @@ class DailyEditActivity :
 
     private fun selectBtn() {
         with(binding) {
-            setButtonClickListener(btnRadioEmpty)
-            setButtonClickListener(btnRadioEmptySecond)
-            setButtonClickListener(btnRadioEmptyThird)
+            setButtonClickListener(btnDailyRoutineEditRadioEmpty)
+            setButtonClickListener(btnDailyRoutineEditRadioEmptySecond)
+            setButtonClickListener(btnDailyRoutineEditRadioEmptyThird)
         }
     }
 
