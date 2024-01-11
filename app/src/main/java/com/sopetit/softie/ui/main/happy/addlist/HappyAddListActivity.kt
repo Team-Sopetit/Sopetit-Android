@@ -30,6 +30,7 @@ class HappyAddListActivity :
         setContentView(binding.root)
 
         val themeId = 0
+
         happyAddListChipContentAdapter = HappyAddListChipContentAdapter()
         happyAddListContentAdapter = HappyAddListContentAdapter(::moveToDetail)
 
@@ -37,6 +38,9 @@ class HappyAddListActivity :
         binding.rvHappyAddList.addItemDecoration(itemDeco)
         chipDeco = HorizontalChipItemDecoration(applicationContext)
         binding.rvHappyAddListChip.addItemDecoration(chipDeco)
+        binding.ivHappyAddBackArrow.setOnClickListener {
+            finish()
+        }
 
         setupAdapter(themeId)
     }
