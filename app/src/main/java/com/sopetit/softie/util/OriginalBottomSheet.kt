@@ -18,7 +18,7 @@ class OriginalBottomSheet : BindingBottomSheet() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentBottomsheetBinding.inflate(layoutInflater)
+        _binding = FragmentBottomsheetBinding.inflate(inflater, container, false)
         return binding.root
     }
 
