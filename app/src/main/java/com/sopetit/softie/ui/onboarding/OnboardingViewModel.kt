@@ -30,6 +30,10 @@ class OnboardingViewModel : ViewModel() {
     val selectedThemeArray: LiveData<ArrayList<Int>>
         get() = _selectedThemeArray
 
+    private val _selectedRoutineArray: MutableLiveData<ArrayList<Int>> = MutableLiveData()
+    val selectedRoutineArray: LiveData<ArrayList<Int>>
+        get() = _selectedRoutineArray
+
     private val _layoutTranslucent: MutableLiveData<Boolean> = MutableLiveData(false)
     val layoutTranslucent: LiveData<Boolean>
         get() = _layoutTranslucent
@@ -62,6 +66,10 @@ class OnboardingViewModel : ViewModel() {
 
     fun setSelectedThemeArray(themeArray: ArrayList<Int>) {
         _selectedThemeArray.value = themeArray
+    }
+
+    fun setSelectedRoutineArray(routineArray: ArrayList<Int>) {
+        _selectedRoutineArray.value = routineArray
     }
 
     fun setLayoutTranslucent(boolean: Boolean) {

@@ -79,8 +79,19 @@ class RoutineChoiceFragment :
 
     private fun selectRoutines() {
         choiceRoutineAdapter.setOnRoutineClickListener {
-            Timber.d("routineChoice: routine -> ${choiceRoutineAdapter.selectedRoutineArray}")
+            viewModel.setSelectedRoutineArray(choiceRoutineAdapter.selectedRoutineArray)
             setNoticeVisible()
+            setRoutineBtn()
+        }
+    }
+
+    private fun setRoutineBtn() {
+        viewModel.selectedRoutineArray.observe(viewLifecycleOwner) {
+            if (it.size > 0) {
+                routineViewModel.setRoutineBtnEnabled(true)
+            } else {
+                routineViewModel.setRoutineBtnEnabled(false)
+            }
         }
     }
 
