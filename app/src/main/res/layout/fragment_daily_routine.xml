@@ -7,7 +7,7 @@
         <import type="android.view.View" />
 
         <variable
-            name="dailyEmptyViewModel"
+            name="dailyRoutineViewModel"
             type="com.sopetit.softie.ui.dailyroutine.DailyRoutineViewModel" />
 
     </data>
@@ -21,31 +21,31 @@
             android:id="@+id/tv_daily_routine_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="24dp"
-            android:text="@string/daily_routine_edit_name"
             android:paddingVertical="16dp"
+            android:text="@string/daily_routine_edit_name"
             android:textAppearance="@style/body1"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="20dp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_daily_routine_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
             android:text="@string/daily_routine_edit"
             android:textAppearance="@style/body4"
             android:textColor="@color/gray400"
             app:layout_constraintBottom_toBottomOf="@id/tv_daily_routine_name"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="20dp"
             app:layout_constraintTop_toTopOf="@id/tv_daily_routine_name" />
 
         <View
             android:id="@+id/v_daily_routine_blank"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:visibility="@{dailyEmptyViewModel.routineAddList.size() == 0 ? View.VISIBLE : View.GONE}"
+            android:visibility="@{dailyRoutineViewModel.routineAddList.size() == 0 ? View.VISIBLE : View.GONE}"
             app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_name" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -55,7 +55,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/shape_white_fill_20_rect"
-            android:visibility="@{dailyEmptyViewModel.routineAddList.size() >= 1 ? View.VISIBLE : View.GONE}"
+            android:visibility="@{dailyRoutineViewModel.routineAddList.size() >= 1 ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_name">
@@ -123,9 +123,9 @@
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/shape_gray100_fill_10_rect"
                 android:text="@string/daily_routine_fin"
-                android:visibility="invisible"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/gray300"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -140,7 +140,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/shape_white_fill_20_rect"
-            android:visibility="@{dailyEmptyViewModel.routineAddList.size() >= 2 ? View.VISIBLE : View.GONE}"
+            android:visibility="@{dailyRoutineViewModel.routineAddList.size() >= 2 ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_daily_routine_first">
@@ -208,9 +208,9 @@
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/shape_gray100_fill_10_rect"
                 android:text="@string/daily_routine_fin"
-                android:visibility="invisible"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/gray300"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -224,7 +224,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/shape_white_fill_20_rect"
-            android:visibility="@{dailyEmptyViewModel.routineAddList.size() == 3 ? View.VISIBLE : View.GONE}"
+            android:visibility="@{dailyRoutineViewModel.routineAddList.size() == 3 ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_daily_routine_second">
@@ -292,9 +292,9 @@
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/shape_gray100_fill_10_rect"
                 android:text="@string/daily_routine_fin"
-                android:visibility="invisible"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/gray300"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -309,7 +309,7 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/shape_gray200_line_20_rect"
             android:clickable="true"
-            android:visibility="@{dailyEmptyViewModel.routineAddList.size() == 3 ? View.GONE : View.VISIBLE}"
+            android:visibility="@{dailyRoutineViewModel.routineAddList.size() == 3 ? View.GONE : View.VISIBLE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_daily_routine_third">

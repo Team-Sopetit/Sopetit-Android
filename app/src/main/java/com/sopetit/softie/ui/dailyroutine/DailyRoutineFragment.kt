@@ -18,7 +18,7 @@ class DailyRoutineFragment :
         super.onViewCreated(view, savedInstanceState)
 
         binding.lifecycleOwner = this
-        binding.dailyEmptyViewModel = dailyRoutineViewModel
+        binding.dailyRoutineViewModel = dailyRoutineViewModel
 
         moveEdit()
     }

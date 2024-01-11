@@ -7,18 +7,17 @@ import androidx.activity.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityDailyRoutineEditBinding
 import com.sopetit.softie.ui.dailyroutine.DailyRoutineActivity
-import com.sopetit.softie.ui.dailyroutine.DailyRoutineViewModel
 import com.sopetit.softie.util.binding.BindingActivity
 
 class DailyRoutineEditActivity :
     BindingActivity<ActivityDailyRoutineEditBinding>(R.layout.activity_daily_routine_edit) {
-    private val dailyRoutineViewModel by viewModels<DailyRoutineViewModel>()
+    private val dailyRoutineEditViewModel by viewModels<DailyRoutineEditViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding.lifecycleOwner = this
-        binding.dailyEmptyViewModel = dailyRoutineViewModel
+        binding.dailyRoutineEditViewModel = dailyRoutineEditViewModel
 
         moveDaily()
         selectBtn()
