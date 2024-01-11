@@ -1,12 +1,16 @@
 package com.sopetit.softie.ui.onboarding.routinechoice
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentOnboardingChoiceRoutineBinding
+import com.sopetit.softie.ui.main.MainActivity
+import com.sopetit.softie.ui.onboarding.OnboardingActivity
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
 import com.sopetit.softie.util.binding.BindingFragment
 import timber.log.Timber
@@ -31,6 +35,7 @@ class RoutineChoiceFragment :
 
         initSetThemeBackBtn()
         initSetRoutineBtn()
+        initSetSelectRoutineBtn()
         initMakeRoutineAdapter()
     }
 
@@ -42,7 +47,17 @@ class RoutineChoiceFragment :
 
     private fun initSetRoutineBtn() {
         binding.rvOnboardingChoiceRoutine.setOnClickListener {
-            // TODO 프로필 생성 서버 통신 & home으로 이동
+            // TODO 프로필 생성 서버 통신
+        }
+    }
+
+    private fun initSetSelectRoutineBtn() {
+        binding.btnOnboardingRoutineSelectRoutine.setOnClickListener {
+            val onboardingActivity = activity as OnboardingActivity
+
+            val intentToMain = Intent(activity, MainActivity::class.java)
+            startActivity(intentToMain)
+            ActivityCompat.finishAffinity(onboardingActivity)
         }
     }
 

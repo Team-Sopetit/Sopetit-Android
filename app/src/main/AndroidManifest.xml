@@ -23,12 +23,12 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.main.happy.HappyActivity"
+            android:name=".ui.onboarding.OnboardingActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.onboarding.OnboardingActivity"
+            android:name=".ui.dailyroutine.dailyroutineedit.DailyRoutineEditActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
@@ -47,6 +47,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.setting.SettingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
     </application>
 

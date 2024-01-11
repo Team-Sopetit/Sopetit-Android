@@ -11,6 +11,21 @@
 
     <style name="Theme.Softie" parent="Base.Theme.Softie" />
 
+    <style name="BottomNavigationViewNoRipple" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:itemBackground">@android:color/transparent</item>
+        <item name="android:colorControlHighlight">@android:color/transparent</item>
+    </style>
+
+    <style name="OriginalBottomSheet" parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/shape_gray000_fill_top20_rect</item>
+    </style>
+
     <!-- Chip Style -->
     <style name="Widget.Material3.Chip.Style" parent="">
         <item name="chipMinTouchTargetSize">0dp</item>

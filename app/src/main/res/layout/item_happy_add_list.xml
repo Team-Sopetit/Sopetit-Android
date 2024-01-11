@@ -7,7 +7,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/item_happy_add_component"
+        android:id="@+id/chip_happy_add_component"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
@@ -21,9 +21,9 @@
             android:layout_marginTop="22dp"
             android:layout_marginBottom="22dp"
             android:src="@drawable/ic_happy_red"
-            app:layout_constraintBottom_toBottomOf="@id/item_happy_add_component"
-            app:layout_constraintStart_toStartOf="@id/item_happy_add_component"
-            app:layout_constraintTop_toTopOf="@id/item_happy_add_component" />
+            app:layout_constraintBottom_toBottomOf="@id/chip_happy_add_component"
+            app:layout_constraintStart_toStartOf="@id/chip_happy_add_component"
+            app:layout_constraintTop_toTopOf="@id/chip_happy_add_component" />
 
         <TextView
             android:id="@+id/tv_happy_list_item_title"
