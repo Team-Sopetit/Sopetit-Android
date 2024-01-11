@@ -3,7 +3,7 @@
     <!-- onboarding -->
     <string name="onboarding_choice_theme_btn">다 선택했어</string>
     <string name="theme_text">하루의 시작</string>
-    <string name="onboarding_choice_theme_speech">안녕 난 애착이야!\n나와 함께 루틴을 만들어볼까?</string>
+    <string name="onboarding_choice_theme_speech">안녕 난 %s!\n나와 함께 루틴을 만들어볼까?</string>
     <string name="onboarding_choice_theme_speech_after">관심 있는 테마 3개 선택해줘!</string>
     <string name="onboarding_choice_routine_speech">관심사를 바탕으로 목록을 추천해줄게.\n이 중에 데일리 루틴 3개를 선택해봐!</string>
     <string name="routine_text">하루 한 번 엘레베이터 대신 계단 이용하기</string>
@@ -25,6 +25,11 @@
     <string name="doll_selection_question">어떤 친구와 함께 할까요?</string>
     <string name="doll_selection_subtitle">한 번 선택한 인형은 바꿀 수 없어요</string>
     <string name="doll_selection_button">이 친구와 함께 할래</string>
+
+    <!-- bottom navigation -->
+    <string name="bottom_navigation_progress">진행 중</string>
+    <string name="bottom_navigation_home">홈</string>
+    <string name="bottom_navigation_happiness_routine">행복 루틴</string>
 
     <!-- setting -->
     <string name="setting_title">설정</string>
