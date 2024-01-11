@@ -21,9 +21,26 @@ class HappyAddListChipContentAdapter :
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: HappyChip) {
             binding.itemHappyAddChipComponent.text = data.name
+            binding.itemHappyAddChipComponent.isChecked = isSelected(adapterPosition)
+
             binding.root.setOnClickListener {
+                chipCurrentSelection(adapterPosition)
+                notifyDataSetChanged()
                 onItemClickListener?.let { it(data) }
             }
+        }
+    }
+
+    private val selectedPositions = HashSet<Int>()
+
+    private fun isSelected(position: Int) = selectedPositions.contains(position)
+
+    private fun chipCurrentSelection(position: Int) {
+        if (isSelected(position)) {
+            selectedPositions.remove(position)
+        } else {
+            selectedPositions.clear()
+            selectedPositions.add(position)
         }
     }
 
@@ -46,3 +63,4 @@ class HappyAddListChipContentAdapter :
         holder.onBind(getItem(position))
     }
 }
+

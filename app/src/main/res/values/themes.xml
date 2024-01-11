@@ -37,5 +37,4 @@
         <item name="android:textColor">@color/selector_happy_type_text_color</item>
     </style>
 
-
 </resources>
