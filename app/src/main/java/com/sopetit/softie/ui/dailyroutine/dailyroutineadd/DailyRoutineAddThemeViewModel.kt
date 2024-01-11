@@ -1,11 +1,14 @@
 package com.sopetit.softie.ui.dailyroutine.dailyroutineadd
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.sopetit.softie.R
+import com.sopetit.softie.domain.entity.DailyCard
 import com.sopetit.softie.domain.entity.Theme
 
 class DailyRoutineAddThemeViewModel : ViewModel() {
-    val mockThemeList: MutableLiveData<List<Theme>> = MutableLiveData(
+    private val _mockThemeList: MutableLiveData<List<Theme>> = MutableLiveData(
         mutableListOf(
             Theme(
                 1,
@@ -82,4 +85,172 @@ class DailyRoutineAddThemeViewModel : ViewModel() {
 
         )
     )
+
+    val mockThemeList: LiveData<List<Theme>>
+        get() = _mockThemeList
+
+    private val _mockDailyFirstCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+        mutableListOf(
+            DailyCard(
+                card = R.drawable.shape_gray_fill_20_rect,
+                routineId = 1,
+                content = "첫번째 데이터"
+            ),
+            DailyCard(
+                card = R.drawable.shape_gray_fill_20_rect,
+                routineId = 2,
+                content = "첫번째 데이터"
+            ),
+            DailyCard(
+                card = R.drawable.shape_gray_fill_20_rect,
+                routineId = 3,
+                content = "첫번째 데이터"
+            ),
+            DailyCard(
+                card = R.drawable.shape_gray_fill_20_rect,
+                routineId = 4,
+                content = "첫번째 데이터"
+            ),
+            DailyCard(
+                card = R.drawable.shape_gray_fill_20_rect,
+                routineId = 5,
+                content = "첫번째 데이터"
+            )
+        )
+    )
+
+    val mockDailyFirstCardList: LiveData<List<DailyCard>>
+        get() = _mockDailyFirstCardList
+
+//    private val _mockDailySecondCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+//        mutableListOf(
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 1,
+//                content = "두번째 데이터"
+//            ),
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 2,
+//                content = "두번째 데이터"
+//            ),
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 3,
+//                content = "두번째 데이터"
+//            ),
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 4,
+//                content = "두번째 데이터"
+//            ),
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 5,
+//                content = "두번째 데이터"
+//            )
+//        )
+//    )
+
+//    val mockDailySecondCardList: LiveData<List<DailyCard>>
+//        get() = _mockDailySecondCardList
+//
+//    private val _mockDailyThirdCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+//        mutableListOf(
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 1,
+//                content = "세번째 데이터"
+//            ),
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 2,
+//                content = "세번째 데이터"
+//            ),
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 3,
+//                content = "세번째 데이터"
+//            ),
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 4,
+//                content = "세번째 데이터"
+//            ),
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 5,
+//                content = "세번째 데이터"
+//            )
+//        )
+//    )
+//
+//    val mockDailyThirdCardList: LiveData<List<DailyCard>>
+//        get() = _mockDailyThirdCardList
+//
+//    private val _mockDailyForthCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+//        mutableListOf(
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 1,
+//                content = "네번째 데이터"
+//            ),
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 2,
+//                content = "네번째 데이터"
+//            ),
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 3,
+//                content = "네번째 데이터"
+//            ),
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 4,
+//                content = "네번째 데이터"
+//            ),
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 5,
+//                content = "네번째 데이터"
+//            )
+//        )
+//    )
+//
+//    val mockDailyForthCardList: LiveData<List<DailyCard>>
+//        get() = _mockDailyForthCardList
+//
+//    private val _mockDailyFifthCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+//        mutableListOf(
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 1,
+//                content = "세번째 데이터"
+//            ),
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 2,
+//                content = "세번째 데이터"
+//            ),
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 3,
+//                content = "세번째 데이터"
+//            ),
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 4,
+//                content = "세번째 데이터"
+//            ),
+//            DailyCard(
+//                card = R.drawable.shape_gray_fill_20_rect,
+//                routineId = 5,
+//                content = "세번째 데이터"
+//            )
+//        )
+//    )
+//
+//    val mockDailyFifthCardList: LiveData<List<DailyCard>>
+//        get() = _mockDailyThirdCardList
 }
