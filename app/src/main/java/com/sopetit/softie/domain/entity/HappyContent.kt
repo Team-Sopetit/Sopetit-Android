@@ -8,4 +8,3 @@ data class HappyContent(
     val content: String,
     @DrawableRes val imageUrl: Int,
 )
-
