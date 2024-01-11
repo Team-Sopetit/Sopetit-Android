@@ -1,4 +1,4 @@
-package com.sopetit.softie.ui.daily
+package com.sopetit.softie.ui.dailyroutine.dailyroutineadd
 
 import android.graphics.Rect
 import android.os.Bundle
@@ -9,23 +9,24 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.sopetit.softie.R
-import com.sopetit.softie.databinding.ActivityDailyAddBinding
+import com.sopetit.softie.databinding.ActivityDailyRoutineAddBinding
 import com.sopetit.softie.util.binding.BindingActivity
 
-class DailyAddActivity : BindingActivity<ActivityDailyAddBinding>(R.layout.activity_daily_add) {
+class DailyRoutineAddActivity :
+    BindingActivity<ActivityDailyRoutineAddBinding>(R.layout.activity_daily_routine_add) {
     private lateinit var viewPager: ViewPager2
-    private lateinit var dailyPagerAdapter: DailyPagerAdapter
-    private lateinit var dailyThemeAdapter: DailyThemeAdapter
+    private lateinit var dailyRoutinePagerAdapter: DailyRoutinePagerAdapter
+    private lateinit var dailyRoutineAddThemeAdapter: DailyRoutineAddThemeAdapter
 
-    private val dailyAddViewModel by viewModels<DailyAddViewModel>()
-    private val dailyThemeViewModel by viewModels<DailyThemeViewModel>()
+    private val dailyRoutineAddCardViewModel by viewModels<DailyRoutineAddCardViewModel>()
+    private val dailyRoutineAddThemeViewModel by viewModels<DailyRoutineAddThemeViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        dailyPagerAdapter = DailyPagerAdapter()
-        dailyThemeAdapter = DailyThemeAdapter()
+        dailyRoutinePagerAdapter = DailyRoutinePagerAdapter()
+        dailyRoutineAddThemeAdapter = DailyRoutineAddThemeAdapter()
 
-        viewPager = binding.vpDailyCard
+        viewPager = binding.vpDailyRoutineAddCard
 
         setupAdapter()
         //marginPage()
@@ -37,11 +38,11 @@ class DailyAddActivity : BindingActivity<ActivityDailyAddBinding>(R.layout.activ
 
     private fun setupAdapter() {
         with(binding) {
-            vpDailyCard.adapter = dailyPagerAdapter
-            rvThemeDaily.adapter = dailyThemeAdapter
+            vpDailyRoutineAddCard.adapter = dailyRoutinePagerAdapter
+            rvDailyRoutineAddTheme.adapter = dailyRoutineAddThemeAdapter
         }
-        dailyPagerAdapter.submitList(dailyAddViewModel.mockDailyList)
-        dailyThemeAdapter.submitList(dailyThemeViewModel.mockDailyThemeList.value)
+        dailyRoutinePagerAdapter.submitList(dailyRoutineAddCardViewModel.mockDailyList)
+        dailyRoutineAddThemeAdapter.submitList(dailyRoutineAddThemeViewModel.mockDailyThemeList.value)
     }
 
     private fun marginPage() {
@@ -50,14 +51,14 @@ class DailyAddActivity : BindingActivity<ActivityDailyAddBinding>(R.layout.activ
         val screenWidth = resources.displayMetrics.widthPixels
         val offsetPx = screenWidth - pageMarginPx - pagerWidth
 
-        binding.vpDailyCard.setPageTransformer { page, position ->
+        binding.vpDailyRoutineAddCard.setPageTransformer { page, position ->
             page.translationX = position * -offsetPx
         }
     }
 
     private fun initViewPager() {
 
-        viewPager.adapter = dailyPagerAdapter
+        viewPager.adapter = dailyRoutinePagerAdapter
 
         viewPager.apply {
             clipChildren = false
@@ -77,7 +78,7 @@ class DailyAddActivity : BindingActivity<ActivityDailyAddBinding>(R.layout.activ
     }
 
     private fun setIndicator() {
-        binding.diDailyIndicator.attachTo(binding.vpDailyCard)
+        binding.diDailyRoutineAddIndicator.attachTo(binding.vpDailyRoutineAddCard)
     }
 
     private fun initPagerDiv(previewWidth: Int, itemMargin: Int) {
@@ -85,7 +86,7 @@ class DailyAddActivity : BindingActivity<ActivityDailyAddBinding>(R.layout.activ
         val pageTransX = decoMargin + previewWidth
         val decoration = PageDecoration(decoMargin)
 
-        binding.vpDailyCard.also {
+        binding.vpDailyRoutineAddCard.also {
             it.offscreenPageLimit = 1
             it.addItemDecoration(decoration)
             it.setPageTransformer { page, position ->
@@ -122,12 +123,12 @@ class DailyAddActivity : BindingActivity<ActivityDailyAddBinding>(R.layout.activ
     }
 
     private fun selectTheme() {
-        dailyThemeAdapter.setOnThemeClickListener {
+        dailyRoutineAddThemeAdapter.setOnThemeClickListener {
 
         }
     }
 
     private fun setDiv() {
-        binding.rvThemeDaily.addItemDecoration(HorizontalItemDecorator(16))
+        binding.rvDailyRoutineAddTheme.addItemDecoration(HorizontalItemDecorator(16))
     }
 }

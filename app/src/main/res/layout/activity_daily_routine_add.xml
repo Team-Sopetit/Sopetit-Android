@@ -10,21 +10,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.daily.DailyAddActivity">
+        tools:context=".ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity">
 
         <ImageView
-            android:id="@+id/iv_back"
+            android:id="@+id/iv_daily_routine_add_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/ic_daily_back"
-            app:layout_constraintEnd_toStartOf="@id/tv_add_daily_routine"
+            app:layout_constraintEnd_toStartOf="@id/tv_daily_routine_add_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_add_daily_routine"
+            android:id="@+id/tv_daily_routine_add_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -32,32 +32,32 @@
             android:includeFontPadding="false"
             android:text="@string/daily_routine_title"
             android:textAppearance="@style/body1"
-            app:layout_constraintBottom_toBottomOf="@id/iv_back"
+            app:layout_constraintBottom_toBottomOf="@id/iv_daily_routine_add_back"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_back"
-            app:layout_constraintTop_toTopOf="@id/iv_back" />
+            app:layout_constraintStart_toEndOf="@id/iv_daily_routine_add_back"
+            app:layout_constraintTop_toTopOf="@id/iv_daily_routine_add_back" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_theme_daily"
+            android:id="@+id/rv_daily_routine_add_theme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="23dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_back"
-            tools:listitem="@layout/item_daily_theme" />
+            app:layout_constraintTop_toBottomOf="@id/iv_daily_routine_add_back"
+            tools:listitem="@layout/item_daily_routine_add_theme" />
 
         <View
-            android:id="@+id/v_line"
+            android:id="@+id/v_daily_routine_add_line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="15dp"
             android:background="@color/gray100"
-            app:layout_constraintTop_toBottomOf="@id/rv_theme_daily" />
+            app:layout_constraintTop_toBottomOf="@id/rv_daily_routine_add_theme" />
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/vp_daily_card"
+            android:id="@+id/vp_daily_routine_add_card"
             android:layout_width="match_parent"
             android:layout_height="398dp"
             android:layout_marginTop="27dp"
@@ -67,10 +67,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/v_line" />
+            app:layout_constraintTop_toBottomOf="@id/v_daily_routine_add_line" />
 
         <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-            android:id="@+id/di_daily_indicator"
+            android:id="@+id/di_daily_routine_add_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -82,11 +82,11 @@
             app:dotsWidthFactor="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vp_daily_card"
+            app:layout_constraintTop_toBottomOf="@id/vp_daily_routine_add_card"
             app:selectedDotColor="@color/main1" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_add_daily"
+            android:id="@+id/btn_daily_routine_add"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -100,7 +100,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/di_daily_indicator" />
+            app:layout_constraintTop_toBottomOf="@id/di_daily_routine_add_indicator" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

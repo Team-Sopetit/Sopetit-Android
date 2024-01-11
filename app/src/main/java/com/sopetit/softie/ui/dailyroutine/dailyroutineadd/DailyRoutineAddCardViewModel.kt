@@ -1,10 +1,10 @@
-package com.sopetit.softie.ui.daily
+package com.sopetit.softie.ui.dailyroutine.dailyroutineadd
 
 import androidx.lifecycle.ViewModel
 import com.sopetit.softie.R
 import com.sopetit.softie.domain.entity.DailyCard
 
-class DailyAddViewModel : ViewModel() {
+class DailyRoutineAddCardViewModel : ViewModel() {
     val mockDailyList = listOf<DailyCard>(
         DailyCard(
             card = R.drawable.shape_gray_fill_20_rect,

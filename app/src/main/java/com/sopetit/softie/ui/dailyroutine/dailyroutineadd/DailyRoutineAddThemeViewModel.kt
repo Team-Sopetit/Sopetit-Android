@@ -1,10 +1,10 @@
-package com.sopetit.softie.ui.daily
+package com.sopetit.softie.ui.dailyroutine.dailyroutineadd
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sopetit.softie.domain.entity.DailyTheme
 
-class DailyThemeViewModel : ViewModel() {
+class DailyRoutineAddThemeViewModel : ViewModel() {
     val mockDailyThemeList = MutableLiveData(
         listOf(
             DailyTheme(

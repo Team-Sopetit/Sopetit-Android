@@ -17,14 +17,14 @@
         android:clickable="true">
 
         <FrameLayout
-            android:id="@+id/fl_daily_theme"
+            android:id="@+id/fl_daily_routine_add_theme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/iv_daily_theme_background"
+                android:id="@+id/iv_daily_routine_add_theme_background"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginHorizontal="3dp"
@@ -35,29 +35,29 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/iv_daily_theme"
+                android:id="@+id/iv_daily_routine_add_theme_icon"
                 setImage="@{data.iconImageUrl}"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:src="@color/red"
-                app:layout_constraintBottom_toBottomOf="@id/iv_daily_theme_background"
-                app:layout_constraintEnd_toEndOf="@id/iv_daily_theme_background"
-                app:layout_constraintStart_toStartOf="@id/iv_daily_theme_background"
-                app:layout_constraintTop_toTopOf="@id/iv_daily_theme_background" />
+                app:layout_constraintBottom_toBottomOf="@id/iv_daily_routine_add_theme_background"
+                app:layout_constraintEnd_toEndOf="@id/iv_daily_routine_add_theme_background"
+                app:layout_constraintStart_toStartOf="@id/iv_daily_routine_add_theme_background"
+                app:layout_constraintTop_toTopOf="@id/iv_daily_routine_add_theme_background" />
         </FrameLayout>
 
         <TextView
-            android:id="@+id/tv_theme_daily"
+            android:id="@+id/tv_daily_routine_add_theme_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="@{data.content}"
             android:textAppearance="@style/caption1"
             android:textColor="@color/gray400"
-            app:layout_constraintEnd_toEndOf="@id/fl_daily_theme"
-            app:layout_constraintStart_toStartOf="@id/fl_daily_theme"
-            app:layout_constraintTop_toBottomOf="@id/fl_daily_theme"
+            app:layout_constraintEnd_toEndOf="@id/fl_daily_routine_add_theme"
+            app:layout_constraintStart_toStartOf="@id/fl_daily_routine_add_theme"
+            app:layout_constraintTop_toBottomOf="@id/fl_daily_routine_add_theme"
             tools:text="테마" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

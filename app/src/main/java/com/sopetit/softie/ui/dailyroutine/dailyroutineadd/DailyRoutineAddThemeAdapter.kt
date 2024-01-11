@@ -1,4 +1,4 @@
-package com.sopetit.softie.ui.daily
+package com.sopetit.softie.ui.dailyroutine.dailyroutineadd
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,19 +6,20 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sopetit.softie.R
-import com.sopetit.softie.databinding.ItemDailyThemeBinding
+import com.sopetit.softie.databinding.ItemDailyRoutineAddThemeBinding
 import com.sopetit.softie.domain.entity.DailyTheme
 import com.sopetit.softie.util.ItemDiffCallback
 
-class DailyThemeAdapter : ListAdapter<DailyTheme, DailyThemeAdapter.DailyThemeViewHolder>(
-    ItemDiffCallback<DailyTheme>(
-        onItemsTheSame = { oldItem, newItem -> oldItem == newItem },
-        onContentsTheSame = { oldItem, newItem -> oldItem == newItem }
-    )
-) {
+class DailyRoutineAddThemeAdapter :
+    ListAdapter<DailyTheme, DailyRoutineAddThemeAdapter.DailyThemeViewHolder>(
+        ItemDiffCallback<DailyTheme>(
+            onItemsTheSame = { oldItem, newItem -> oldItem == newItem },
+            onContentsTheSame = { oldItem, newItem -> oldItem == newItem }
+        )
+    ) {
     var selectedThemeArray = mutableListOf<Int>()
 
-    inner class DailyThemeViewHolder(private val binding: ItemDailyThemeBinding) :
+    inner class DailyThemeViewHolder(private val binding: ItemDailyRoutineAddThemeBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         init {
@@ -56,13 +57,13 @@ class DailyThemeAdapter : ListAdapter<DailyTheme, DailyThemeAdapter.DailyThemeVi
     }
 
     private fun changeThemeBackground(
-        binding: ItemDailyThemeBinding,
+        binding: ItemDailyRoutineAddThemeBinding,
         selected: Boolean
     ) {
         when (selected) {
             true -> {
-                binding.ivDailyThemeBackground.setBackgroundResource(R.drawable.ic_daily_theme_background_click)
-                binding.tvThemeDaily.setTextColor(
+                binding.ivDailyRoutineAddThemeBackground.setBackgroundResource(R.drawable.ic_daily_theme_background_click)
+                binding.tvDailyRoutineAddThemeName.setTextColor(
                     ContextCompat.getColor(
                         binding.root.context,
                         R.color.gray700
@@ -71,8 +72,8 @@ class DailyThemeAdapter : ListAdapter<DailyTheme, DailyThemeAdapter.DailyThemeVi
             }
 
             false -> {
-                binding.ivDailyThemeBackground.setBackgroundResource(R.drawable.ic_daily_theme_background)
-                binding.tvThemeDaily.setTextColor(
+                binding.ivDailyRoutineAddThemeBackground.setBackgroundResource(R.drawable.ic_daily_theme_background)
+                binding.tvDailyRoutineAddThemeName.setTextColor(
                     ContextCompat.getColor(
                         binding.root.context,
                         R.color.gray400
@@ -83,7 +84,7 @@ class DailyThemeAdapter : ListAdapter<DailyTheme, DailyThemeAdapter.DailyThemeVi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DailyThemeViewHolder {
-        val binding = ItemDailyThemeBinding.inflate(
+        val binding = ItemDailyRoutineAddThemeBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
         return DailyThemeViewHolder(binding)
