@@ -27,7 +27,7 @@
             android:id="@+id/tv_happy_add_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:text="@string/happy_add_title"
             android:textAppearance="@style/body1"
             app:layout_constraintBottom_toBottomOf="@id/iv_happy_add_back_arrow"
