@@ -21,28 +21,38 @@ class HappyAddListActivity :
     private lateinit var itemDeco: RecyclerView.ItemDecoration
     private lateinit var chipDeco: RecyclerView.ItemDecoration
 
-    private lateinit var happyAddListChipContentAdapter: HappyAddListChipContentAdapter
-    private lateinit var happyAddListContentAdapter: HappyAddListContentAdapter
+    private var happyAddListChipContentAdapter: HappyAddListChipContentAdapter? = null
+    private var happyAddListContentAdapter: HappyAddListContentAdapter? = null
+
+    private val themeId = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHappyAddListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val themeId = 0
+        setChipAdapters()
+        setBackEnter()
+        setItemDeco()
+        setupAdapter(themeId)
+    }
 
+    private fun setChipAdapters() {
         happyAddListChipContentAdapter = HappyAddListChipContentAdapter()
         happyAddListContentAdapter = HappyAddListContentAdapter(::moveToDetail)
+    }
 
+    private fun setBackEnter() {
+        binding.ivHappyAddBackArrow.setOnClickListener {
+            finish()
+        }
+    }
+
+    private fun setItemDeco() {
         itemDeco = VerticalItemDecoration(applicationContext)
         binding.rvHappyAddList.addItemDecoration(itemDeco)
         chipDeco = HorizontalChipItemDecoration(applicationContext)
         binding.rvHappyAddListChip.addItemDecoration(chipDeco)
-        binding.ivHappyAddBackArrow.setOnClickListener {
-            finish()
-        }
-
-        setupAdapter(themeId)
     }
 
     private fun setupAdapter(themeId: Int) {
@@ -50,10 +60,10 @@ class HappyAddListActivity :
             rvHappyAddListChip.adapter = happyAddListChipContentAdapter
             rvHappyAddList.adapter = happyAddListContentAdapter
         }
-        happyAddListChipContentAdapter.submitList(viewModel.mockHappyChipList.value)
-        happyAddListContentAdapter.submitList(viewModel.mockHappyContentList.value)
+        happyAddListChipContentAdapter?.submitList(viewModel.mockHappyChipList.value)
+        happyAddListContentAdapter?.submitList(viewModel.mockHappyContentList.value)
 
-        happyAddListChipContentAdapter.setOnChipClickListener { handleChipClick(it.themeId) }
+        happyAddListChipContentAdapter?.setOnChipClickListener { handleChipClick(it.themeId) }
     }
 
     private fun handleChipClick(themeId: Int) {
@@ -71,7 +81,7 @@ class HappyAddListActivity :
     }
 
     private fun makeSubmitList(list: List<HappyContent>) {
-        happyAddListContentAdapter.submitList(list)
+        happyAddListContentAdapter?.submitList(list)
     }
 
     private fun moveToDetail(id: Int) {

@@ -11,10 +11,12 @@ import com.sopetit.softie.util.ItemDiffCallback
 class HappyAddListChipContentAdapter :
     ListAdapter<HappyChip, HappyAddListChipContentAdapter.HappyAddListChipContentViewHolder>(
         ItemDiffCallback<HappyChip>(
-            onItemsTheSame = { oldItem, newItem -> oldItem == newItem },
+            onItemsTheSame = { oldItem, newItem -> oldItem.themeId == newItem.themeId },
             onContentsTheSame = { oldItem, newItem -> oldItem == newItem }
         )
     ) {
+    private val selectedPositions = HashSet<Int>()
+    private var onItemClickListener: ((HappyChip) -> Unit)? = null
 
     inner class HappyAddListChipContentViewHolder(
         private val binding: ItemHappyAddListChipBinding,
@@ -31,8 +33,6 @@ class HappyAddListChipContentAdapter :
         }
     }
 
-    private val selectedPositions = HashSet<Int>()
-
     private fun isSelected(position: Int) = selectedPositions.contains(position)
 
     private fun chipCurrentSelection(position: Int) {
@@ -44,7 +44,6 @@ class HappyAddListChipContentAdapter :
         }
     }
 
-    private var onItemClickListener: ((HappyChip) -> Unit)? = null
     fun setOnChipClickListener(listener: (HappyChip) -> Unit) {
         onItemClickListener = listener
     }
@@ -63,4 +62,3 @@ class HappyAddListChipContentAdapter :
         holder.onBind(getItem(position))
     }
 }
-
