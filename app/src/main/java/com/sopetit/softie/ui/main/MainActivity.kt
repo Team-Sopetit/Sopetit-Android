@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityMainBinding
+import com.sopetit.softie.ui.main.happy.HappyRoutineFragment
 import com.sopetit.softie.ui.main.home.HomeFragment
 import com.sopetit.softie.util.binding.BindingActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,12 +27,12 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
                 }
 
                 R.id.bottom_navigation_home -> {
-                    // changeFragment() 홈 화면 띄우기
+                    changeFragment(HomeFragment())
                     true
                 }
 
                 R.id.bottom_navigation_happiness_routine -> {
-                    // changeFragment() 행복 루틴 화면 띄우기
+                    changeFragment(HappyRoutineFragment())
                     true
                 }
 
@@ -53,7 +54,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
 
     private fun changeFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fcv_onboarding_fragment, fragment)
+            .replace(R.id.fcv_main, fragment)
             .commit()
     }
 
