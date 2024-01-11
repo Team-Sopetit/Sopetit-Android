@@ -33,6 +33,9 @@ class OnboardingViewModel : ViewModel() {
     private val _selectedBearType: MutableLiveData<Int> = MutableLiveData(NONE)
     val selectedBearType: LiveData<Int> get() = _selectedBearType
 
+    private val _bearNickname: MutableLiveData<String> = MutableLiveData("")
+    val bearNickname: LiveData<String> get() = _bearNickname
+
     fun changeBearChoiceView() {
         _bearChoiceView.value = true
     }
@@ -59,6 +62,10 @@ class OnboardingViewModel : ViewModel() {
 
     fun setSelectedBearType(bearType: Int) {
         _selectedBearType.value = bearType
+    }
+
+    fun setBearNickname(nickname: String) {
+        _bearNickname.value = nickname
     }
 
     companion object {

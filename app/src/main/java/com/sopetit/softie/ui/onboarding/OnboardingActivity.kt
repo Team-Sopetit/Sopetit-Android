@@ -5,6 +5,7 @@ import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityOnboardingBinding
+import com.sopetit.softie.ui.onboarding.bearnaming.BearNamingFragment
 import com.sopetit.softie.ui.onboarding.bearselection.BearSelectionFragment
 import com.sopetit.softie.ui.onboarding.routinechoice.RoutineChoiceFragment
 import com.sopetit.softie.ui.onboarding.themechoice.ChoiceThemeFragment
@@ -42,7 +43,7 @@ class OnboardingActivity :
     private fun initChangeSetBearName() {
         viewModel.bearNameChoiceView.observe(this) { bearNameChoice ->
             if (bearNameChoice) {
-                changeFragment(SetBearNameFragment())
+                changeFragment(BearNamingFragment())
             }
         }
     }
