@@ -50,10 +50,14 @@
         <activity
             android:name=".ui.main.happy.addlist.HappyAddListActivity"
             android:exported="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.setting.SettingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.LoginActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 

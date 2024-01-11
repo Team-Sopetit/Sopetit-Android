@@ -6,7 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivitySplashBinding
-import com.sopetit.softie.ui.storytelling.StoryTellingActivity
+import com.sopetit.softie.ui.main.LoginActivity
 import com.sopetit.softie.util.binding.BindingActivity
 import kotlin.random.Random
 
@@ -34,7 +34,7 @@ class SplashActivity : BindingActivity<ActivitySplashBinding>(R.layout.activity_
 
     private fun initMakeSplash() {
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, StoryTellingActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }, SPLASH_DELAY)
