@@ -3,10 +3,10 @@
     <style name="Base.Theme.Softie" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="android:includeFontPadding">false</item>
-        <!--        <item name="android:windowLightStatusBar">true</item>-->
-        <!--        <item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
-        <!--        <item name="android:statusBarColor">@android:color/transparent</item>-->
-        <!--        <item name="android:windowTranslucentStatus">true</item>-->
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
     <style name="Theme.Softie" parent="Base.Theme.Softie" />

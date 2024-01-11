@@ -16,7 +16,7 @@ class SoftieApplication : Application() {
         if (BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-//        setStatusBarTransparent()
+        setStatusBarTransparent()
     }
 
     private fun setStatusBarTransparent() {

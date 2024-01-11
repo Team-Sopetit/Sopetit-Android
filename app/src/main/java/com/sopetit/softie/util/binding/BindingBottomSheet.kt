@@ -9,7 +9,9 @@ import com.sopetit.softie.util.OriginalBottomSheet
 abstract class BindingBottomSheet : BottomSheetDialogFragment() {
 
     protected var _binding: ViewBinding? = null
-    protected var image: String? = null
+    protected var isDrawable: Boolean? = null
+    protected var imageDrawable: Int? = null
+    protected var imageUri: String? = null
     protected var title: String? = null
     protected var content: String? = null
     protected var isContentVisible: Boolean? = null
@@ -49,7 +51,9 @@ abstract class BindingBottomSheet : BottomSheetDialogFragment() {
 
     class Builder() {
         fun build(
-            image: String,
+            isDrawable: Boolean,
+            imageDrawable: Int,
+            imageUri: String,
             title: String,
             content: String,
             isContentVisible: Boolean,
@@ -62,7 +66,9 @@ abstract class BindingBottomSheet : BottomSheetDialogFragment() {
         ): BindingBottomSheet {
             val bottomSheet = OriginalBottomSheet()
             return bottomSheet.apply {
-                this.image = image
+                this.isDrawable = isDrawable
+                this.imageDrawable = imageDrawable
+                this.imageUri = imageUri
                 this.title = title
                 this.content = content
                 this.isContentVisible = isContentVisible
