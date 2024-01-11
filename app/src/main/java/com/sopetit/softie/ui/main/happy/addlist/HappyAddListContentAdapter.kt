@@ -8,7 +8,7 @@ import com.sopetit.softie.databinding.ItemHappyAddListBinding
 import com.sopetit.softie.domain.entity.HappyContent
 import com.sopetit.softie.util.ItemDiffCallback
 
-class HappyAddListContentAdapter :
+class HappyAddListContentAdapter(private val moveToDetail: (Int) -> Unit) :
     ListAdapter<HappyContent, HappyAddListContentAdapter.HappyAddListContentViewHolder>(
         ItemDiffCallback<HappyContent>(
             onItemsTheSame = { oldItem, newItem -> oldItem == newItem },
@@ -16,12 +16,19 @@ class HappyAddListContentAdapter :
         )
     ) {
 
-    class HappyAddListContentViewHolder(private val binding: ItemHappyAddListBinding) :
+    inner class HappyAddListContentViewHolder(
+        private val binding: ItemHappyAddListBinding,
+        private val moveToDetail: (Int) -> Unit,
+    ) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(happyContentData: HappyContent) {
-            binding.tvHappyListItemTitle.text = happyContentData.title
-            binding.tvHappyListItemContent.text = happyContentData.content
-            binding.ivHappyListItemIcon.setImageResource(happyContentData.imageUrl)
+        fun onBind(data: HappyContent) {
+            binding.tvHappyListItemTitle.text = data.title
+            binding.tvHappyListItemContent.text = data.content
+            binding.ivHappyListItemIcon.setImageResource(data.imageUrl)
+
+            binding.root.setOnClickListener {
+                moveToDetail(data.routineId)
+            }
         }
     }
 
@@ -32,7 +39,7 @@ class HappyAddListContentAdapter :
         val binding = ItemHappyAddListBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
-        return HappyAddListContentViewHolder(binding)
+        return HappyAddListContentViewHolder(binding, moveToDetail)
     }
 
     override fun onBindViewHolder(holder: HappyAddListContentViewHolder, position: Int) {
