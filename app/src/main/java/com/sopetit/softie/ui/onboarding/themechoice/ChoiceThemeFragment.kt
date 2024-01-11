@@ -45,8 +45,11 @@ class ChoiceThemeFragment :
     }
 
     private fun initSetSpeechText() {
+        val nickname = viewModel.bearNickname.value ?: ""
+        val message = getString(R.string.onboarding_choice_theme_speech).format(nickname)
+
         binding.tvOnboardingChoiceThemeSpeech.text =
-            SpannableStringBuilder(getString(R.string.onboarding_choice_theme_speech)).apply {
+            SpannableStringBuilder(message).apply {
                 setSpan(
                     ForegroundColorSpan(
                         ContextCompat.getColor(
@@ -55,7 +58,7 @@ class ChoiceThemeFragment :
                         )
                     ),
                     SPAN_START,
-                    SPAN_END,
+                    SPAN_START + nickname.length,
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
             }
@@ -108,7 +111,6 @@ class ChoiceThemeFragment :
 
     companion object {
         const val SPAN_START = 5
-        const val SPAN_END = 8
         const val MAXIMUM_THEME_SELECTION = 3
     }
 }

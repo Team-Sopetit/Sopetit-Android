@@ -3,18 +3,33 @@
     <!-- onboarding -->
     <string name="onboarding_choice_theme_btn">다 선택했어</string>
     <string name="theme_text">하루의 시작</string>
-    <string name="onboarding_choice_theme_speech">안녕 난 애착이야!\n나와 함께 루틴을 만들어볼까?</string>
+    <string name="onboarding_choice_theme_speech">안녕 난 %s!\n나와 함께 루틴을 만들어볼까?</string>
     <string name="onboarding_choice_theme_speech_after">관심 있는 테마 3개 선택해줘!</string>
+    <string name="onboarding_choice_routine_speech">관심사를 바탕으로 목록을 추천해줄게.\n이 중에 데일리 루틴 3개를 선택해봐!</string>
+    <string name="routine_text">하루 한 번 엘레베이터 대신 계단 이용하기</string>
+    <string name="onboarding_routine_back_btn">테마 다시 고를래</string>
+    <string name="onboarding_routine_select_btn">친구 만날 준비 끝!</string>
+    <string name="onboarding_routine_notice">최대 3개 선택 가능합니다</string>
 
     <!-- story telling -->
     <string name="story_telling_intro">오늘도 고된 하루였어..</string>
     <string name="story_telling_main">어? 집 앞에 이건 뭐지?</string>
     <string name="story_telling_conclusion">한 번 열어볼까?</string>
 
-    <!-- happy -->
-    <string name="happy_title">행복루틴</string>
+    <!-- happy empty -->
+    <string name="happy_title">행복 루틴</string>
     <string name="happy_default_mention">행복 루틴은 매일 조금씩 너에 대해\n알아갈 수 있는 특별한 이벤트형 루틴이야!</string>
     <string name="happy_empty_card">진행 중인 행복루틴이 없어요.\n루틴을 추가할까요?</string>
+    <string name="happy_add_title">행복 루틴 추가</string>
+
+    <!-- happy add list -->
+    <string name="chip_item_happy_all">전체</string>
+    <string name="chip_item_happy_relationship">관계 쌓기</string>
+    <string name="chip_item_happy_all_one_growth">한 걸음 성장</string>
+    <string name="chip_item_happy_resilience">회복탄력성</string>
+    <string name="chip_item_happy_new_me">새로운 나</string>
+    <string name="chip_item_happy_mindfulness">마음 챙김</string>
+    <string name="happy_list_item_content">성숙한 사랑을 만나기 위한</string>
 
     <!-- doll selection -->
     <string name="doll_selection_question">어떤 친구와 함께 할까요?</string>
@@ -23,4 +38,57 @@
 
     <!-- splash -->
     <string name="splash_content">친구와 함께 하는 일상 속 작은 습관</string>
+
+    <!-- bottom navigation -->
+    <string name="bottom_navigation_progress">진행 중</string>
+    <string name="bottom_navigation_home">홈</string>
+    <string name="bottom_navigation_happiness_routine">행복 루틴</string>
+
+    <!-- setting -->
+    <string name="setting_title">설정</string>
+    <string name="setting_user_security">개인정보 처리방침</string>
+    <string name="setting_document">서비스 이용 약관</string>
+    <string name="setting_guide">서비스 이용 가이드</string>
+    <string name="setting_feedback">피드백</string>
+    <string name="setting_version">현재 버전 1.0.0</string>
+    <string name="setting_logout">로그아웃</string>
+    <string name="setting_user_exit"><u>회원 탈퇴</u></string>
+    <string name="user_exit_title">소프티를 정말 탈퇴하시나요?</string>
+    <string name="user_exit_content">탈퇴하면 계정이 삭제되고 모든 데이터가 사라집니다.</string>
+    <string name="user_exit_speech_content">정말 가는 거야..?\n나는 영영 사라져</string>
+    <string name="user_exit_back">더 써볼래</string>
+    <string name="user_exit_exit">탈퇴할래</string>
+    <string name="user_security_title">소프티 개인정보처리방침</string>
+
+    <!-- bottom sheet -->
+    <string name="bottom_sheet_title">정말 로그아웃할까요?</string>
+    <string name="bottom_sheet_content">&quot;잠시만 안녕..다음에 또 봐!&quot;</string>
+    <string name="bottom_sheet_back">취소</string>
+    <string name="bottom_sheet_do">로그아웃 할래</string>
+
+    <!-- bear selection -->
+    <string name="bear_selection_question">어떤 친구와 함께 할까요?</string>
+    <string name="bear_selection_subtitle">한 번 선택한 인형은 바꿀 수 없어요</string>
+    <string name="bear_selection_button">이 친구와 함께 할래</string>
+
+    <!-- bear naming -->
+    <string name="bear_naming_question">좋은 선택이에요!\n친구 이름도 지어볼까요?</string>
+    <string name="bear_naming_subtitle">한 번 지은 이름은 평생 가요.</string>
+    <string name="bear_naming_hint">소프티</string>
+    <string name="bear_naming_button">이 이름이 좋겠어</string>
+    <string name="bear_naming_warning">*특수문자는 사용할 수 없어요</string>
+
+    <!-- daily routine edit -->
+    <string name="daily_routine_edit_delete">n개 삭제</string>
+    <string name="daily_routine_edit_name">데일리 루틴</string>
+    <string name="daily_routine_edit_cancel">취소</string>
+    <string name="daily_routine_edit">편집</string>
+    <string name="daily_routine_edit_delete_nothing">0개 삭제</string>
+
+    <!-- daily routine -->
+    <string name="daily_routine_user_add">이불 개기</string>
+    <string name="daily_routine_ing">n번째 달성 중</string>
+    <string name="daily_routine_fin_btn">완료하기</string>
+    <string name="daily_routine_fin">달성완료</string>
+
 </resources>

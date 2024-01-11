@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <TextView
+            android:id="@+id/tv_happy_routine_title"
+            style="@style/head3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/happy_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_happy_routine_character"
+            android:layout_width="53dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/ic_face_red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_happy_routine_title" />
+
+        <ImageView
+            android:id="@+id/iv_happy_routine_default_mention"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:src="@drawable/ic_speech_long"
+            app:layout_constraintBottom_toBottomOf="@id/iv_happy_routine_character"
+            app:layout_constraintStart_toEndOf="@id/iv_happy_routine_character"
+            app:layout_constraintTop_toTopOf="@id/iv_happy_routine_character" />
+
+        <TextView
+            android:id="@+id/tv_happy_routine_default_mention"
+            style="@style/bubble14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/happy_default_mention"
+            app:layout_constraintBottom_toBottomOf="@id/iv_happy_routine_default_mention"
+            app:layout_constraintEnd_toEndOf="@id/iv_happy_routine_default_mention"
+            app:layout_constraintStart_toStartOf="@id/iv_happy_routine_default_mention"
+            app:layout_constraintTop_toTopOf="@id/iv_happy_routine_default_mention" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_happy_routine_empty_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="53dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_happy_routine_default_mention">
+
+            <ImageView
+                android:id="@+id/iv_happy_routine_empty_card"
+                android:layout_width="280dp"
+                android:layout_height="398dp"
+                android:src="@drawable/shape_white_fill_gray000_stroke_radius_20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_happy_routine_empty_card"
+                style="@style/body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="82dp"
+                android:gravity="center"
+                android:text="@string/happy_empty_card"
+                android:textColor="@color/gray300"
+                app:layout_constraintBottom_toTopOf="@id/iv_happy_routine_empty_card_bear"
+                app:layout_constraintEnd_toEndOf="@id/iv_happy_routine_empty_card"
+                app:layout_constraintStart_toStartOf="@id/iv_happy_routine_empty_card"
+                app:layout_constraintTop_toTopOf="@id/iv_happy_routine_empty_card" />
+
+            <ImageView
+                android:id="@+id/iv_happy_routine_empty_card_bear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="62dp"
+                android:src="@drawable/ic_happy_add"
+                app:layout_constraintEnd_toEndOf="@id/iv_happy_routine_empty_card"
+                app:layout_constraintStart_toStartOf="@id/iv_happy_routine_empty_card"
+                app:layout_constraintTop_toBottomOf="@id/tv_happy_routine_empty_card" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
