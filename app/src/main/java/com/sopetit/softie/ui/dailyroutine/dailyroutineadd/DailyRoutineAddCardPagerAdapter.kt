@@ -31,7 +31,7 @@ class DailyRoutineAddCardPagerAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: DailyCard) {
             binding.clDailyRoutineAddCard.loadLayoutDescription(R.layout.item_daily_routine_add_card)
-            binding.tvDailyRoutineAddCardName.text = data.routine
+            binding.tvDailyRoutineAddCardName.text = data.content
         }
     }
 }

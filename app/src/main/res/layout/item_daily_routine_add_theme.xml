@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.sopetit.softie.domain.entity.DailyTheme" />
+            type="com.sopetit.softie.domain.entity.Theme" />
 
     </data>
 
@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="@{data.content}"
+            android:text="@{data.name}"
             android:textAppearance="@style/caption1"
             android:textColor="@color/gray400"
             app:layout_constraintEnd_toEndOf="@id/fl_daily_routine_add_theme"

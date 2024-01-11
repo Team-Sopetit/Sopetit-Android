@@ -18,14 +18,20 @@ class DailyRoutineAddActivity :
     private lateinit var dailyRoutineAddCardPagerAdapter: DailyRoutineAddCardPagerAdapter
     private lateinit var dailyRoutineAddThemeAdapter: DailyRoutineAddThemeAdapter
 
-    private val dailyRoutineAddCardViewModel by viewModels<DailyRoutineAddCardViewModel>()
+
+//    private var _dailyRoutineAddCardPagerAdapter: DailyRoutineAddCardPagerAdapter? = null
+//    private val dailyRoutineAddCardPagerAdapter
+//        get() = requireNotNull(_dailyRoutineAddCardPagerAdapter)
+//
+//    private var _dailyRoutineAddThemeAdapter: DailyRoutineAddThemeAdapter? = null
+//    private val dailyRoutineAddThemeAdapter
+//        get() = requireNotNull(_dailyRoutineAddThemeAdapter)
+
+
     private val dailyRoutineAddThemeViewModel by viewModels<DailyRoutineAddThemeViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        dailyRoutineAddCardPagerAdapter = DailyRoutineAddCardPagerAdapter()
-        dailyRoutineAddThemeAdapter = DailyRoutineAddThemeAdapter()
-
         viewPager = binding.vpDailyRoutineAddCard
 
         setupAdapter()
@@ -33,17 +39,28 @@ class DailyRoutineAddActivity :
         initViewPager()
         setIndicator()
         setDiv()
-        initPagerDiv(19, 20)
+        //initPagerDiv(19, 20)
     }
+
+    val themeId = 0
 
     private fun setupAdapter() {
         with(binding) {
+            dailyRoutineAddCardPagerAdapter = DailyRoutineAddCardPagerAdapter()
             vpDailyRoutineAddCard.adapter = dailyRoutineAddCardPagerAdapter
+            dailyRoutineAddThemeAdapter = DailyRoutineAddThemeAdapter()
             rvDailyRoutineAddTheme.adapter = dailyRoutineAddThemeAdapter
         }
-        dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddCardViewModel.mockDailyList)
+        dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddThemeViewModel.mockDailyFirstCardList.value)
         dailyRoutineAddThemeAdapter.submitList(dailyRoutineAddThemeViewModel.mockThemeList.value)
     }
+
+    private fun clickTheme() {
+        dailyRoutineAddThemeAdapter.setOnThemeClickListener {
+
+        }
+    }
+
 
     private fun marginPage() {
         val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.viewpager_margin)
@@ -60,12 +77,17 @@ class DailyRoutineAddActivity :
 
         viewPager.adapter = dailyRoutineAddCardPagerAdapter
 
-        viewPager.apply {
+        val dpValue = 40
+        val d = resources.displayMetrics.density
+        val margin = (dpValue * d).toInt()
+
+
+        with(binding.vpDailyRoutineAddCard) {
             clipChildren = false
             clipToPadding = false
-            offscreenPageLimit = 1
+            offscreenPageLimit = 3
+            setPadding(margin, 0, margin, 0)
         }
-
         val compositePageTransformer = CompositePageTransformer()
         compositePageTransformer.addTransformer(
             MarginPageTransformer(
@@ -74,7 +96,16 @@ class DailyRoutineAddActivity :
                 )
             )
         )
-        viewPager.setPageTransformer(compositePageTransformer)
+        binding.vpDailyRoutineAddCard.setPageTransformer(compositePageTransformer)
+
+
+//        viewPager.apply {
+//            clipChildren = false
+//            clipToPadding = false
+//            offscreenPageLimit = 1
+//        }
+//
+
     }
 
     private fun setIndicator() {
@@ -119,12 +150,6 @@ class DailyRoutineAddActivity :
             super.getItemOffsets(outRect, view, parent, state)
             outRect.left = divHeight
             outRect.right = divHeight
-        }
-    }
-
-    private fun selectTheme() {
-        dailyRoutineAddThemeAdapter.setOnThemeClickListener {
-
         }
     }
 

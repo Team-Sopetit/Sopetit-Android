@@ -18,9 +18,11 @@ class DailyRoutineAddThemeAdapter :
             onContentsTheSame = { old, new -> old == new }
         )
     ) {
+    private val selectedPositions = HashSet<Int>()
+    private fun isSelected(position: Int) = selectedPositions.contains(position)
+
     var selectedThemeArray = mutableListOf<Int>()
 
-    //클릭이벤트 만들어 주기
     private var onItemClickListener: ((Theme) -> Unit)? = null
     fun setOnThemeClickListener(listener: (Theme) -> Unit) {
         onItemClickListener = listener
@@ -30,27 +32,22 @@ class DailyRoutineAddThemeAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Theme) {
             binding.tvDailyRoutineAddThemeName.text = data.name
-            binding.ivDailyRoutineAddThemeBackground.load(data.iconImageUrl)
+            binding.ivDailyRoutineAddThemeIcon.load(data.iconImageUrl)
             binding.root.setOnClickListener {
-//                val position = bindingAdapterPosition
-//                if (position != RecyclerView.NO_POSITION) {
-//                    val isSelected = toggleThemeSelection(data.themeId)
-//                    onItemClickListener?.invoke(data)
-//                    notifyItemChanged(bindingAdapterPosition)
-//                    changeThemeBackground(binding, selectedThemeArray.contains(data.themeId))
-//                }
+                selectTheme(absoluteAdapterPosition)
+                notifyDataSetChanged()
+                onItemClickListener?.let { it(data) }
             }
         }
     }
 
-    private fun toggleThemeSelection(routineId: Int): Boolean {
-        val isSelected = selectedThemeArray.contains(routineId)
-        if (isSelected) {
-            selectedThemeArray.remove(routineId) // 선택 해제
+    private fun selectTheme(position: Int) {
+        if (isSelected(position)) {
+            selectedPositions.remove(position)
         } else {
-            selectedThemeArray.add(routineId) // 선택
+            selectedPositions.clear()
+            selectedPositions.add(position)
         }
-        return !isSelected // 선택 상태 반전
     }
 
     private fun changeThemeBackground(
