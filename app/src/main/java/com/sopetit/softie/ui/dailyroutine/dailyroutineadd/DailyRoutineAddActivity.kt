@@ -15,7 +15,7 @@ import com.sopetit.softie.util.binding.BindingActivity
 class DailyRoutineAddActivity :
     BindingActivity<ActivityDailyRoutineAddBinding>(R.layout.activity_daily_routine_add) {
     private lateinit var viewPager: ViewPager2
-    private lateinit var dailyRoutinePagerAdapter: DailyRoutinePagerAdapter
+    private lateinit var dailyRoutineAddCardPagerAdapter: DailyRoutineAddCardPagerAdapter
     private lateinit var dailyRoutineAddThemeAdapter: DailyRoutineAddThemeAdapter
 
     private val dailyRoutineAddCardViewModel by viewModels<DailyRoutineAddCardViewModel>()
@@ -23,7 +23,7 @@ class DailyRoutineAddActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        dailyRoutinePagerAdapter = DailyRoutinePagerAdapter()
+        dailyRoutineAddCardPagerAdapter = DailyRoutineAddCardPagerAdapter()
         dailyRoutineAddThemeAdapter = DailyRoutineAddThemeAdapter()
 
         viewPager = binding.vpDailyRoutineAddCard
@@ -38,11 +38,11 @@ class DailyRoutineAddActivity :
 
     private fun setupAdapter() {
         with(binding) {
-            vpDailyRoutineAddCard.adapter = dailyRoutinePagerAdapter
+            vpDailyRoutineAddCard.adapter = dailyRoutineAddCardPagerAdapter
             rvDailyRoutineAddTheme.adapter = dailyRoutineAddThemeAdapter
         }
-        dailyRoutinePagerAdapter.submitList(dailyRoutineAddCardViewModel.mockDailyList)
-        dailyRoutineAddThemeAdapter.submitList(dailyRoutineAddThemeViewModel.mockDailyThemeList.value)
+        dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddCardViewModel.mockDailyList)
+        dailyRoutineAddThemeAdapter.submitList(dailyRoutineAddThemeViewModel.mockThemeList.value)
     }
 
     private fun marginPage() {
@@ -58,7 +58,7 @@ class DailyRoutineAddActivity :
 
     private fun initViewPager() {
 
-        viewPager.adapter = dailyRoutinePagerAdapter
+        viewPager.adapter = dailyRoutineAddCardPagerAdapter
 
         viewPager.apply {
             clipChildren = false

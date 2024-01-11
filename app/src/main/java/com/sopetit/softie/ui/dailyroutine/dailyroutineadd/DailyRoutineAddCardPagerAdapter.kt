@@ -9,8 +9,8 @@ import com.sopetit.softie.databinding.ItemDailyRoutineAddCardBinding
 import com.sopetit.softie.domain.entity.DailyCard
 import com.sopetit.softie.util.ItemDiffCallback
 
-class DailyRoutinePagerAdapter :
-    ListAdapter<DailyCard, DailyRoutinePagerAdapter.DailyPagerViewHolder>(
+class DailyRoutineAddCardPagerAdapter :
+    ListAdapter<DailyCard, DailyRoutineAddCardPagerAdapter.DailyPagerViewHolder>(
         ItemDiffCallback<DailyCard>(
             onItemsTheSame = { oldItem, newItem -> oldItem == newItem },
             onContentsTheSame = { oldItem, newItem -> oldItem == newItem }

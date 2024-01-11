@@ -5,45 +5,42 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ItemDailyRoutineAddThemeBinding
-import com.sopetit.softie.domain.entity.DailyTheme
+import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.util.ItemDiffCallback
 
 class DailyRoutineAddThemeAdapter :
-    ListAdapter<DailyTheme, DailyRoutineAddThemeAdapter.DailyThemeViewHolder>(
-        ItemDiffCallback<DailyTheme>(
-            onItemsTheSame = { oldItem, newItem -> oldItem == newItem },
-            onContentsTheSame = { oldItem, newItem -> oldItem == newItem }
+    ListAdapter<Theme, DailyRoutineAddThemeAdapter.DailyThemeViewHolder>(
+        ItemDiffCallback<Theme>(
+            onItemsTheSame = { old, new -> old.themeId == new.themeId },
+            onContentsTheSame = { old, new -> old == new }
         )
     ) {
     var selectedThemeArray = mutableListOf<Int>()
 
-    inner class DailyThemeViewHolder(private val binding: ItemDailyRoutineAddThemeBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        init {
-            toggleThemeSelection(getItem(0).routineId)
-        }
-
-        fun onBind(data: DailyTheme) {
-            binding.data = data
-            binding.root.setOnClickListener {
-                val position = bindingAdapterPosition
-                if (position != RecyclerView.NO_POSITION) {
-                    val isSelected = toggleThemeSelection(data.routineId)
-                    onItemClickListener?.invoke(data)
-                    notifyItemChanged(bindingAdapterPosition)
-                    changeThemeBackground(binding, selectedThemeArray.contains(data.routineId))
-                }
-            }
-        }
+    //클릭이벤트 만들어 주기
+    private var onItemClickListener: ((Theme) -> Unit)? = null
+    fun setOnThemeClickListener(listener: (Theme) -> Unit) {
+        onItemClickListener = listener
     }
 
-    //클릭이벤트 만들어 주기
-    private var onItemClickListener: ((DailyTheme) -> Unit)? = null
-    fun setOnThemeClickListener(listener: (DailyTheme) -> Unit) {
-        onItemClickListener = listener
+    inner class DailyThemeViewHolder(private val binding: ItemDailyRoutineAddThemeBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun onBind(data: Theme) {
+            binding.tvDailyRoutineAddThemeName.text = data.name
+            binding.ivDailyRoutineAddThemeBackground.load(data.iconImageUrl)
+            binding.root.setOnClickListener {
+//                val position = bindingAdapterPosition
+//                if (position != RecyclerView.NO_POSITION) {
+//                    val isSelected = toggleThemeSelection(data.themeId)
+//                    onItemClickListener?.invoke(data)
+//                    notifyItemChanged(bindingAdapterPosition)
+//                    changeThemeBackground(binding, selectedThemeArray.contains(data.themeId))
+//                }
+            }
+        }
     }
 
     private fun toggleThemeSelection(routineId: Int): Boolean {
