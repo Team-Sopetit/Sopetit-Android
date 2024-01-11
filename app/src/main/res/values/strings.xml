@@ -26,6 +26,11 @@
     <string name="doll_selection_subtitle">한 번 선택한 인형은 바꿀 수 없어요</string>
     <string name="doll_selection_button">이 친구와 함께 할래</string>
 
+    <!-- bottom navigation -->
+    <string name="bottom_navigation_progress">진행 중</string>
+    <string name="bottom_navigation_home">홈</string>
+    <string name="bottom_navigation_happiness_routine">행복 루틴</string>
+
     <!-- setting -->
     <string name="setting_title">설정</string>
     <string name="setting_user_security">개인정보 처리방침</string>
