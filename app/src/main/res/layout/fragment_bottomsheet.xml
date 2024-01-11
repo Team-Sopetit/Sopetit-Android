@@ -17,7 +17,7 @@
             android:layout_width="67dp"
             android:layout_height="67dp"
             android:layout_marginTop="31dp"
-            android:src="@drawable/ic_doll_face_1"
+            android:src="@drawable/ic_bear_face_crying"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
