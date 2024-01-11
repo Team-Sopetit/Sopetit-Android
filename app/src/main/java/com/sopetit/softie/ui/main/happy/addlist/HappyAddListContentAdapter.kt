@@ -1,33 +1,42 @@
 package com.sopetit.softie.ui.main.happy.addlist
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sopetit.softie.databinding.ItemHappyAddListBinding
+import com.sopetit.softie.domain.entity.HappyContent
+import com.sopetit.softie.util.ItemDiffCallback
 
-class HappyAddListContentAdapter(context: Context) :
-    RecyclerView.Adapter<HappyAddListContentViewHolder>() {
-    private val inflater by lazy { LayoutInflater.from(context) }
-    private var happyAddListContentList: List<HappyAddListContent> =
-        emptyList()
+
+class HappyAddListContentAdapter :
+    ListAdapter<HappyContent, HappyAddListContentAdapter.HappyAddListContentViewHolder>(
+        ItemDiffCallback<HappyContent>(
+            onItemsTheSame = { oldItem, newItem -> oldItem == newItem },
+            onContentsTheSame = { oldItem, newItem -> oldItem == newItem }
+        )
+    ) {
+
+    class HappyAddListContentViewHolder(private val binding: ItemHappyAddListBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun onBind(happyContentData: HappyContent) {
+            binding.tvHappyListItemTitle.text = happyContentData.title
+            binding.tvHappyListItemContent.text = happyContentData.content
+            binding.ivHappyListItemIcon.setImageResource(happyContentData.imageUrl)
+        }
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): HappyAddListContentViewHolder {
-        val binding = ItemHappyAddListBinding.inflate(inflater, parent, false)
+        val binding = ItemHappyAddListBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        )
         return HappyAddListContentViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: HappyAddListContentViewHolder, position: Int) {
-        holder.onBind(happyAddListContentList[position])
-    }
-
-    override fun getItemCount() = happyAddListContentList.size
-
-    fun setHomeContentList(homeContentList: List<HappyAddListContent>) {
-        this.happyAddListContentList = homeContentList.toList()
-        notifyDataSetChanged()
+        holder.onBind(currentList[position])
     }
 }
