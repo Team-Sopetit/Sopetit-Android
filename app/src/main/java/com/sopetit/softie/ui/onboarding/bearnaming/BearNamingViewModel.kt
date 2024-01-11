@@ -27,10 +27,12 @@ class BearNamingViewModel : ViewModel() {
 
     fun checkIsNicknameValid() {
         val nicknameLength = nickname.value?.length ?: 0
-        _isNickNameValid.value = nicknameLength in 1..10
+        _isNickNameValid.value = nicknameLength in MINIMUM_LENGTH..MAXIMUM_LENGTH
     }
 
     companion object {
+        private const val MINIMUM_LENGTH = 1
+        private const val MAXIMUM_LENGTH = 10
         private const val NICKNAME_PATTERN =
             "^[ㄱ-ㅣ가-힣a-zA-Z0-9\\u318D\\u119E\\u11A2\\u2022\\u2025a\\u00B7\\uFE55]+$"
         val NICKNAME_REGEX: Pattern = Pattern.compile(NICKNAME_PATTERN)
