@@ -3,7 +3,7 @@
     <!-- onboarding -->
     <string name="onboarding_choice_theme_btn">다 선택했어</string>
     <string name="theme_text">하루의 시작</string>
-    <string name="onboarding_choice_theme_speech">안녕 난 %s야!\n나와 함께 루틴을 만들어볼까?</string>
+    <string name="onboarding_choice_theme_speech">안녕 난 %s!\n나와 함께 루틴을 만들어볼까?</string>
     <string name="onboarding_choice_theme_speech_after">관심 있는 테마 3개 선택해줘!</string>
     <string name="onboarding_choice_routine_speech">관심사를 바탕으로 목록을 추천해줄게.\n이 중에 데일리 루틴 3개를 선택해봐!</string>
     <string name="routine_text">하루 한 번 엘레베이터 대신 계단 이용하기</string>
