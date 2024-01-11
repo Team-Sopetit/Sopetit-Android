@@ -1,8 +1,8 @@
-package com.sopetit.softie.ui.main.happy.addlist
+package com.sopetit.softie.domain.entity
 
 import androidx.annotation.DrawableRes
 
-data class HappyAddListContent(
+data class HappyContent(
     val routineId: Int,
     val title: String,
     val content: String,
