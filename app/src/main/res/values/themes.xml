@@ -11,6 +11,11 @@
 
     <style name="Theme.Softie" parent="Base.Theme.Softie" />
 
+    <style name="BottomNavigationViewNoRipple" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:itemBackground">@android:color/transparent</item>
+        <item name="android:colorControlHighlight">@android:color/transparent</item>
+    </style>
+
     <style name="OriginalBottomSheet" parent="Theme.Design.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
