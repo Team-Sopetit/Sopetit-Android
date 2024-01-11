@@ -5,6 +5,8 @@ import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityOnboardingBinding
+import com.sopetit.softie.ui.onboarding.bearnaming.BearNamingFragment
+import com.sopetit.softie.ui.onboarding.bearselection.BearSelectionFragment
 import com.sopetit.softie.ui.onboarding.routinechoice.RoutineChoiceFragment
 import com.sopetit.softie.ui.onboarding.themechoice.ChoiceThemeFragment
 import com.sopetit.softie.util.binding.BindingActivity
@@ -27,7 +29,7 @@ class OnboardingActivity :
         if (currentFragment == null) {
             viewModel.changeBearChoiceView()
             supportFragmentManager.beginTransaction()
-                .add(R.id.fcv_onboarding_fragment, BearChoiceFragment())
+                .add(R.id.fcv_onboarding_fragment, BearSelectionFragment())
                 .commit()
         }
     }
@@ -41,7 +43,7 @@ class OnboardingActivity :
     private fun initChangeSetBearName() {
         viewModel.bearNameChoiceView.observe(this) { bearNameChoice ->
             if (bearNameChoice) {
-                changeFragment(SetBearNameFragment())
+                changeFragment(BearNamingFragment())
             }
         }
     }
@@ -50,6 +52,7 @@ class OnboardingActivity :
         viewModel.themeChoiceView.observe(this) { themeChoiceView ->
             if (themeChoiceView) {
                 changeFragment(ChoiceThemeFragment())
+                viewModel.setLayoutTranslucent(true)
             }
         }
     }

@@ -32,6 +32,17 @@
             android:exported="false"
             android:screenOrientation="portrait" />
 
+
+        <activity
+            android:name=".ui.dailyroutine.dailyroutineedit.DailyRoutineEditActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dailyroutine.DailyRoutineActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.daily.DailyAddActivity"
             android:exported="false"
@@ -47,6 +58,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.setting.SettingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
     </application>
 
