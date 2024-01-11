@@ -36,7 +36,6 @@ class HappyAddListActivity :
         chipDeco = HorizontalChipItemDecoration(applicationContext)
         binding.rvHappyAddListChip.addItemDecoration(chipDeco)
 
-
         setupAdapter(themeId)
     }
 
