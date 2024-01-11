@@ -21,6 +21,33 @@
     <string name="happy_default_mention">행복 루틴은 매일 조금씩 너에 대해\n알아갈 수 있는 특별한 이벤트형 루틴이야!</string>
     <string name="happy_empty_card">진행 중인 행복루틴이 없어요.\n루틴을 추가할까요?</string>
 
+    <!-- doll selection -->
+    <string name="doll_selection_question">어떤 친구와 함께 할까요?</string>
+    <string name="doll_selection_subtitle">한 번 선택한 인형은 바꿀 수 없어요</string>
+    <string name="doll_selection_button">이 친구와 함께 할래</string>
+
+    <!-- setting -->
+    <string name="setting_title">설정</string>
+    <string name="setting_user_security">개인정보 처리방침</string>
+    <string name="setting_document">서비스 이용 약관</string>
+    <string name="setting_guide">서비스 이용 가이드</string>
+    <string name="setting_feedback">피드백</string>
+    <string name="setting_version">현재 버전 1.0.0</string>
+    <string name="setting_logout">로그아웃</string>
+    <string name="setting_user_exit"><u>회원 탈퇴</u></string>
+    <string name="user_exit_title">소프티를 정말 탈퇴하시나요?</string>
+    <string name="user_exit_content">탈퇴하면 계정이 삭제되고 모든 데이터가 사라집니다.</string>
+    <string name="user_exit_speech_content">정말 가는 거야..?\n나는 영영 사라져</string>
+    <string name="user_exit_back">더 써볼래</string>
+    <string name="user_exit_exit">탈퇴할래</string>
+    <string name="user_security_title">소프티 개인정보처리방침</string>
+
+    <!-- bottom sheet -->
+    <string name="bottom_sheet_title">정말 로그아웃할까요?</string>
+    <string name="bottom_sheet_content">&quot;잠시만 안녕..다음에 또 봐!&quot;</string>
+    <string name="bottom_sheet_back">취소</string>
+    <string name="bottom_sheet_do">로그아웃 할래</string>
+
     <!-- bear selection -->
     <string name="bear_selection_question">어떤 친구와 함께 할까요?</string>
     <string name="bear_selection_subtitle">한 번 선택한 인형은 바꿀 수 없어요</string>
