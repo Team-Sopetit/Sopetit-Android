@@ -16,10 +16,20 @@
     <string name="story_telling_main">어? 집 앞에 이건 뭐지?</string>
     <string name="story_telling_conclusion">한 번 열어볼까?</string>
 
-    <!-- happy -->
-    <string name="happy_title">행복루틴</string>
+    <!-- happy empty -->
+    <string name="happy_title">행복 루틴</string>
     <string name="happy_default_mention">행복 루틴은 매일 조금씩 너에 대해\n알아갈 수 있는 특별한 이벤트형 루틴이야!</string>
     <string name="happy_empty_card">진행 중인 행복루틴이 없어요.\n루틴을 추가할까요?</string>
+    <string name="happy_add_title">행복 루틴 추가</string>
+
+    <!-- happy add list -->
+    <string name="chip_item_happy_all">전체</string>
+    <string name="chip_item_happy_relationship">관계 쌓기</string>
+    <string name="chip_item_happy_all_one_growth">한 걸음 성장</string>
+    <string name="chip_item_happy_resilience">회복탄력성</string>
+    <string name="chip_item_happy_new_me">새로운 나</string>
+    <string name="chip_item_happy_mindfulness">마음 챙김</string>
+    <string name="happy_list_item_content">성숙한 사랑을 만나기 위한</string>
 
     <!-- doll selection -->
     <string name="doll_selection_question">어떤 친구와 함께 할까요?</string>

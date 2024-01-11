@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chip_happy_add_component"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/shape_white_fill_gray000_stroke_radius_20">
+
+        <ImageView
+            android:id="@+id/iv_happy_list_item_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginBottom="22dp"
+            android:src="@drawable/ic_happy_red"
+            app:layout_constraintBottom_toBottomOf="@id/chip_happy_add_component"
+            app:layout_constraintStart_toStartOf="@id/chip_happy_add_component"
+            app:layout_constraintTop_toTopOf="@id/chip_happy_add_component" />
+
+        <TextView
+            android:id="@+id/tv_happy_list_item_title"
+            style="@style/caption1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="29dp"
+            android:text="@string/chip_item_happy_relationship"
+            android:textColor="@color/happyroutine_red"
+            app:layout_constraintStart_toEndOf="@id/iv_happy_list_item_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_happy_list_item_content"
+            style="@style/body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/happy_list_item_content"
+            android:textAppearance="@style/body2"
+            android:textColor="@color/gray700"
+            app:layout_constraintStart_toEndOf="@id/iv_happy_list_item_icon"
+            app:layout_constraintTop_toBottomOf="@id/tv_happy_list_item_title" />
+
+
+        <ImageView
+            android:id="@+id/iv_happy_list_item_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

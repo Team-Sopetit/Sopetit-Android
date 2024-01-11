@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.chip.Chip xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_happy_add_chip_component"
+    style="@style/Style.Material3.Chip.Softie.Type"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:singleLine="true"
+    android:text="@string/chip_item_happy_relationship" />
