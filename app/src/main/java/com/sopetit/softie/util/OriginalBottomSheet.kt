@@ -23,8 +23,6 @@ class OriginalBottomSheet : BindingBottomSheet() {
     }
 
     override fun setImage() {
-//        binding.ivBottomSheet.setImage(image)
-//        image?.let { binding.ivBottomSheet.setImageResource(it) }
         if (isDrawable == true) {
             imageDrawable?.let { binding.ivBottomSheet.setImageResource(it) }
         } else {
