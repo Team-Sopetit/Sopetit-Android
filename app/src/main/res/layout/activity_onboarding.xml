@@ -13,7 +13,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:fitsSystemWindows="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_onboarding_top_bar"
@@ -29,7 +31,7 @@
                 android:id="@+id/iv_onboarding_top_bar_first"
                 android:layout_width="0dp"
                 android:layout_height="6dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="52dp"
                 android:layout_marginEnd="5dp"
                 android:src="@{viewModel.bearChoiceView ? @drawable/shape_main1_fill_99_rect : @drawable/shape_gray100_fill_99_rect}"
                 app:layout_constraintEnd_toStartOf="@id/iv_onboarding_top_bar_second"
