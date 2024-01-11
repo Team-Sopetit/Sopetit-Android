@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -7,14 +9,203 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/home_background">
+
+        <ImageView
+            android:id="@+id/iv_home_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/ic_logo_home"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_home_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="22dp"
+            android:src="@drawable/ic_home_settings"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_home_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_home_money"
+            app:layout_constraintEnd_toStartOf="@id/iv_home_setting"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_home_speech"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-100dp"
+            android:src="@drawable/ic_speech_home"
+            app:layout_constraintBottom_toTopOf="@id/lottie_home_bear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/tv_home"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="home fragment"
-            android:gravity="center" />
+            android:id="@+id/tv_home_bear_speech"
+            style="@style/bubble18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:text="안녕!"
+            android:textColor="@color/gray700"
+            app:layout_constraintBottom_toBottomOf="@id/iv_home_speech"
+            app:layout_constraintEnd_toEndOf="@id/iv_home_speech"
+            app:layout_constraintStart_toStartOf="@id/iv_home_speech"
+            app:layout_constraintTop_toTopOf="@id/iv_home_speech" />
+
+        <ImageView
+            android:id="@+id/iv_home_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="190dp"
+            android:src="@drawable/ic_shadow"
+            app:layout_constraintBottom_toBottomOf="@id/lottie_home_bear"
+            app:layout_constraintEnd_toEndOf="@id/lottie_home_bear"
+            app:layout_constraintStart_toStartOf="@id/lottie_home_bear"
+            app:layout_constraintTop_toTopOf="@id/lottie_home_bear" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_home_bear"
+            android:layout_width="350dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="150dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@id/cl_home_som_white"
+            app:layout_constraintDimensionRatio="0.83"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/brown_hello" />
+
+        <TextView
+            style="@style/bubble16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/shape_namefill_fill_namestroke_stroke_99_rect"
+            android:paddingHorizontal="13dp"
+            android:paddingVertical="9dp"
+            android:text="테스트"
+            android:textColor="@color/gray700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_home_shadow"
+            tools:text="애착이" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_home_som_white"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/shape_gray000_fill_16_rect"
+            android:paddingVertical="13dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cl_home_som_color"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_home_som_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_som_white"
+                app:layout_constraintEnd_toStartOf="@id/tv_home_som_white_count"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_home_som_white_count"
+                style="@style/body4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="2개"
+                android:textColor="@color/gray300"
+                app:layout_constraintBottom_toBottomOf="@id/iv_home_som_white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/iv_home_som_white"
+                app:layout_constraintTop_toTopOf="@id/iv_home_som_white" />
+
+            <TextView
+                android:id="@+id/tv_home_som_white_title"
+                style="@style/body4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="솜뭉치 주기"
+                android:textColor="@color/gray500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_home_som_white" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_home_som_color"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/shape_gray000_fill_16_rect"
+            android:paddingVertical="13dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/cl_home_som_white">
+
+            <ImageView
+                android:id="@+id/iv_home_som_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_som_color"
+                app:layout_constraintEnd_toStartOf="@id/tv_home_som_color_count"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_home_som_color_count"
+                style="@style/body4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="2개"
+                android:textColor="@color/gray300"
+                app:layout_constraintBottom_toBottomOf="@id/iv_home_som_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/iv_home_som_color"
+                app:layout_constraintTop_toTopOf="@id/iv_home_som_color" />
+
+            <TextView
+                android:id="@+id/tv_home_som_color_title"
+                style="@style/body4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="행복 솜뭉치 주기"
+                android:textColor="@color/gray500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_home_som_color" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
