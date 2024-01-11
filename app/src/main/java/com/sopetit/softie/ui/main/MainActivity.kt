@@ -25,24 +25,10 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
     private fun setBottomNavigationClickListener() {
         binding.bnvMain.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.bottom_navigation_progress -> {
-                    changeFragment(DailyRoutineFragment())
-                    true
-                }
-
-                R.id.bottom_navigation_home -> {
-                    changeFragment(HomeFragment())
-                    true
-                }
-
-                R.id.bottom_navigation_happiness_routine -> {
-                    changeFragment(HappyRoutineFragment())
-                    true
-                }
-
-                else -> {
-                    true
-                }
+                R.id.bottom_navigation_progress -> changeFragment(DailyRoutineFragment())
+                R.id.bottom_navigation_home -> changeFragment(HomeFragment())
+                R.id.bottom_navigation_happiness_routine -> changeFragment(HappyRoutineFragment())
+                else -> true
             }
         }
     }
@@ -56,10 +42,11 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         }
     }
 
-    private fun changeFragment(fragment: Fragment) {
+    private fun changeFragment(fragment: Fragment): Boolean {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fcv_main, fragment)
             .commit()
+        return true
     }
 
     private fun initBottomNavigation() {
