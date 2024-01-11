@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityMainBinding
+import com.sopetit.softie.ui.dailyroutine.DailyRoutineFragment
 import com.sopetit.softie.ui.main.happy.HappyRoutineFragment
 import com.sopetit.softie.ui.main.home.HomeFragment
 import com.sopetit.softie.util.binding.BindingActivity
@@ -17,12 +18,15 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         super.onCreate(savedInstanceState)
 
         initFragment()
-        setBottomNavigationTint()
+        initBottomNavigation()
+        setBottomNavigationClickListener()
+    }
 
+    private fun setBottomNavigationClickListener() {
         binding.bnvMain.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.bottom_navigation_progress -> {
-                    // changeFragment() 진행중 화면 띄우기
+                    changeFragment(DailyRoutineFragment())
                     true
                 }
 
@@ -56,6 +60,11 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         supportFragmentManager.beginTransaction()
             .replace(R.id.fcv_main, fragment)
             .commit()
+    }
+
+    private fun initBottomNavigation() {
+        binding.bnvMain.selectedItemId = R.id.bottom_navigation_home
+        setBottomNavigationTint()
     }
 
     private fun setBottomNavigationTint() {
