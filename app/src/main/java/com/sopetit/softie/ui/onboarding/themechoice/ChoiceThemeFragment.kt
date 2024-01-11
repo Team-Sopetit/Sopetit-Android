@@ -29,7 +29,22 @@ class ChoiceThemeFragment :
 
         viewModel = ViewModelProvider(requireActivity()).get(OnboardingViewModel::class.java)
         binding.viewModel = viewModel
+        binding.themeViewModel = themeViewModel
 
+        initSetTranslucentBackground()
+        initSetSpeechText()
+        initMakeThemeAdapter()
+        initChangeFragment()
+    }
+
+    private fun initSetTranslucentBackground() {
+        binding.clOnboardingChoiceThemeTranslucentBackground.setOnClickListener {
+            themeViewModel.setLayoutTranslucent(false)
+            viewModel.setLayoutTranslucent(false)
+        }
+    }
+
+    private fun initSetSpeechText() {
         binding.tvOnboardingChoiceThemeSpeech.text =
             SpannableStringBuilder(getString(R.string.onboarding_choice_theme_speech)).apply {
                 setSpan(
@@ -44,8 +59,6 @@ class ChoiceThemeFragment :
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
             }
-
-        initMakeThemeAdapter()
     }
 
     private fun initMakeThemeAdapter() {
@@ -57,17 +70,45 @@ class ChoiceThemeFragment :
         themeViewModel.mockThemeList.observe(viewLifecycleOwner) {
             choiceThemeAdapter.submitList(it)
         }
+
+        selectThemes()
+    }
+
+    private fun selectThemes() {
+        choiceThemeAdapter.setOnThemeClickListener {
+            viewModel.setSelectedThemeArray(choiceThemeAdapter.selectedThemeArray)
+            setThemeBtn()
+        }
+    }
+
+    private fun setThemeBtn() {
+        viewModel.selectedThemeArray.observe(viewLifecycleOwner) {
+            if (it.size == MAXIMUM_THEME_SELECTION) {
+                themeViewModel.setThemeBtnEnabled(true)
+            } else {
+                themeViewModel.setThemeBtnEnabled(false)
+            }
+        }
     }
 
     private fun initChangeFragment() {
-        // TODO 버튼 클릭시 '루틴 선택' fragment로 화면 전환 (밑의 주석 삭제 예정)
-//        binding.clOnboardingChoiceTheme.setOnClickListener {
-//            viewModel.changeRoutineChoiceView()
-//        }
+        themeViewModel.themeBtnEnabled.observe(viewLifecycleOwner) {
+            if (it) {
+                binding.btnOnboardingChoiceTheme.setOnClickListener {
+                    viewModel.changeRoutineChoiceView()
+                }
+            }
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _choiceThemeAdapter = null
     }
 
     companion object {
         const val SPAN_START = 5
         const val SPAN_END = 8
+        const val MAXIMUM_THEME_SELECTION = 3
     }
 }
