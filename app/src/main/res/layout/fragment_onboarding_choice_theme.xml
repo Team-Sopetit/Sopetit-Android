@@ -50,17 +50,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_onboarding_choice_theme_translucent_background"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@color/onboarding_translucent"
-            android:visibility="@{themeViewModel.layoutTranslucent ? View.VISIBLE : View.GONE}"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
         <ImageView
             android:id="@+id/iv_onboarding_choice_theme_title_bear"
             android:layout_width="53dp"
@@ -88,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="14dp"
-            android:text="@{themeViewModel.layoutTranslucent ? @string/onboarding_choice_theme_speech(viewModel.bearNickname) : @string/onboarding_choice_theme_speech_after}"
+            android:text="@string/onboarding_choice_theme_speech_after"
             android:textColor="@color/gray700"
             android:textAppearance="@style/bubble16"
             android:bufferType="spannable"

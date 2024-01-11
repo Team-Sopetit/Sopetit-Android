@@ -59,7 +59,15 @@ class RoutineChoiceViewModel : ViewModel() {
     val isNoticeVisible: LiveData<Boolean>
         get() = _isNoticeVisible
 
+    private val _isRoutineBtnEnabled: MutableLiveData<Boolean> = MutableLiveData()
+    val isRoutineBtnEnabled: LiveData<Boolean>
+        get() = _isRoutineBtnEnabled
+
     fun setNoticeVisible(visible: Boolean) {
         _isNoticeVisible.value = visible
+    }
+
+    fun setRoutineBtnEnabled(isEnabled: Boolean) {
+        _isRoutineBtnEnabled.value = isEnabled
     }
 }

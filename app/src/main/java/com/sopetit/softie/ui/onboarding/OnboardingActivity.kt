@@ -1,7 +1,11 @@
 package com.sopetit.softie.ui.onboarding
 
 import android.os.Bundle
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityOnboardingBinding
@@ -53,7 +57,46 @@ class OnboardingActivity :
             if (themeChoiceView) {
                 changeFragment(ChoiceThemeFragment())
                 viewModel.setLayoutTranslucent(true)
+                initSetSpeechText()
+                initSetTranslucentBackground()
+                changeSecondThemeChoice()
             }
+        }
+    }
+
+    private fun changeSecondThemeChoice() {
+        viewModel.secondThemeChoiceView.observe(this) { isSecondThemeView ->
+            if (isSecondThemeView) {
+                changeFragment(ChoiceThemeFragment())
+                viewModel.setLayoutTranslucent(false)
+                viewModel.changeRoutineChoiceView(false)
+            }
+        }
+    }
+
+    private fun initSetSpeechText() {
+        val nickname = viewModel.bearNickname.value ?: ""
+        val message = getString(R.string.onboarding_choice_theme_speech).format(nickname)
+
+        binding.tvOnboardingThemeSpeech.text =
+            SpannableStringBuilder(message).apply {
+                setSpan(
+                    ForegroundColorSpan(
+                        ContextCompat.getColor(
+                            binding.root.context,
+                            R.color.onboarding_speech
+                        )
+                    ),
+                    SPAN_START,
+                    SPAN_START + nickname.length,
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+            }
+    }
+
+    private fun initSetTranslucentBackground() {
+        binding.clOnboardingThemeTranslucentBackgroundContent.setOnClickListener {
+            viewModel.setLayoutTranslucent(false)
         }
     }
 
@@ -69,5 +112,10 @@ class OnboardingActivity :
         supportFragmentManager.beginTransaction()
             .replace(R.id.fcv_onboarding_fragment, fragment)
             .commit()
+    }
+
+    companion object {
+        const val SPAN_START = 5
+        const val MAXIMUM_THEME_SELECTION = 3
     }
 }

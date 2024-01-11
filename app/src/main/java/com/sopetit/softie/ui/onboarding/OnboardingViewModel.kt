@@ -18,6 +18,10 @@ class OnboardingViewModel : ViewModel() {
     val themeChoiceView: LiveData<Boolean>
         get() = _themeChoiceView
 
+    private val _secondThemeChoiceView: MutableLiveData<Boolean> = MutableLiveData(false)
+    val secondThemeChoiceView: LiveData<Boolean>
+        get() = _secondThemeChoiceView
+
     private val _routineChoiceView: MutableLiveData<Boolean> = MutableLiveData(false)
     val routineChoiceView: LiveData<Boolean>
         get() = _routineChoiceView
@@ -25,6 +29,10 @@ class OnboardingViewModel : ViewModel() {
     private val _selectedThemeArray: MutableLiveData<ArrayList<Int>> = MutableLiveData()
     val selectedThemeArray: LiveData<ArrayList<Int>>
         get() = _selectedThemeArray
+
+    private val _selectedRoutineArray: MutableLiveData<ArrayList<Int>> = MutableLiveData()
+    val selectedRoutineArray: LiveData<ArrayList<Int>>
+        get() = _selectedRoutineArray
 
     private val _layoutTranslucent: MutableLiveData<Boolean> = MutableLiveData(false)
     val layoutTranslucent: LiveData<Boolean>
@@ -48,12 +56,20 @@ class OnboardingViewModel : ViewModel() {
         _themeChoiceView.value = true
     }
 
-    fun changeRoutineChoiceView() {
-        _routineChoiceView.value = true
+    fun changeSecondThemeChoiceView() {
+        _secondThemeChoiceView.value = true
+    }
+
+    fun changeRoutineChoiceView(isRoutineChoice: Boolean) {
+        _routineChoiceView.value = isRoutineChoice
     }
 
     fun setSelectedThemeArray(themeArray: ArrayList<Int>) {
         _selectedThemeArray.value = themeArray
+    }
+
+    fun setSelectedRoutineArray(routineArray: ArrayList<Int>) {
+        _selectedRoutineArray.value = routineArray
     }
 
     fun setLayoutTranslucent(boolean: Boolean) {
