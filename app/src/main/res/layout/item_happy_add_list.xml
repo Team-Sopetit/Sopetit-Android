@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:background="@drawable/rect_gray_gray_stroke_radius_20">
+        android:background="@drawable/shape_white_fill_gray000_stroke_radius_20">
 
         <ImageView
             android:id="@+id/iv_happy_list_item_icon"
