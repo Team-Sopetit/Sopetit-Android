@@ -1,11 +1,11 @@
-package com.sopetit.softie.ui.userdaily
+package com.sopetit.softie.ui.dailyroutine
 
 import android.os.Bundle
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivitySampleBinding
 import com.sopetit.softie.util.binding.BindingActivity
 
-class DailyEmptyActivity : BindingActivity<ActivitySampleBinding>(R.layout.activity_sample) {
+class DailyRoutineActivity : BindingActivity<ActivitySampleBinding>(R.layout.activity_sample) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initFragment()
@@ -15,7 +15,7 @@ class DailyEmptyActivity : BindingActivity<ActivitySampleBinding>(R.layout.activ
         val currentFragment = supportFragmentManager.findFragmentById(R.id.fcv_empty_fragment)
         if (currentFragment == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.fcv_empty_fragment, DailyEmptyFragment())
+                .add(R.id.fcv_empty_fragment, DailyRoutineFragment())
                 .commit()
         }
     }

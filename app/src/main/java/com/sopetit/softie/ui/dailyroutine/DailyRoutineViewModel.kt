@@ -1,8 +1,8 @@
-package com.sopetit.softie.ui.userdaily
+package com.sopetit.softie.ui.dailyroutine
 
 import androidx.lifecycle.ViewModel
 
-class DailyEmptyViewModel : ViewModel() {
+class DailyRoutineViewModel : ViewModel() {
     val routineAddList = listOf<Int>(1, 2)
 
     companion object {

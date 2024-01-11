@@ -8,46 +8,45 @@
 
         <variable
             name="dailyEmptyViewModel"
-            type="com.sopetit.softie.ui.userdaily.DailyEmptyViewModel" />
+            type="com.sopetit.softie.ui.dailyroutine.DailyRoutineViewModel" />
 
     </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tv_daily_routine"
+            android:id="@+id/tv_daily_routine_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="24dp"
-            android:paddingVertical="16dp"
             android:text="@string/daily_edit_routine_name"
+            android:paddingVertical="16dp"
             android:textAppearance="@style/body1"
             app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_cancel"
+            android:id="@+id/tv_daily_routine_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:text="@string/daily_edit_cancel"
+            android:text="@string/daily_edit"
             android:textAppearance="@style/body4"
             android:textColor="@color/gray400"
-            app:layout_constraintBottom_toBottomOf="@id/tv_daily_routine"
+            app:layout_constraintBottom_toBottomOf="@id/tv_daily_routine_name"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_daily_routine" />
+            android:layout_marginEnd="20dp"
+            app:layout_constraintTop_toTopOf="@id/tv_daily_routine_name" />
 
         <View
-            android:id="@+id/v_blank"
+            android:id="@+id/v_daily_routine_blank"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:visibility="@{dailyEmptyViewModel.routineAddList.size() == 0 ? View.VISIBLE : View.GONE}"
-            app:layout_constraintTop_toBottomOf="@id/tv_daily_routine" />
+            app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_name" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_daily_routine_first"
@@ -59,10 +58,10 @@
             android:visibility="@{dailyEmptyViewModel.routineAddList.size() >= 1 ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_daily_routine">
+            app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_name">
 
             <ImageView
-                android:id="@+id/iv_daily_icon"
+                android:id="@+id/iv_daily_routine_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -72,26 +71,26 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_daily_name"
+                android:id="@+id/tv_daily_routine_add_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:text="@string/daily_routine_user_add"
                 android:textAppearance="@style/body1"
-                app:layout_constraintStart_toEndOf="@id/iv_daily_icon"
-                app:layout_constraintTop_toTopOf="@id/iv_daily_icon" />
+                app:layout_constraintStart_toEndOf="@id/iv_daily_routine_icon"
+                app:layout_constraintTop_toTopOf="@id/iv_daily_routine_icon" />
 
             <ImageView
-                android:id="@+id/iv_daily_fin"
+                android:id="@+id/iv_daily_routine_fin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:src="@drawable/ic_daily_fin"
-                app:layout_constraintStart_toStartOf="@id/tv_daily_name"
-                app:layout_constraintTop_toBottomOf="@id/tv_daily_name" />
+                app:layout_constraintStart_toStartOf="@id/tv_daily_routine_add_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_add_name" />
 
             <TextView
-                android:id="@+id/tv_daily_num"
+                android:id="@+id/tv_daily_routine_ing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -99,21 +98,11 @@
                 android:text="@string/daily_routine_ing"
                 android:textAppearance="@style/caption1"
                 android:textColor="@color/gray300"
-                app:layout_constraintStart_toEndOf="@id/iv_daily_fin"
-                app:layout_constraintTop_toBottomOf="@id/tv_daily_name" />
-
-            <ImageButton
-                android:id="@+id/btn_radio_empty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="21dp"
-                android:background="@drawable/selector_daily_edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toEndOf="@id/iv_daily_routine_fin"
+                app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_add_name" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_daily_yet_fin"
+                android:id="@+id/btn_daily_routine_yet_fin"
                 android:layout_width="0dp"
                 android:layout_height="38dp"
                 android:layout_marginHorizontal="20dp"
@@ -127,16 +116,16 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_daily_fin"
+                android:id="@+id/btn_daily_routine_fin"
                 android:layout_width="0dp"
                 android:layout_height="38dp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/shape_gray100_fill_10_rect"
                 android:text="@string/daily_routine_fin"
+                android:visibility="invisible"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/gray300"
-                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -157,7 +146,7 @@
             app:layout_constraintTop_toBottomOf="@id/cl_daily_routine_first">
 
             <ImageView
-                android:id="@+id/iv_daily_icon_second"
+                android:id="@+id/iv_daily_routine_icon_second"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -167,26 +156,26 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_daily_name_second"
+                android:id="@+id/tv_daily_routine_add_name_second"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:text="@string/daily_routine_user_add"
                 android:textAppearance="@style/body1"
-                app:layout_constraintStart_toEndOf="@id/iv_daily_icon_second"
-                app:layout_constraintTop_toTopOf="@id/iv_daily_icon_second" />
+                app:layout_constraintStart_toEndOf="@id/iv_daily_routine_icon_second"
+                app:layout_constraintTop_toTopOf="@id/iv_daily_routine_icon_second" />
 
             <ImageView
-                android:id="@+id/iv_daily_fin_second"
+                android:id="@+id/iv_daily_routine_fin_second"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:src="@drawable/ic_daily_fin"
-                app:layout_constraintStart_toStartOf="@id/tv_daily_name_second"
-                app:layout_constraintTop_toBottomOf="@id/tv_daily_name_second" />
+                app:layout_constraintStart_toStartOf="@id/tv_daily_routine_add_name_second"
+                app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_add_name_second" />
 
             <TextView
-                android:id="@+id/tv_daily_num_second"
+                android:id="@+id/tv_daily_routine_ing_second"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -194,21 +183,11 @@
                 android:text="@string/daily_routine_ing"
                 android:textAppearance="@style/caption1"
                 android:textColor="@color/gray300"
-                app:layout_constraintStart_toEndOf="@id/iv_daily_fin_second"
-                app:layout_constraintTop_toBottomOf="@id/tv_daily_name_second" />
-
-            <ImageButton
-                android:id="@+id/btn_radio_empty_second"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="21dp"
-                android:background="@drawable/selector_daily_edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toEndOf="@id/iv_daily_routine_fin_second"
+                app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_add_name_second" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_daily_yet_fin_second"
+                android:id="@+id/btn_daily_routine_yet_fin_second"
                 android:layout_width="0dp"
                 android:layout_height="38dp"
                 android:layout_marginHorizontal="20dp"
@@ -222,16 +201,16 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_daily_fin_second"
+                android:id="@+id/btn_daily_routine_fin_second"
                 android:layout_width="0dp"
                 android:layout_height="38dp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/shape_gray100_fill_10_rect"
                 android:text="@string/daily_routine_fin"
+                android:visibility="invisible"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/gray300"
-                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -251,7 +230,7 @@
             app:layout_constraintTop_toBottomOf="@id/cl_daily_routine_second">
 
             <ImageView
-                android:id="@+id/iv_daily_icon_third"
+                android:id="@+id/iv_daily_routine_icon_third"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -261,26 +240,26 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_daily_name_third"
+                android:id="@+id/tv_daily_routine_add_name_third"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:text="@string/daily_routine_user_add"
                 android:textAppearance="@style/body1"
-                app:layout_constraintStart_toEndOf="@id/iv_daily_icon_third"
-                app:layout_constraintTop_toTopOf="@id/iv_daily_icon_third" />
+                app:layout_constraintStart_toEndOf="@id/iv_daily_routine_icon_third"
+                app:layout_constraintTop_toTopOf="@id/iv_daily_routine_icon_third" />
 
             <ImageView
-                android:id="@+id/iv_daily_fin_third"
+                android:id="@+id/iv_daily_routine_fin_third"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:src="@drawable/ic_daily_fin"
-                app:layout_constraintStart_toStartOf="@id/tv_daily_name_third"
-                app:layout_constraintTop_toBottomOf="@id/tv_daily_name_third" />
+                app:layout_constraintStart_toStartOf="@id/tv_daily_routine_add_name_third"
+                app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_add_name_third" />
 
             <TextView
-                android:id="@+id/tv_daily_num_third"
+                android:id="@+id/tv_daily_routine_ing_third"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -288,21 +267,11 @@
                 android:text="@string/daily_routine_ing"
                 android:textAppearance="@style/caption1"
                 android:textColor="@color/gray300"
-                app:layout_constraintStart_toEndOf="@id/iv_daily_fin_third"
-                app:layout_constraintTop_toBottomOf="@id/tv_daily_name_third" />
-
-            <ImageButton
-                android:id="@+id/btn_radio_empty_third"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="21dp"
-                android:background="@drawable/selector_daily_edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toEndOf="@id/iv_daily_routine_fin_third"
+                app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_add_name_third" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_daily_yet_fin_third"
+                android:id="@+id/btn_daily_routine_yet_fin_third"
                 android:layout_width="0dp"
                 android:layout_height="38dp"
                 android:layout_marginHorizontal="20dp"
@@ -316,16 +285,16 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_daily_fin_third"
+                android:id="@+id/btn_daily_routine_fin_third"
                 android:layout_width="0dp"
                 android:layout_height="38dp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/shape_gray100_fill_10_rect"
                 android:text="@string/daily_routine_fin"
+                android:visibility="invisible"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/gray300"
-                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -333,7 +302,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/iv_daily_empty"
+            android:id="@+id/iv_daily_routine_empty"
             android:layout_width="0dp"
             android:layout_height="136dp"
             android:layout_marginHorizontal="20dp"
@@ -346,32 +315,15 @@
             app:layout_constraintTop_toBottomOf="@id/cl_daily_routine_third">
 
             <ImageView
-                android:id="@+id/iv_daily_plus_third"
+                android:id="@+id/iv_daily_routine_plus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_daily_plus"
-                app:layout_constraintBottom_toBottomOf="@id/iv_daily_empty"
-                app:layout_constraintEnd_toEndOf="@id/iv_daily_empty"
-                app:layout_constraintStart_toStartOf="@id/iv_daily_empty"
-                app:layout_constraintTop_toTopOf="@id/iv_daily_empty" />
+                app:layout_constraintBottom_toBottomOf="@id/iv_daily_routine_empty"
+                app:layout_constraintEnd_toEndOf="@id/iv_daily_routine_empty"
+                app:layout_constraintStart_toStartOf="@id/iv_daily_routine_empty"
+                app:layout_constraintTop_toTopOf="@id/iv_daily_routine_empty" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_delete"
-            android:layout_width="0dp"
-            android:layout_height="57dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginBottom="32dp"
-            android:text="@string/daily_edit_delete"
-            android:textAppearance="@style/body1"
-            android:textColor="@color/gray000"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/shape_red_fill_12_rect"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
-

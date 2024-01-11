@@ -1,4 +1,4 @@
-package com.sopetit.softie.ui.userdaily
+package com.sopetit.softie.ui.dailyroutine
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,18 +6,19 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentDailyEmptyBinding
+import com.sopetit.softie.ui.dailyroutine.dailyedit.DailyEditActivity
 import com.sopetit.softie.util.binding.BindingFragment
 
-class DailyEmptyFragment :
-    BindingFragment<FragmentDailyEmptyBinding>(R.layout.fragment_daily_empty) {
+class DailyRoutineFragment :
+    BindingFragment<FragmentDailyEmptyBinding>(R.layout.fragment_daily_routine) {
 
-    private val dailyEmptyViewModel by viewModels<DailyEmptyViewModel>()
+    private val dailyRoutineViewModel by viewModels<DailyRoutineViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.lifecycleOwner = this
-        binding.dailyEmptyViewModel = dailyEmptyViewModel
+        binding.dailyEmptyViewModel = dailyRoutineViewModel
 
         moveEdit()
     }
