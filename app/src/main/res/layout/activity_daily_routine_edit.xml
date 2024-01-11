@@ -62,7 +62,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_edit_name">
 
             <ImageView
-                android:id="@+id/iv_daily_routine_edit_icon"
+                android:id="@+id/iv_daily_routine_edit_icon_first"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -72,26 +72,26 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_daily_routine_edit_add_name"
+                android:id="@+id/tv_daily_routine_edit_add_name_first"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:text="@string/daily_routine_user_add"
                 android:textAppearance="@style/body1"
-                app:layout_constraintStart_toEndOf="@id/iv_daily_routine_edit_icon"
-                app:layout_constraintTop_toTopOf="@id/iv_daily_routine_edit_icon" />
+                app:layout_constraintStart_toEndOf="@id/iv_daily_routine_edit_icon_first"
+                app:layout_constraintTop_toTopOf="@id/iv_daily_routine_edit_icon_first" />
 
             <ImageView
-                android:id="@+id/iv_daily_routine_edit_fin"
+                android:id="@+id/iv_daily_routine_edit_fin_first"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:src="@drawable/ic_daily_fin"
-                app:layout_constraintStart_toStartOf="@id/tv_daily_routine_edit_add_name"
-                app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_edit_add_name" />
+                app:layout_constraintStart_toStartOf="@id/tv_daily_routine_edit_add_name_first"
+                app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_edit_add_name_first" />
 
             <TextView
-                android:id="@+id/tv_daily_routine_edit_num"
+                android:id="@+id/tv_daily_routine_edit_ing_first"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -99,11 +99,11 @@
                 android:text="@string/daily_routine_ing"
                 android:textAppearance="@style/caption1"
                 android:textColor="@color/gray300"
-                app:layout_constraintStart_toEndOf="@id/iv_daily_routine_edit_fin"
-                app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_edit_add_name" />
+                app:layout_constraintStart_toEndOf="@id/iv_daily_routine_edit_fin_first"
+                app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_edit_add_name_first" />
 
             <ImageButton
-                android:id="@+id/btn_daily_routine_edit_radio_empty"
+                android:id="@+id/btn_daily_routine_edit_radio_empty_first"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -113,12 +113,15 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_daily_routine_edit_yet_fin"
+                android:id="@+id/btn_daily_routine_edit_yet_fin_first"
                 android:layout_width="0dp"
-                android:layout_height="38dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/shape_main1_fill_10_rect"
+                android:minHeight="0dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="11dp"
                 android:text="@string/daily_routine_fin_btn"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/white"
@@ -127,12 +130,15 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_daily_routine_edit_fin"
+                android:id="@+id/btn_daily_routine_edit_fin_first"
                 android:layout_width="0dp"
-                android:layout_height="38dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/shape_gray100_fill_10_rect"
+                android:minHeight="0dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="11dp"
                 android:text="@string/daily_routine_fin"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/gray300"
@@ -186,7 +192,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_edit_name_second" />
 
             <TextView
-                android:id="@+id/tv_daily_routine_edit_num_second"
+                android:id="@+id/tv_daily_routine_edit_ing_second"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -210,10 +216,13 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_daily_routine_edit_yet_fin_second"
                 android:layout_width="0dp"
-                android:layout_height="38dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/shape_main1_fill_10_rect"
+                android:minHeight="0dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="11dp"
                 android:text="@string/daily_routine_fin_btn"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/white"
@@ -224,10 +233,13 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_daily_routine_edit_fin_second"
                 android:layout_width="0dp"
-                android:layout_height="38dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/shape_gray100_fill_10_rect"
+                android:minHeight="0dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="11dp"
                 android:text="@string/daily_routine_fin"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/gray300"
@@ -280,7 +292,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_edit_name_third" />
 
             <TextView
-                android:id="@+id/tv_daily_routine_edit_num_third"
+                android:id="@+id/tv_daily_routine_edit_ing_third"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -304,10 +316,13 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_daily_routine_edit_yet_fin_third"
                 android:layout_width="0dp"
-                android:layout_height="38dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/shape_main1_fill_10_rect"
+                android:minHeight="0dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="11dp"
                 android:text="@string/daily_routine_fin_btn"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/white"
@@ -318,10 +333,13 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_daily_routine_edit_fin_third"
                 android:layout_width="0dp"
-                android:layout_height="38dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/shape_gray100_fill_10_rect"
+                android:minHeight="0dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="11dp"
                 android:text="@string/daily_routine_fin"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/gray300"
@@ -357,18 +375,38 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_daily_routine_edit_delete"
+            android:id="@+id/btn_daily_routine_edit_delete_nothting"
             android:layout_width="0dp"
-            android:layout_height="57dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="32dp"
+            android:background="@drawable/shape_gray200_fill_12_rect"
+            android:minHeight="0dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="18dp"
+            android:text="@string/daily_routine_edit_delete_nothing"
+            android:textAppearance="@style/body1"
+            android:textColor="@color/gray000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_daily_routine_edit_delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/shape_red_fill_12_rect"
+            android:minHeight="0dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="18dp"
             android:text="@string/daily_routine_edit_delete"
             android:textAppearance="@style/body1"
             android:textColor="@color/gray000"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/shape_red_fill_12_rect"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -37,4 +37,5 @@
     <string name="daily_routine_fin_btn">완료하기</string>
     <string name="daily_routine_fin">달성완료</string>
     <string name="daily_routine_edit">편집</string>
+    <string name="daily_routine_edit_delete_nothing">0개 삭제</string>
 </resources>
