@@ -36,7 +36,7 @@ class RoutineChoiceFragment :
 
     private fun initSetThemeBackBtn() {
         binding.btnOnboardingRoutineBackTheme.setOnClickListener {
-            viewModel.changeThemeChoiceView()
+            viewModel.changeSecondThemeChoiceView()
         }
     }
 

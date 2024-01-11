@@ -59,6 +59,17 @@ class OnboardingActivity :
                 viewModel.setLayoutTranslucent(true)
                 initSetSpeechText()
                 initSetTranslucentBackground()
+                changeSecondThemeChoice()
+            }
+        }
+    }
+
+    private fun changeSecondThemeChoice() {
+        viewModel.secondThemeChoiceView.observe(this) { isSecondThemeView ->
+            if (isSecondThemeView) {
+                changeFragment(ChoiceThemeFragment())
+                viewModel.setLayoutTranslucent(false)
+                viewModel.changeRoutineChoiceView(false)
             }
         }
     }

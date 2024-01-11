@@ -66,7 +66,7 @@ class ChoiceThemeFragment :
         themeViewModel.themeBtnEnabled.observe(viewLifecycleOwner) {
             if (it) {
                 binding.btnOnboardingChoiceTheme.setOnClickListener {
-                    viewModel.changeRoutineChoiceView()
+                    viewModel.changeRoutineChoiceView(true)
                 }
             }
         }
