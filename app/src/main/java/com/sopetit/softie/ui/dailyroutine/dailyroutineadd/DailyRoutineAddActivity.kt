@@ -31,7 +31,7 @@ class DailyRoutineAddActivity :
         setViewPager()
         setIndicator()
         setItemDiv()
-        //  initPagerDiv(19, 40)
+        initPagerDiv(0, 90)
     }
 
     private fun setupAdapter() {

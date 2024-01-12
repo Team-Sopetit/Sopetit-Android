@@ -36,6 +36,12 @@
             android:name=".ui.storytelling.StoryTellingActivity"
             android:exported="false"
             android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"></activity>
+
         <activity
             android:name=".ui.onboarding.splash.SplashActivity"
             android:exported="true"
