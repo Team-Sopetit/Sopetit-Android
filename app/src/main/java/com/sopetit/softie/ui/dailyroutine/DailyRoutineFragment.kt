@@ -6,6 +6,8 @@ import android.widget.TextView
 import androidx.fragment.app.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
+import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
+import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 
 class DailyRoutineFragment :
@@ -20,6 +22,7 @@ class DailyRoutineFragment :
 
         initSetDailyRoutineContent()
         initSetDeleteView()
+        initSetRoutineDelete()
     }
 
     private fun initSetDailyRoutineContent() {
@@ -92,5 +95,28 @@ class DailyRoutineFragment :
         }
 
         binding.btnDailyRoutineDelete.text = deleteBtnContent
+    }
+
+    private fun initSetRoutineDelete() {
+        viewModel.isEditBtnEnabled.observe(viewLifecycleOwner) { isBtnEnabled ->
+            if (isBtnEnabled) {
+                binding.btnDailyRoutineDelete.setOnClickListener {
+                    BindingBottomSheet.Builder().build(
+                        isDrawable = true,
+                        imageDrawable = R.drawable.ic_bear_face_crying,
+                        imageUri = "",
+                        title = "정말 삭제할까요?",
+                        content = "루틴을 삭제해도 달성 횟수는 저장돼요",
+                        isContentVisible = true,
+                        contentColor = R.color.red,
+                        backBtnContent = "취소",
+                        doBtnContent = "삭제할래",
+                        doBtnColor = R.drawable.shape_red_fill_12_rect,
+                        backBtnAction = {},
+                        doBtnAction = {}
+                    ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
+                }
+            }
+        }
     }
 }

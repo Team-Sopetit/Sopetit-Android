@@ -69,4 +69,8 @@ class OriginalBottomSheet : BindingBottomSheet() {
     override fun setDoBtnClick(action: () -> Unit) {
         binding.btnBottomSheetDo.setOnClickListener { action() }
     }
+
+    companion object {
+        const val BOTTOM_SHEET_TAG = "BOTTOM_SHEET_TAG"
+    }
 }

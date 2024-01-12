@@ -7,6 +7,7 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentSettingInitBinding
 import com.sopetit.softie.ui.setting.SettingActivity.Companion.USER_EXIT
 import com.sopetit.softie.ui.setting.SettingActivity.Companion.USER_SECURITY
+import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 
@@ -73,7 +74,7 @@ class SettingInitFragment :
         }
     }
 
-    companion object {
-        const val BOTTOM_SHEET_TAG = "BOTTOM SHEET TAG"
-    }
+//    companion object {
+//        const val BOTTOM_SHEET_TAG = "BOTTOM SHEET TAG"
+//    }
 }
