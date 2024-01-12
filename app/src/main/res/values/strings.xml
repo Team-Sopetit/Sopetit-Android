@@ -79,11 +79,10 @@
     <string name="bear_naming_warning">*특수문자는 사용할 수 없어요</string>
 
     <!-- daily routine edit -->
-    <string name="daily_routine_edit_delete">n개 삭제</string>
     <string name="daily_routine_edit_name">데일리 루틴</string>
     <string name="daily_routine_edit_cancel">취소</string>
     <string name="daily_routine_edit">편집</string>
-    <string name="daily_routine_edit_delete_nothing">0개 삭제</string>
+    <string name="daily_routine_edit_delete">%s개 삭제</string>
 
     <!-- daily routine -->
     <string name="daily_routine_user_add">이불 개기</string>

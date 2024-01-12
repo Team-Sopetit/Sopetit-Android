@@ -332,7 +332,7 @@
             android:enabled="@{viewModel.isEditBtnEnabled ? true : false}"
             android:paddingTop="20dp"
             android:paddingBottom="18dp"
-            android:text="@string/daily_routine_edit_delete_nothing"
+            android:text="@{@string/daily_routine_edit_delete(viewModel.editRoutineIdArray.size)}"
             android:textAppearance="@style/body1"
             android:textColor="@color/gray000"
             android:visibility="@{viewModel.isDeleteView ? View.VISIBLE : View.INVISIBLE}"

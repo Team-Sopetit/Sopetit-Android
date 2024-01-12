@@ -18,7 +18,7 @@ class DailyRoutineViewModel : ViewModel() {
                 true
             ),
             DailyRoutine(
-                12,
+                2,
                 "작업 끝내기",
                 "",
                 5,
@@ -56,8 +56,11 @@ class DailyRoutineViewModel : ViewModel() {
     }
 
     fun setEditRoutineIdArray(routineId: Int) {
-//        _editRoutineIdArray.value?.add(routineId)
-        editRoutineIdArray.add(routineId)
+        if (editRoutineIdArray.contains(routineId)) {
+            editRoutineIdArray.removeAt(editRoutineIdArray.indexOf(routineId))
+        } else {
+            editRoutineIdArray.add(routineId)
+        }
     }
 
     fun setEditBtnEnabled(enabled: Boolean) {
