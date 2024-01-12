@@ -9,6 +9,7 @@ import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
 import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
+import com.sopetit.softie.util.snackBar
 
 class DailyRoutineFragment :
     BindingFragment<FragmentDailyRoutineBinding>(R.layout.fragment_daily_routine) {
@@ -113,7 +114,12 @@ class DailyRoutineFragment :
                         doBtnContent = "삭제할래",
                         doBtnColor = R.drawable.shape_red_fill_12_rect,
                         backBtnAction = {},
-                        doBtnAction = {}
+                        doBtnAction = {
+                            snackBar(
+                                binding.root.rootView,
+                                "데일리 루틴을 ${viewModel.editRoutineIdArray.size}개 삭제했어요"
+                            )
+                        }
                     ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
                 }
             }
