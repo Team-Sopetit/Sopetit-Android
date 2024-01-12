@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
 import com.sopetit.softie.util.binding.BindingFragment
+import timber.log.Timber
 
 class DailyRoutineFragment :
     BindingFragment<FragmentDailyRoutineBinding>(R.layout.fragment_daily_routine) {
@@ -59,7 +60,38 @@ class DailyRoutineFragment :
                 binding.tvDailyRoutineEdit.setOnClickListener {
                     viewModel.setDeleteView(false)
                 }
+                clickEditRadioBtn()
             }
+        }
+    }
+
+    private fun clickEditRadioBtn() {
+        viewModel.mockDailyRoutineList.observe(viewLifecycleOwner) { routineList ->
+            with(binding) {
+                changeBtnSelectState(btnDailyRoutineRadioFirst, routineList.get(0).routineId)
+                changeBtnSelectState(btnDailyRoutineRadioSecond, routineList.get(1).routineId)
+                changeBtnSelectState(btnDailyRoutineRadioThird, routineList.get(2).routineId)
+            }
+        }
+    }
+
+    private fun changeBtnSelectState(button: View, itemId: Int) {
+        button.setOnClickListener {
+            it.isSelected = !it.isSelected
+            viewModel.setEditRoutineIdArray(itemId)
+            Timber.d("daily routine -> ${viewModel.editRoutineIdArray}")
+        }
+
+        setDeleteRoutineBtnContent()
+    }
+
+    private fun setDeleteRoutineBtnContent() {
+        if (viewModel.editRoutineIdArray.size > 0) {
+            viewModel.setEditBtnEnabled(true)
+            binding.btnDailyRoutineDelete.text = "${viewModel.editRoutineIdArray.size}개 삭제"
+        } else {
+            viewModel.setEditBtnEnabled(false)
+            binding.btnDailyRoutineDelete.text = "0개 삭제"
         }
     }
 }

@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.sopetit.softie.domain.entity.DailyRoutine
 
 class DailyRoutineViewModel : ViewModel() {
-    val routineAddList = listOf<Int>(1, 2)
+    // val routineAddList = listOf<Int>(1, 2)
 
     private val _mockDailyRoutineList: MutableLiveData<List<DailyRoutine>> = MutableLiveData(
         mutableListOf(
@@ -41,9 +41,11 @@ class DailyRoutineViewModel : ViewModel() {
     val isDeleteView: LiveData<Boolean>
         get() = _isDeleteView
 
-    private val _editRoutineNumber: MutableLiveData<Int> = MutableLiveData()
-    val editRoutineNumber: LiveData<Int>
-        get() = _editRoutineNumber
+//    private val _editRoutineIdArray: MutableLiveData<ArrayList<Int>> = MutableLiveData()
+//    val editRoutineIdArray: LiveData<ArrayList<Int>>
+//        get() = _editRoutineIdArray
+
+    val editRoutineIdArray = ArrayList<Int>()
 
     private val _isEditBtnEnabled: MutableLiveData<Boolean> = MutableLiveData()
     val isEditBtnEnabled: LiveData<Boolean>
@@ -53,8 +55,9 @@ class DailyRoutineViewModel : ViewModel() {
         _isDeleteView.value = deleteEnabled
     }
 
-    fun setEditRoutineNumber(number: Int) {
-        _editRoutineNumber.value = number
+    fun setEditRoutineIdArray(routineId: Int) {
+//        _editRoutineIdArray.value?.add(routineId)
+        editRoutineIdArray.add(routineId)
     }
 
     fun setEditBtnEnabled(enabled: Boolean) {
