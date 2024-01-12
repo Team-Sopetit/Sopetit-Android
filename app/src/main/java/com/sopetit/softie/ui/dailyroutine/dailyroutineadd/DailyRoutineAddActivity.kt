@@ -111,13 +111,15 @@ class DailyRoutineAddActivity :
             val margin = (dpValue * resources.displayMetrics.density).toInt()
             setPadding(margin, 0, margin, 0)
 
-            setPageTransformer(CompositePageTransformer().apply {
-                addTransformer(
-                    MarginPageTransformer(
-                        resources.getDimensionPixelOffset(R.dimen.viewpager_margin)
+            setPageTransformer(
+                CompositePageTransformer().apply {
+                    addTransformer(
+                        MarginPageTransformer(
+                            resources.getDimensionPixelOffset(R.dimen.viewpager_margin)
+                        )
+
                     )
-                )
-            })
+                })
         }
     }
 
