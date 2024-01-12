@@ -34,10 +34,12 @@
             android:id="@+id/tv_daily_routine_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="6dp"
             android:text="@{viewModel.isDeleteView ? @string/daily_routine_edit_cancel : @string/daily_routine_edit}"
             android:textAppearance="@style/body4"
             android:textColor="@color/gray400"
+            android:paddingVertical="12dp"
+            android:paddingHorizontal="14dp"
             app:layout_constraintBottom_toBottomOf="@id/tv_daily_routine_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_daily_routine_name" />
@@ -126,6 +128,7 @@
                 android:text="@string/daily_routine_fin_btn"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/white"
+                android:outlineProvider="none"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -208,6 +211,7 @@
                 android:text="@string/daily_routine_fin_btn"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/white"
+                android:outlineProvider="none"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -291,6 +295,7 @@
                 android:text="@string/daily_routine_fin_btn"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/white"
+                android:outlineProvider="none"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -336,6 +341,7 @@
             android:textAppearance="@style/body1"
             android:textColor="@color/gray000"
             android:visibility="@{viewModel.isDeleteView ? View.VISIBLE : View.INVISIBLE}"
+            android:outlineProvider="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
