@@ -130,24 +130,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_daily_routine_fin_first"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/shape_gray100_fill_10_rect"
-                android:minHeight="0dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="11dp"
-                android:text="@string/daily_routine_fin"
-                android:textAppearance="@style/body4"
-                android:textColor="@color/gray300"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -215,24 +197,6 @@
                 android:text="@string/daily_routine_fin_btn"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_daily_routine_fin_second"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/shape_gray100_fill_10_rect"
-                android:minHeight="0dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="11dp"
-                android:text="@string/daily_routine_fin"
-                android:textAppearance="@style/body4"
-                android:textColor="@color/gray300"
-                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -305,24 +269,6 @@
                 android:text="@string/daily_routine_fin_btn"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_daily_routine_fin_third"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/shape_gray100_fill_10_rect"
-                android:minHeight="0dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="11dp"
-                android:text="@string/daily_routine_fin"
-                android:textAppearance="@style/body4"
-                android:textColor="@color/gray300"
-                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
