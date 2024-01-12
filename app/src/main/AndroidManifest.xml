@@ -32,14 +32,12 @@
             android:exported="false"
             android:screenOrientation="portrait" />
 
-
         <activity
             android:name=".ui.storytelling.StoryTellingActivity"
             android:exported="false"
-            android:screenOrientation="portrait" />
-
+            android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity"
+            android:name=".ui.onboarding.splash.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -50,7 +48,16 @@
         </activity>
 
         <activity
+            android:name=".ui.main.happy.addlist.HappyAddListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".ui.setting.SettingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.LoginActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
