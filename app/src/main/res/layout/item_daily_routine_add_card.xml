@@ -8,6 +8,7 @@
         android:id="@+id/tv_daily_routine_add_card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_daily_routine_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
