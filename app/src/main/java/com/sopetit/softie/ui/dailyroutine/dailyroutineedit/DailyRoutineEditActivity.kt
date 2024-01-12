@@ -9,13 +9,12 @@ import com.sopetit.softie.util.binding.BindingActivity
 
 class DailyRoutineEditActivity :
     BindingActivity<ActivityDailyRoutineEditBinding>(R.layout.activity_daily_routine_edit) {
-    private val dailyRoutineEditViewModel by viewModels<DailyRoutineEditViewModel>()
+    private val viewModel by viewModels<DailyRoutineEditViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding.lifecycleOwner = this
-        binding.dailyRoutineEditViewModel = dailyRoutineEditViewModel
+        binding.viewModel = viewModel
 
         setCancelBtnClickListener()
         clickEditRadioBtn()
