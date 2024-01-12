@@ -41,4 +41,7 @@
 
     <!-- story telling -->
     <color name="story_telling_background">#FFE1E1E1</color>
+
+    <!-- splash -->
+    <color name="splash_bottom">#CEB59E</color>
 </resources>
