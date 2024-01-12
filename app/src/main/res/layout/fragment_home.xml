@@ -17,10 +17,10 @@
 
         <ImageView
             android:id="@+id/backgroundImageView"
+            setImage="@{viewModel.homeResponse.frameImageUrl}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            setImage="@{viewModel.homeResponse.frameImageUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -113,12 +113,12 @@
             android:background="@drawable/shape_namefill_fill_namestroke_stroke_99_rect"
             android:paddingHorizontal="13dp"
             android:paddingVertical="9dp"
-            android:text="닉네임"
+            android:text="@{viewModel.homeResponse.name}"
             android:textColor="@color/gray700"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_home_shadow"
-            tools:text="@{viewModel.homeResponse.name}" />
+            tools:text="닉네임" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_home_som_white"
@@ -163,7 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
-                android:text="솜뭉치 주기"
+                android:text="@string/home_daily_cotton_btn"
                 android:textColor="@color/gray500"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -214,7 +214,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
-                android:text="행복 솜뭉치 주기"
+                android:text="@string/home_happiness_cotton_btn"
                 android:textColor="@color/gray500"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
