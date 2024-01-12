@@ -88,7 +88,7 @@ class DailyRoutineAddViewModel : ViewModel() {
     val mockThemeList: LiveData<List<Theme>>
         get() = _mockThemeList
 
-    private val _mockDailyFirstCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+    private val _startNewDayCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
                 backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
@@ -118,10 +118,10 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val mockDailyFirstCardList: LiveData<List<DailyCard>>
-        get() = _mockDailyFirstCardList
+    val startNewDayCardList: LiveData<List<DailyCard>>
+        get() = _startNewDayCardList
 
-    private val _mockDailySecondCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+    private val _healthBodyCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
                 backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
@@ -151,10 +151,10 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val mockDailySecondCardList: LiveData<List<DailyCard>>
-        get() = _mockDailySecondCardList
+    val healthBodyCardList: LiveData<List<DailyCard>>
+        get() = _healthBodyCardList
 
-    private val _mockDailyThirdCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+    private val _overcomeHelplessnessCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
                 backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
@@ -184,10 +184,10 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val mockDailyThirdCardList: LiveData<List<DailyCard>>
-        get() = _mockDailyThirdCardList
+    val overcomeHelplessnessCardList: LiveData<List<DailyCard>>
+        get() = _overcomeHelplessnessCardList
 
-    private val _mockDailyFourthCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+    private val _restfulSleepCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
                 backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
@@ -217,10 +217,10 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val mockDailyFourthCardList: LiveData<List<DailyCard>>
-        get() = _mockDailyFourthCardList
+    val restfulSleepCardList: LiveData<List<DailyCard>>
+        get() = _restfulSleepCardList
 
-    private val _mockDailyFifthCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+    private val _environmentalGuardCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
                 backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
@@ -250,10 +250,10 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val mockDailyFifthCardList: LiveData<List<DailyCard>>
-        get() = _mockDailyFifthCardList
+    val environmentalGuardCardList: LiveData<List<DailyCard>>
+        get() = _environmentalGuardCardList
 
-    private val _mockDailySixthCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+    private val _smallKindnessCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
                 backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
@@ -283,10 +283,10 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val mockDailySixthCardList: LiveData<List<DailyCard>>
-        get() = _mockDailySixthCardList
+    val smallKindnessCardList: LiveData<List<DailyCard>>
+        get() = _smallKindnessCardList
 
-    private val _mockDailySeventhCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+    private val _gratitudeCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
                 backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
@@ -316,10 +316,10 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val mockDailySeventhCardList: LiveData<List<DailyCard>>
-        get() = _mockDailySeventhCardList
+    val gratitudeCardList: LiveData<List<DailyCard>>
+        get() = _gratitudeCardList
 
-    private val _mockDailyEighthCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+    private val _smallAccomplishmentCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
                 backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
@@ -349,10 +349,10 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val mockDailyEighthCardList: LiveData<List<DailyCard>>
-        get() = _mockDailyEighthCardList
+    val smallAccomplishmentCardList: LiveData<List<DailyCard>>
+        get() = _smallAccomplishmentCardList
 
-    private val _mockDailyNinthCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+    private val _preciousMeCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
                 backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
@@ -382,10 +382,10 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val mockDailyNinthCardList: LiveData<List<DailyCard>>
-        get() = _mockDailyNinthCardList
+    val preciousMeCardList: LiveData<List<DailyCard>>
+        get() = _preciousMeCardList
 
-    private val _mockDailyTenthCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+    private val _forRichCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
                 backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
@@ -415,10 +415,10 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val mockDailyTenthCardList: LiveData<List<DailyCard>>
-        get() = _mockDailyTenthCardList
+    val forRichCardList: LiveData<List<DailyCard>>
+        get() = _forRichCardList
 
-    private val _mockDailyEleventhCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+    private val _readyImmerseCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
                 backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
@@ -448,10 +448,10 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val mockDailyEleventhCardList: LiveData<List<DailyCard>>
-        get() = _mockDailyEleventhCardList
+    val readyImmerseCardList: LiveData<List<DailyCard>>
+        get() = _readyImmerseCardList
 
-    private val _mockDailyTwelfthCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
+    private val _emptyCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
                 backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
@@ -481,6 +481,6 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val mockDailyTwelfthCardList: LiveData<List<DailyCard>>
-        get() = _mockDailyTwelfthCardList
+    val emptyCardList: LiveData<List<DailyCard>>
+        get() = _emptyCardList
 }

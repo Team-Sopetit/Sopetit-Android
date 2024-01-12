@@ -48,7 +48,7 @@ class DailyRoutineAddActivity :
             rvDailyRoutineAddTheme.adapter = dailyRoutineAddThemeAdapter
         }
         dailyRoutineAddViewModel.mockThemeList.observe(this) {
-            dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyFirstCardList.value)
+            dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.startNewDayCardList.value)
             dailyRoutineAddThemeAdapter.submitList(dailyRoutineAddViewModel.mockThemeList.value)
         }
     }
@@ -56,21 +56,21 @@ class DailyRoutineAddActivity :
     private fun setRoutineList(item: Theme) {
         Timber.d("daily routine act -> ${item.themeId}")
         when (item.themeId) {
-            1 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyFirstCardList.value)
-            2 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailySecondCardList.value)
-            3 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyThirdCardList.value)
-            4 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyFourthCardList.value)
-            5 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyFifthCardList.value)
-            6 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailySixthCardList.value)
-            7 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailySeventhCardList.value)
-            8 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyEighthCardList.value)
-            9 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyNinthCardList.value)
-            10 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyTenthCardList.value)
-            11 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyEleventhCardList.value)
-            12 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyTwelfthCardList.value)
+            1 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.startNewDayCardList.value)
+            2 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.healthBodyCardList.value)
+            3 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.overcomeHelplessnessCardList.value)
+            4 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.restfulSleepCardList.value)
+            5 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.environmentalGuardCardList.value)
+            6 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.smallKindnessCardList.value)
+            7 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.gratitudeCardList.value)
+            8 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.smallAccomplishmentCardList.value)
+            9 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.preciousMeCardList.value)
+            10 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.forRichCardList.value)
+            11 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.readyImmerseCardList.value)
+            12 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.emptyCardList.value)
 
             else -> dailyRoutineAddCardPagerAdapter.submitList(
-                dailyRoutineAddViewModel.mockDailyFirstCardList.value
+                dailyRoutineAddViewModel.startNewDayCardList.value
             )
         }
     }
