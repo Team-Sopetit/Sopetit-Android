@@ -32,18 +32,14 @@
             android:exported="false"
             android:screenOrientation="portrait" />
 
+
         <activity
-            android:name=".ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity"
+            android:name=".ui.storytelling.StoryTellingActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.storytelling.StoryTellingActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.main.happy.addlist.HappyAddListActivity"
+            android:name=".ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>

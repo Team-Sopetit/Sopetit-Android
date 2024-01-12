@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="data"
-            type="com.sopetit.softie.domain.entity.Theme" />
+            name="dailyRoutineAddViewModel"
+            type="com.sopetit.softie.ui.dailyroutine.dailyroutineadd.DailyRoutineAddViewModel" />
 
     </data>
 
