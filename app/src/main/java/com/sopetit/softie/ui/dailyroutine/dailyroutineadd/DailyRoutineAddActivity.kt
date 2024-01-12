@@ -20,18 +20,7 @@ class DailyRoutineAddActivity :
     private lateinit var dailyRoutineAddCardPagerAdapter: DailyRoutineAddCardPagerAdapter
     private lateinit var dailyRoutineAddThemeAdapter: DailyRoutineAddThemeAdapter
 
-
-//    private var _dailyRoutineAddCardPagerAdapter: DailyRoutineAddCardPagerAdapter? = null
-//    private val dailyRoutineAddCardPagerAdapter
-//        get() = requireNotNull(_dailyRoutineAddCardPagerAdapter)
-//
-//    private var _dailyRoutineAddThemeAdapter: DailyRoutineAddThemeAdapter? = null
-//    private val dailyRoutineAddThemeAdapter
-//        get() = requireNotNull(_dailyRoutineAddThemeAdapter)
-
-
     private val dailyRoutineAddViewModel by viewModels<DailyRoutineAddViewModel>()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +31,7 @@ class DailyRoutineAddActivity :
         setViewPager()
         setIndicator()
         setItemDiv()
+        //  initPagerDiv(19, 40)
     }
 
     private fun setupAdapter() {
@@ -85,6 +75,33 @@ class DailyRoutineAddActivity :
         }
     }
 
+    private fun initPagerDiv(previewWidth: Int, itemMargin: Int) {
+        val decoMargin = previewWidth + itemMargin
+        val pageTransX = decoMargin + previewWidth
+        val decoration = PageDecoration(decoMargin)
+
+        binding.vpDailyRoutineAddCard.also {
+            it.offscreenPageLimit = 3
+            it.addItemDecoration(decoration)
+            it.setPageTransformer { page, position ->
+                page.translationX = position * -pageTransX
+            }
+        }
+    }
+
+    private class PageDecoration(private val margin: Int) : RecyclerView.ItemDecoration() {
+
+        override fun getItemOffsets(
+            outRect: Rect,
+            view: View,
+            parent: RecyclerView,
+            state: RecyclerView.State
+        ) {
+            outRect.left = margin
+            outRect.right = margin
+        }
+    }
+
     private fun setViewPager() {
         with(binding.vpDailyRoutineAddCard) {
             adapter = dailyRoutineAddCardPagerAdapter
@@ -103,28 +120,6 @@ class DailyRoutineAddActivity :
     private fun setIndicator() {
         binding.diDailyRoutineAddIndicator.attachTo(binding.vpDailyRoutineAddCard)
     }
-
-//    private fun clickTheme() {
-//        dailyRoutineAddThemeAdapter.set {
-//            Timber.d("daily routine act -> ${it.themeId}")
-//            // Timber.d("daily routine act -> ${dailyRoutineAddThemeAdapter.selectedThemeArray}")
-//            when (it.themeId) {
-//                1 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyFirstCardList.value)
-//                2 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailySecondCardList.value)
-//                3 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyThirdCardList.value)
-//                4 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyFourthCardList.value)
-//                5 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyFifthCardList.value)
-//                6 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailySixthCardList.value)
-//                7 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailySeventhCardList.value)
-//                8 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyEighthCardList.value)
-//                9 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyNinthCardList.value)
-//                10 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyTenthCardList.value)
-//                11 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyEleventhCardList.value)
-//                12 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyTwelfthCardList.value)
-//                else -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.mockDailyFirstCardList.value)
-//            }
-//        }
-//    }
 
     class HorizontalItemDecorator(private val divHeight: Int) : RecyclerView.ItemDecoration() {
         @Override

@@ -3,7 +3,6 @@ package com.sopetit.softie.ui.dailyroutine.dailyroutineadd
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sopetit.softie.R
 import com.sopetit.softie.domain.entity.DailyCard
 import com.sopetit.softie.domain.entity.Theme
 
@@ -92,27 +91,27 @@ class DailyRoutineAddViewModel : ViewModel() {
     private val _mockDailyFirstCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 1,
                 content = "첫번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 2,
                 content = "첫번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 3,
                 content = "첫번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 4,
                 content = "첫번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 5,
                 content = "첫번째 데이터"
             )
@@ -125,27 +124,27 @@ class DailyRoutineAddViewModel : ViewModel() {
     private val _mockDailySecondCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 6,
                 content = "두번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 7,
                 content = "두번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 8,
                 content = "두번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 9,
                 content = "두번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 10,
                 content = "두번째 데이터"
             )
@@ -158,27 +157,27 @@ class DailyRoutineAddViewModel : ViewModel() {
     private val _mockDailyThirdCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 11,
                 content = "세번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 12,
                 content = "세번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 13,
                 content = "세번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 14,
                 content = "세번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 15,
                 content = "세번째 데이터"
             )
@@ -191,27 +190,27 @@ class DailyRoutineAddViewModel : ViewModel() {
     private val _mockDailyFourthCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 1,
                 content = "네번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 2,
                 content = "네번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 3,
                 content = "네번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 4,
                 content = "네번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 5,
                 content = "네번째 데이터"
             )
@@ -224,27 +223,27 @@ class DailyRoutineAddViewModel : ViewModel() {
     private val _mockDailyFifthCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 1,
                 content = "다섯번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 2,
                 content = "다섯번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 3,
                 content = "다섯번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 4,
                 content = "다섯번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 5,
                 content = "다섯번째 데이터"
             )
@@ -257,27 +256,27 @@ class DailyRoutineAddViewModel : ViewModel() {
     private val _mockDailySixthCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 1,
                 content = "여섯번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 2,
                 content = "여섯번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 3,
                 content = "여섯번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 4,
                 content = "여섯번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 5,
                 content = "여섯번째 데이터"
             )
@@ -290,27 +289,27 @@ class DailyRoutineAddViewModel : ViewModel() {
     private val _mockDailySeventhCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 1,
                 content = "일곱번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 2,
                 content = "일곱번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 3,
                 content = "일곱번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 4,
                 content = "일곱번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 5,
                 content = "일곱번째 데이터"
             )
@@ -323,27 +322,27 @@ class DailyRoutineAddViewModel : ViewModel() {
     private val _mockDailyEighthCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 1,
                 content = "여덟번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 2,
                 content = "여덟번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 3,
                 content = "여덟번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 4,
                 content = "여덟번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 5,
                 content = "여덟번째 데이터"
             )
@@ -356,27 +355,27 @@ class DailyRoutineAddViewModel : ViewModel() {
     private val _mockDailyNinthCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 1,
                 content = "아홉번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 2,
                 content = "아홉번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 3,
                 content = "아홉번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 4,
                 content = "아홉번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 5,
                 content = "아홉번째 데이터"
             )
@@ -389,27 +388,27 @@ class DailyRoutineAddViewModel : ViewModel() {
     private val _mockDailyTenthCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 1,
                 content = "열번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 2,
                 content = "열번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 3,
                 content = "열번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 4,
                 content = "열번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 5,
                 content = "열번째 데이터"
             )
@@ -422,27 +421,27 @@ class DailyRoutineAddViewModel : ViewModel() {
     private val _mockDailyEleventhCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 1,
                 content = "열한번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 2,
                 content = "열한번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 3,
                 content = "열한번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 4,
                 content = "열한번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 5,
                 content = "열한번째 데이터"
             )
@@ -455,27 +454,27 @@ class DailyRoutineAddViewModel : ViewModel() {
     private val _mockDailyTwelfthCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 1,
                 content = "열두번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 2,
                 content = "열두번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 3,
                 content = "열두번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 4,
                 content = "열두번째 데이터"
             ),
             DailyCard(
-                card = R.drawable.shape_gray_fill_20_rect,
+                backgroundImageUrl = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 routineId = 5,
                 content = "열두번째 데이터"
             )

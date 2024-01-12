@@ -65,24 +65,24 @@
             android:clipChildren="false"
             android:clipToPadding="false"
             android:layout_marginTop="27dp"
+            android:layout_marginBottom="91dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/v_daily_routine_add_line" />
+            app:layout_constraintTop_toBottomOf="@id/v_daily_routine_add_line"
+            app:layout_constraintBottom_toTopOf="@id/btn_daily_routine_add" />
 
         <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
             android:id="@+id/di_daily_routine_add_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:layout_marginBottom="55dp"
-            android:foregroundGravity="center"
             app:dotsColor="@color/gray200"
             app:dotsSize="12dp"
             app:dotsSpacing="6dp"
             app:dotsWidthFactor="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vp_daily_routine_add_card"
+            app:layout_constraintBottom_toTopOf="@id/btn_daily_routine_add"
             app:selectedDotColor="@color/main1" />
 
         <androidx.appcompat.widget.AppCompatButton

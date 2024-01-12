@@ -4,10 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.sopetit.softie.R
+import coil.load
 import com.sopetit.softie.databinding.ItemDailyRoutineAddCardBinding
 import com.sopetit.softie.domain.entity.DailyCard
 import com.sopetit.softie.util.ItemDiffCallback
+import timber.log.Timber
 
 class DailyRoutineAddCardPagerAdapter :
     ListAdapter<DailyCard, DailyRoutineAddCardPagerAdapter.DailyPagerViewHolder>(
@@ -30,7 +31,8 @@ class DailyRoutineAddCardPagerAdapter :
     class DailyPagerViewHolder(private val binding: ItemDailyRoutineAddCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: DailyCard) {
-            binding.clDailyRoutineAddCard.loadLayoutDescription(R.layout.item_daily_routine_add_card)
+            binding.tvDailyRoutineAddCard.load(data.backgroundImageUrl)
+            Timber.d("load Image -> ${data}")
             binding.tvDailyRoutineAddCardName.text = data.content
         }
     }
