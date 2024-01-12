@@ -28,15 +28,19 @@ class DailyRoutineEditActivity :
 
     private fun clickEditRadioBtn() {
         with(binding) {
-            changeBtnSelectState(btnDailyRoutineEditRadioEmptyFirst)
-            changeBtnSelectState(btnDailyRoutineEditRadioEmptySecond)
-            changeBtnSelectState(btnDailyRoutineEditRadioEmptyThird)
+            changeBtnSelectState(btnDailyRoutineEditRadioEmptyFirst, 1)
+            changeBtnSelectState(btnDailyRoutineEditRadioEmptySecond, 2)
+            changeBtnSelectState(btnDailyRoutineEditRadioEmptyThird, 3)
         }
     }
 
-    private fun changeBtnSelectState(button: View) {
+    private fun changeBtnSelectState(button: View, itemId: Int) {
         button.setOnClickListener {
             it.isSelected = !it.isSelected
         }
+    }
+
+    private fun initSetEditBtnEnabled() {
+        //
     }
 }

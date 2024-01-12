@@ -21,8 +21,24 @@ class DailyRoutineFragment :
     }
 
     private fun initSetDeleteView() {
-        binding.tvDailyRoutineEdit.setOnClickListener {
-            viewModel.setDeleteView(true)
+        viewModel.isDeleteView.observe(viewLifecycleOwner) { isDeleteView ->
+            if (!isDeleteView) {
+                binding.tvDailyRoutineEdit.setOnClickListener {
+                    viewModel.setDeleteView(true)
+                }
+            }
+        }
+
+        initSetBackOriginalView()
+    }
+
+    private fun initSetBackOriginalView() {
+        viewModel.isDeleteView.observe(viewLifecycleOwner) { isDeleteView ->
+            if (isDeleteView) {
+                binding.tvDailyRoutineEdit.setOnClickListener {
+                    viewModel.setDeleteView(false)
+                }
+            }
         }
     }
 }
