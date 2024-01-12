@@ -91,4 +91,3 @@ class DailyRoutineAddThemeAdapter :
         holder.onBind(currentList[position])
     }
 }
-

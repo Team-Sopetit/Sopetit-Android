@@ -32,7 +32,7 @@ class DailyRoutineAddCardPagerAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: DailyCard) {
             binding.tvDailyRoutineAddCard.load(data.backgroundImageUrl)
-            Timber.d("load Image -> ${data}")
+            Timber.d("load Image -> $data")
             binding.tvDailyRoutineAddCardName.text = data.content
         }
     }
