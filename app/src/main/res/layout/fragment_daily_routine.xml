@@ -7,7 +7,7 @@
         <import type="android.view.View" />
 
         <variable
-            name="dailyRoutineViewModel"
+            name="viewModel"
             type="com.sopetit.softie.ui.dailyroutine.DailyRoutineViewModel" />
 
     </data>
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            android:text="@string/daily_routine_edit"
+            android:text="@{viewModel.isDeleteView ? @string/daily_routine_edit_cancel : @string/daily_routine_edit}"
             android:textAppearance="@style/body4"
             android:textColor="@color/gray400"
             app:layout_constraintBottom_toBottomOf="@id/tv_daily_routine_name"
@@ -46,7 +46,7 @@
             android:id="@+id/v_daily_routine_blank"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:visibility="@{dailyRoutineViewModel.routineAddList.size() == 0 ? View.VISIBLE : View.GONE}"
+            android:visibility="@{viewModel.routineAddList.size() == 0 ? View.VISIBLE : View.GONE}"
             app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_name" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -56,7 +56,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
-            android:visibility="@{dailyRoutineViewModel.routineAddList.size() >= 1 ? View.VISIBLE : View.GONE}"
+            android:visibility="@{viewModel.routineAddList.size() >= 1 ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_name">
@@ -148,7 +148,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
-            android:visibility="@{dailyRoutineViewModel.routineAddList.size() >= 2 ? View.VISIBLE : View.GONE}"
+            android:visibility="@{viewModel.routineAddList.size() >= 2 ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_daily_routine_first">
@@ -235,7 +235,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
-            android:visibility="@{dailyRoutineViewModel.routineAddList.size() == 3 ? View.VISIBLE : View.GONE}"
+            android:visibility="@{viewModel.routineAddList.size() == 3 ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_daily_routine_second">
@@ -326,7 +326,7 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/shape_gray200_line_20_rect"
             android:clickable="true"
-            android:visibility="@{dailyRoutineViewModel.routineAddList.size() == 3 ? View.GONE : View.VISIBLE}"
+            android:visibility="@{viewModel.routineAddList.size() == 3 ? View.GONE : View.VISIBLE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_daily_routine_third">
@@ -341,6 +341,25 @@
                 app:layout_constraintStart_toStartOf="@id/iv_daily_routine_empty"
                 app:layout_constraintTop_toTopOf="@id/iv_daily_routine_empty" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_daily_routine_edit_delete_nothing"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="12dp"
+            android:background="@{viewModel.isEditBtnEnabled ? @drawable/shape_red_fill_12_rect : @drawable/shape_gray200_fill_12_rect}"
+            android:clickable="@{viewModel.isEditBtnEnabled ? true : false}"
+            android:enabled="@{viewModel.isEditBtnEnabled ? true : false}"
+            android:visibility="@{viewModel.isDeleteView ? View.VISIBLE : View.INVISIBLE}"
+            android:paddingTop="20dp"
+            android:paddingBottom="18dp"
+            android:text="@string/daily_routine_edit_delete_nothing"
+            android:textAppearance="@style/body1"
+            android:textColor="@color/gray000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
