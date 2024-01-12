@@ -117,9 +117,9 @@ class DailyRoutineAddActivity :
                         MarginPageTransformer(
                             resources.getDimensionPixelOffset(R.dimen.viewpager_margin)
                         )
-
                     )
-                })
+                }
+            )
         }
     }
 
