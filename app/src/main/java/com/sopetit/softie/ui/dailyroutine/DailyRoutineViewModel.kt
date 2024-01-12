@@ -3,9 +3,39 @@ package com.sopetit.softie.ui.dailyroutine
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.sopetit.softie.domain.entity.DailyRoutine
 
 class DailyRoutineViewModel : ViewModel() {
     val routineAddList = listOf<Int>(1, 2)
+
+    private val _mockDailyRoutineList: MutableLiveData<List<DailyRoutine>> = MutableLiveData(
+        mutableListOf(
+            DailyRoutine(
+                1,
+                "일찍 일어나기",
+                "",
+                3,
+                true
+            ),
+            DailyRoutine(
+                12,
+                "작업 끝내기",
+                "",
+                5,
+                false
+            ),
+            DailyRoutine(
+                3,
+                "이불 개기",
+                "",
+                10,
+                true
+            )
+        )
+    )
+
+    val mockDailyRoutineList: LiveData<List<DailyRoutine>>
+        get() = _mockDailyRoutineList
 
     private val _isDeleteView: MutableLiveData<Boolean> = MutableLiveData(false)
     val isDeleteView: LiveData<Boolean>
