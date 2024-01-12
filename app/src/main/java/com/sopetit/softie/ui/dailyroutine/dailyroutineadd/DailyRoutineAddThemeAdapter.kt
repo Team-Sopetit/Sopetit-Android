@@ -10,6 +10,7 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ItemDailyRoutineAddThemeBinding
 import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.util.ItemDiffCallback
+import timber.log.Timber
 
 class DailyRoutineAddThemeAdapter :
     ListAdapter<Theme, DailyRoutineAddThemeAdapter.DailyThemeViewHolder>(
@@ -19,34 +20,43 @@ class DailyRoutineAddThemeAdapter :
         )
     ) {
     private val selectedPositions = HashSet<Int>()
-    private fun isSelected(position: Int) = selectedPositions.contains(position)
 
-    var selectedThemeArray = mutableListOf<Int>()
+    var selectedThemeArray = arrayListOf<Int>()
 
     private var onItemClickListener: ((Theme) -> Unit)? = null
     fun setOnThemeClickListener(listener: (Theme) -> Unit) {
         onItemClickListener = listener
     }
 
+    private fun isSelected(theme: Theme) = selectedPositions.contains(theme.themeId)
+
     inner class DailyThemeViewHolder(private val binding: ItemDailyRoutineAddThemeBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Theme) {
             binding.tvDailyRoutineAddThemeName.text = data.name
             binding.ivDailyRoutineAddThemeIcon.load(data.iconImageUrl)
+            binding.flDailyRoutineAddTheme.isSelected = isSelected(data)
             binding.root.setOnClickListener {
-                selectTheme(absoluteAdapterPosition)
-                notifyDataSetChanged()
+                selectTheme(data)
+//                notifyDataSetChanged()
                 onItemClickListener?.let { it(data) }
+                Timber.d("daily routine -> ${selectedPositions}")
             }
         }
     }
 
-    private fun selectTheme(position: Int) {
-        if (isSelected(position)) {
-            selectedPositions.remove(position)
+    private fun selectTheme(theme: Theme) {
+        if (isSelected(theme)) {
+            selectedPositions.remove(theme.themeId)
+            //selectedThemeArray.removeAt(theme.themeId)
+            Timber.d("daily routine true -> ${selectedPositions}")
+            //Timber.d("daily routine true -> ${selectedThemeArray}")
         } else {
             selectedPositions.clear()
-            selectedPositions.add(position)
+            selectedPositions.add(theme.themeId)
+            //selectedThemeArray.add(theme.themeId)
+            Timber.d("daily routine false -> ${selectedPositions}")
+            //Timber.d("daily routine false -> ${selectedThemeArray}")
         }
     }
 
@@ -85,6 +95,6 @@ class DailyRoutineAddThemeAdapter :
     }
 
     override fun onBindViewHolder(holder: DailyThemeViewHolder, position: Int) {
-        holder.onBind(getItem(position))
+        holder.onBind(currentList[position])
     }
 }
