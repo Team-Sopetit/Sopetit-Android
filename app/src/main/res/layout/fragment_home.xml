@@ -5,12 +5,27 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.sopetit.softie.ui.main.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/home_background">
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/backgroundImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            setImage="@{viewModel.homeResponse.frameImageUrl}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@color/home_background" />
 
         <ImageView
             android:id="@+id/iv_home_logo"
@@ -46,11 +61,11 @@
             android:id="@+id/iv_home_speech"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="-100dp"
+            android:layout_marginTop="22dp"
             android:src="@drawable/ic_speech_home"
-            app:layout_constraintBottom_toTopOf="@id/lottie_home_bear"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/lottie_home_bear" />
 
         <TextView
             android:id="@+id/tv_home_bear_speech"
@@ -58,38 +73,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="6dp"
-            android:text="안녕!"
             android:textColor="@color/gray700"
             app:layout_constraintBottom_toBottomOf="@id/iv_home_speech"
             app:layout_constraintEnd_toEndOf="@id/iv_home_speech"
             app:layout_constraintStart_toStartOf="@id/iv_home_speech"
-            app:layout_constraintTop_toTopOf="@id/iv_home_speech" />
+            app:layout_constraintTop_toTopOf="@id/iv_home_speech"
+            tools:text="안녕!" />
 
         <ImageView
             android:id="@+id/iv_home_shadow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="190dp"
+            android:layout_marginBottom="130dp"
             android:src="@drawable/ic_shadow"
             app:layout_constraintBottom_toBottomOf="@id/lottie_home_bear"
             app:layout_constraintEnd_toEndOf="@id/lottie_home_bear"
-            app:layout_constraintStart_toStartOf="@id/lottie_home_bear"
-            app:layout_constraintTop_toTopOf="@id/lottie_home_bear" />
+            app:layout_constraintStart_toStartOf="@id/lottie_home_bear" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie_home_bear"
-            android:layout_width="350dp"
+            android:layout_width="409dp"
             android:layout_height="0dp"
             android:layout_marginTop="150dp"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@id/cl_home_som_white"
-            app:layout_constraintDimensionRatio="0.83"
+            app:layout_constraintDimensionRatio="0.8"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/brown_hello" />
+            app:layout_constraintVertical_bias="1.0"
+            app:lottie_rawRes="@raw/red_hello" />
 
         <TextView
             style="@style/bubble16"
@@ -99,12 +113,12 @@
             android:background="@drawable/shape_namefill_fill_namestroke_stroke_99_rect"
             android:paddingHorizontal="13dp"
             android:paddingVertical="9dp"
-            android:text="테스트"
+            android:text="닉네임"
             android:textColor="@color/gray700"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_home_shadow"
-            tools:text="애착이" />
+            tools:text="@{viewModel.homeResponse.name}" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_home_som_white"
@@ -135,7 +149,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="7dp"
-                android:text="2개"
+                android:text="@{@string/home_som_count(viewModel.homeResponse.dailyCottonCount)}"
                 android:textColor="@color/gray300"
                 app:layout_constraintBottom_toBottomOf="@id/iv_home_som_white"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -186,7 +200,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="7dp"
-                android:text="2개"
+                android:text="@{@string/home_som_count(viewModel.homeResponse.happinessCottonCount)}"
                 android:textColor="@color/gray300"
                 app:layout_constraintBottom_toBottomOf="@id/iv_home_som_color"
                 app:layout_constraintEnd_toEndOf="parent"
