@@ -31,6 +31,11 @@
     <string name="chip_item_happy_mindfulness">마음 챙김</string>
     <string name="happy_list_item_content">성숙한 사랑을 만나기 위한</string>
 
+    <!-- happy add detail -->
+    <string name="happy_detail_title">관계 쌓기</string>
+    <string name="happy_detail_subtitle">성숙한 사랑을 만나기 위한</string>
+    <string name="happy_detail_button">이 루틴을 추가할래</string>
+
     <!-- doll selection -->
     <string name="doll_selection_question">어떤 친구와 함께 할까요?</string>
     <string name="doll_selection_subtitle">한 번 선택한 인형은 바꿀 수 없어요</string>
