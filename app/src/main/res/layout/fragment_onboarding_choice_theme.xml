@@ -31,10 +31,8 @@
             android:overScrollMode="never"
             app:layout_constraintBottom_toTopOf="@id/btn_onboarding_choice_theme"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.512"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_onboarding_choice_theme_title_bear"
-            app:layout_constraintVertical_bias="1.0"
             tools:listitem="@layout/item_onboarding_choice_theme" />
 
         <androidx.appcompat.widget.AppCompatButton
