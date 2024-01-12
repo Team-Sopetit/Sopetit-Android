@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="5dp"
-                android:text="@string/daily_routine_ing"
+                android:text="@{@string/daily_routine_ing(viewModel.mockDailyRoutineList[0].achieveCount)}"
                 android:textAppearance="@style/caption1"
                 android:textColor="@color/gray300"
                 app:layout_constraintStart_toEndOf="@id/iv_daily_routine_fin_first"

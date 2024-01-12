@@ -2,6 +2,7 @@ package com.sopetit.softie.ui.dailyroutine
 
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.fragment.app.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
@@ -22,22 +23,19 @@ class DailyRoutineFragment :
     }
 
     private fun initSetDailyRoutineContent() {
+        with(binding) {
+            routineItemView(tvDailyRoutineAddNameFirst, tvDailyRoutineIngFirst, 0)
+            routineItemView(tvDailyRoutineAddNameSecond, tvDailyRoutineIngSecond, 1)
+            routineItemView(tvDailyRoutineAddNameThird, tvDailyRoutineIngThird, 2)
+        }
+    }
+
+    private fun routineItemView(routineTitle: TextView, achieveMsg: TextView, index: Int) {
         viewModel.mockDailyRoutineList.observe(viewLifecycleOwner) { dailyRoutineList ->
-            with(binding) {
-                tvDailyRoutineAddNameFirst.text = dailyRoutineList[0].content
-                tvDailyRoutineIngFirst.text = "${dailyRoutineList[0].achieveCount}번째 달성 중"
-                btnDailyRoutineYetFinFirst.setBackgroundResource(if (dailyRoutineList[0].isAchieve) R.drawable.shape_main1_fill_10_rect else R.drawable.shape_gray100_fill_10_rect)
-            }
-            with(binding) {
-                tvDailyRoutineIngSecond.text = dailyRoutineList[1].content
-                tvDailyRoutineIngSecond.text = "${dailyRoutineList[1].achieveCount}번째 달성 중"
-                btnDailyRoutineYetFinSecond.setBackgroundResource(if (dailyRoutineList[1].isAchieve) R.drawable.shape_main1_fill_10_rect else R.drawable.shape_gray100_fill_10_rect)
-            }
-            with(binding) {
-                tvDailyRoutineIngThird.text = dailyRoutineList[2].content
-                tvDailyRoutineIngThird.text = "${dailyRoutineList[2].achieveCount}번째 달성 중"
-                btnDailyRoutineYetFinThird.setBackgroundResource(if (dailyRoutineList[2].isAchieve) R.drawable.shape_main1_fill_10_rect else R.drawable.shape_gray100_fill_10_rect)
-            }
+            val achieveCountMsg =
+                getString(R.string.daily_routine_ing).format(dailyRoutineList[index].achieveCount)
+            achieveMsg.text = achieveCountMsg
+            routineTitle.text = dailyRoutineList[index].content
         }
     }
 

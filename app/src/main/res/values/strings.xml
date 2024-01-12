@@ -86,7 +86,7 @@
 
     <!-- daily routine -->
     <string name="daily_routine_user_add">이불 개기</string>
-    <string name="daily_routine_ing">n번째 달성 중</string>
+    <string name="daily_routine_ing">%s번째 달성 중</string>
     <string name="daily_routine_fin_btn">완료하기</string>
     <string name="daily_routine_fin">달성완료</string>
 

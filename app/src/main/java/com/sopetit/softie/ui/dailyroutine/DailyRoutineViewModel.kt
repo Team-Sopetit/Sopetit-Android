@@ -41,10 +41,6 @@ class DailyRoutineViewModel : ViewModel() {
     val isDeleteView: LiveData<Boolean>
         get() = _isDeleteView
 
-//    private val _editRoutineIdArray: MutableLiveData<ArrayList<Int>> = MutableLiveData()
-//    val editRoutineIdArray: LiveData<ArrayList<Int>>
-//        get() = _editRoutineIdArray
-
     val editRoutineIdArray = ArrayList<Int>()
 
     private val _isEditBtnEnabled: MutableLiveData<Boolean> = MutableLiveData()
