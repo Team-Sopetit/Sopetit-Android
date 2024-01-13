@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import com.sopetit.softie.domain.entity.DailyRoutine
 
 class DailyRoutineViewModel : ViewModel() {
-    // val routineAddList = listOf<Int>(1, 2)
 
     private val _mockDailyRoutineList: MutableLiveData<List<DailyRoutine>> = MutableLiveData(
         mutableListOf(
@@ -37,6 +36,18 @@ class DailyRoutineViewModel : ViewModel() {
     val mockDailyRoutineList: LiveData<List<DailyRoutine>>
         get() = _mockDailyRoutineList
 
+    private val _isRoutineAchieveFirst: MutableLiveData<Boolean> = MutableLiveData()
+    val isRoutineAchieveFirst: LiveData<Boolean>
+        get() = _isRoutineAchieveFirst
+
+    private val _isRoutineAchieveSecond: MutableLiveData<Boolean> = MutableLiveData()
+    val isRoutineAchieveSecond: LiveData<Boolean>
+        get() = _isRoutineAchieveSecond
+
+    private val _isRoutineAchieveThird: MutableLiveData<Boolean> = MutableLiveData()
+    val isRoutineAchieveThird: LiveData<Boolean>
+        get() = _isRoutineAchieveThird
+
     private val _isDeleteView: MutableLiveData<Boolean> = MutableLiveData(false)
     val isDeleteView: LiveData<Boolean>
         get() = _isDeleteView
@@ -46,6 +57,14 @@ class DailyRoutineViewModel : ViewModel() {
     private val _isEditBtnEnabled: MutableLiveData<Boolean> = MutableLiveData()
     val isEditBtnEnabled: LiveData<Boolean>
         get() = _isEditBtnEnabled
+
+    fun setRoutineAchieve(isAchieve: Boolean, index: Int) {
+        when (index) {
+            0 -> _isRoutineAchieveFirst.value = isAchieve
+            1 -> _isRoutineAchieveSecond.value = isAchieve
+            2 -> _isRoutineAchieveThird.value = isAchieve
+        }
+    }
 
     fun setDeleteView(deleteEnabled: Boolean) {
         _isDeleteView.value = deleteEnabled

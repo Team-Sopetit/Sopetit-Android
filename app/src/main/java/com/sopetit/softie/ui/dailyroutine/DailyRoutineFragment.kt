@@ -40,6 +40,7 @@ class DailyRoutineFragment :
                 getString(R.string.daily_routine_ing).format(dailyRoutineList[index].achieveCount)
             achieveMsg.text = achieveCountMsg
             routineTitle.text = dailyRoutineList[index].content
+            viewModel.setRoutineAchieve(dailyRoutineList[index].isAchieve, index)
         }
     }
 
