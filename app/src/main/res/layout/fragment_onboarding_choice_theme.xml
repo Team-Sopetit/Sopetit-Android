@@ -25,13 +25,14 @@
             android:id="@+id/rv_onboarding_choice_theme"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginHorizontal="21dp"
             android:layout_marginTop="34dp"
             android:layout_marginBottom="21dp"
-            android:layout_marginHorizontal="21dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_onboarding_choice_theme_title_bear"
+            android:overScrollMode="never"
             app:layout_constraintBottom_toTopOf="@id/btn_onboarding_choice_theme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_onboarding_choice_theme_title_bear"
             tools:listitem="@layout/item_onboarding_choice_theme" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -44,6 +45,7 @@
             android:background="@{themeViewModel.themeBtnEnabled ? @drawable/shape_main1_fill_12_rect : @drawable/shape_gray200_fill_12_rect}"
             android:enabled="@{themeViewModel.themeBtnEnabled ? true : false}"
             android:clickable="@{themeViewModel.themeBtnEnabled ? true : false}"
+            android:outlineProvider="none"
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="34dp"
             app:layout_constraintStart_toStartOf="parent"
