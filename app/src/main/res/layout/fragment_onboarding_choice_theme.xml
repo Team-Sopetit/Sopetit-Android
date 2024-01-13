@@ -45,6 +45,7 @@
             android:background="@{themeViewModel.themeBtnEnabled ? @drawable/shape_main1_fill_12_rect : @drawable/shape_gray200_fill_12_rect}"
             android:enabled="@{themeViewModel.themeBtnEnabled ? true : false}"
             android:clickable="@{themeViewModel.themeBtnEnabled ? true : false}"
+            android:outlineProvider="none"
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="34dp"
             app:layout_constraintStart_toStartOf="parent"
