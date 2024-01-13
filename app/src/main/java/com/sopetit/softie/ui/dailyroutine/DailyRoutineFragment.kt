@@ -28,19 +28,63 @@ class DailyRoutineFragment :
 
     private fun initSetDailyRoutineContent() {
         with(binding) {
-            routineItemView(tvDailyRoutineAddNameFirst, tvDailyRoutineIngFirst, 0)
-            routineItemView(tvDailyRoutineAddNameSecond, tvDailyRoutineIngSecond, 1)
-            routineItemView(tvDailyRoutineAddNameThird, tvDailyRoutineIngThird, 2)
+            routineItemView(
+                tvDailyRoutineAddNameFirst,
+                tvDailyRoutineIngFirst,
+                btnDailyRoutineYetFinFirst,
+                0
+            )
+            routineItemView(
+                tvDailyRoutineAddNameSecond,
+                tvDailyRoutineIngSecond,
+                btnDailyRoutineYetFinSecond,
+                1
+            )
+            routineItemView(
+                tvDailyRoutineAddNameThird,
+                tvDailyRoutineIngThird,
+                btnDailyRoutineYetFinThird,
+                2
+            )
         }
     }
 
-    private fun routineItemView(routineTitle: TextView, achieveMsg: TextView, index: Int) {
+    private fun routineItemView(
+        routineTitle: TextView,
+        achieveMsg: TextView,
+        btn: View,
+        index: Int
+    ) {
         viewModel.mockDailyRoutineList.observe(viewLifecycleOwner) { dailyRoutineList ->
             val achieveCountMsg =
                 getString(R.string.daily_routine_ing).format(dailyRoutineList[index].achieveCount)
             achieveMsg.text = achieveCountMsg
             routineTitle.text = dailyRoutineList[index].content
             viewModel.setRoutineAchieve(dailyRoutineList[index].isAchieve, index)
+
+            initSetDailyRoutineAchieve(btn)
+        }
+    }
+
+
+    private fun initSetDailyRoutineAchieve(btn: View) {
+        btn.setOnClickListener {
+            // TODO 서버통신 구현 후 imageUri 버전으로 수정
+
+            BindingBottomSheet.Builder().build(
+                isDrawable = true,
+                imageDrawable = R.drawable.ic_bear_face_crying,
+                imageUri = "",
+                title = "데일리 루틴을 완료했나요?",
+                content = "한 번 완료하면 이전으로 되돌릴 수 없어요",
+                isContentVisible = true,
+                contentColor = R.color.gray400,
+                backBtnContent = "아니, 아직이야!",
+                doBtnContent = "완료했어",
+                doBtnColor = R.drawable.shape_main1_fill_12_rect,
+                backBtnAction = {},
+                doBtnAction = {}
+            ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
         }
     }
 
