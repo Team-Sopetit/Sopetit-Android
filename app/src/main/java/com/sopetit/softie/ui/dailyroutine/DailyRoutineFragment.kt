@@ -67,7 +67,6 @@ class DailyRoutineFragment :
         }
     }
 
-
     private fun initSetDailyRoutineAchieve(btn: View, routineId: Int) {
         btn.setOnClickListener {
             // TODO 서버통신 구현 후 imageUri 버전으로 수정
@@ -85,7 +84,7 @@ class DailyRoutineFragment :
                 doBtnColor = R.drawable.shape_main1_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {
-                    binding.root.context.toast("${routineId}")
+                    binding.root.context.toast("$routineId")
                 }
             ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
         }
