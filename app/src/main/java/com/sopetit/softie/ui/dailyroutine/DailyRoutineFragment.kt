@@ -7,20 +7,19 @@ import android.widget.TextView
 import androidx.fragment.app.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
+import com.sopetit.softie.domain.entity.Bear
 import com.sopetit.softie.ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity
 import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
 import com.sopetit.softie.util.binding.BindingBottomSheet
-import com.sopetit.softie.domain.entity.Bear
-import com.sopetit.softie.ui.dailyroutine.dailyroutineedit.DailyRoutineEditActivity
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setStatusBarColor
 import com.sopetit.softie.util.snackBar
-import com.sopetit.softie.util.toast
 
 class DailyRoutineFragment :
     BindingFragment<FragmentDailyRoutineBinding>(R.layout.fragment_daily_routine) {
 
     private val viewModel by viewModels<DailyRoutineViewModel>()
+    private lateinit var bundle: Bundle
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,9 +28,16 @@ class DailyRoutineFragment :
         binding.viewModel = viewModel
 
         moveToAddRoutine()
+        getBundle()
         initSetDailyRoutineContent()
         initSetDeleteView()
         initSetRoutineDelete()
+    }
+
+    private fun getBundle() {
+        bundle = Bundle().apply {
+            putSerializable("key", Bear.RED)
+        }
     }
 
     private fun initSetDailyRoutineContent() {
@@ -72,30 +78,22 @@ class DailyRoutineFragment :
         btn.setOnClickListener {
             // TODO 서버통신 구현 후 imageUri 버전으로 수정
 
-        moveEdit()
-
-// /여기서부터 코드 정리 필요
-        val bundle = Bundle().apply {
-            putSerializable("key", Bear.RED)
-        }
-
-        binding.btnDailyRoutineYetFinFirst.setOnClickListener {
-            val intentToCompleteActivity =
-                Intent(requireActivity(), DailyRoutineCompleteActivity::class.java)
-            intentToCompleteActivity.putExtras(bundle)
-            startActivity(intentToCompleteActivity)
-        }
-        binding.btnDailyRoutineYetFinSecond.setOnClickListener {
-            val intentToCompleteActivity =
-                Intent(requireActivity(), DailyRoutineCompleteActivity::class.java)
-            intentToCompleteActivity.putExtras(bundle)
-            startActivity(intentToCompleteActivity)
-        }
-        binding.btnDailyRoutineYetFinThird.setOnClickListener {
-            val intentToCompleteActivity =
-                Intent(requireActivity(), DailyRoutineCompleteActivity::class.java)
-            intentToCompleteActivity.putExtras(bundle)
-            startActivity(intentToCompleteActivity)
+            BindingBottomSheet.Builder().build(
+                isDrawable = true,
+                imageDrawable = R.drawable.ic_bear_face_crying,
+                imageUri = "",
+                title = "데일리 루틴을 완료했나요?",
+                content = "한 번 완료하면 이전으로 되돌릴 수 없어요",
+                isContentVisible = true,
+                contentColor = R.color.gray400,
+                backBtnContent = "아니, 아직이야!",
+                doBtnContent = "완료했어",
+                doBtnColor = R.drawable.shape_main1_fill_12_rect,
+                backBtnAction = {},
+                doBtnAction = {
+                    startDailyRoutineCompleteActivity()
+                }
+            ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
         }
     }
 
@@ -181,6 +179,13 @@ class DailyRoutineFragment :
                 }
             }
         }
+    }
+
+    private fun startDailyRoutineCompleteActivity() {
+        val intentToCompleteActivity =
+            Intent(requireActivity(), DailyRoutineCompleteActivity::class.java)
+        intentToCompleteActivity.putExtras(bundle)
+        startActivity(intentToCompleteActivity)
     }
 
     private fun moveToAddRoutine() {
