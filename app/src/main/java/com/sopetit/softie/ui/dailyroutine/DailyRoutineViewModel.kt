@@ -22,13 +22,6 @@ class DailyRoutineViewModel : ViewModel() {
                 "",
                 5,
                 false
-            ),
-            DailyRoutine(
-                3,
-                "이불 개기",
-                "",
-                10,
-                true
             )
         )
     )
