@@ -32,13 +32,7 @@
     <string name="happy_list_item_content">성숙한 사랑을 만나기 위한</string>
 
     <!-- happy add detail -->
-    <string name="happy_detail_title">관계 쌓기</string>
-    <string name="happy_detail_subtitle">성숙한 사랑을 만나기 위한</string>
     <string name="happy_detail_button">이 루틴을 추가할래</string>
-    <string name="happy_routine_add_card_detail_title">이상형의 특성 10가지 적어보고,\n절대 포기 못할 2가지와\n나와 비슷한 3가지 찾아보기</string>
-    <string name="happy_routine_add_card_detail_content">평소에 바빠서 연락하지 못한 사람이 있다면 안부인사 개인톡을 보내 봐. 꼭 만나서 밥을 먹거나 하지 않아도 연락 한 통이 나와 그 사람을 연결하는 방법이 될 수 있어</string>
-    <string name="happy_routine_add_card_detail_time">5~10분</string>
-    <string name="happy_routine_add_card_detail_place">회사 옥상, 점심식사 후 돌아가는 길</string>
 
     <!-- doll selection -->
     <string name="doll_selection_question">어떤 친구와 함께 할까요?</string>
