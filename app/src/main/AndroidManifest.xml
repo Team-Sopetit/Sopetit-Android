@@ -50,12 +50,12 @@
 
         <activity
             android:name=".ui.happyroutine.addlist.HappyAddListActivity"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.happyroutine.adddetail.HappyDetailActivity"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="portrait" />
 
         <activity
