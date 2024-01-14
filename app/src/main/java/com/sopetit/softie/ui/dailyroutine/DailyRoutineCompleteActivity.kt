@@ -5,14 +5,19 @@ import com.sopetit.softie.R
 import com.sopetit.softie.domain.entity.Bear
 import com.sopetit.softie.domain.entity.Cotton
 import com.sopetit.softie.util.RoutineCompleteActivity
+import com.sopetit.softie.util.intentSerializable
 
 class DailyRoutineCompleteActivity() : RoutineCompleteActivity(Cotton.DAILY) {
     private lateinit var bear: Bear
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        bear = intent.getSerializableExtra("key") as Bear
+        getBearType()
         setDailyRoutineImage()
+    }
+
+    private fun getBearType() {
+        bear = intent.intentSerializable("key", Bear::class.java) as Bear
     }
 
     private fun setDailyRoutineImage() {
