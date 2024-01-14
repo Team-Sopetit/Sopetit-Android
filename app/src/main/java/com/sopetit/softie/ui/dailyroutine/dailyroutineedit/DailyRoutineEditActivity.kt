@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityDailyRoutineEditBinding
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.setStatusBarColorFromResource
 
 class DailyRoutineEditActivity :
     BindingActivity<ActivityDailyRoutineEditBinding>(R.layout.activity_daily_routine_edit) {
@@ -13,6 +14,7 @@ class DailyRoutineEditActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setStatusBarColorFromResource(R.color.background)
 
         binding.lifecycleOwner = this
         binding.dailyRoutineEditViewModel = dailyRoutineEditViewModel
