@@ -32,6 +32,7 @@ class DailyRoutineAddActivity :
         setIndicator()
         setItemDiv()
         initPagerDiv(0, 90)
+        addRoutine()
     }
 
     private fun setupAdapter() {
@@ -130,6 +131,12 @@ class DailyRoutineAddActivity :
 
     private fun setItemDiv() {
         binding.rvDailyRoutineAddTheme.addItemDecoration(HorizontalItemDecorator(16))
+    }
+
+    private fun addRoutine() {
+        binding.btnDailyRoutineAdd.setOnClickListener {
+            finish()
+        }
     }
 
     companion object {
