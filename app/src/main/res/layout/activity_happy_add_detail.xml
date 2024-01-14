@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/background">
 
         <ImageView
             android:id="@+id/iv_happy_add_detail_back"
@@ -81,7 +82,7 @@
             app:selectedDotColor="@color/main1" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_daily_routine_add"
+            android:id="@+id/btn_happy_detail_add"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
