@@ -22,7 +22,6 @@ class BearNamingFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         activityViewModel = ViewModelProvider(requireActivity())[OnboardingViewModel::class.java]
         binding.viewModel = viewModel
 

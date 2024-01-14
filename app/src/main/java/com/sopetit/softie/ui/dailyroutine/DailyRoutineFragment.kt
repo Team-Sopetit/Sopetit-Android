@@ -9,6 +9,7 @@ import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
 import com.sopetit.softie.domain.entity.Bear
 import com.sopetit.softie.ui.dailyroutine.dailyroutineedit.DailyRoutineEditActivity
 import com.sopetit.softie.util.binding.BindingFragment
+import com.sopetit.softie.util.setStatusBarColor
 
 class DailyRoutineFragment :
     BindingFragment<FragmentDailyRoutineBinding>(R.layout.fragment_daily_routine) {
@@ -17,6 +18,7 @@ class DailyRoutineFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setStatusBarColor(R.color.background)
 
         binding.lifecycleOwner = this
         binding.dailyRoutineViewModel = dailyRoutineViewModel

@@ -95,4 +95,9 @@
     <string name="daily_routine_complete_title">데일리 루틴을 완료했어요!</string>
     <string name="daily_routine_complete_subtitle">솜뭉치 1개 획득</string>
 
+    <!-- home -->
+    <string name="home_som_count">%d개</string>
+    <string name="home_happiness_cotton_btn">행복 솜뭉치 주기</string>
+    <string name="home_daily_cotton_btn">솜뭉치 주기</string>
+
 </resources>
