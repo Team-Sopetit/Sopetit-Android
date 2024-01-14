@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Softie</string>
+
+    <!-- daily routine add -->
+    <string name="daily_routine_add_title">데일리 루틴 추가</string>
+    <string name="daily_routine_add_btn">이 루틴을 추가할래</string>
+    <string name="daily_routine_add_theme_name">상쾌한 아침</string>
+    <string name="daily_routine_add_card_name">일어나면 \n5분 안에 이불 개기</string>
     <!-- onboarding -->
     <string name="onboarding_choice_theme_btn">다 선택했어</string>
     <string name="theme_text">하루의 시작</string>
@@ -16,11 +22,13 @@
     <string name="story_telling_main">어? 집 앞에 이건 뭐지?</string>
     <string name="story_telling_conclusion">한 번 열어볼까?</string>
 
-    <!-- happy empty -->
+    <!-- happy routine -->
     <string name="happy_title">행복 루틴</string>
     <string name="happy_default_mention">행복 루틴은 매일 조금씩 너에 대해\n알아갈 수 있는 특별한 이벤트형 루틴이야!</string>
     <string name="happy_empty_card">진행 중인 행복루틴이 없어요.\n루틴을 추가할까요?</string>
     <string name="happy_add_title">행복 루틴 추가</string>
+    <string name="happy_routine_complete_title">행복 루틴을 완료했어요!</string>
+    <string name="happy_routine_complete_subtitle">행복 솜뭉치 1개 획득</string>
 
     <!-- happy add list -->
     <string name="chip_item_happy_all">전체</string>
@@ -98,6 +106,8 @@
     <string name="daily_routine_ing">%s번째 달성 중</string>
     <string name="daily_routine_fin_btn">완료하기</string>
     <string name="daily_routine_fin">달성완료</string>
+    <string name="daily_routine_complete_title">데일리 루틴을 완료했어요!</string>
+    <string name="daily_routine_complete_subtitle">솜뭉치 1개 획득</string>
 
     <!-- home -->
     <string name="home_som_count">%d개</string>

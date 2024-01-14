@@ -44,12 +44,12 @@
         </activity>
 
         <activity
-            android:name=".ui.happyroutine.addlist.HappyAddListActivity"
+            android:name=".ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.happyroutine.adddetail.HappyDetailActivity"
+            android:name=".ui.happyroutine.addlist.HappyAddListActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
@@ -60,6 +60,16 @@
 
         <activity
             android:name=".ui.main.LoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.happyroutine.HappyRoutineCompleteActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dailyroutine.DailyRoutineCompleteActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
