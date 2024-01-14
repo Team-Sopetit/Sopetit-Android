@@ -32,10 +32,12 @@ class HappyDetailActivity :
         val happyCard = viewModel.mockHappyCardList.value?.get(categoryId - 1)
 
         happyCard?.let {
-            binding.tvHappyAddDetailTitle.text = happyCard.name
-            binding.ivHappyAddDetailIcon.setImageResource(happyCard.iconImageUrl)
-            binding.tvHappyAddDetailSubtitle.text = happyCard.title
-            binding.tvHappyAddDetailTitle.setTextColor(Color.parseColor(happyCard.nameColor))
+            with(binding) {
+                tvHappyAddDetailTitle.text = happyCard.name
+                ivHappyAddDetailIcon.setImageResource(happyCard.iconImageUrl)
+                tvHappyAddDetailSubtitle.text = happyCard.title
+                tvHappyAddDetailTitle.setTextColor(Color.parseColor(happyCard.nameColor))
+            }
         }
 
         setBackEnter()
@@ -67,7 +69,7 @@ class HappyDetailActivity :
     private fun setupAdapter(categoryId: Int) {
         with(binding) {
             happyRoutineAddCardPagerAdapter =
-                HappyDetailCardPagerAdapter() // categoryId를 전달합니다.
+                HappyDetailCardPagerAdapter()
             vpHappyAddDetailCard.adapter = happyRoutineAddCardPagerAdapter
         }
         happyRoutineAddCardPagerAdapter.submitList(
