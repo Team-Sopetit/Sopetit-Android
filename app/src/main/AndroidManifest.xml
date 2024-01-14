@@ -19,12 +19,12 @@
         tools:targetApi="31">
         <activity
             android:name=".ui.main.MainActivity"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.onboarding.OnboardingActivity"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="portrait" />
 
         <activity
@@ -35,8 +35,8 @@
         <activity
             android:name=".ui.storytelling.StoryTellingActivity"
             android:exported="false"
-            android:screenOrientation="portrait"></activity>
-      
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.onboarding.splash.SplashActivity"
             android:exported="true"
