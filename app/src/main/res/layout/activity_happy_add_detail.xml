@@ -56,25 +56,23 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_happy_add_detail_card"
             android:layout_width="match_parent"
-            android:layout_height="398dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="180dp"
             android:clipChildren="false"
             android:clipToPadding="false"
-            app:layout_constraintBottom_toTopOf="@id/di_happy_add_detail_indicator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_happy_add_detail_subtitle" />
+            app:layout_constraintTop_toBottomOf="@id/tv_happy_add_detail_subtitle"
+            app:layout_constraintVertical_bias="0" />
 
         <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
             android:id="@+id/di_happy_add_detail_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:layout_marginBottom="55dp"
             android:foregroundGravity="center"
             app:dotsColor="@color/gray200"
-            app:dotsSize="12dp"
+            app:dotsSize="6dp"
             app:dotsSpacing="6dp"
             app:dotsWidthFactor="1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -96,8 +94,7 @@
             android:textColor="@color/gray000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/di_happy_add_detail_indicator" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
