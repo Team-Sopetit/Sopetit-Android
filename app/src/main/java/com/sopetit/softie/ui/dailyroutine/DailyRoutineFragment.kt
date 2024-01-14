@@ -166,6 +166,7 @@ class DailyRoutineFragment :
                                 binding.root.rootView,
                                 "데일리 루틴을 ${viewModel.editRoutineIdArray.size}개 삭제했어요"
                             )
+                            viewModel.setDeleteView(false)
                         }
                     ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
                 }

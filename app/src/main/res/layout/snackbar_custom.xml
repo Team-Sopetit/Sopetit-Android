@@ -9,30 +9,40 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape_gray300_fill_8_rect">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/iv_snackbar_custom_check"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_check"
-            android:layout_marginStart="19dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_snackbar_custom_content"
-            app:layout_constraintBottom_toBottomOf="@id/tv_snackbar_custom_content" />
-
-        <TextView
-            android:id="@+id/tv_snackbar_custom_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginVertical="17dp"
-            android:textAppearance="@style/body3"
-            android:textColor="@color/white"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_snackbar_custom_check"
-            tools:text="데일리 루틴을 1개 삭제했어요" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="67dp"
+            android:background="@drawable/shape_gray300_fill_8_rect">
+
+            <ImageView
+                android:id="@+id/iv_snackbar_custom_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check"
+                android:layout_marginStart="19dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_snackbar_custom_content"
+                app:layout_constraintBottom_toBottomOf="@id/tv_snackbar_custom_content" />
+
+            <TextView
+                android:id="@+id/tv_snackbar_custom_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginVertical="17dp"
+                android:textAppearance="@style/body3"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_snackbar_custom_check"
+                tools:text="데일리 루틴을 1개 삭제했어요" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
