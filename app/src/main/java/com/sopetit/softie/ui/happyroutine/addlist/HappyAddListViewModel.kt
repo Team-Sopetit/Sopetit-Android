@@ -114,7 +114,7 @@ class HappyAddListViewModel : ViewModel() {
                 title = "관계쌓기",
                 content = "진정성 있는 관계를 만드는",
                 imageUrl = R.drawable.ic_happy_red,
-            ),
+            )
         )
 
         _mockHappyContentListTwo.value = listOf<HappyContent>(
@@ -129,7 +129,7 @@ class HappyAddListViewModel : ViewModel() {
                 title = "한 걸음 성장",
                 content = "좋아하는, 잘하는 일을 찾아 가는",
                 imageUrl = R.drawable.ic_happy_orange,
-            ),
+            )
         )
 
         _mockHappyContentListThree.value = listOf<HappyContent>(
@@ -138,7 +138,7 @@ class HappyAddListViewModel : ViewModel() {
                 title = "잘 쉬어가기",
                 content = "데이터가 아직 없습니다",
                 imageUrl = R.drawable.ic_happy_green,
-            ),
+            )
         )
 
         _mockHappyContentListFour.value = listOf<HappyContent>(
@@ -147,7 +147,7 @@ class HappyAddListViewModel : ViewModel() {
                 title = "새로운 나",
                 content = "나를 알고 진짜 목표를 세우는",
                 imageUrl = R.drawable.ic_happy_blue,
-            ),
+            )
         )
 
         _mockHappyContentListFive.value = listOf<HappyContent>(
@@ -156,7 +156,7 @@ class HappyAddListViewModel : ViewModel() {
                 title = "마음 챙김",
                 content = "데이터가 아직 없습니다",
                 imageUrl = R.drawable.ic_happy_purple,
-            ),
+            )
         )
     }
 }

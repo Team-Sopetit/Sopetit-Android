@@ -25,7 +25,8 @@ class HappyDetailCardViewModel : ViewModel() {
                         detailContent = "평소에 바빠서 연락하지 못한 사람이 있다면 안부인사 개인톡을 보내 봐. 꼭 만나서 밥을 먹거나 하지 않아도 연락 한 통이 나와 그 사람을 연결하는 방법이 될 수 있어. 난 너를 믿",
                         detailTime = "5~10분",
                         detailPlace = "회사 옥상, 점심식사 후 돌아가는 길"
-                    ), HappyCard.Routines(
+                    ),
+                    HappyCard.Routines(
                         routineId = 2,
                         cardImageUrl = R.drawable.ic_happycard_up_red,
                         content = "길가다가 박수치기",
@@ -33,7 +34,8 @@ class HappyDetailCardViewModel : ViewModel() {
                         detailContent = "우리나라 좋은나라 안부인사 개인톡을 보내 봐. 꼭 만나서 밥을 먹거나 하지 않아도 연락 한 통이 나와 그 사람을 연결하는 방법이 될 수 있어",
                         detailTime = "6~30분",
                         detailPlace = "홍대 옥상, 저녁식사 후 돌아가는 길"
-                    ), HappyCard.Routines(
+                    ),
+                    HappyCard.Routines(
                         routineId = 3,
                         cardImageUrl = R.drawable.ic_happycard_up_red,
                         content = "클럽에서 짜장면 시키기",
@@ -86,7 +88,8 @@ class HappyDetailCardViewModel : ViewModel() {
                         detailContent = "평소에 바빠서 연락하지 못한 사람이 있다면 안부인사 개인톡을 보내 봐. 꼭 만나서 밥을 먹거나 하지 않아도 연락 한 통이 나와 그 사람을 연결하는 방법이 될 수 있어",
                         detailTime = "5~10분",
                         detailPlace = "회사 옥상, 점심식사 후 돌아가는 길"
-                    ), HappyCard.Routines(
+                    ),
+                    HappyCard.Routines(
                         routineId = 2,
                         cardImageUrl = R.drawable.ic_happycard_up_orange,
                         content = "길가다가 박수치기",
@@ -94,7 +97,8 @@ class HappyDetailCardViewModel : ViewModel() {
                         detailContent = "우리나라 좋은나라 안부인사 개인톡을 보내 봐. 꼭 만나서 밥을 먹거나 하지 않아도 연락 한 통이 나와 그 사\n람을 연결하는 방법이 될 수 있어",
                         detailTime = "6~30분",
                         detailPlace = "홍대 옥상, 저녁식사 후 돌아가는 길"
-                    ), HappyCard.Routines(
+                    ),
+                    HappyCard.Routines(
                         routineId = 3,
                         cardImageUrl = R.drawable.ic_happycard_up_orange,
                         content = "클럽에서 짜장면 시키기",
@@ -120,7 +124,8 @@ class HappyDetailCardViewModel : ViewModel() {
                         detailContent = "세 번째 카드의 디테일 내용",
                         detailTime = "세 번째 카드의 디테일 시간",
                         detailPlace = "세 번째 카드의 디테일 장소"
-                    ), HappyCard.Routines(
+                    ),
+                    HappyCard.Routines(
                         routineId = 2,
                         cardImageUrl = R.drawable.ic_happycard_up_orange,
                         content = "길가다가 박수치기",
@@ -128,7 +133,8 @@ class HappyDetailCardViewModel : ViewModel() {
                         detailContent = "우리나라 좋은나라 안부인사 개인톡을 보내 봐. 꼭 만나서 밥을 먹거나 하지 않아도 연락 한 통이 나와 그 사\n람을 연결하는 방법이 될 수 있어",
                         detailTime = "6~30분",
                         detailPlace = "홍대 옥상, 저녁식사 후 돌아가는 길"
-                    ), HappyCard.Routines(
+                    ),
+                    HappyCard.Routines(
                         routineId = 3,
                         cardImageUrl = R.drawable.ic_happycard_up_orange,
                         content = "클럽에서 짜장면 시키기",
@@ -172,7 +178,8 @@ class HappyDetailCardViewModel : ViewModel() {
                         detailContent = "세 번째 카드의 디테일 내용",
                         detailTime = "세 번째 카드의 디테일 시간",
                         detailPlace = "세 번째 카드의 디테일 장소"
-                    ), HappyCard.Routines(
+                    ),
+                    HappyCard.Routines(
                         routineId = 2,
                         cardImageUrl = R.drawable.ic_happycard_up_blue,
                         content = "길가다가 박수치기",
@@ -180,7 +187,8 @@ class HappyDetailCardViewModel : ViewModel() {
                         detailContent = "우리나라 좋은나라 안부인사 개인톡을 보내 봐. 꼭 만나서 밥을 먹거나 하지 않아도 연락 한 통이 나와 그 사\n람을 연결하는 방법이 될 수 있어",
                         detailTime = "6~30분",
                         detailPlace = "홍대 옥상, 저녁식사 후 돌아가는 길"
-                    ), HappyCard.Routines(
+                    ),
+                    HappyCard.Routines(
                         routineId = 3,
                         cardImageUrl = R.drawable.ic_happycard_up_blue,
                         content = "클럽에서 짜장면 시키기",
