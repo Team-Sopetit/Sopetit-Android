@@ -10,6 +10,7 @@ import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.snackBar
+import com.sopetit.softie.util.toast
 
 class DailyRoutineFragment :
     BindingFragment<FragmentDailyRoutineBinding>(R.layout.fragment_daily_routine) {
@@ -62,12 +63,12 @@ class DailyRoutineFragment :
             routineTitle.text = dailyRoutineList[index].content
             viewModel.setRoutineAchieve(dailyRoutineList[index].isAchieve, index)
 
-            initSetDailyRoutineAchieve(btn)
+            initSetDailyRoutineAchieve(btn, dailyRoutineList[index].routineId)
         }
     }
 
 
-    private fun initSetDailyRoutineAchieve(btn: View) {
+    private fun initSetDailyRoutineAchieve(btn: View, routineId: Int) {
         btn.setOnClickListener {
             // TODO 서버통신 구현 후 imageUri 버전으로 수정
 
@@ -83,7 +84,9 @@ class DailyRoutineFragment :
                 doBtnContent = "완료했어",
                 doBtnColor = R.drawable.shape_main1_fill_12_rect,
                 backBtnAction = {},
-                doBtnAction = {}
+                doBtnAction = {
+                    binding.root.context.toast("${routineId}")
+                }
             ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
         }
     }
