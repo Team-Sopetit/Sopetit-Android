@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityMainBinding
 import com.sopetit.softie.ui.dailyroutine.DailyRoutineFragment
-import com.sopetit.softie.ui.main.happy.HappyRoutineFragment
+import com.sopetit.softie.ui.happyroutine.HappyRoutineFragment
 import com.sopetit.softie.ui.main.home.HomeFragment
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.setStatusBarColorFromResource

@@ -44,7 +44,12 @@
         </activity>
 
         <activity
-            android:name=".ui.main.happy.addlist.HappyAddListActivity"
+            android:name=".ui.happyroutine.addlist.HappyAddListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.happyroutine.adddetail.HappyDetailActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
@@ -52,6 +57,7 @@
             android:name=".ui.setting.SettingActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.main.LoginActivity"
             android:exported="false"
