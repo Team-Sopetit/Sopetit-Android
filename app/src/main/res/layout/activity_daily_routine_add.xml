@@ -94,6 +94,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="34dp"
             android:background="@drawable/shape_main1_fill_12_rect"
+            style="?android:attr/borderlessButtonStyle"
             android:text="@string/daily_routine_add_btn"
             android:textAppearance="@style/body1"
             android:textColor="@color/gray000"
