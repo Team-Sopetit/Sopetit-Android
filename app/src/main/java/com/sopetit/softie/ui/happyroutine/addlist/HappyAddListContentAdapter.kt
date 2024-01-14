@@ -1,4 +1,4 @@
-package com.sopetit.softie.ui.main.happy.addlist
+package com.sopetit.softie.ui.happyroutine.addlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -18,7 +18,7 @@ class HappyAddListContentAdapter(private val moveToDetail: (Int) -> Unit) :
 
     inner class HappyAddListContentViewHolder(
         private val binding: ItemHappyAddListBinding,
-        private val moveToDetail: (Int) -> Unit,
+        private val moveToDetail: (Int) -> Unit
     ) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: HappyContent) {
@@ -37,7 +37,9 @@ class HappyAddListContentAdapter(private val moveToDetail: (Int) -> Unit) :
         viewType: Int
     ): HappyAddListContentViewHolder {
         val binding = ItemHappyAddListBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
+            LayoutInflater.from(parent.context),
+            parent,
+            false
         )
         return HappyAddListContentViewHolder(binding, moveToDetail)
     }
