@@ -13,7 +13,7 @@ import timber.log.Timber
 class DailyRoutineAddCardPagerAdapter :
     ListAdapter<DailyCard, DailyRoutineAddCardPagerAdapter.DailyPagerViewHolder>(
         ItemDiffCallback<DailyCard>(
-            onItemsTheSame = { oldItem, newItem -> oldItem == newItem },
+            onItemsTheSame = { oldItem, newItem -> oldItem.routineId == newItem.routineId },
             onContentsTheSame = { oldItem, newItem -> oldItem == newItem }
         )
     ) {
