@@ -12,7 +12,6 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityDailyRoutineAddBinding
 import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.util.binding.BindingActivity
-import timber.log.Timber
 
 class DailyRoutineAddActivity :
     BindingActivity<ActivityDailyRoutineAddBinding>(R.layout.activity_daily_routine_add) {
@@ -42,7 +41,7 @@ class DailyRoutineAddActivity :
             dailyRoutineAddThemeAdapter = DailyRoutineAddThemeAdapter().apply {
                 setOnItemClickListener(object : DailyRoutineAddThemeAdapter.OnItemClickListener {
                     override fun onItemClick(item: Theme, position: Int) {
-                        setRoutineList(item)
+                        setRoutineList(item.themeId)
                     }
                 })
             }
@@ -57,9 +56,10 @@ class DailyRoutineAddActivity :
         }
     }
 
-    private fun setRoutineList(item: Theme) {
-        Timber.d("daily routine act -> ${item.themeId}")
-        dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.themeDailyRoutineList[item.themeId].value)
+    private fun setRoutineList(themeId: Int) {
+        dailyRoutineAddCardPagerAdapter.submitList(
+            dailyRoutineAddViewModel.getDailyCardListForId(themeId)[0].dailyRoutineCardList
+        )
     }
 
     private fun initPagerDiv(previewWidth: Int, itemMargin: Int) {

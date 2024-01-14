@@ -20,6 +20,7 @@ class DailyRoutineAddThemeAdapter :
     ) {
     private var onItemClickListener: OnItemClickListener? = null
     private var selectedPosition = 0
+    var clickedThemeId: Int = 1
 
     interface OnItemClickListener {
         fun onItemClick(item: Theme, position: Int)
@@ -29,7 +30,9 @@ class DailyRoutineAddThemeAdapter :
         this.onItemClickListener = listener
     }
 
-    inner class DailyThemeViewHolder(private val binding: ItemDailyRoutineAddThemeBinding) :
+    inner class DailyThemeViewHolder(
+        private val binding: ItemDailyRoutineAddThemeBinding
+    ) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Theme) {
             binding.tvDailyRoutineAddThemeName.text = data.name
@@ -51,6 +54,7 @@ class DailyRoutineAddThemeAdapter :
                         notifyItemChanged(selectedPosition)
                         selectedPosition = absoluteAdapterPosition
                     }
+                    clickedThemeId = data.themeId
                 }
             }
         }
