@@ -73,8 +73,4 @@ class SettingInitFragment :
             viewModel.setSettingFragment(USER_EXIT)
         }
     }
-
-//    companion object {
-//        const val BOTTOM_SHEET_TAG = "BOTTOM SHEET TAG"
-//    }
 }

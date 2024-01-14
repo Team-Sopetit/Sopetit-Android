@@ -9,9 +9,9 @@ import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
 import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
+import com.sopetit.softie.util.setStatusBarColor
 import com.sopetit.softie.util.snackBar
 import com.sopetit.softie.util.toast
-import com.sopetit.softie.util.setStatusBarColor
 
 class DailyRoutineFragment :
     BindingFragment<FragmentDailyRoutineBinding>(R.layout.fragment_daily_routine) {
@@ -94,7 +94,8 @@ class DailyRoutineFragment :
 
     private fun initSetDeleteView() {
         viewModel.isDeleteView.observe(viewLifecycleOwner) { isDeleteView ->
-            if (!isDeleteView) {
+            val isEditView = !isDeleteView
+            if (isEditView) {
                 binding.tvDailyRoutineEdit.setOnClickListener {
                     viewModel.setDeleteView(true)
                 }
