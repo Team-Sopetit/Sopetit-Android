@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sopetit.softie.domain.entity.DailyCard
-import com.sopetit.softie.domain.entity.DailyRoutine
+import com.sopetit.softie.domain.entity.DailyRoutineAdd
 import com.sopetit.softie.domain.entity.Theme
 
 class DailyRoutineAddViewModel : ViewModel() {
@@ -485,63 +485,64 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    private val _themeDailyRoutineList: MutableLiveData<List<DailyRoutine>> =
+    private val _themeDailyRoutineList: MutableLiveData<List<DailyRoutineAdd>> =
         MutableLiveData(
             mutableListOf(
-                DailyRoutine(
+                DailyRoutineAdd(
                     themeId = 1,
                     startNewDayCardList.value ?: emptyList()
                 ),
-                DailyRoutine(
+                DailyRoutineAdd(
                     themeId = 2,
                     healthBodyCardList.value ?: emptyList()
                 ),
-                DailyRoutine(
+                DailyRoutineAdd(
                     themeId = 3,
                     overcomeHelplessnessCardList.value ?: emptyList()
                 ),
-                DailyRoutine(
+                DailyRoutineAdd(
                     themeId = 4,
                     restfulSleepCardList.value ?: emptyList()
                 ),
-                DailyRoutine(
+                DailyRoutineAdd(
                     themeId = 5,
                     environmentalGuardCardList.value ?: emptyList()
                 ),
-                DailyRoutine(
+                DailyRoutineAdd(
                     themeId = 6,
                     smallKindnessCardList.value ?: emptyList()
                 ),
-                DailyRoutine(
+                DailyRoutineAdd(
                     themeId = 7,
                     gratitudeCardList.value ?: emptyList()
                 ),
-                DailyRoutine(
+                DailyRoutineAdd(
                     themeId = 8,
                     smallAccomplishmentCardList.value ?: emptyList()
                 ),
-                DailyRoutine(
+                DailyRoutineAdd(
                     themeId = 9,
                     preciousMeCardList.value ?: emptyList()
                 ),
-                DailyRoutine(
+                DailyRoutineAdd(
                     themeId = 10,
                     forRichCardList.value ?: emptyList()
                 ),
-                DailyRoutine(
+                DailyRoutineAdd(
                     themeId = 11,
                     readyImmerseCardList.value ?: emptyList()
                 ),
-                DailyRoutine(
+                DailyRoutineAdd(
                     themeId = 12,
                     emptyCardList.value ?: emptyList()
                 )
             )
         )
 
-    private val themeDailyRoutineList: LiveData<List<DailyRoutine>> get() = _themeDailyRoutineList
+    private val themeDailyRoutineList: LiveData<List<DailyRoutineAdd>>
+        get() = _themeDailyRoutineList
 
-    fun getDailyCardListForId(themeId: Int): List<DailyRoutine> {
+    fun getDailyCardListForId(themeId: Int): List<DailyRoutineAdd> {
         return themeDailyRoutineList.value?.filter { it.themeId == themeId } ?: emptyList()
     }
 }

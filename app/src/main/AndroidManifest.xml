@@ -28,20 +28,9 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.dailyroutine.dailyroutineedit.DailyRoutineEditActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-
-        <activity
             android:name=".ui.storytelling.StoryTellingActivity"
             android:exported="false"
             android:screenOrientation="portrait"></activity>
-
-        <activity
-            android:name=".ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"></activity>
-
         <activity
             android:name=".ui.onboarding.splash.SplashActivity"
             android:exported="true"
@@ -52,6 +41,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.main.happy.addlist.HappyAddListActivity"
