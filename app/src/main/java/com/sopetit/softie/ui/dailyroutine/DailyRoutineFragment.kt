@@ -1,11 +1,13 @@
 package com.sopetit.softie.ui.dailyroutine
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
+import com.sopetit.softie.ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity
 import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
@@ -24,6 +26,7 @@ class DailyRoutineFragment :
 
         binding.viewModel = viewModel
 
+        moveToAddRoutine()
         initSetDailyRoutineContent()
         initSetDeleteView()
         initSetRoutineDelete()
@@ -42,12 +45,6 @@ class DailyRoutineFragment :
                 tvDailyRoutineIngSecond,
                 btnDailyRoutineYetFinSecond,
                 1
-            )
-            routineItemView(
-                tvDailyRoutineAddNameThird,
-                tvDailyRoutineIngThird,
-                btnDailyRoutineYetFinThird,
-                2
             )
         }
     }
@@ -121,7 +118,6 @@ class DailyRoutineFragment :
             with(binding) {
                 changeBtnSelectState(btnDailyRoutineRadioFirst, routineList[0].routineId)
                 changeBtnSelectState(btnDailyRoutineRadioSecond, routineList[1].routineId)
-                changeBtnSelectState(btnDailyRoutineRadioThird, routineList[2].routineId)
             }
         }
     }
@@ -174,6 +170,13 @@ class DailyRoutineFragment :
                     ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
                 }
             }
+        }
+    }
+
+    private fun moveToAddRoutine() {
+        binding.ivDailyRoutineEmpty.setOnClickListener {
+            val intent = Intent(requireContext(), DailyRoutineAddActivity::class.java)
+            startActivity(intent)
         }
     }
 }

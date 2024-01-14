@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sopetit.softie.ui.dailyroutine.dailyroutineadd.DailyRoutineAddViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity"
+        android:fitsSystemWindows="true">
+
+        <ImageView
+            android:id="@+id/iv_daily_routine_add_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/ic_daily_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_daily_routine_add_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:includeFontPadding="false"
+            android:text="@string/daily_routine_add_title"
+            android:textAppearance="@style/body1"
+            app:layout_constraintBottom_toBottomOf="@id/iv_daily_routine_add_back"
+            app:layout_constraintStart_toEndOf="@id/iv_daily_routine_add_back"
+            app:layout_constraintTop_toTopOf="@id/iv_daily_routine_add_back" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_daily_routine_add_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_daily_routine_add_back"
+            tools:listitem="@layout/item_daily_routine_add_theme" />
+
+        <View
+            android:id="@+id/v_daily_routine_add_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/gray100"
+            app:layout_constraintTop_toBottomOf="@id/rv_daily_routine_add_theme" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_daily_routine_add_card"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:layout_marginTop="27dp"
+            android:layout_marginBottom="91dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/v_daily_routine_add_line"
+            app:layout_constraintBottom_toTopOf="@id/btn_daily_routine_add" />
+
+        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+            android:id="@+id/di_daily_routine_add_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="55dp"
+            app:dotsColor="@color/gray200"
+            app:dotsSize="6dp"
+            app:dotsSpacing="6dp"
+            app:dotsWidthFactor="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn_daily_routine_add"
+            app:selectedDotColor="@color/main1" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_daily_routine_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="34dp"
+            android:background="@drawable/shape_black_fill_20_rect"
+            android:text="@string/daily_routine_add_btn"
+            android:textAppearance="@style/body1"
+            android:textColor="@color/gray000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
