@@ -32,7 +32,12 @@ class DailyRoutineAddActivity :
         setIndicator()
         setItemDiv()
         initPagerDiv(0, 90)
+        addClickListener()
+    }
+
+    private fun addClickListener() {
         addRoutine()
+        backToDailyRoutine()
     }
 
     private fun setupAdapter() {
@@ -135,6 +140,12 @@ class DailyRoutineAddActivity :
 
     private fun addRoutine() {
         binding.btnDailyRoutineAdd.setOnClickListener {
+            finish()
+        }
+    }
+
+    private fun backToDailyRoutine() {
+        binding.ivDailyRoutineAddBack.setOnClickListener {
             finish()
         }
     }
