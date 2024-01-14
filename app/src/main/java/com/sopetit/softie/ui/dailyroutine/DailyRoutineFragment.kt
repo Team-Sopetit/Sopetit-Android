@@ -7,18 +7,19 @@ import android.widget.TextView
 import androidx.fragment.app.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
+import com.sopetit.softie.domain.entity.Bear
 import com.sopetit.softie.ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity
 import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setStatusBarColor
 import com.sopetit.softie.util.snackBar
-import com.sopetit.softie.util.toast
 
 class DailyRoutineFragment :
     BindingFragment<FragmentDailyRoutineBinding>(R.layout.fragment_daily_routine) {
 
     private val viewModel by viewModels<DailyRoutineViewModel>()
+    private lateinit var bundle: Bundle
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,9 +28,16 @@ class DailyRoutineFragment :
         binding.viewModel = viewModel
 
         moveToAddRoutine()
+        getBundle()
         initSetDailyRoutineContent()
         initSetDeleteView()
         initSetRoutineDelete()
+    }
+
+    private fun getBundle() {
+        bundle = Bundle().apply {
+            putSerializable("key", Bear.RED)
+        }
     }
 
     private fun initSetDailyRoutineContent() {
@@ -83,7 +91,7 @@ class DailyRoutineFragment :
                 doBtnColor = R.drawable.shape_main1_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {
-                    binding.root.context.toast("$routineId")
+                    startDailyRoutineCompleteActivity()
                 }
             ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
         }
@@ -171,6 +179,13 @@ class DailyRoutineFragment :
                 }
             }
         }
+    }
+
+    private fun startDailyRoutineCompleteActivity() {
+        val intentToCompleteActivity =
+            Intent(requireActivity(), DailyRoutineCompleteActivity::class.java)
+        intentToCompleteActivity.putExtras(bundle)
+        startActivity(intentToCompleteActivity)
     }
 
     private fun moveToAddRoutine() {

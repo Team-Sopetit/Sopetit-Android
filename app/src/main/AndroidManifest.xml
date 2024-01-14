@@ -54,17 +54,22 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.happyroutine.adddetail.HappyDetailActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-
-        <activity
             android:name=".ui.setting.SettingActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.main.LoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.happyroutine.HappyRoutineCompleteActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.dailyroutine.DailyRoutineCompleteActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
