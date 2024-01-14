@@ -8,6 +8,7 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivitySplashBinding
 import com.sopetit.softie.ui.main.LoginActivity
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.setStatusBarColorFromResource
 import kotlin.random.Random
 
 class SplashActivity : BindingActivity<ActivitySplashBinding>(R.layout.activity_splash) {
@@ -20,11 +21,16 @@ class SplashActivity : BindingActivity<ActivitySplashBinding>(R.layout.activity_
 
     private fun initCreateRandomVersion() {
         when (Random.nextInt(1, 5)) {
-            1 -> makeSplashImg(R.drawable.ic_splash1)
-            2 -> makeSplashImg(R.drawable.ic_splash2)
-            3 -> makeSplashImg(R.drawable.ic_splash3)
-            4 -> makeSplashImg(R.drawable.ic_splash4)
+            1 -> initSplash(R.drawable.ic_splash1, R.color.main2)
+            2 -> initSplash(R.drawable.ic_splash2, R.color.main2)
+            3 -> initSplash(R.drawable.ic_splash3, R.color.main1)
+            4 -> initSplash(R.drawable.ic_splash4, R.color.main1)
         }
+    }
+
+    private fun initSplash(image: Int, color: Int) {
+        makeSplashImg(image)
+        setStatusBarColorFromResource(color)
     }
 
     private fun makeSplashImg(image: Int) {
