@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityStoryTellingBinding
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.setStatusBarColorFromResource
 
 class StoryTellingActivity :
     BindingActivity<ActivityStoryTellingBinding>(R.layout.activity_story_telling) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setStatusBarColorFromResource(R.color.story_telling_background)
 
         initFragment()
     }

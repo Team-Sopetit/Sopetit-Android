@@ -23,7 +23,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="24dp"
             android:paddingVertical="16dp"
             android:text="@string/daily_routine_edit_name"
             android:textAppearance="@style/body1"
