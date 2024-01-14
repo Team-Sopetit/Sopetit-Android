@@ -1,15 +1,19 @@
 package com.sopetit.softie.ui.happyroutine.adddetail
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityHappyAddDetailBinding
+import com.sopetit.softie.ui.happyroutine.addlist.HappyAddListActivity.Companion.ID
+import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.util.binding.BindingActivity
 
 class HappyDetailActivity :
@@ -23,9 +27,20 @@ class HappyDetailActivity :
         super.onCreate(savedInstanceState)
         viewPager = binding.vpHappyAddDetailCard
 
+        val categoryId = intent.getIntExtra(ID, -1)
+        val viewModel = ViewModelProvider(this).get(HappyDetailCardViewModel::class.java)
+        val happyCard = viewModel.mockHappyCardList.value?.get(categoryId - 1)
+
+        happyCard?.let {
+            binding.tvHappyAddDetailTitle.text = happyCard.name
+            binding.ivHappyAddDetailIcon.setImageResource(happyCard.iconImageUrl)
+            binding.tvHappyAddDetailSubtitle.text = happyCard.title
+            binding.tvHappyAddDetailTitle.setTextColor(Color.parseColor(happyCard.nameColor))
+        }
+
         setBackEnter()
-        setupBinding()
-        setupAdapter()
+        setSnackbarEnter()
+        setupAdapter(categoryId)
         setIndicator()
         initViewPager()
         initPagerDiv(0, 90)
@@ -37,22 +52,27 @@ class HappyDetailActivity :
         }
     }
 
-    private fun setupBinding() {
-        val happyCard = viewModel.mockHappyCardList.value?.get(1)
-        happyCard?.let {
-            binding.tvHappyAddDetailTitle.text = it.name
-            binding.ivHappyAddDetailIcon.setImageResource(it.iconImageUrl)
-            binding.tvHappyAddDetailSubtitle.text = it.title
-            binding.tvHappyAddDetailTitle.setTextColor(Color.parseColor(it.nameColor))
+    private fun setSnackbarEnter() {
+        binding.btnHappyDetailAdd.setOnClickListener {
+            moveToIng()
         }
     }
 
-    private fun setupAdapter() {
+    private fun moveToIng() {
+        Intent(this, MainActivity::class.java).apply {
+            startActivity(this)
+        }
+    }
+
+    private fun setupAdapter(categoryId: Int) {
         with(binding) {
-            happyRoutineAddCardPagerAdapter = HappyDetailCardPagerAdapter()
+            happyRoutineAddCardPagerAdapter =
+                HappyDetailCardPagerAdapter() // categoryId를 전달합니다.
             vpHappyAddDetailCard.adapter = happyRoutineAddCardPagerAdapter
         }
-        happyRoutineAddCardPagerAdapter.submitList(viewModel.mockHappyCardList.value)
+        happyRoutineAddCardPagerAdapter.submitList(
+            viewModel.getHappyCardListForId(categoryId).get(0).routines
+        )
     }
 
     private fun setIndicator() {
@@ -62,9 +82,9 @@ class HappyDetailActivity :
     private fun initViewPager() {
         viewPager.adapter = happyRoutineAddCardPagerAdapter
 
-        val dpValue = 40
+        val dp = resources.getDimensionPixelSize(R.dimen.view_margin)
         val d = resources.displayMetrics.density
-        val margin = (dpValue * d).toInt()
+        val margin = (dp * d).toInt()
 
         with(binding.vpHappyAddDetailCard) {
             clipChildren = false
