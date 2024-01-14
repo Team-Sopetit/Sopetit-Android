@@ -3,6 +3,7 @@ package com.sopetit.softie.domain.entity
 import androidx.annotation.DrawableRes
 
 data class HappyCard(
+    val categoryId: Int,
     val name: String,
     val nameColor: String,
     val title: String,
@@ -19,3 +20,5 @@ data class HappyCard(
         val detailPlace: String
     )
 }
+
+
