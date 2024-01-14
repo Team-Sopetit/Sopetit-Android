@@ -7,7 +7,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.google.android.material.snackbar.Snackbar
 
 fun Context.hideKeyboard(view: View) {
     val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -16,9 +15,9 @@ fun Context.hideKeyboard(view: View) {
 
 fun snackBar(
     anchorView: View,
-    message: String
+    message: String,
 ) {
-    Snackbar.make(anchorView, message, Snackbar.LENGTH_SHORT).show()
+    CustomSnackbar.make(anchorView, message).show()
 }
 
 fun Context.toast(message: String) {
