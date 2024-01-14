@@ -544,5 +544,4 @@ class DailyRoutineAddViewModel : ViewModel() {
     fun getDailyCardListForId(themeId: Int): List<DailyRoutine> {
         return themeDailyRoutineList.value?.filter { it.themeId == themeId } ?: emptyList()
     }
-
 }
