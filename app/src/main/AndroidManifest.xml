@@ -30,7 +30,8 @@
         <activity
             android:name=".ui.storytelling.StoryTellingActivity"
             android:exported="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.onboarding.splash.SplashActivity"
             android:exported="true"

@@ -14,6 +14,7 @@ import com.sopetit.softie.ui.onboarding.bearselection.BearSelectionFragment
 import com.sopetit.softie.ui.onboarding.routinechoice.RoutineChoiceFragment
 import com.sopetit.softie.ui.onboarding.themechoice.ChoiceThemeFragment
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.setStatusBarColorFromResource
 
 class OnboardingActivity :
     BindingActivity<ActivityOnboardingBinding>(R.layout.activity_onboarding) {
@@ -23,6 +24,7 @@ class OnboardingActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.viewModel = viewModel
+        setStatusBarColorFromResource(R.color.background)
 
         initMakeFragment()
         initChangeFragment()

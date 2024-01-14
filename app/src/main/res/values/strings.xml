@@ -90,4 +90,9 @@
     <string name="daily_routine_fin_btn">완료하기</string>
     <string name="daily_routine_fin">달성완료</string>
 
+    <!-- home -->
+    <string name="home_som_count">%d개</string>
+    <string name="home_happiness_cotton_btn">행복 솜뭉치 주기</string>
+    <string name="home_daily_cotton_btn">솜뭉치 주기</string>
+
 </resources>

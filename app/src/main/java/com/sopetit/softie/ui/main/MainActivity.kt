@@ -10,12 +10,14 @@ import com.sopetit.softie.ui.dailyroutine.DailyRoutineFragment
 import com.sopetit.softie.ui.main.happy.HappyRoutineFragment
 import com.sopetit.softie.ui.main.home.HomeFragment
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.setStatusBarColorFromResource
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setStatusBarColorFromResource(R.color.home_background)
 
         initFragment()
         initBottomNavigation()
