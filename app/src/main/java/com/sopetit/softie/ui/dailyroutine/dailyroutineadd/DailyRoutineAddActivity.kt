@@ -29,6 +29,7 @@ class DailyRoutineAddActivity :
 
         setupAdapter()
         setViewPager()
+        setupList()
         setIndicator()
         setItemDiv()
         initPagerDiv(0, 90)
@@ -47,6 +48,9 @@ class DailyRoutineAddActivity :
             }
             rvDailyRoutineAddTheme.adapter = dailyRoutineAddThemeAdapter
         }
+    }
+
+    private fun setupList() {
         dailyRoutineAddViewModel.mockThemeList.observe(this) {
             dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.startNewDayCardList.value)
             dailyRoutineAddThemeAdapter.submitList(dailyRoutineAddViewModel.mockThemeList.value)
@@ -55,24 +59,7 @@ class DailyRoutineAddActivity :
 
     private fun setRoutineList(item: Theme) {
         Timber.d("daily routine act -> ${item.themeId}")
-        when (item.themeId) {
-            1 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.startNewDayCardList.value)
-            2 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.healthBodyCardList.value)
-            3 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.overcomeHelplessnessCardList.value)
-            4 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.restfulSleepCardList.value)
-            5 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.environmentalGuardCardList.value)
-            6 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.smallKindnessCardList.value)
-            7 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.gratitudeCardList.value)
-            8 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.smallAccomplishmentCardList.value)
-            9 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.preciousMeCardList.value)
-            10 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.forRichCardList.value)
-            11 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.readyImmerseCardList.value)
-            12 -> dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.emptyCardList.value)
-
-            else -> dailyRoutineAddCardPagerAdapter.submitList(
-                dailyRoutineAddViewModel.startNewDayCardList.value
-            )
-        }
+        dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.themeDailyRoutineList[item.themeId].value)
     }
 
     private fun initPagerDiv(previewWidth: Int, itemMargin: Int) {
@@ -81,7 +68,7 @@ class DailyRoutineAddActivity :
         val decoration = PageDecoration(decoMargin)
 
         binding.vpDailyRoutineAddCard.also {
-            it.offscreenPageLimit = 3
+            it.offscreenPageLimit = VIEW_PAGE.toInt()
             it.addItemDecoration(decoration)
             it.setPageTransformer { page, position ->
                 page.translationX = position * -pageTransX
@@ -89,27 +76,14 @@ class DailyRoutineAddActivity :
         }
     }
 
-    private class PageDecoration(private val margin: Int) : RecyclerView.ItemDecoration() {
-
-        override fun getItemOffsets(
-            outRect: Rect,
-            view: View,
-            parent: RecyclerView,
-            state: RecyclerView.State
-        ) {
-            outRect.left = margin
-            outRect.right = margin
-        }
-    }
-
     private fun setViewPager() {
         with(binding.vpDailyRoutineAddCard) {
             adapter = dailyRoutineAddCardPagerAdapter
-            offscreenPageLimit = 3
+            offscreenPageLimit = VIEW_PAGE.toInt()
 
-            val dpValue = 40
+            val dpValue = PADDING_PAGE
             val margin = (dpValue * resources.displayMetrics.density).toInt()
-            setPadding(margin, 0, margin, 0)
+            setPadding(margin, PADDING_CARD, margin, PADDING_CARD)
 
             setPageTransformer(
                 CompositePageTransformer().apply {
@@ -125,6 +99,19 @@ class DailyRoutineAddActivity :
 
     private fun setIndicator() {
         binding.diDailyRoutineAddIndicator.attachTo(binding.vpDailyRoutineAddCard)
+    }
+
+    private class PageDecoration(private val margin: Int) : RecyclerView.ItemDecoration() {
+
+        override fun getItemOffsets(
+            outRect: Rect,
+            view: View,
+            parent: RecyclerView,
+            state: RecyclerView.State
+        ) {
+            outRect.left = margin
+            outRect.right = margin
+        }
     }
 
     class HorizontalItemDecorator(private val divHeight: Int) : RecyclerView.ItemDecoration() {
@@ -143,5 +130,11 @@ class DailyRoutineAddActivity :
 
     private fun setItemDiv() {
         binding.rvDailyRoutineAddTheme.addItemDecoration(HorizontalItemDecorator(16))
+    }
+
+    companion object {
+        const val VIEW_PAGE = 3
+        const val PADDING_PAGE = 40
+        const val PADDING_CARD = 0
     }
 }

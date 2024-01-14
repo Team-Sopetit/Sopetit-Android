@@ -36,8 +36,10 @@ class DailyRoutineAddThemeAdapter :
             binding.ivDailyRoutineAddThemeIcon.load(data.iconImageUrl)
             if (selectedPosition == absoluteAdapterPosition) {
                 changeThemeBackground(binding, true)
+                changeThemeTextColor(binding, true)
             } else {
                 changeThemeBackground(binding, false)
+                changeThemeTextColor(binding, false)
             }
 
             if (onItemClickListener != null) {
@@ -45,6 +47,7 @@ class DailyRoutineAddThemeAdapter :
                     onItemClickListener?.onItemClick(data, absoluteAdapterPosition)
                     if (selectedPosition != absoluteAdapterPosition) {
                         changeThemeBackground(binding, true)
+                        changeThemeTextColor(binding, true)
                         notifyItemChanged(selectedPosition)
                         selectedPosition = absoluteAdapterPosition
                     }
@@ -60,6 +63,20 @@ class DailyRoutineAddThemeAdapter :
         when (selected) {
             true -> {
                 binding.ivDailyRoutineAddThemeBackground.setBackgroundResource(R.drawable.ic_daily_theme_background_click)
+            }
+
+            false -> {
+                binding.ivDailyRoutineAddThemeBackground.setBackgroundResource(R.drawable.ic_daily_theme_background)
+            }
+        }
+    }
+
+    private fun changeThemeTextColor(
+        binding: ItemDailyRoutineAddThemeBinding,
+        selected: Boolean
+    ) {
+        when (selected) {
+            true -> {
                 binding.tvDailyRoutineAddThemeName.setTextColor(
                     ContextCompat.getColor(
                         binding.root.context,
@@ -69,7 +86,6 @@ class DailyRoutineAddThemeAdapter :
             }
 
             false -> {
-                binding.ivDailyRoutineAddThemeBackground.setBackgroundResource(R.drawable.ic_daily_theme_background)
                 binding.tvDailyRoutineAddThemeName.setTextColor(
                     ContextCompat.getColor(
                         binding.root.context,

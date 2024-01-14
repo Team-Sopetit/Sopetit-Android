@@ -88,6 +88,57 @@ class DailyRoutineAddViewModel : ViewModel() {
     val mockThemeList: LiveData<List<Theme>>
         get() = _mockThemeList
 
+    val themeDailyRoutineList = listOf(
+        startNewDayCardList,
+        healthBodyCardList,
+        overcomeHelplessnessCardList,
+        restfulSleepCardList,
+        environmentalGuardCardList,
+        gratitudeCardList,
+        smallKindnessCardList,
+        smallAccomplishmentCardList,
+        preciousMeCardList,
+        forRichCardList,
+        readyImmerseCardList,
+        emptyCardList
+    )
+
+    val startNewDayCardList: LiveData<List<DailyCard>>
+        get() = _startNewDayCardList
+
+    val healthBodyCardList: LiveData<List<DailyCard>>
+        get() = _healthBodyCardList
+
+    val overcomeHelplessnessCardList: LiveData<List<DailyCard>>
+        get() = _overcomeHelplessnessCardList
+
+    val restfulSleepCardList: LiveData<List<DailyCard>>
+        get() = _restfulSleepCardList
+
+    val environmentalGuardCardList: LiveData<List<DailyCard>>
+        get() = _environmentalGuardCardList
+
+    val gratitudeCardList: LiveData<List<DailyCard>>
+        get() = _gratitudeCardList
+
+    val smallKindnessCardList: LiveData<List<DailyCard>>
+        get() = _smallKindnessCardList
+
+    val smallAccomplishmentCardList: LiveData<List<DailyCard>>
+        get() = _smallAccomplishmentCardList
+
+    val preciousMeCardList: LiveData<List<DailyCard>>
+        get() = _preciousMeCardList
+
+    val forRichCardList: LiveData<List<DailyCard>>
+        get() = _forRichCardList
+
+    val readyImmerseCardList: LiveData<List<DailyCard>>
+        get() = _readyImmerseCardList
+
+    val emptyCardList: LiveData<List<DailyCard>>
+        get() = _emptyCardList
+
     private val _startNewDayCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
@@ -117,9 +168,6 @@ class DailyRoutineAddViewModel : ViewModel() {
             )
         )
     )
-
-    val startNewDayCardList: LiveData<List<DailyCard>>
-        get() = _startNewDayCardList
 
     private val _healthBodyCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
@@ -151,9 +199,6 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val healthBodyCardList: LiveData<List<DailyCard>>
-        get() = _healthBodyCardList
-
     private val _overcomeHelplessnessCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
@@ -183,9 +228,6 @@ class DailyRoutineAddViewModel : ViewModel() {
             )
         )
     )
-
-    val overcomeHelplessnessCardList: LiveData<List<DailyCard>>
-        get() = _overcomeHelplessnessCardList
 
     private val _restfulSleepCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
@@ -217,9 +259,6 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val restfulSleepCardList: LiveData<List<DailyCard>>
-        get() = _restfulSleepCardList
-
     private val _environmentalGuardCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
@@ -249,9 +288,6 @@ class DailyRoutineAddViewModel : ViewModel() {
             )
         )
     )
-
-    val environmentalGuardCardList: LiveData<List<DailyCard>>
-        get() = _environmentalGuardCardList
 
     private val _smallKindnessCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
@@ -283,9 +319,6 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val smallKindnessCardList: LiveData<List<DailyCard>>
-        get() = _smallKindnessCardList
-
     private val _gratitudeCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
@@ -315,9 +348,6 @@ class DailyRoutineAddViewModel : ViewModel() {
             )
         )
     )
-
-    val gratitudeCardList: LiveData<List<DailyCard>>
-        get() = _gratitudeCardList
 
     private val _smallAccomplishmentCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
@@ -349,9 +379,6 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val smallAccomplishmentCardList: LiveData<List<DailyCard>>
-        get() = _smallAccomplishmentCardList
-
     private val _preciousMeCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
@@ -381,9 +408,6 @@ class DailyRoutineAddViewModel : ViewModel() {
             )
         )
     )
-
-    val preciousMeCardList: LiveData<List<DailyCard>>
-        get() = _preciousMeCardList
 
     private val _forRichCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
@@ -415,9 +439,6 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val forRichCardList: LiveData<List<DailyCard>>
-        get() = _forRichCardList
-
     private val _readyImmerseCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
@@ -448,9 +469,6 @@ class DailyRoutineAddViewModel : ViewModel() {
         )
     )
 
-    val readyImmerseCardList: LiveData<List<DailyCard>>
-        get() = _readyImmerseCardList
-
     private val _emptyCardList: MutableLiveData<List<DailyCard>> = MutableLiveData(
         mutableListOf(
             DailyCard(
@@ -480,7 +498,4 @@ class DailyRoutineAddViewModel : ViewModel() {
             )
         )
     )
-
-    val emptyCardList: LiveData<List<DailyCard>>
-        get() = _emptyCardList
 }
