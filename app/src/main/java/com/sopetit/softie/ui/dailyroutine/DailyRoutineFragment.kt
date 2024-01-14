@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
+import com.sopetit.softie.domain.entity.Bear
 import com.sopetit.softie.ui.dailyroutine.dailyroutineedit.DailyRoutineEditActivity
 import com.sopetit.softie.util.binding.BindingFragment
 
@@ -21,6 +22,30 @@ class DailyRoutineFragment :
         binding.dailyRoutineViewModel = dailyRoutineViewModel
 
         moveEdit()
+
+// /여기서부터 코드 정리 필요
+        val bundle = Bundle().apply {
+            putSerializable("key", Bear.RED)
+        }
+
+        binding.btnDailyRoutineYetFinFirst.setOnClickListener {
+            val intentToCompleteActivity =
+                Intent(requireActivity(), DailyRoutineCompleteActivity::class.java)
+            intentToCompleteActivity.putExtras(bundle)
+            startActivity(intentToCompleteActivity)
+        }
+        binding.btnDailyRoutineYetFinSecond.setOnClickListener {
+            val intentToCompleteActivity =
+                Intent(requireActivity(), DailyRoutineCompleteActivity::class.java)
+            intentToCompleteActivity.putExtras(bundle)
+            startActivity(intentToCompleteActivity)
+        }
+        binding.btnDailyRoutineYetFinThird.setOnClickListener {
+            val intentToCompleteActivity =
+                Intent(requireActivity(), DailyRoutineCompleteActivity::class.java)
+            intentToCompleteActivity.putExtras(bundle)
+            startActivity(intentToCompleteActivity)
+        }
     }
 
     private fun moveEdit() {
