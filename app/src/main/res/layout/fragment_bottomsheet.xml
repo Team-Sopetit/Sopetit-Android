@@ -50,48 +50,39 @@
             app:layout_constraintTop_toBottomOf="@id/tv_bottom_sheet_title"
             tools:text="@string/bottom_sheet_content" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_bottom_sheet_btn"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_bottom_sheet_back"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
+            android:textAppearance="@style/body1"
+            android:textColor="@color/gray300"
+            android:paddingVertical="20dp"
+            android:background="@drawable/shape_gray100_fill_12_rect"
             android:layout_marginTop="35dp"
             android:layout_marginBottom="33dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="20dp"
             app:layout_constraintTop_toBottomOf="@id/tv_bottom_sheet_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_chainStyle="spread_inside">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_bottom_sheet_do"
+            android:outlineProvider="none"
+            tools:text="@string/bottom_sheet_back" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_bottom_sheet_back"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/body1"
-                android:textColor="@color/gray300"
-                android:paddingVertical="20dp"
-                android:background="@drawable/shape_gray100_fill_12_rect"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/btn_bottom_sheet_do"
-                tools:text="@string/bottom_sheet_back" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_bottom_sheet_do"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:textAppearance="@style/body1"
-                android:textColor="@color/gray000"
-                android:background="@drawable/shape_main1_fill_12_rect"
-                android:layout_marginStart="10dp"
-                app:layout_constraintTop_toTopOf="@id/btn_bottom_sheet_back"
-                app:layout_constraintBottom_toBottomOf="@id/btn_bottom_sheet_back"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/btn_bottom_sheet_back"
-                tools:text="@string/bottom_sheet_do" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_bottom_sheet_do"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textAppearance="@style/body1"
+            android:textColor="@color/gray000"
+            android:background="@drawable/shape_main1_fill_12_rect"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintTop_toTopOf="@id/btn_bottom_sheet_back"
+            app:layout_constraintBottom_toBottomOf="@id/btn_bottom_sheet_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_bottom_sheet_back"
+            android:outlineProvider="none"
+            tools:text="@string/bottom_sheet_do" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

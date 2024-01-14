@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentBottomsheetBinding
 import com.sopetit.softie.util.binding.BindingAdapter.setImage
 import com.sopetit.softie.util.binding.BindingBottomSheet
@@ -47,7 +49,9 @@ class OriginalBottomSheet : BindingBottomSheet() {
     }
 
     override fun setContentColor() {
-        contentColor?.let { binding.tvBottomSheetContent.setTextColor(it) }
+        binding.tvBottomSheetContent.setTextColor(
+            ContextCompat.getColor(requireContext(), contentColor ?: R.color.gray400)
+        )
     }
 
     override fun setBackBtnContent() {
@@ -68,5 +72,9 @@ class OriginalBottomSheet : BindingBottomSheet() {
 
     override fun setDoBtnClick(action: () -> Unit) {
         binding.btnBottomSheetDo.setOnClickListener { action() }
+    }
+
+    companion object {
+        const val BOTTOM_SHEET_TAG = "BOTTOM_SHEET_TAG"
     }
 }

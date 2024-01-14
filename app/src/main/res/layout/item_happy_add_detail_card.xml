@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_happy_routine_add_card"
+            android:layout_width="match_parent"
+            android:layout_height="398dp"
+            android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_happy_routine_add_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_happycard_up_green" />
+
+            <TextView
+                android:id="@+id/tv_happy_routine_add_card_detail_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="70dp"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp"
+                android:textAppearance="@style/body2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_happy_routine_add_card"
+                tools:text="이상형의 특성 10가지 적어보고,\n절대 포기 못할 2가지와\n나와 비슷한 3가지 찾아보기" />
+
+            <ImageView
+                android:id="@+id/iv_happy_routine_add_card_detail_magnify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="22dp"
+                android:layout_marginBottom="22dp"
+                android:src="@drawable/ic_magnify"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_happy_routine_add_card_back"
+            android:layout_width="match_parent"
+            android:layout_height="398dp"
+            android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/cl_happy_routine_add_card"
+            app:layout_constraintEnd_toEndOf="@id/cl_happy_routine_add_card"
+            app:layout_constraintStart_toStartOf="@id/cl_happy_routine_add_card"
+            app:layout_constraintTop_toTopOf="@id/cl_happy_routine_add_card">
+
+            <TextView
+                android:id="@+id/tv_happy_routine_add_card_detail_title_back"
+                style="@style/body2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp"
+                android:textAppearance="@style/body2"
+                app:layout_constraintBottom_toBottomOf="@id/md_happy_routine_add_card_divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="이상형의 특성 10가지 적어보고,\n절대 포기 못할 2가지와\n나와 비슷한 3가지 찾아보기" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/md_happy_routine_add_card_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="123dp"
+                android:layout_marginEnd="18dp"
+                app:dividerColor="@color/gray100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_happy_routine_add_card_detail_content_back"
+                style="@style/body4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginEnd="20dp"
+                android:breakStrategy="simple"
+                android:lineSpacingMultiplier="1.3"
+                android:textColor="@color/gray400"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/md_happy_routine_add_card_divider"
+                tools:text="평소에 바빠서 연락하지 못한 사람이 있다면 안부인사 개인톡을 보내 봐. 꼭 만나서 밥을 먹거나 하지 않아도 연락 한 통이 나와 그 사람을 연결하는 방법이 될 수 있어" />
+
+            <ImageView
+                android:id="@+id/iv_happy_routine_add_card_detail_time_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="52dp"
+                android:layout_marginBottom="7dp"
+                android:src="@drawable/ic_time"
+                app:layout_constraintBottom_toTopOf="@id/iv_happy_routine_add_card_detail_place_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="1" />
+
+            <TextView
+                android:id="@+id/tv_happy_routine_add_card_detail_time_back"
+                style="@style/caption1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:textAppearance="@style/body2"
+                android:textColor="@color/gray400"
+                app:layout_constraintBottom_toBottomOf="@id/iv_happy_routine_add_card_detail_time_back"
+                app:layout_constraintStart_toEndOf="@id/iv_happy_routine_add_card_detail_time_back"
+                app:layout_constraintTop_toTopOf="@id/iv_happy_routine_add_card_detail_time_back"
+                tools:text="5~10분" />
+
+            <ImageView
+                android:id="@+id/iv_happy_routine_add_card_detail_place_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="65dp"
+                android:src="@drawable/ic_place"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_happy_routine_add_card_detail_place_back"
+                style="@style/caption1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:textAppearance="@style/body2"
+                android:textColor="@color/gray400"
+                app:layout_constraintBottom_toBottomOf="@id/iv_happy_routine_add_card_detail_place_back"
+                app:layout_constraintStart_toEndOf="@id/iv_happy_routine_add_card_detail_place_back"
+                app:layout_constraintTop_toTopOf="@id/iv_happy_routine_add_card_detail_place_back"
+                tools:text="회사 옥상, 점심식사 후 돌아가는 길" />
+
+            <ImageView
+                android:id="@+id/iv_happy_routine_add_card_detail_transfer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="22dp"
+                android:layout_marginBottom="22dp"
+                android:src="@drawable/ic_transfer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
