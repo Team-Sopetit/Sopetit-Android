@@ -82,5 +82,4 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         fragmentTransaction.replace(R.id.fcv_main, HappyProgressFragment())
         fragmentTransaction.commit()
     }
-
 }
