@@ -2,11 +2,14 @@ package com.sopetit.softie.util
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import java.io.Serializable
 
 fun Context.hideKeyboard(view: View) {
     val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -15,7 +18,7 @@ fun Context.hideKeyboard(view: View) {
 
 fun snackBar(
     anchorView: View,
-    message: String,
+    message: String
 ) {
     CustomSnackbar.make(anchorView, message).show()
 }
@@ -34,4 +37,12 @@ fun Fragment.setStatusBarColor(colorResId: Int) {
 fun Activity.setStatusBarColorFromResource(colorResId: Int) {
     val statusBarColor = ContextCompat.getColor(this, colorResId)
     window.statusBarColor = statusBarColor
+}
+
+fun <T : Serializable> Intent.intentSerializable(key: String, clazz: Class<T>): T? {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        this.getSerializableExtra(key, clazz)
+    } else {
+        this.getSerializableExtra(key) as T?
+    }
 }
