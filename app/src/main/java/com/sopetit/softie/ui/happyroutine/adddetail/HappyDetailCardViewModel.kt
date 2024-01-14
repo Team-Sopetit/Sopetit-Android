@@ -208,7 +208,7 @@ class HappyDetailCardViewModel : ViewModel() {
                         detailPlace = "세 번째 카드의 디테일 장소"
                     )
                 )
-            ),
+            )
         )
     )
 
