@@ -3,6 +3,7 @@ package com.sopetit.softie.util
 import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.View
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityRoutineCompleteBinding
@@ -12,36 +13,14 @@ import com.sopetit.softie.util.binding.BindingActivity
 abstract class RoutineCompleteActivity(
     private val cotton: Cotton
 ) : BindingActivity<ActivityRoutineCompleteBinding>(R.layout.activity_routine_complete) {
-
+    private lateinit var handler: Handler
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val handler = Handler()
-
-        binding.tvRoutineCompleteTitle.alpha = 0f
-        binding.tvRoutineCompleteSubtitle.alpha = 0f
-
-        handler.postDelayed({
-            binding.tvRoutineCompleteTitle.visibility = View.VISIBLE
-            val fadeInTitle =
-                ObjectAnimator.ofFloat(binding.tvRoutineCompleteTitle, "alpha", 0f, 1f)
-            fadeInTitle.duration = 500
-            fadeInTitle.start()
-        }, 500L)
-
-        handler.postDelayed({
-            binding.tvRoutineCompleteSubtitle.visibility = View.VISIBLE
-            val fadeInSubtitle =
-                ObjectAnimator.ofFloat(binding.tvRoutineCompleteSubtitle, "alpha", 0f, 1f)
-            fadeInSubtitle.duration = 500
-            fadeInSubtitle.start()
-        }, 1000L)
-
-        handler.postDelayed({
-            finish()
-        }, 3000L)
+        handler = Handler(Looper.getMainLooper())
 
         setTextAndLottieByCottonType()
+        setTextAlpha()
+        performRoutineCompletion()
     }
 
     private fun setTextAndLottieByCottonType() {
@@ -72,5 +51,39 @@ abstract class RoutineCompleteActivity(
     private fun setLottie(lottieFile: Int) {
         binding.lottieRoutineComplete.setAnimation(lottieFile)
         binding.lottieRoutineComplete.playAnimation()
+    }
+
+    private fun setTextAlpha() {
+        binding.tvRoutineCompleteTitle.alpha = TRANSPARENT
+        binding.tvRoutineCompleteSubtitle.alpha = TRANSPARENT
+    }
+
+    private fun performRoutineCompletion() {
+        fadeInViewWithDelay(binding.tvRoutineCompleteTitle)
+        fadeInViewWithDelay(binding.tvRoutineCompleteSubtitle)
+        startScreenOffDelay()
+    }
+
+    private fun fadeInViewWithDelay(view: View) {
+        handler.postDelayed({
+            view.visibility = View.VISIBLE
+            val fadeInAnimator = ObjectAnimator.ofFloat(view, ALPHA, TRANSPARENT, OPAQUE)
+            fadeInAnimator.duration = FADE_IN
+            fadeInAnimator.start()
+        }, FADE_IN)
+    }
+
+    private fun startScreenOffDelay() {
+        handler.postDelayed({
+            finish()
+        }, FADE_OUT)
+    }
+
+    companion object {
+        const val FADE_IN = 500L
+        const val FADE_OUT = 3000L
+        const val ALPHA = "alpha"
+        const val TRANSPARENT = 0f
+        const val OPAQUE = 1f
     }
 }
