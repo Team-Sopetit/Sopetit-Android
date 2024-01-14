@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="398dp"
             android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
-            android:visibility="invisible"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="398dp"
             android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@id/cl_happy_routine_add_card"
             app:layout_constraintEnd_toEndOf="@id/cl_happy_routine_add_card"
             app:layout_constraintStart_toStartOf="@id/cl_happy_routine_add_card"
@@ -121,7 +121,6 @@
                 android:src="@drawable/ic_time"
                 app:layout_constraintBottom_toTopOf="@id/iv_happy_routine_add_card_detail_place_back"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_happy_routine_add_card_detail_content_back"
                 app:layout_constraintVertical_bias="1" />
 
             <TextView

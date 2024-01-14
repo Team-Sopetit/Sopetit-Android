@@ -71,6 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:clickable="false"
             android:foregroundGravity="center"
             app:dotsColor="@color/gray200"
             app:dotsSize="6dp"
