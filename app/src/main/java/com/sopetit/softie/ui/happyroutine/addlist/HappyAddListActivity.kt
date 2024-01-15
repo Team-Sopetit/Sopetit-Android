@@ -33,13 +33,17 @@ class HappyAddListActivity :
         setContentView(binding.root)
         setStatusBarColorFromResource(R.color.background)
 
+        binding.viewModel = viewModel
+        viewModel.getHappyChip()
+
         setChipAdapters()
         setBackEnter()
         setItemDeco()
-        setupAdapter(themeId)
+        setupAdapter()
     }
 
     private fun setChipAdapters() {
+        viewModel.getHappyChip()
         happyAddListChipContentAdapter = HappyAddListChipContentAdapter()
         happyAddListContentAdapter = HappyAddListContentAdapter(::moveToDetail)
     }
@@ -57,26 +61,30 @@ class HappyAddListActivity :
         binding.rvHappyAddListChip.addItemDecoration(chipDeco)
     }
 
-    private fun setupAdapter(themeId: Int) {
+    private fun setupAdapter() {
+
         with(binding) {
             rvHappyAddListChip.adapter = happyAddListChipContentAdapter
             rvHappyAddList.adapter = happyAddListContentAdapter
         }
-        happyAddListChipContentAdapter?.submitList(viewModel.mockHappyChipList.value)
-        happyAddListContentAdapter?.submitList(viewModel.mockHappyContentList.value)
+        viewModel.happyChipResponse.observe(this) {
+            happyAddListChipContentAdapter?.submitList(viewModel.happyChipResponse.value)
+        }
+//        happyAddListChipContentAdapter?.submitList(viewModel.happyChipResponse.value)
+        happyAddListContentAdapter?.submitList(viewModel.HappyContentList.value)
 
         happyAddListChipContentAdapter?.setOnChipClickListener { handleChipClick(it.themeId) }
     }
 
     private fun handleChipClick(themeId: Int) {
         val listToSubmit = when (themeId) {
-            1 -> viewModel.mockHappyContentList.value
-            2 -> viewModel.mockHappyContentListOne.value
-            3 -> viewModel.mockHappyContentListTwo.value
-            4 -> viewModel.mockHappyContentListThree.value
-            5 -> viewModel.mockHappyContentListFour.value
-            6 -> viewModel.mockHappyContentListFive.value
-            else -> viewModel.mockHappyContentList.value
+            1 -> viewModel.HappyContentList.value
+            2 -> viewModel.HappyContentListOne.value
+            3 -> viewModel.HappyContentListTwo.value
+            4 -> viewModel.HappyContentListThree.value
+            5 -> viewModel.HappyContentListFour.value
+            6 -> viewModel.HappyContentListFive.value
+            else -> viewModel.HappyContentList.value
         }
 
         listToSubmit?.let { makeSubmitList(it) }
