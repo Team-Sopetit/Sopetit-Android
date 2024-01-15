@@ -13,8 +13,10 @@ import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.ui.onboarding.OnboardingActivity
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
 import com.sopetit.softie.util.binding.BindingFragment
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
+@AndroidEntryPoint
 class RoutineChoiceFragment :
     BindingFragment<FragmentOnboardingChoiceRoutineBinding>(R.layout.fragment_onboarding_choice_routine) {
 
@@ -31,7 +33,7 @@ class RoutineChoiceFragment :
         binding.viewModel = viewModel
         binding.routineViewModel = routineViewModel
 
-        Timber.d("routineChoice: theme -> ${viewModel.selectedThemeArray.value}")
+        Timber.d("routineChoice: theme1 -> ${viewModel.selectedThemeArray.value}")
 
         initSetThemeBackBtn()
         initSetRoutineBtn()
@@ -72,7 +74,12 @@ class RoutineChoiceFragment :
     }
 
     private fun updateRoutines() {
-        routineViewModel.mockRoutineList.observe(viewLifecycleOwner) {
+        viewModel.selectedThemeIdList.value?.let { routineViewModel.getRoutineList(it.toList()) }
+//        routineViewModel.mockRoutineList.observe(viewLifecycleOwner) {
+//            choiceRoutineAdapter.submitList(it)
+//        }
+        Timber.d("routineChoice: theme -> ${viewModel.selectedThemeIdList.value}")
+        routineViewModel.routineList.observe(viewLifecycleOwner) {
             choiceRoutineAdapter.submitList(it)
         }
     }
