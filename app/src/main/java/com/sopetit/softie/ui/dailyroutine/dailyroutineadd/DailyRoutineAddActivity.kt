@@ -1,5 +1,7 @@
 package com.sopetit.softie.ui.dailyroutine.dailyroutineadd
 
+import android.app.Activity
+import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
@@ -11,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityDailyRoutineAddBinding
 import com.sopetit.softie.domain.entity.Theme
+import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.binding.BindingBottomSheet
@@ -21,6 +24,7 @@ class DailyRoutineAddActivity :
     private lateinit var viewPager: ViewPager2
     private lateinit var dailyRoutineAddCardPagerAdapter: DailyRoutineAddCardPagerAdapter
     private lateinit var dailyRoutineAddThemeAdapter: DailyRoutineAddThemeAdapter
+
 
     private val dailyRoutineAddViewModel by viewModels<DailyRoutineAddViewModel>()
 
@@ -37,6 +41,7 @@ class DailyRoutineAddActivity :
         setItemDiv()
         initPagerDiv(0, 90)
         addClickListener()
+        initSetDailyRoutineAdd()
     }
 
     private fun addClickListener() {
@@ -154,8 +159,8 @@ class DailyRoutineAddActivity :
         }
     }
 
-    private fun initSetDailyRoutineAdd(btn: View, routineId: Int) {
-        btn.setOnClickListener {
+    private fun initSetDailyRoutineAdd() {
+        binding.btnDailyRoutineAdd.setOnClickListener {
             // TODO 서버통신 구현 후 imageUri 버전으로 수정
 
             BindingBottomSheet.Builder().build(
@@ -163,7 +168,7 @@ class DailyRoutineAddActivity :
                 imageDrawable = 0,
                 imageUri = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
                 title = "데일리 루틴을 추가할까요?",
-                content = "한 번 완료하면 이전으로 되돌릴 수 없어요",
+                content = "일어나면 5분 안에 이불개기",
                 isContentVisible = true,
                 contentColor = R.color.gray400,
                 backBtnContent = "아니, 더 고민할게",
@@ -171,11 +176,28 @@ class DailyRoutineAddActivity :
                 doBtnColor = R.drawable.shape_main1_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {
-                    finish()
+                    tossMsg()
                 }
             ).show(supportFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
         }
     }
+
+    private fun tossMsg() {
+        val resultIntent = Intent(this, MainActivity::class.java)
+        setResult(Activity.RESULT_OK, resultIntent)
+        finish()
+    }
+
+//        // 이전 액티비티에서 다음 액티비티를 시작할 때
+//        val intent = Intent(this, MainActivity::class.java)
+//        intent.putExtra("tagKey", "yourTagValue")
+//        startActivityForResult(intent, requestCode)
+//
+//        // NextActivity에서 이전 액티비티로 돌아갈 때
+//        val intent = Intent()
+//        intent.putExtra("resultKey", "resultData")
+//        setResult(Activity.RESULT_OK, intent)
+//        finish()
 
     companion object {
         const val VIEW_PAGE = 3
