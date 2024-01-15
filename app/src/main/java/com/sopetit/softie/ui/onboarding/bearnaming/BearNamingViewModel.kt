@@ -21,7 +21,11 @@ class BearNamingViewModel : ViewModel() {
             source
         } else {
             _isSpecialCharacterEntered.value = true
-            source.filter { it.isLetterOrDigit() }
+            if (source.length <= MAXIMUM_LENGTH) {
+                source.filter { it.isLetterOrDigit() }
+            } else {
+                source.substring(0, MAXIMUM_LENGTH)
+            }
         }
     }
 
@@ -34,7 +38,7 @@ class BearNamingViewModel : ViewModel() {
         private const val MINIMUM_LENGTH = 1
         private const val MAXIMUM_LENGTH = 10
         private const val NICKNAME_PATTERN =
-            "^[ㄱ-ㅣ가-힣a-zA-Z0-9\\u318D\\u119E\\u11A2\\u2022\\u2025a\\u00B7\\uFE55]+$"
+            "^[ㄱ-ㅣ가-힣a-zA-Z0-9\\u318D\\u119E\\u11A2\\u2022\\u2025a\\u00B7\\uFE55]{1,10}\$"
         val NICKNAME_REGEX: Pattern = Pattern.compile(NICKNAME_PATTERN)
     }
 }
