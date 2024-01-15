@@ -33,7 +33,6 @@ class HappyAddListActivity :
         setContentView(binding.root)
         setStatusBarColorFromResource(R.color.background)
 
-        binding.viewModel = viewModel
         viewModel.getHappyChip()
 
         setChipAdapters()
