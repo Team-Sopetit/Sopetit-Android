@@ -25,7 +25,6 @@ class DailyRoutineAddActivity :
     private lateinit var dailyRoutineAddCardPagerAdapter: DailyRoutineAddCardPagerAdapter
     private lateinit var dailyRoutineAddThemeAdapter: DailyRoutineAddThemeAdapter
 
-
     private val dailyRoutineAddViewModel by viewModels<DailyRoutineAddViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -167,12 +166,12 @@ class DailyRoutineAddActivity :
                 isDrawable = false,
                 imageDrawable = 0,
                 imageUri = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
-                title = "데일리 루틴을 추가할까요?",
-                content = "일어나면 5분 안에 이불개기",
+                title = getString(R.string.daily_routine_add_question),
+                content = getString(R.string.daily_routine_content),
                 isContentVisible = true,
                 contentColor = R.color.gray400,
-                backBtnContent = "아니, 더 고민할게",
-                doBtnContent = "추가할래",
+                backBtnContent = getString(R.string.daily_routine_add_no),
+                doBtnContent = getString(R.string.daily_routine_add_yes),
                 doBtnColor = R.drawable.shape_main1_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {
@@ -187,17 +186,6 @@ class DailyRoutineAddActivity :
         setResult(Activity.RESULT_OK, resultIntent)
         finish()
     }
-
-//        // 이전 액티비티에서 다음 액티비티를 시작할 때
-//        val intent = Intent(this, MainActivity::class.java)
-//        intent.putExtra("tagKey", "yourTagValue")
-//        startActivityForResult(intent, requestCode)
-//
-//        // NextActivity에서 이전 액티비티로 돌아갈 때
-//        val intent = Intent()
-//        intent.putExtra("resultKey", "resultData")
-//        setResult(Activity.RESULT_OK, intent)
-//        finish()
 
     companion object {
         const val VIEW_PAGE = 3
