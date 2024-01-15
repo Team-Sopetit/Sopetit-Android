@@ -10,8 +10,10 @@ import com.sopetit.softie.domain.entity.Cotton
 import com.sopetit.softie.ui.setting.SettingActivity
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setStatusBarColor
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.random.Random
 
+@AndroidEntryPoint
 class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private val viewModel by viewModels<HomeViewModel>()
     private val brownBearLottieList =

@@ -21,7 +21,8 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "API_KEY", getApiKey("API_KEY"))
+        buildConfigField("String", "BASE_URL", getApiKey("BASE_URL"))
+        buildConfigField("String", "ACCESS_TOKEN", getApiKey("ACCESS_TOKEN"))
     }
 
     buildTypes {
@@ -29,7 +30,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro",
+                "proguard-rules.pro"
             )
         }
     }
