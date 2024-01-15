@@ -12,6 +12,7 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityDailyRoutineAddBinding
 import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.setStatusBarColorFromResource
 
 class DailyRoutineAddActivity :
     BindingActivity<ActivityDailyRoutineAddBinding>(R.layout.activity_daily_routine_add) {
@@ -25,6 +26,7 @@ class DailyRoutineAddActivity :
         super.onCreate(savedInstanceState)
         viewPager = binding.vpDailyRoutineAddCard
         binding.viewModel = dailyRoutineAddViewModel
+        setStatusBarColorFromResource(R.color.background)
 
         setupAdapter()
         setViewPager()
