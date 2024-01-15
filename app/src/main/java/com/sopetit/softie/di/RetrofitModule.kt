@@ -12,6 +12,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import java.util.concurrent.TimeUnit
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
@@ -47,8 +48,11 @@ object RetrofitModule {
     @Provides
     @Singleton
     @SoftieType
-    fun provideSoftieOkHttpClient(@SoftieType interceptor: Interceptor): OkHttpClient =
+    fun providesSoftieOkHttpClient(@SoftieType interceptor: Interceptor): OkHttpClient =
         OkHttpClient.Builder()
+            .connectTimeout(10, TimeUnit.SECONDS)
+            .writeTimeout(10, TimeUnit.SECONDS)
+            .readTimeout(10, TimeUnit.SECONDS)
             .addInterceptor(interceptor)
             .addInterceptor(
                 HttpLoggingInterceptor().apply {
@@ -60,7 +64,7 @@ object RetrofitModule {
     @Provides
     @Singleton
     @SoftieType
-    fun provideSoftieRetrofit(@SoftieType okHttpClient: OkHttpClient): Retrofit =
+    fun providesSoftieRetrofit(@SoftieType okHttpClient: OkHttpClient): Retrofit =
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
