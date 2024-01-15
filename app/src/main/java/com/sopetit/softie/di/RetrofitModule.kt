@@ -20,10 +20,9 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
     private val json = Json { ignoreUnknownKeys = true }
-    private const val BASE_URL = BuildConfig.BASE_URL
     private const val CONTENT_TYPE = "Content-Type"
     private const val APPLICATION_JSON = "application/json"
-    private const val ACCESS_TOKEN = "Bearer ${BuildConfig.ACCESS_TOKEN}"
+    private const val BEARER = "Bearer "
     private const val AUTHORIZATION = "Authorization"
 
     @Qualifier
@@ -39,7 +38,7 @@ object RetrofitModule {
             request
                 .newBuilder()
                 .addHeader(CONTENT_TYPE, APPLICATION_JSON)
-                .addHeader(AUTHORIZATION, ACCESS_TOKEN)
+                .addHeader(AUTHORIZATION, BEARER + BuildConfig.ACCESS_TOKEN)
                 .build()
         )
         response
@@ -66,7 +65,7 @@ object RetrofitModule {
     @SoftieType
     fun providesSoftieRetrofit(@SoftieType okHttpClient: OkHttpClient): Retrofit =
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(json.asConverterFactory(APPLICATION_JSON.toMediaType()))
             .build()
