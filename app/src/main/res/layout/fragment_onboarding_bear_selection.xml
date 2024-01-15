@@ -95,6 +95,7 @@
             android:layout_height="57dp"
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="34dp"
+            style="?android:attr/borderlessButtonStyle"
             android:background="@{viewModel.selectedBearType != 0 ? @drawable/shape_main1_fill_12_rect : @drawable/shape_gray200_fill_12_rect}"
             android:clickable="@{viewModel.selectedBearType != 0 ? true : false}"
             android:enabled="@{viewModel.selectedBearType != 0 ? true : false}"

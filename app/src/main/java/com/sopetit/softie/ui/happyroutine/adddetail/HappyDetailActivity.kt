@@ -15,6 +15,7 @@ import com.sopetit.softie.databinding.ActivityHappyAddDetailBinding
 import com.sopetit.softie.ui.happyroutine.addlist.HappyAddListActivity.Companion.ID
 import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.setStatusBarColorFromResource
 
 class HappyDetailActivity :
     BindingActivity<ActivityHappyAddDetailBinding>(R.layout.activity_happy_add_detail) {
@@ -26,6 +27,7 @@ class HappyDetailActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewPager = binding.vpHappyAddDetailCard
+        setStatusBarColorFromResource(R.color.background)
 
         val categoryId = intent.getIntExtra(ID, -1)
         val viewModel = ViewModelProvider(this).get(HappyDetailCardViewModel::class.java)
@@ -61,10 +63,11 @@ class HappyDetailActivity :
     }
 
     private fun moveToProgress() {
-        Intent(this, MainActivity::class.java).apply {
-            putExtra("happy_progress_fragment", "happy_progress")
-            startActivity(this)
-        }
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("happy_progress_fragment", "happy_progress")
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
     }
 
     private fun setupAdapter(categoryId: Int) {

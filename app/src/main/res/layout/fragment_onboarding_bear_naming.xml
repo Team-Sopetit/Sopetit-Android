@@ -98,6 +98,7 @@
             android:clickable="@{viewModel.isNickNameValid ? true : false}"
             android:enabled="@{viewModel.isNickNameValid ? true : false}"
             android:text="@string/bear_naming_button"
+            style="?android:attr/borderlessButtonStyle"
             android:textAppearance="@style/body1"
             android:textColor="@color/gray000"
             app:layout_constraintBottom_toBottomOf="parent"
