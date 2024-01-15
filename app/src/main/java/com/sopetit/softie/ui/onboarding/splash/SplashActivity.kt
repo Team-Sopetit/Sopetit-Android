@@ -4,10 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.core.content.ContextCompat
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivitySplashBinding
 import com.sopetit.softie.ui.main.LoginActivity
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.setStatusBarColorFromResource
 import kotlin.random.Random
 
 class SplashActivity : BindingActivity<ActivitySplashBinding>(R.layout.activity_splash) {
@@ -20,11 +22,30 @@ class SplashActivity : BindingActivity<ActivitySplashBinding>(R.layout.activity_
 
     private fun initCreateRandomVersion() {
         when (Random.nextInt(1, 5)) {
-            1 -> makeSplashImg(R.drawable.ic_splash1)
-            2 -> makeSplashImg(R.drawable.ic_splash2)
-            3 -> makeSplashImg(R.drawable.ic_splash3)
-            4 -> makeSplashImg(R.drawable.ic_splash4)
+            1 -> initSplash(R.drawable.ic_splash_backround1, R.color.main2)
+            2 -> initSplash(R.drawable.ic_splash_backround2, R.color.main2)
+            3 -> initSplash(R.drawable.ic_splash_backround3, R.color.main1)
+            4 -> initSplash(R.drawable.ic_splash_backround4, R.color.main1)
         }
+    }
+
+    private fun initSplash(image: Int, color: Int) {
+        makeSplashImg(image)
+        setLogoImg(color)
+        setServiceIntroduceImg(color)
+        setStatusBarColorFromResource(color)
+    }
+
+    private fun setLogoImg(color: Int) {
+        if (color == R.color.main1) binding.ivSplashLogo.setImageResource(R.drawable.ic_logo_main2)
+        else binding.ivSplashLogo.setImageResource(R.drawable.ic_logo_main1)
+    }
+
+    private fun setServiceIntroduceImg(color: Int) {
+        if (color == R.color.main1) binding.tvSplashSubtitle.setTextColor(
+            ContextCompat.getColor(this, R.color.main2)
+        )
+        else binding.tvSplashSubtitle.setTextColor(ContextCompat.getColor(this, R.color.main1))
     }
 
     private fun makeSplashImg(image: Int) {
