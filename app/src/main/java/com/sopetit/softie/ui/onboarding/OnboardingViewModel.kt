@@ -57,6 +57,10 @@ class OnboardingViewModel @Inject constructor(
     val bearFace: LiveData<String>
         get() = _bearFace
 
+    private val _selectedThemeIdList: MutableLiveData<List<Int>> = MutableLiveData()
+    val selectedThemeIdList: LiveData<List<Int>>
+        get() = _selectedThemeIdList
+
     fun changeBearChoiceView() {
         _bearChoiceView.value = true
     }
@@ -95,6 +99,10 @@ class OnboardingViewModel @Inject constructor(
 
     fun setBearNickname(nickname: String) {
         _bearNickname.value = nickname
+    }
+
+    fun setSelectedThemeIdList(themeList: List<Int>) {
+        _selectedThemeIdList.value = themeList
     }
 
     fun setDollFace() {

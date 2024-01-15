@@ -95,9 +95,16 @@ class ChoiceThemeFragment :
         themeViewModel.themeBtnEnabled.observe(viewLifecycleOwner) {
             if (it) {
                 binding.btnOnboardingChoiceTheme.setOnClickListener {
+                    getSelectedThemeId()
                     viewModel.changeRoutineChoiceView(true)
                 }
             }
+        }
+    }
+
+    private fun getSelectedThemeId() {
+        viewModel.selectedThemeArray.observe(viewLifecycleOwner) {
+            viewModel.setSelectedThemeIdList(it)
         }
     }
 
