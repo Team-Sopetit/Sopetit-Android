@@ -38,7 +38,10 @@
     <string name="chip_item_happy_resilience">회복탄력성</string>
     <string name="chip_item_happy_new_me">새로운 나</string>
     <string name="chip_item_happy_mindfulness">마음 챙김</string>
-    <string name="happy_list_item_content">성숙한 사랑을 만나기 위한</string>
+    <string name="happy_add_list_item_content">성숙한 사랑을 만나기 위한</string>
+    <string name="happy_add_bottom_sheet_title">행복 루틴을 추가할까요?</string>
+    <string name="happy_add_bottom_sheet_do_btn">추가할래</string>
+    <string name="happy_add_bottom_sheet_back_btn">아니, 더 고민할게</string>
 
     <!-- happy add detail -->
     <string name="happy_detail_button">이 루틴을 추가할래</string>
@@ -48,6 +51,10 @@
     <string name="happy_progress_edit">편집</string>
     <string name="happy_progress_mention">달성 중...</string>
     <string name="happy_progress_button">완료하기</string>
+    <string name="happy_progress_bottom_sheet_title">행복 루틴을 완료했나요?</string>
+    <string name="happy_progress_bottom_sheet_content">한 번 완료하면 이전으로 되돌릴 수 없어요</string>
+    <string name="happy_progress_sheet_do_btn">완료했어</string>
+    <string name="happy_progress_sheet_back_btn">아니, 아직이야</string>
 
     <!-- doll selection -->
     <string name="doll_selection_question">어떤 친구와 함께 할까요?</string>
