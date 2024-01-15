@@ -4,7 +4,7 @@ import com.sopetit.softie.data.source.DollDataSource
 import com.sopetit.softie.domain.repository.DollRepository
 import javax.inject.Inject
 
-class DollRepositoryRepositoryImpl @Inject constructor(
+class DollRepositoryImpl @Inject constructor(
     private val dollDataSource: DollDataSource
 ) : DollRepository {
 

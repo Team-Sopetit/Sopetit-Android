@@ -7,6 +7,7 @@ import android.text.style.ForegroundColorSpan
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityOnboardingBinding
 import com.sopetit.softie.ui.onboarding.bearnaming.BearNamingFragment
@@ -61,6 +62,7 @@ class OnboardingActivity :
             if (themeChoiceView) {
                 changeFragment(ChoiceThemeFragment())
                 viewModel.setLayoutTranslucent(true)
+                viewModel.setDollFace()
                 initSetSpeechText()
                 initSetTranslucentBackground()
                 changeSecondThemeChoice()
@@ -96,6 +98,12 @@ class OnboardingActivity :
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
             }
+
+        viewModel.bearFace.observe(this) {
+//            binding.ivOnboardingThemeTitleBear.setImage(it)
+            binding.ivOnboardingThemeTitleBear.load(it)
+//            Glide.with(this).load(it).into(binding.ivOnboardingThemeTitleBear)
+        }
     }
 
     private fun initSetTranslucentBackground() {

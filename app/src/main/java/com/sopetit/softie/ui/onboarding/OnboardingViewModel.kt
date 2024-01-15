@@ -3,11 +3,17 @@ package com.sopetit.softie.ui.onboarding
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.sopetit.softie.domain.usecase.GetDollUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class OnboardingViewModel @Inject constructor() : ViewModel() {
+class OnboardingViewModel @Inject constructor(
+    private val getDollUseCase: GetDollUseCase
+) : ViewModel() {
 
     private val _bearChoiceView: MutableLiveData<Boolean> = MutableLiveData(false)
     val bearChoiceView: LiveData<Boolean>
@@ -46,6 +52,10 @@ class OnboardingViewModel @Inject constructor() : ViewModel() {
 
     private val _bearNickname: MutableLiveData<String> = MutableLiveData("")
     val bearNickname: LiveData<String> get() = _bearNickname
+
+    private val _bearFace: MutableLiveData<String> = MutableLiveData()
+    val bearFace: LiveData<String>
+        get() = _bearFace
 
     fun changeBearChoiceView() {
         _bearChoiceView.value = true
@@ -87,11 +97,33 @@ class OnboardingViewModel @Inject constructor() : ViewModel() {
         _bearNickname.value = nickname
     }
 
+    fun setDollFace() {
+        viewModelScope.launch {
+            when (selectedBearType.value) {
+                BROWN_BEAR -> getDollUseCase.invoke(BROWN)
+                GRAY_BEAR -> getDollUseCase.invoke(GRAY)
+                PANDA_BEAR -> getDollUseCase.invoke(PANDA)
+                RED_BEAR -> getDollUseCase.invoke(RED)
+                else -> getDollUseCase.invoke(BROWN)
+            }.onSuccess { response ->
+                _bearFace.value = response
+                Timber.d("서버 통신 성공 -> ${response}")
+            }.onFailure {
+                Timber.e("서버 통신 실패 -> ${it.message}")
+            }
+        }
+    }
+
     companion object {
         const val NONE = 0
         const val BROWN_BEAR = 1
         const val GRAY_BEAR = 2
         const val PANDA_BEAR = 3
         const val RED_BEAR = 4
+
+        const val BROWN = "BROWN"
+        const val GRAY = "GRAY"
+        const val PANDA = "PANDA"
+        const val RED = "RED"
     }
 }

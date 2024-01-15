@@ -98,6 +98,8 @@
             android:layout_width="53dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_bear_face_1"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
             android:layout_marginTop="34dp"
             android:layout_marginStart="22dp"
             android:visibility="@{viewModel.layoutTranslucent ? View.VISIBLE : View.GONE}"
