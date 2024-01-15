@@ -8,7 +8,7 @@ import retrofit2.http.Path
 interface DollService {
 
     @GET("api/v1/dolls/image/{type}")
-    suspend fun getDollType(
+    suspend fun getDoll(
         @Path("type") type: String
     ): BaseResponse<DollResponse>
 }
