@@ -54,7 +54,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     private fun setRandomMessage() {
         val speechNum = viewModel.homeResponse.value?.conversations?.size ?: RUN_OUT
-        val randomSpeech = Random.nextInt(START, speechNum)
+        val randomSpeech = Random.nextInt(START, speechNum + 1)
         binding.tvHomeBearSpeech.text =
             viewModel.homeResponse.value?.conversations?.get(randomSpeech)
     }
