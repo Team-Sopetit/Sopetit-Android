@@ -8,6 +8,7 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityMainBinding
 import com.sopetit.softie.ui.dailyroutine.DailyRoutineFragment
 import com.sopetit.softie.ui.happyroutine.HappyRoutineFragment
+import com.sopetit.softie.ui.happyroutine.progress.HappyProgressFragment
 import com.sopetit.softie.ui.main.home.HomeFragment
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.setStatusBarColorFromResource
@@ -22,6 +23,11 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         initFragment()
         initBottomNavigation()
         setBottomNavigationClickListener()
+
+        val fragmentToLoad = intent.getStringExtra("happy_progress_fragment")
+        if (fragmentToLoad == "happy_progress") {
+            changeFragment(HappyProgressFragment())
+        }
     }
 
     private fun setBottomNavigationClickListener() {
@@ -69,5 +75,11 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
             ),
             intArrayOf(selectedTextColor, unselectedTextColor)
         )
+    }
+
+    private fun loadHappyProgressFragment() {
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fcv_main, HappyProgressFragment())
+        fragmentTransaction.commit()
     }
 }

@@ -56,12 +56,13 @@ class HappyDetailActivity :
 
     private fun setSnackbarEnter() {
         binding.btnHappyDetailAdd.setOnClickListener {
-            moveToIng()
+            moveToProgress()
         }
     }
 
-    private fun moveToIng() {
+    private fun moveToProgress() {
         Intent(this, MainActivity::class.java).apply {
+            putExtra("happy_progress_fragment", "happy_progress")
             startActivity(this)
         }
     }
