@@ -63,10 +63,11 @@ class HappyDetailActivity :
     }
 
     private fun moveToProgress() {
-        Intent(this, MainActivity::class.java).apply {
-            putExtra("happy_progress_fragment", "happy_progress")
-            startActivity(this)
-        }
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("happy_progress_fragment", "happy_progress")
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
     }
 
     private fun setupAdapter(categoryId: Int) {
