@@ -1,7 +1,5 @@
 package com.sopetit.softie.ui.happyroutine.progress
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sopetit.softie.R
 import com.sopetit.softie.domain.entity.HappyProgress
@@ -18,16 +16,4 @@ class HappyProgressViewModel : ViewModel() {
         detailTime = "5~10분",
         detailPlace = "회사 옥상, 점심식사 후 돌아가는 길"
     )
-
-    private val _isDeleteView: MutableLiveData<Boolean> = MutableLiveData(false)
-    val isDeleteView: LiveData<Boolean>
-        get() = _isDeleteView
-
-    fun setDeleteView(deleteEnabled: Boolean) {
-        _isDeleteView.value = deleteEnabled
-    }
-
-    private val _isEditBtnEnabled: MutableLiveData<Boolean> = MutableLiveData()
-    val isEditBtnEnabled: LiveData<Boolean>
-        get() = _isEditBtnEnabled
 }
