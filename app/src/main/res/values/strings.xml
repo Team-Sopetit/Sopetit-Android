@@ -42,8 +42,11 @@
     <!-- happy add detail -->
     <string name="happy_detail_button">이 루틴을 추가할래</string>
 
-    <!-- happy delete -->
-    <string name="happy_delete_mention">달성 중...</string>
+    <!-- happy progress -->
+    <string name="happy_progress_title">행복 루틴</string>
+    <string name="happy_progress_edit">편집</string>
+    <string name="happy_progress_mention">달성 중...</string>
+    <string name="happy_progress_button">완료하기</string>
 
     <!-- doll selection -->
     <string name="doll_selection_question">어떤 친구와 함께 할까요?</string>
