@@ -27,7 +27,6 @@ class HappyDeleteFragment :
         setCardEnter()
         setCancelEnter()
         setClearEnter(routineId)
-        //initSetRoutineDelete()
     }
 
     private fun setCardBinding(happyDelete: HappyProgress) {
