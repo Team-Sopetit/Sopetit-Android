@@ -39,6 +39,7 @@
         <item name="chipMinHeight">0dp</item>
         <item name="chipStartPadding">0dp</item>
         <item name="chipCornerRadius">99dp</item>
+        <item name="android:textAppearance">@style/body4</item>
         <item name="chipBackgroundColor">@color/selector_happy_type_filter_background</item>
         <item name="textStartPadding">14dp</item>
         <item name="textEndPadding">14dp</item>
