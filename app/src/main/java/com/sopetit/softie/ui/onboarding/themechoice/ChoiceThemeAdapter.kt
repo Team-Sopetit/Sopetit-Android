@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ItemOnboardingChoiceThemeBinding
 import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.ui.onboarding.OnboardingActivity.Companion.MAXIMUM_THEME_SELECTION
 import com.sopetit.softie.util.ItemDiffCallback
-import com.sopetit.softie.util.binding.BindingAdapter.setImage
 import com.sopetit.softie.util.toast
 
 class ChoiceThemeAdapter :
@@ -27,8 +27,8 @@ class ChoiceThemeAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Theme) {
             binding.tvThemeName.text = data.name
-            binding.ivThemeIcon.setImage(data.iconImageUrl)
-//            binding.ivThemeIcon.load(data.iconImageUrl)
+//            binding.ivThemeIcon.setImage(data.iconImageUrl)
+            binding.ivThemeIcon.load(data.iconImageUrl)
             binding.root.setOnClickListener {
                 themeSelection(binding, data)
                 onItemClickListener?.let { it(data) }
