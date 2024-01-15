@@ -15,7 +15,9 @@ import com.sopetit.softie.ui.onboarding.routinechoice.RoutineChoiceFragment
 import com.sopetit.softie.ui.onboarding.themechoice.ChoiceThemeFragment
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.setStatusBarColorFromResource
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OnboardingActivity :
     BindingActivity<ActivityOnboardingBinding>(R.layout.activity_onboarding) {
 

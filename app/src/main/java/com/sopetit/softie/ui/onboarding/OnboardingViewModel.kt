@@ -3,8 +3,11 @@ package com.sopetit.softie.ui.onboarding
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class OnboardingViewModel : ViewModel() {
+@HiltViewModel
+class OnboardingViewModel @Inject constructor() : ViewModel() {
 
     private val _bearChoiceView: MutableLiveData<Boolean> = MutableLiveData(false)
     val bearChoiceView: LiveData<Boolean>
