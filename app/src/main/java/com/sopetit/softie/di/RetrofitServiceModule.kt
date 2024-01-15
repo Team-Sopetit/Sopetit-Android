@@ -11,6 +11,6 @@ import retrofit2.Retrofit
 @InstallIn(SingletonComponent::class)
 object RetrofitServiceModule {
     @Provides
-    fun provicesMemberService(@RetrofitModule.SoftieType retrofit: Retrofit): MemberService =
+    fun providesMemberService(@RetrofitModule.SoftieType retrofit: Retrofit): MemberService =
         retrofit.create(MemberService::class.java)
 }
