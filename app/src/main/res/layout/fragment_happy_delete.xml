@@ -20,19 +20,21 @@
             android:layout_marginStart="18dp"
             android:layout_marginTop="40dp"
             android:visibility="visible"
-            android:text="행복 루틴"
+            android:text="@string/happy_progress_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_happy_delete_destroy"
+            style="@style/body4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
             android:layout_marginEnd="19dp"
-            android:text="취소"
+            android:text="@string/happy_delete_destroy"
+            android:textColor="@color/gray400"
+            app:layout_constraintBottom_toBottomOf="@id/tv_happy_delete_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/tv_happy_delete_title" />
 
         <ImageView
             android:id="@+id/iv_happy_delete_mention"

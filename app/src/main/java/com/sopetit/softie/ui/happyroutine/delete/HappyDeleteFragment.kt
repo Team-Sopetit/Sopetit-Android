@@ -3,7 +3,6 @@ package com.sopetit.softie.ui.happyroutine.delete
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyDeleteBinding
 import com.sopetit.softie.domain.entity.HappyProgress
@@ -17,8 +16,6 @@ import com.sopetit.softie.util.snackBar
 class HappyDeleteFragment :
     BindingFragment<FragmentHappyDeleteBinding>(R.layout.fragment_happy_delete) {
 
-    private val viewModel by viewModels<HappyProgressViewModel>()
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -29,8 +26,8 @@ class HappyDeleteFragment :
         setCardBinding(happyDelete)
         setCardEnter()
         setCancelEnter()
-        //initSetDeleteView()
         setClearEnter(routineId)
+        //initSetRoutineDelete()
     }
 
     private fun setCardBinding(happyDelete: HappyProgress) {
@@ -75,12 +72,6 @@ class HappyDeleteFragment :
 
     private fun setClearEnter(routineId: Int) {
         binding.btnHappyDeleteClear.setOnClickListener {
-            initSetDailyRoutineAchieve(binding.btnHappyDeleteClear, routineId)
-        }
-    }
-
-    private fun initSetDailyRoutineAchieve(btn: View, routineId: Int) {
-        btn.setOnClickListener {
             BindingBottomSheet.Builder().build(
                 isDrawable = true,
                 imageDrawable = R.drawable.ic_bear_face_crying,
@@ -98,7 +89,6 @@ class HappyDeleteFragment :
                         binding.root.rootView,
                         "행복루틴을 삭제했어요"
                     )
-                    viewModel.setDeleteView(false)
                     requireActivity().supportFragmentManager.beginTransaction()
                         .replace(R.id.fcv_main, HappyRoutineFragment())
                         .commit()
