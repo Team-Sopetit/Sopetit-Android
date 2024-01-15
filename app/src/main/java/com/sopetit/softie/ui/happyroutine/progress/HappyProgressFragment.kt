@@ -6,7 +6,10 @@ import androidx.fragment.app.activityViewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyProgressBinding
 import com.sopetit.softie.domain.entity.HappyProgress
+import com.sopetit.softie.ui.happyroutine.HappyRoutineFragment
 import com.sopetit.softie.ui.main.home.HomeFragment
+import com.sopetit.softie.util.OriginalBottomSheet
+import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 
 class HappyProgressFragment :
@@ -69,10 +72,31 @@ class HappyProgressFragment :
 
     private fun setClearEnter() {
         binding.btnHappyProgressClear.setOnClickListener {
-            val homeFragment = HomeFragment()
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fcv_main, homeFragment)
-                .commit()
+            initHappyRoutineCompleteBottomSheet()
         }
+    }
+
+    private fun initHappyRoutineCompleteBottomSheet() {
+        BindingBottomSheet.Builder().build(
+            isDrawable = false,
+            imageDrawable = 0,
+            imageUri = "",
+            title = getString(R.string.happy_progress_bottom_sheet_title),
+            content = getString(R.string.happy_progress_bottom_sheet_content),
+            isContentVisible = true,
+            contentColor = R.color.gray400,
+            backBtnContent = getString(R.string.happy_progress_sheet_back_btn),
+            doBtnContent = getString(R.string.happy_progress_sheet_do_btn),
+            doBtnColor = R.drawable.shape_main1_fill_12_rect,
+            backBtnAction = {},
+            doBtnAction = { moveToHappyRoutineEmptyCardView() }
+        ).show(parentFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
+    }
+
+    private fun moveToHappyRoutineEmptyCardView() {
+        val happyRoutineFragment = HappyRoutineFragment()
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.fcv_main, happyRoutineFragment)
+            .commit()
     }
 }
