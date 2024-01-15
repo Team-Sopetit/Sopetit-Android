@@ -30,6 +30,8 @@
     <string name="happy_add_title">행복 루틴 추가</string>
     <string name="happy_routine_complete_title">행복 루틴을 완료했어요!</string>
     <string name="happy_routine_complete_subtitle">행복 솜뭉치 1개 획득</string>
+    <string name="happy_routine_delete_snack_bar">행복 루틴을 삭제했어요</string>
+    <string name="happy_routine_add_snack_bar">행복 루틴을 추가했어요</string>
 
     <!-- happy add list -->
     <string name="chip_item_happy_all">전체</string>

@@ -11,6 +11,7 @@ import com.sopetit.softie.ui.main.home.HomeFragment
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
+import com.sopetit.softie.util.snackBar
 
 class HappyProgressFragment :
     BindingFragment<FragmentHappyProgressBinding>(R.layout.fragment_happy_progress) {
@@ -89,7 +90,13 @@ class HappyProgressFragment :
             doBtnContent = getString(R.string.happy_progress_sheet_do_btn),
             doBtnColor = R.drawable.shape_main1_fill_12_rect,
             backBtnAction = {},
-            doBtnAction = { moveToHappyRoutineEmptyCardView() }
+            doBtnAction = {
+                moveToHappyRoutineEmptyCardView()
+                snackBar(
+                    binding.btnHappyProgressClear,
+                    getString(R.string.happy_routine_delete_snack_bar)
+                )
+            }
         ).show(parentFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
     }
 

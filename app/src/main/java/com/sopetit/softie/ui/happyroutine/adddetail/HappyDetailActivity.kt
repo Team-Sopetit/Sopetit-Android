@@ -79,7 +79,9 @@ class HappyDetailActivity :
             doBtnContent = getString(R.string.happy_add_bottom_sheet_do_btn),
             doBtnColor = R.drawable.shape_main1_fill_12_rect,
             backBtnAction = {},
-            doBtnAction = { moveToProgress() }
+            doBtnAction = {
+                moveToProgress()
+            }
         ).show(this.supportFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
     }
 
