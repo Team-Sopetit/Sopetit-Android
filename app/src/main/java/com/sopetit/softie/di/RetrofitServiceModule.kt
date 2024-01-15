@@ -1,5 +1,6 @@
 package com.sopetit.softie.di
 
+import com.sopetit.softie.data.service.HappinessRoutineService
 import com.sopetit.softie.data.service.MemberService
 import dagger.Module
 import dagger.Provides
@@ -13,4 +14,8 @@ object RetrofitServiceModule {
     @Provides
     fun providesMemberService(@RetrofitModule.SoftieType retrofit: Retrofit): MemberService =
         retrofit.create(MemberService::class.java)
+
+    @Provides
+    fun providesHappinessRoutineService(@RetrofitModule.SoftieType retrofit: Retrofit): HappinessRoutineService =
+        retrofit.create(HappinessRoutineService::class.java)
 }
