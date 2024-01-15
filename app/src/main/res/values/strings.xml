@@ -112,5 +112,6 @@
     <string name="home_som_count">%d개</string>
     <string name="home_happiness_cotton_btn">행복 솜뭉치 주기</string>
     <string name="home_daily_cotton_btn">솜뭉치 주기</string>
+    <string name="splash_service_introduce">친구와 함께 하는 일상 속 작은 습관</string>
 
 </resources>
