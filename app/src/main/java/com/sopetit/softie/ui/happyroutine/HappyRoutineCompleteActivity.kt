@@ -6,11 +6,13 @@ import com.sopetit.softie.domain.entity.Bear
 import com.sopetit.softie.domain.entity.Cotton
 import com.sopetit.softie.util.RoutineCompleteActivity
 import com.sopetit.softie.util.intentSerializable
+import com.sopetit.softie.util.setStatusBarColorFromResource
 
 class HappyRoutineCompleteActivity : RoutineCompleteActivity(Cotton.HAPPINESS) {
     lateinit var bear: Bear
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setStatusBarColorFromResource(R.color.white)
 
         getBearType()
         setHappyRoutineImage()

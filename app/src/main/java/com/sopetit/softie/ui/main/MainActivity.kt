@@ -23,10 +23,13 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         initFragment()
         initBottomNavigation()
         setBottomNavigationClickListener()
+        changeToHappyProgressFragment()
+    }
 
+    private fun changeToHappyProgressFragment() {
         val fragmentToLoad = intent.getStringExtra("happy_progress_fragment")
         if (fragmentToLoad == "happy_progress") {
-            changeFragment(HappyProgressFragment())
+            loadHappyProgressFragment()
         }
     }
 
@@ -79,6 +82,8 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
 
     private fun loadHappyProgressFragment() {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
+        setStatusBarColorFromResource(R.color.background)
+        binding.bnvMain.selectedItemId = R.id.bottom_navigation_happiness_routine
         fragmentTransaction.replace(R.id.fcv_main, HappyProgressFragment())
         fragmentTransaction.commit()
     }

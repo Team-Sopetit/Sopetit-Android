@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivitySettingBinding
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.setStatusBarColorFromResource
 
 class SettingActivity : BindingActivity<ActivitySettingBinding>(R.layout.activity_setting) {
 
@@ -14,12 +15,14 @@ class SettingActivity : BindingActivity<ActivitySettingBinding>(R.layout.activit
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.viewModel = viewModel
+        setStatusBarColorFromResource(R.color.white)
 
         initMakeInitFragment()
         initChangeFragment()
     }
 
     private fun initMakeInitFragment() {
+        viewModel.setSettingFragment(SETTING_INIT)
         val currentFragment = supportFragmentManager.findFragmentById(R.id.fcv_setting)
         if (currentFragment == null) {
             supportFragmentManager.beginTransaction()
@@ -29,6 +32,11 @@ class SettingActivity : BindingActivity<ActivitySettingBinding>(R.layout.activit
     }
 
     private fun initChangeFragment() {
+        setClickBackBtnInDetailView(SettingUserExitFragment())
+        setCLickSettingMenu()
+    }
+
+    private fun setCLickSettingMenu() {
         viewModel.settingFragment.observe(this) { clickSetting ->
             when (clickSetting) {
                 USER_SECURITY -> changeFragment(SettingUserSecurityFragment())
@@ -42,13 +50,12 @@ class SettingActivity : BindingActivity<ActivitySettingBinding>(R.layout.activit
         supportFragmentManager.beginTransaction()
             .replace(R.id.fcv_setting, fragment)
             .addToBackStack(FRAGMENT_STACK_TAG).commitAllowingStateLoss()
-
-        setClickBackBtnInDetailView(fragment)
     }
 
     private fun setClickBackBtnInDetailView(fragment: Fragment) {
         binding.btnSettingBack.setOnClickListener {
-            backInitView(fragment)
+            if (viewModel.settingFragment.value == SETTING_INIT) finish()
+            else backInitView(fragment)
         }
     }
 

@@ -11,6 +11,7 @@ import com.sopetit.softie.ui.happyroutine.adddetail.HappyDetailActivity
 import com.sopetit.softie.util.HorizontalChipItemDecoration
 import com.sopetit.softie.util.VerticalItemDecoration
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.setStatusBarColorFromResource
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,6 +31,7 @@ class HappyAddListActivity :
         super.onCreate(savedInstanceState)
         binding = ActivityHappyAddListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setStatusBarColorFromResource(R.color.background)
 
         setChipAdapters()
         setBackEnter()
