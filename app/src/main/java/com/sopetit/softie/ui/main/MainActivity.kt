@@ -76,10 +76,4 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
             intArrayOf(selectedTextColor, unselectedTextColor)
         )
     }
-
-    private fun loadHappyProgressFragment() {
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fcv_main, HappyProgressFragment())
-        fragmentTransaction.commit()
-    }
 }
