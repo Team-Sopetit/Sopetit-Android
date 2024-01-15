@@ -6,6 +6,7 @@
     <string name="daily_routine_add_btn">이 루틴을 추가할래</string>
     <string name="daily_routine_add_theme_name">상쾌한 아침</string>
     <string name="daily_routine_add_card_name">일어나면 \n5분 안에 이불 개기</string>
+
     <!-- onboarding -->
     <string name="onboarding_choice_theme_btn">다 선택했어</string>
     <string name="theme_text">하루의 시작</string>
@@ -70,6 +71,10 @@
     <string name="user_exit_back">더 써볼래</string>
     <string name="user_exit_exit">탈퇴할래</string>
     <string name="user_security_title">소프티 개인정보처리방침</string>
+    <string name="user_logout_title">정말 로그아웃할까요?</string>
+    <string name="user_logout_content">“잠시만 안녕.. 다음에 또 봐!”</string>
+    <string name="user_logout_back">취소</string>
+    <string name="user_logout_exit">로그아웃 할래</string>
 
     <!-- bottom sheet -->
     <string name="bottom_sheet_title">정말 로그아웃할까요?</string>
