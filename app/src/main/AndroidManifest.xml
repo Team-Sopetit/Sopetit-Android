@@ -20,7 +20,7 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.onboarding.OnboardingActivity"
@@ -46,7 +46,7 @@
         <activity
             android:name=".ui.happyroutine.addlist.HappyAddListActivity"
             android:exported="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.happyroutine.adddetail.HappyDetailActivity"
