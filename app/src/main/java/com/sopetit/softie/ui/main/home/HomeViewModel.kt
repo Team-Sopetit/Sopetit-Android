@@ -1,25 +1,37 @@
 package com.sopetit.softie.ui.main.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.domain.entity.Cotton
 import com.sopetit.softie.domain.entity.Home
+import com.sopetit.softie.domain.usecase.GetHomeUseCase
 import com.sopetit.softie.ui.main.home.HomeFragment.Companion.RUN_OUT
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import timber.log.Timber
+import javax.inject.Inject
 
-class HomeViewModel : ViewModel() {
+@HiltViewModel
+class HomeViewModel @Inject constructor(
+    private val getHomeUseCase: GetHomeUseCase
+) : ViewModel() {
     private val _homeResponse = MutableLiveData<Home>()
     val homeResponse: LiveData<Home> get() = _homeResponse
 
     fun getHome() {
-        _homeResponse.value = Home(
-            frameImageUrl = "https://d2v80xjmx68n4w.cloudfront.net/gigs/vGe751615194459.jpg",
-            name = "애착이",
-            dollType = "PANDA",
-            dailyCottonCount = 5,
-            happinessCottonCount = 3,
-            conversations = listOf("야", "메롱", "루틴이나 해", "솔직히 나 귀엽지", "안드로이드 사랑해", "나 소프티야")
-        )
+        viewModelScope.launch {
+            getHomeUseCase()
+                .onSuccess { response ->
+                    _homeResponse.value = response
+                }
+                .onFailure { throwable ->
+                    Log.e("kang", "$throwable")
+                    Timber.e("$throwable")
+                }
+        }
     }
 
     fun patchSom(cotton: Cotton) {

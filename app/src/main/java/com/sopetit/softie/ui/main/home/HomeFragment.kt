@@ -10,8 +10,10 @@ import com.sopetit.softie.domain.entity.Cotton
 import com.sopetit.softie.ui.setting.SettingActivity
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setStatusBarColor
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.random.Random
 
+@AndroidEntryPoint
 class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private val viewModel by viewModels<HomeViewModel>()
     private val brownBearLottieList =
@@ -52,7 +54,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     private fun setRandomMessage() {
         val speechNum = viewModel.homeResponse.value?.conversations?.size ?: RUN_OUT
-        val randomSpeech = Random.nextInt(START, speechNum)
+        val randomSpeech = Random.nextInt(START, speechNum + 1)
         binding.tvHomeBearSpeech.text =
             viewModel.homeResponse.value?.conversations?.get(randomSpeech)
     }
