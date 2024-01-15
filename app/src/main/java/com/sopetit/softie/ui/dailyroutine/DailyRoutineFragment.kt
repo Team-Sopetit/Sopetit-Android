@@ -194,7 +194,7 @@ class DailyRoutineFragment :
     private val addDailyRoutineLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
-                snackBar(binding.root, "데일리 루틴을 1개 추가했어요")
+                snackBar(binding.root, getString(R.string.daily_routine_snack_bar))
             }
         }
 

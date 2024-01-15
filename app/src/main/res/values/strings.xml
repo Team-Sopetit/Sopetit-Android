@@ -119,5 +119,6 @@
     <string name="daily_routine_content">일어나면 5분 안에 이불개기</string>
     <string name="daily_routine_add_no">아니, 더 고민할게</string>
     <string name="daily_routine_add_yes">추가할래</string>
+    <string name="daily_routine_snack_bar">데일리 루틴을 1개 추가했어요</string>
 
 </resources>
