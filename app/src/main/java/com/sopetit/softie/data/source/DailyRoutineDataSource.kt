@@ -11,6 +11,6 @@ class DailyRoutineDataSource @Inject constructor(
 ) {
     suspend fun getTheme(): BaseResponse<ThemeListResponse> = dailyRoutineService.getTheme()
 
-    suspend fun getRoutineList(themeId: Int): BaseResponse<DailyRoutineListResponse> =
+    suspend fun getRoutineList(themeId: List<Int>): BaseResponse<DailyRoutineListResponse> =
         dailyRoutineService.getRoutineList(themeId)
 }

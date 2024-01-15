@@ -7,5 +7,5 @@ interface DailyRoutineRepository {
 
     suspend fun getTheme(): Result<List<Theme>>
 
-    suspend fun getRoutineList(themeId: Int): Result<List<Routine>>
+    suspend fun getRoutineList(themeId: List<Int>): Result<List<Routine>>
 }

@@ -13,6 +13,6 @@ interface DailyRoutineService {
 
     @GET("api/v1/routines/daily")
     suspend fun getRoutineList(
-        @Query("themes") themes: Int
+        @Query("themes") themes: List<Int>
     ): BaseResponse<DailyRoutineListResponse>
 }
