@@ -4,6 +4,7 @@
         <!-- Customize your light theme here. -->
         <item name="android:includeFontPadding">false</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
     <style name="Theme.Softie" parent="Base.Theme.Softie" />
