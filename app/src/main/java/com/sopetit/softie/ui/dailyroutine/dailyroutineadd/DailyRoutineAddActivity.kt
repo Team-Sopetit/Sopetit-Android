@@ -11,7 +11,9 @@ import androidx.viewpager2.widget.ViewPager2
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityDailyRoutineAddBinding
 import com.sopetit.softie.domain.entity.Theme
+import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.setStatusBarColorFromResource
 
 class DailyRoutineAddActivity :
@@ -149,6 +151,29 @@ class DailyRoutineAddActivity :
     private fun backToDailyRoutine() {
         binding.ivDailyRoutineAddBack.setOnClickListener {
             finish()
+        }
+    }
+
+    private fun initSetDailyRoutineAdd(btn: View, routineId: Int) {
+        btn.setOnClickListener {
+            // TODO 서버통신 구현 후 imageUri 버전으로 수정
+
+            BindingBottomSheet.Builder().build(
+                isDrawable = false,
+                imageDrawable = 0,
+                imageUri = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
+                title = "데일리 루틴을 추가할까요?",
+                content = "한 번 완료하면 이전으로 되돌릴 수 없어요",
+                isContentVisible = true,
+                contentColor = R.color.gray400,
+                backBtnContent = "아니, 더 고민할게",
+                doBtnContent = "추가할래",
+                doBtnColor = R.drawable.shape_main1_fill_12_rect,
+                backBtnAction = {},
+                doBtnAction = {
+                    finish()
+                }
+            ).show(supportFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
         }
     }
 
