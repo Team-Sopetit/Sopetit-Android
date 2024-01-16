@@ -12,13 +12,15 @@ import com.sopetit.softie.ui.happyroutine.progress.HappyProgressFragment
 import com.sopetit.softie.ui.main.home.HomeFragment
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.setStatusBarColorFromResource
+import com.sopetit.softie.util.snackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main) {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStatusBarColorFromResource(R.color.home_background)
+        setStatusBarColorFromResource(R.color.background)
 
         initFragment()
         initBottomNavigation()
@@ -82,6 +84,10 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
 
     private fun loadHappyProgressFragment() {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
+        snackBar(
+            binding.btnMainAnchor,
+            getString(R.string.happy_routine_add_snack_bar)
+        )
         setStatusBarColorFromResource(R.color.background)
         binding.bnvMain.selectedItemId = R.id.bottom_navigation_happiness_routine
         fragmentTransaction.replace(R.id.fcv_main, HappyProgressFragment())
