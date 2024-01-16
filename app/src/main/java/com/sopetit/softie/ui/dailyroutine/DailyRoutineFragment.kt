@@ -19,7 +19,6 @@ import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setStatusBarColor
 import com.sopetit.softie.util.snackBar
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class DailyRoutineFragment :
@@ -40,7 +39,7 @@ class DailyRoutineFragment :
         getBundle()
         initSetDailyRoutineContent()
         initSetDeleteView()
-        initSetRoutineDelete()
+        initSetRoutineDelete(0)
         addDailyRoutineMsg()
         achieveRoutine()
     }
@@ -123,7 +122,6 @@ class DailyRoutineFragment :
                 doBtnAction = {
                     startDailyRoutineCompleteActivity()
                     viewModel.patchAchieveDaily(routineId)
-                    Timber.d("routineID -> $routineId")
                 }
             ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
         }
@@ -186,7 +184,7 @@ class DailyRoutineFragment :
         binding.btnDailyRoutineDelete.text = deleteBtnContent
     }
 
-    private fun initSetRoutineDelete() {
+    private fun initSetRoutineDelete(routineId: Int) {
         viewModel.isEditBtnEnabled.observe(viewLifecycleOwner) { isBtnEnabled ->
             if (isBtnEnabled) {
                 binding.btnDailyRoutineDelete.setOnClickListener {
@@ -208,6 +206,7 @@ class DailyRoutineFragment :
                                 "데일리 루틴을 ${viewModel.editRoutineIdArray.size}개 삭제했어요"
                             )
                             viewModel.setDeleteView(false)
+                            viewModel.deleteDailyRoutine(routineId)
                         }
                     ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
                 }
