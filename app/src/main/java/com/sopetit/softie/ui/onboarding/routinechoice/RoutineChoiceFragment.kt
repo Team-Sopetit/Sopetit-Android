@@ -14,6 +14,7 @@ import com.sopetit.softie.ui.onboarding.OnboardingActivity
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
 import com.sopetit.softie.util.binding.BindingFragment
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class RoutineChoiceFragment :
@@ -33,7 +34,6 @@ class RoutineChoiceFragment :
         binding.routineViewModel = routineViewModel
 
         initSetThemeBackBtn()
-        initSetRoutineBtn()
         initSetSelectRoutineBtn()
         initMakeRoutineAdapter()
     }
@@ -44,20 +44,20 @@ class RoutineChoiceFragment :
         }
     }
 
-    private fun initSetRoutineBtn() {
-        binding.rvOnboardingChoiceRoutine.setOnClickListener {
-            // TODO 프로필 생성 서버 통신
-        }
-    }
-
     private fun initSetSelectRoutineBtn() {
         binding.btnOnboardingRoutineSelectRoutine.setOnClickListener {
+            postMemberInfo()
             val onboardingActivity = activity as OnboardingActivity
 
             val intentToMain = Intent(activity, MainActivity::class.java)
             startActivity(intentToMain)
             ActivityCompat.finishAffinity(onboardingActivity)
         }
+    }
+
+    private fun postMemberInfo() {
+        Timber.d("routine -> ${viewModel.selectedRoutineArray.value}")
+        // TODO 프로필 생성 서버통신
     }
 
     private fun initMakeRoutineAdapter() {
