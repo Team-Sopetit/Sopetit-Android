@@ -32,6 +32,10 @@ class BearSelectionFragment :
         binding.btnBearSelection.setOnClickListener {
             activityViewModel.changeBearNameChoiceView()
             activityViewModel.setSelectedBearType(viewModel.selectedBearType.value ?: BROWN_BEAR)
+
+            activityViewModel.selectedBearType.observe(viewLifecycleOwner) {
+                activityViewModel.setDollFace(it)
+            }
         }
     }
 }

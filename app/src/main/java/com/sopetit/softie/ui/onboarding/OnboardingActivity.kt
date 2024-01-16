@@ -7,7 +7,6 @@ import android.text.style.ForegroundColorSpan
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityOnboardingBinding
 import com.sopetit.softie.ui.onboarding.bearnaming.BearNamingFragment
@@ -15,6 +14,7 @@ import com.sopetit.softie.ui.onboarding.bearselection.BearSelectionFragment
 import com.sopetit.softie.ui.onboarding.routinechoice.RoutineChoiceFragment
 import com.sopetit.softie.ui.onboarding.themechoice.ChoiceThemeFragment
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.binding.BindingAdapter.setImage
 import com.sopetit.softie.util.setStatusBarColorFromResource
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -62,11 +62,17 @@ class OnboardingActivity :
             if (themeChoiceView) {
                 changeFragment(ChoiceThemeFragment())
                 viewModel.setLayoutTranslucent(true)
-                viewModel.setDollFace()
+                initSetBearFace()
                 initSetSpeechText()
                 initSetTranslucentBackground()
                 changeSecondThemeChoice()
             }
+        }
+    }
+
+    private fun initSetBearFace() {
+        viewModel.bearFace.observe(this) {
+            binding.ivOnboardingThemeTitleBear.setImage(it)
         }
     }
 
@@ -98,12 +104,6 @@ class OnboardingActivity :
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
             }
-
-        viewModel.bearFace.observe(this) {
-//            binding.ivOnboardingThemeTitleBear.setImage(it)
-            binding.ivOnboardingThemeTitleBear.load(it)
-//            Glide.with(this).load(it).into(binding.ivOnboardingThemeTitleBear)
-        }
     }
 
     private fun initSetTranslucentBackground() {

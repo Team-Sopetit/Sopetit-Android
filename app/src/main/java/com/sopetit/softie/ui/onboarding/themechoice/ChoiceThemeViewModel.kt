@@ -26,27 +26,11 @@ class ChoiceThemeViewModel @Inject constructor(
     val themeBtnEnabled: LiveData<Boolean>
         get() = _themeBtnEnabled
 
-    private val _bearFace: MutableLiveData<String> = MutableLiveData()
-    val bearFace: LiveData<String>
-        get() = _bearFace
-
     fun getThemeList() {
         viewModelScope.launch {
             getThemeListUseCase.invoke()
                 .onSuccess { response ->
                     _themeList.value = response
-                    Timber.d("서버 통신 성공 -> ${response}")
-                }.onFailure {
-                    Timber.e("서버 통신 실패 -> ${it.message}")
-                }
-        }
-    }
-
-    fun getBearFace(faceUrl: String) {
-        viewModelScope.launch {
-            getDollUseCase.invoke(faceUrl)
-                .onSuccess { response ->
-                    _bearFace.value = response
                     Timber.d("서버 통신 성공 -> ${response}")
                 }.onFailure {
                     Timber.e("서버 통신 실패 -> ${it.message}")

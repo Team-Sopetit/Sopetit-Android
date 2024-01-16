@@ -56,7 +56,6 @@
             android:id="@+id/iv_onboarding_choice_theme_title_bear"
             android:layout_width="53dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_bear_face_1"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:layout_marginTop="34dp"

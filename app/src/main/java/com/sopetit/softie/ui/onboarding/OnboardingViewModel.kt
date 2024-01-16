@@ -47,7 +47,7 @@ class OnboardingViewModel @Inject constructor(
     val layoutTranslucent: LiveData<Boolean>
         get() = _layoutTranslucent
 
-    private val _selectedBearType: MutableLiveData<Int> = MutableLiveData(NONE)
+    private val _selectedBearType: MutableLiveData<Int> = MutableLiveData()
     val selectedBearType: LiveData<Int> get() = _selectedBearType
 
     private val _bearNickname: MutableLiveData<String> = MutableLiveData("")
@@ -97,12 +97,12 @@ class OnboardingViewModel @Inject constructor(
         _bearNickname.value = nickname
     }
 
-    fun setDollFace() {
+    fun setDollFace(type: Int) {
         viewModelScope.launch {
-            when (selectedBearType.value) {
+            when (type) {
                 BROWN_BEAR -> getDollUseCase.invoke(BROWN)
                 GRAY_BEAR -> getDollUseCase.invoke(GRAY)
-                PANDA_BEAR -> getDollUseCase.invoke(PANDA)
+                PANDA_BEAR -> getDollUseCase.invoke(WHITE)
                 RED_BEAR -> getDollUseCase.invoke(RED)
                 else -> getDollUseCase.invoke(BROWN)
             }.onSuccess { response ->
@@ -123,7 +123,7 @@ class OnboardingViewModel @Inject constructor(
 
         const val BROWN = "BROWN"
         const val GRAY = "GRAY"
-        const val PANDA = "PANDA"
+        const val WHITE = "WHITE"
         const val RED = "RED"
     }
 }

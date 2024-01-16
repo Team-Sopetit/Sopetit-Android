@@ -97,12 +97,10 @@
             android:id="@+id/iv_onboarding_theme_title_bear"
             android:layout_width="53dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_bear_face_1"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:layout_marginTop="34dp"
             android:layout_marginStart="22dp"
-            android:visibility="@{viewModel.layoutTranslucent ? View.VISIBLE : View.GONE}"
             app:layout_constraintTop_toBottomOf="@id/cl_onboarding_top_bar"
             app:layout_constraintStart_toStartOf="parent" />
 
