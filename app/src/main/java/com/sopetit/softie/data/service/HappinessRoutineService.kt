@@ -5,6 +5,7 @@ import com.sopetit.softie.data.entity.response.HappyCardResponse
 import com.sopetit.softie.data.entity.response.HappyChipResponse
 import com.sopetit.softie.data.entity.response.HappyContentResponse
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface HappinessRoutineService {

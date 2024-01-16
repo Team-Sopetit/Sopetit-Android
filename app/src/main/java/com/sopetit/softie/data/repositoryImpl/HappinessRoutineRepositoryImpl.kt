@@ -15,6 +15,8 @@ class HappinessRoutineRepositoryImpl @Inject constructor(
             happinessRoutineDataSource.getHappyCard(routineId)
         }.map {
             requireNotNull(it.data).toHappyCard()
+        }
+
     override suspend fun getHappyChip(): Result<List<HappyChip>> =
         runCatching { happinessRoutineDataSource.getHappyChip() }.map { response ->
             requireNotNull(response.data).toHappyChip()
