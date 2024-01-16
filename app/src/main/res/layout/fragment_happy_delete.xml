@@ -237,7 +237,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="34dp"
             android:background="@drawable/shape_red_fill_12_rect"
-            android:text="루틴을 삭제할래"
+            android:text="@string/happy_delete_button"
             android:textAppearance="@style/body1"
             android:textColor="@color/gray000"
             app:layout_constraintBottom_toBottomOf="parent"
