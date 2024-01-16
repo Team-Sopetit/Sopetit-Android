@@ -1,6 +1,7 @@
 package com.sopetit.softie.data.source
 
 import com.sopetit.softie.data.entity.BaseResponse
+import com.sopetit.softie.data.entity.response.AchieveDailyResponse
 import com.sopetit.softie.data.entity.response.DailyRoutineResponse
 import com.sopetit.softie.data.service.DailyRoutineService
 import javax.inject.Inject
@@ -10,4 +11,7 @@ class DailyRoutineDataSource @Inject constructor(
 ) {
     suspend fun getDailyRoutine(): BaseResponse<DailyRoutineResponse> =
         dailyRoutineService.getDailyRoutine()
+
+    suspend fun patchAchieveDaily(routineId: Int): BaseResponse<AchieveDailyResponse> =
+        dailyRoutineService.patchAchieveDaily(routineId)
 }
