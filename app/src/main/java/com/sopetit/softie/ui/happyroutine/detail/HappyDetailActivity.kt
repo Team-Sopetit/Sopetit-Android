@@ -14,7 +14,9 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityHappyAddDetailBinding
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity.Companion.ID
 import com.sopetit.softie.ui.main.MainActivity
+import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.setStatusBarColorFromResource
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -43,11 +45,10 @@ class HappyDetailActivity :
                     tvHappyAddDetailSubtitle.text = happyCard.title
                     tvHappyAddDetailTitle.setTextColor(Color.parseColor(happyCard.nameColor))
                 }
+                setSnackbarEnter(happyCard.iconImageUrl)
             }
         }
-
         setBackEnter()
-        setSnackbarEnter()
         setupAdapter(routineId)
         setIndicator()
         initViewPager()
@@ -60,10 +61,29 @@ class HappyDetailActivity :
         }
     }
 
-    private fun setSnackbarEnter() {
+    private fun setSnackbarEnter(icon: String) {
         binding.btnHappyDetailAdd.setOnClickListener {
-            moveToProgress()
+            initHappyRoutineAddBottomSheet(icon)
         }
+    }
+
+    private fun initHappyRoutineAddBottomSheet(icon: String) {
+        BindingBottomSheet.Builder().build(
+            isDrawable = false,
+            imageDrawable = 0,
+            imageUri = icon,
+            title = getString(R.string.happy_add_bottom_sheet_title),
+            content = "",
+            isContentVisible = true,
+            contentColor = R.color.main1,
+            backBtnContent = getString(R.string.happy_add_bottom_sheet_back_btn),
+            doBtnContent = getString(R.string.happy_add_bottom_sheet_do_btn),
+            doBtnColor = R.drawable.shape_main1_fill_12_rect,
+            backBtnAction = {},
+            doBtnAction = {
+                moveToProgress()
+            }
+        ).show(this.supportFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
     }
 
     private fun moveToProgress() {
