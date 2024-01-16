@@ -14,7 +14,9 @@ import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setStatusBarColor
 import com.sopetit.softie.util.snackBar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DailyRoutineFragment :
     BindingFragment<FragmentDailyRoutineBinding>(R.layout.fragment_daily_routine) {
 
@@ -26,6 +28,8 @@ class DailyRoutineFragment :
         setStatusBarColor(R.color.background)
 
         binding.viewModel = viewModel
+
+        viewModel.getDailyRoutine()
 
         moveToAddRoutine()
         getBundle()
@@ -63,8 +67,7 @@ class DailyRoutineFragment :
         btn: View,
         index: Int
     ) {
-        viewModel.getDailyRoutine()
-        viewModel.mockDailyRoutineList.observe(viewLifecycleOwner) { dailyRoutineList ->
+        viewModel.dailyRoutineListResponse.observe(viewLifecycleOwner) { dailyRoutineList ->
             val achieveCountMsg =
                 getString(R.string.daily_routine_ing).format(dailyRoutineList[index].achieveCount)
             achieveMsg.text = achieveCountMsg
@@ -124,7 +127,7 @@ class DailyRoutineFragment :
 
     private fun clickEditRadioBtn() {
         viewModel.getDailyRoutine()
-        viewModel.mockDailyRoutineList.observe(viewLifecycleOwner) { routineList ->
+        viewModel.dailyRoutineListResponse.observe(viewLifecycleOwner) { routineList ->
             with(binding) {
                 changeBtnSelectState(btnDailyRoutineRadioFirst, routineList[0].routineId)
                 changeBtnSelectState(btnDailyRoutineRadioSecond, routineList[1].routineId)

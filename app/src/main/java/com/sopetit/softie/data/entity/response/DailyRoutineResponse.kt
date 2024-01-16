@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class DailyRoutineResponse(
-    @SerialName("DailyRoutineItem")
+    @SerialName("routines")
     val routines: List<DailyRoutineItem>
 ) {
     @Serializable

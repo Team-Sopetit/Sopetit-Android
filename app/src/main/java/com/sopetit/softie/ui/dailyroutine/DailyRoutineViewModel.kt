@@ -1,6 +1,5 @@
 package com.sopetit.softie.ui.dailyroutine
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,11 +15,23 @@ import javax.inject.Inject
 class DailyRoutineViewModel @Inject constructor(private val getDailyRoutineUseCase: GetDailyRoutineUseCase) :
     ViewModel(
     ) {
+    private val _dailyRoutineListResponse: MutableLiveData<List<DailyRoutine>> = MutableLiveData()
+    val dailyRoutineListResponse: LiveData<List<DailyRoutine>>
+        get() = _dailyRoutineListResponse
 
-    private val _mockDailyRoutineList: MutableLiveData<List<DailyRoutine>> = MutableLiveData()
-
-    val mockDailyRoutineList: LiveData<List<DailyRoutine>>
-        get() = _mockDailyRoutineList
+    fun getDailyRoutine() {
+        viewModelScope.launch {
+            getDailyRoutineUseCase()
+                .onSuccess { response ->
+                    _dailyRoutineListResponse.value = response
+                    Timber.d("뷰모델 서버 성공")
+                }
+                .onFailure { throwable ->
+                    Timber.d("뷰모델 서버 실패")
+                    Timber.e("$throwable")
+                }
+        }
+    }
 
     private val _isRoutineAchieveFirst: MutableLiveData<Boolean> = MutableLiveData()
     val isRoutineAchieveFirst: LiveData<Boolean>
@@ -43,24 +54,6 @@ class DailyRoutineViewModel @Inject constructor(private val getDailyRoutineUseCa
     private val _isEditBtnEnabled: MutableLiveData<Boolean> = MutableLiveData()
     val isEditBtnEnabled: LiveData<Boolean>
         get() = _isEditBtnEnabled
-
-    fun getDailyRoutine() {
-        viewModelScope.launch {
-            getDailyRoutineUseCase()
-                .onSuccess { response ->
-                    _mockDailyRoutineList.value = response
-//                    _isRoutineAchieveFirst.value = true
-//                    _isRoutineAchieveSecond.value = true
-//                    _isRoutineAchieveThird.value = true
-//                    _isDeleteView.value = true
-//                    _isEditBtnEnabled.value = true
-                }
-                .onFailure { throwable ->
-                    Log.e("되나", "$throwable")
-                    Timber.e("$throwable")
-                }
-        }
-    }
 
     fun setRoutineAchieve(isAchieve: Boolean, index: Int) {
         when (index) {
