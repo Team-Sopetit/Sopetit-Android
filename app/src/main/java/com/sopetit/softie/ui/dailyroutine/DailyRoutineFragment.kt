@@ -19,6 +19,7 @@ import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setStatusBarColor
 import com.sopetit.softie.util.snackBar
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class DailyRoutineFragment :
@@ -41,6 +42,7 @@ class DailyRoutineFragment :
         initSetDeleteView()
         initSetRoutineDelete()
         addDailyRoutineMsg()
+        achieveRoutine()
     }
 
     private fun getBundle() {
@@ -95,10 +97,17 @@ class DailyRoutineFragment :
         }
     }
 
+    private fun achieveRoutine() {
+        viewModel.isRoutineAchieveFirst.observe(viewLifecycleOwner) {
+        }
+        viewModel.isRoutineAchieveSecond.observe(viewLifecycleOwner) {
+        }
+        viewModel.isRoutineAchieveThird.observe(viewLifecycleOwner) {
+        }
+    }
+
     private fun initSetDailyRoutineAchieve(btn: View, routineId: Int) {
         btn.setOnClickListener {
-            // TODO 서버통신 구현 후 imageUri 버전으로 수정
-
             BindingBottomSheet.Builder().build(
                 isDrawable = true,
                 imageDrawable = R.drawable.ic_bear_face_crying,
@@ -113,6 +122,8 @@ class DailyRoutineFragment :
                 backBtnAction = {},
                 doBtnAction = {
                     startDailyRoutineCompleteActivity()
+                    viewModel.patchAchieveDaily(routineId)
+                    Timber.d("routineID -> $routineId")
                 }
             ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
         }
