@@ -1,6 +1,8 @@
 package com.sopetit.softie.di
 
 import com.sopetit.softie.data.service.DailyRoutineService
+import com.sopetit.softie.data.service.DailyRoutineService
+import com.sopetit.softie.data.service.DollService
 import com.sopetit.softie.data.service.MemberService
 import dagger.Module
 import dagger.Provides
@@ -18,4 +20,12 @@ object RetrofitServiceModule {
     @Provides
     fun providesDailyRoutineService(@RetrofitModule.SoftieType retrofit: Retrofit): DailyRoutineService =
         retrofit.create(DailyRoutineService::class.java)
+
+    @Provides
+    fun providesDailyRoutineService(@RetrofitModule.SoftieType retrofit: Retrofit): DailyRoutineService =
+        retrofit.create(DailyRoutineService::class.java)
+
+    @Provides
+    fun providesDollService(@RetrofitModule.SoftieType retrofit: Retrofit): DollService =
+        retrofit.create(DollService::class.java)
 }

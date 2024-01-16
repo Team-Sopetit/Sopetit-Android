@@ -4,8 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.NONE
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class BearSelectionViewModel : ViewModel() {
+@HiltViewModel
+class BearSelectionViewModel @Inject constructor() : ViewModel() {
     private val _selectedBearType: MutableLiveData<Int> = MutableLiveData(NONE)
     val selectedBearType: LiveData<Int> get() = _selectedBearType
 

@@ -3,8 +3,17 @@ package com.sopetit.softie.ui.onboarding
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.sopetit.softie.domain.usecase.doll.GetDollUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import timber.log.Timber
+import javax.inject.Inject
 
-class OnboardingViewModel : ViewModel() {
+@HiltViewModel
+class OnboardingViewModel @Inject constructor(
+    private val getDollUseCase: GetDollUseCase
+) : ViewModel() {
 
     private val _bearChoiceView: MutableLiveData<Boolean> = MutableLiveData(false)
     val bearChoiceView: LiveData<Boolean>
@@ -38,11 +47,15 @@ class OnboardingViewModel : ViewModel() {
     val layoutTranslucent: LiveData<Boolean>
         get() = _layoutTranslucent
 
-    private val _selectedBearType: MutableLiveData<Int> = MutableLiveData(NONE)
+    private val _selectedBearType: MutableLiveData<Int> = MutableLiveData()
     val selectedBearType: LiveData<Int> get() = _selectedBearType
 
     private val _bearNickname: MutableLiveData<String> = MutableLiveData("")
     val bearNickname: LiveData<String> get() = _bearNickname
+
+    private val _bearFace: MutableLiveData<String> = MutableLiveData()
+    val bearFace: LiveData<String>
+        get() = _bearFace
 
     fun changeBearChoiceView() {
         _bearChoiceView.value = true
@@ -84,11 +97,33 @@ class OnboardingViewModel : ViewModel() {
         _bearNickname.value = nickname
     }
 
+    fun setDollFace(type: Int) {
+        viewModelScope.launch {
+            when (type) {
+                BROWN_BEAR -> getDollUseCase.invoke(BROWN)
+                GRAY_BEAR -> getDollUseCase.invoke(GRAY)
+                PANDA_BEAR -> getDollUseCase.invoke(WHITE)
+                RED_BEAR -> getDollUseCase.invoke(RED)
+                else -> getDollUseCase.invoke(BROWN)
+            }.onSuccess { response ->
+                _bearFace.value = response
+                Timber.d("서버 통신 성공 -> $response")
+            }.onFailure {
+                Timber.e("서버 통신 실패 -> ${it.message}")
+            }
+        }
+    }
+
     companion object {
         const val NONE = 0
         const val BROWN_BEAR = 1
         const val GRAY_BEAR = 2
         const val PANDA_BEAR = 3
         const val RED_BEAR = 4
+
+        const val BROWN = "BROWN"
+        const val GRAY = "GRAY"
+        const val WHITE = "WHITE"
+        const val RED = "RED"
     }
 }

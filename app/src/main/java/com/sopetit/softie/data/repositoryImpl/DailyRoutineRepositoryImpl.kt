@@ -3,6 +3,8 @@ package com.sopetit.softie.data.repositoryImpl
 import com.sopetit.softie.data.source.DailyRoutineDataSource
 import com.sopetit.softie.domain.entity.DailyAchieve
 import com.sopetit.softie.domain.entity.DailyRoutine
+import com.sopetit.softie.domain.entity.Routine
+import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.domain.repository.DailyRoutineRepository
 import javax.inject.Inject
 
@@ -21,4 +23,16 @@ class DailyRoutineRepositoryImpl @Inject constructor(
 
     override suspend fun deleteDailyRoutine(routineId: Int): Result<Unit> =
         runCatching { dailyRoutineDataSource.deleteDailyRoutine(routineId) }
+
+    override suspend fun getTheme(): Result<List<Theme>> = runCatching {
+        dailyRoutineDataSource.getTheme()
+    }.mapCatching {
+        requireNotNull(it.data).toTheme()
+    }
+
+    override suspend fun getRoutineList(themeId: List<Int>): Result<List<Routine>> = runCatching {
+        dailyRoutineDataSource.getRoutineList(themeId)
+    }.mapCatching { dailyRoutineList ->
+        requireNotNull(dailyRoutineList.data).toRoutine()
+    }
 }

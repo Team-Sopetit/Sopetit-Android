@@ -1,6 +1,8 @@
 package com.sopetit.softie.data.source
 
 import com.sopetit.softie.data.entity.BaseResponse
+import com.sopetit.softie.data.entity.response.DailyRoutineListResponse
+import com.sopetit.softie.data.entity.response.ThemeListResponse
 import com.sopetit.softie.data.entity.response.AchieveDailyResponse
 import com.sopetit.softie.data.entity.response.DailyRoutineResponse
 import com.sopetit.softie.data.service.DailyRoutineService
@@ -17,4 +19,8 @@ class DailyRoutineDataSource @Inject constructor(
 
     suspend fun deleteDailyRoutine(routineId: Int): BaseResponse<Unit> =
         dailyRoutineService.deleteDailyRoutine(routineId)
+    suspend fun getTheme(): BaseResponse<ThemeListResponse> = dailyRoutineService.getTheme()
+
+    suspend fun getRoutineList(themeId: List<Int>): BaseResponse<DailyRoutineListResponse> =
+        dailyRoutineService.getRoutineList(themeId)
 }
