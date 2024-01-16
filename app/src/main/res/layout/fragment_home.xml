@@ -13,19 +13,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/img_homeback_all">
 
         <ImageView
             android:id="@+id/backgroundImageView"
             setImage="@{viewModel.homeResponse.frameImageUrl}"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintDimensionRatio="1:1.7"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1.7"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@color/home_background" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/iv_home_logo"
