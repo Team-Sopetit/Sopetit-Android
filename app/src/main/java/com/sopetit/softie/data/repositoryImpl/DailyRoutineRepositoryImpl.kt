@@ -18,4 +18,7 @@ class DailyRoutineRepositoryImpl @Inject constructor(
         runCatching { dailyRoutineDataSource.patchAchieveDaily(routineId) }.map { response ->
             requireNotNull(response.data).toAchieveDaily()
         }
+
+    override suspend fun deleteDailyRoutine(routineId: Int): Result<Unit> =
+        runCatching { dailyRoutineDataSource.deleteDailyRoutine(routineId) }
 }
