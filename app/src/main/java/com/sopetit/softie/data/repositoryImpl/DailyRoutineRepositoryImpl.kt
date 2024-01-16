@@ -18,7 +18,7 @@ class DailyRoutineRepositoryImpl @Inject constructor(
 
     override suspend fun getRoutineList(themeId: List<Int>): Result<List<Routine>> = runCatching {
         dailyRoutineDataSource.getRoutineList(themeId)
-    }.mapCatching {
-        requireNotNull(it.data).toRoutine()
+    }.mapCatching { dailyRoutineList ->
+        requireNotNull(dailyRoutineList.data).toRoutine()
     }
 }

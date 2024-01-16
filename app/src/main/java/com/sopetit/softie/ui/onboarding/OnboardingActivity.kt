@@ -87,8 +87,8 @@ class OnboardingActivity :
     }
 
     private fun initSetBearFace() {
-        viewModel.bearFace.observe(this) {
-            binding.ivOnboardingThemeTitleBear.setImage(it)
+        viewModel.bearFace.observe(this) { bearFace ->
+            binding.ivOnboardingThemeTitleBear.setImage(bearFace)
         }
     }
 

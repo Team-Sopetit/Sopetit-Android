@@ -34,8 +34,8 @@ class RoutineChoiceViewModel @Inject constructor(
                 .onSuccess { response ->
                     _routineList.value = response
                     Timber.e("서버 통신 성공 -> $response")
-                }.onFailure {
-                    Timber.e("서버 통신 실패 -> ${it.message}")
+                }.onFailure { throwable ->
+                    Timber.e("서버 통신 실패 -> ${throwable.message}")
                 }
         }
     }

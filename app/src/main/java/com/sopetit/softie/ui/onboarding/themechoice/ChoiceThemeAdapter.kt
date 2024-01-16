@@ -27,8 +27,6 @@ class ChoiceThemeAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Theme) {
             binding.tvThemeName.text = data.name
-//            binding.ivThemeIcon.setImage(data.iconImageUrl)
-//            binding.ivThemeIcon.load(data.iconImageUrl)
             binding.ivThemeIcon.setCoilImage(data.iconImageUrl)
             binding.root.setOnClickListener {
                 themeSelection(binding, data)
