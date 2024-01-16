@@ -19,7 +19,7 @@ class SettingInitFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(requireActivity()).get(SettingViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity())[SettingViewModel::class.java]
         binding.viewModel = viewModel
 
         initChangeFragment()
@@ -55,12 +55,12 @@ class SettingInitFragment :
                 isDrawable = true,
                 imageDrawable = R.drawable.ic_bear_face_crying,
                 imageUri = "",
-                title = "제목",
-                content = "내용",
+                title = getString(R.string.user_logout_title),
+                content = getString(R.string.user_logout_content),
                 isContentVisible = true,
                 contentColor = R.color.gray300,
-                backBtnContent = "돌아가기",
-                doBtnContent = "그냥 해",
+                backBtnContent = getString(R.string.user_logout_back),
+                doBtnContent = getString(R.string.user_logout_exit),
                 doBtnColor = R.drawable.shape_red_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {}
