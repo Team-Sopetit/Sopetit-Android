@@ -10,7 +10,9 @@ import com.sopetit.softie.databinding.FragmentOnboardingChoiceThemeBinding
 import com.sopetit.softie.ui.onboarding.OnboardingActivity.Companion.MAXIMUM_THEME_SELECTION
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
 import com.sopetit.softie.util.binding.BindingFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ChoiceThemeFragment :
     BindingFragment<FragmentOnboardingChoiceThemeBinding>(R.layout.fragment_onboarding_choice_theme) {
 
@@ -34,15 +36,20 @@ class ChoiceThemeFragment :
 
     private fun initMakeThemeAdapter() {
         _choiceThemeAdapter = ChoiceThemeAdapter()
+        themeViewModel.getThemeList()
         binding.rvOnboardingChoiceTheme.apply {
             layoutManager = GridLayoutManager(requireContext(), 3)
             adapter = choiceThemeAdapter
         }
-        themeViewModel.mockThemeList.observe(viewLifecycleOwner) {
+
+        setThemeList()
+        selectThemes()
+    }
+
+    private fun setThemeList() {
+        themeViewModel.themeList.observe(viewLifecycleOwner) {
             choiceThemeAdapter.submitList(it)
         }
-
-        selectThemes()
     }
 
     private fun selectThemes() {

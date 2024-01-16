@@ -9,7 +9,9 @@ import com.sopetit.softie.databinding.FragmentOnboardingBearSelectionBinding
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.BROWN_BEAR
 import com.sopetit.softie.util.binding.BindingFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BearSelectionFragment :
     BindingFragment<FragmentOnboardingBearSelectionBinding>(R.layout.fragment_onboarding_bear_selection) {
 
@@ -30,6 +32,10 @@ class BearSelectionFragment :
         binding.btnBearSelection.setOnClickListener {
             activityViewModel.changeBearNameChoiceView()
             activityViewModel.setSelectedBearType(viewModel.selectedBearType.value ?: BROWN_BEAR)
+
+            activityViewModel.selectedBearType.observe(viewLifecycleOwner) {
+                activityViewModel.setDollFace(it)
+            }
         }
     }
 }
