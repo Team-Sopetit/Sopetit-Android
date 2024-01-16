@@ -6,7 +6,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyRoutineBinding
-import com.sopetit.softie.ui.happyroutine.addlist.HappyAddListActivity
+import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity
 import com.sopetit.softie.util.binding.BindingFragment
 
 class HappyRoutineFragment :

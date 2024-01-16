@@ -9,13 +9,21 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityOnboardingBinding
+import com.sopetit.softie.ui.LoadingIndicator
 import com.sopetit.softie.ui.onboarding.bearnaming.BearNamingFragment
 import com.sopetit.softie.ui.onboarding.bearselection.BearSelectionFragment
 import com.sopetit.softie.ui.onboarding.routinechoice.RoutineChoiceFragment
 import com.sopetit.softie.ui.onboarding.themechoice.ChoiceThemeFragment
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.binding.BindingAdapter.setImage
 import com.sopetit.softie.util.setStatusBarColorFromResource
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class OnboardingActivity :
     BindingActivity<ActivityOnboardingBinding>(R.layout.activity_onboarding) {
 
@@ -58,11 +66,29 @@ class OnboardingActivity :
         viewModel.themeChoiceView.observe(this) { themeChoiceView ->
             if (themeChoiceView) {
                 changeFragment(ChoiceThemeFragment())
+                initSetLoading()
                 viewModel.setLayoutTranslucent(true)
+                setStatusBarColorFromResource(R.color.onboarding_translucent)
+                initSetBearFace()
                 initSetSpeechText()
                 initSetTranslucentBackground()
                 changeSecondThemeChoice()
             }
+        }
+    }
+
+    private fun initSetLoading() {
+        val dialog = LoadingIndicator(this@OnboardingActivity)
+        CoroutineScope(Dispatchers.Main).launch {
+            dialog.show()
+            delay(LOADING_DELAY)
+            dialog.dismiss()
+        }
+    }
+
+    private fun initSetBearFace() {
+        viewModel.bearFace.observe(this) { bearFace ->
+            binding.ivOnboardingThemeTitleBear.setImage(bearFace)
         }
     }
 
@@ -71,6 +97,7 @@ class OnboardingActivity :
             if (isSecondThemeView) {
                 changeFragment(ChoiceThemeFragment())
                 viewModel.setLayoutTranslucent(false)
+                setStatusBarColorFromResource(R.color.background)
                 viewModel.changeRoutineChoiceView(false)
             }
         }
@@ -99,6 +126,7 @@ class OnboardingActivity :
     private fun initSetTranslucentBackground() {
         binding.clOnboardingThemeTranslucentBackgroundContent.setOnClickListener {
             viewModel.setLayoutTranslucent(false)
+            setStatusBarColorFromResource(R.color.background)
         }
     }
 
@@ -119,5 +147,6 @@ class OnboardingActivity :
     companion object {
         const val SPAN_START = 5
         const val MAXIMUM_THEME_SELECTION = 3
+        const val LOADING_DELAY = 1000L
     }
 }
