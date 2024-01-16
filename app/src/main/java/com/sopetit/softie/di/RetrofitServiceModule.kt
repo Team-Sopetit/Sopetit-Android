@@ -1,8 +1,8 @@
 package com.sopetit.softie.di
 
-import com.sopetit.softie.data.service.HappinessRoutineService
 import com.sopetit.softie.data.service.DailyRoutineService
 import com.sopetit.softie.data.service.DollService
+import com.sopetit.softie.data.service.HappinessRoutineService
 import com.sopetit.softie.data.service.MemberService
 import dagger.Module
 import dagger.Provides
