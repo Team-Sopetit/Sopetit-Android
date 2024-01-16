@@ -1,5 +1,6 @@
 package com.sopetit.softie.data.repositoryImpl
 
+import com.sopetit.softie.data.entity.request.PostMemberRequest
 import com.sopetit.softie.data.source.MemberDataSource
 import com.sopetit.softie.domain.entity.CottonCount
 import com.sopetit.softie.domain.entity.Home
@@ -18,4 +19,7 @@ class MemberRepositoryImpl @Inject constructor(
         runCatching { memberDataSource.patchCotton(cottonType) }.map { response ->
             requireNotNull(response.data).toCottonCount()
         }
+
+    override suspend fun postMember(request: PostMemberRequest): Result<Unit> =
+        runCatching { memberDataSource.postMember(request) }
 }
