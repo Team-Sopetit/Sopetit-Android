@@ -22,6 +22,5 @@ class LoadingIndicator(context: Context) : Dialog(context) {
                 )
             )
         )
-
     }
 }
