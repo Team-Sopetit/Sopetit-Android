@@ -13,8 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DailyRoutineViewModel @Inject constructor(private val getDailyRoutineUseCase: GetDailyRoutineUseCase) :
-    ViewModel(
-    ) {
+    ViewModel() {
     private val _dailyRoutineListResponse: MutableLiveData<List<DailyRoutine>> = MutableLiveData()
     val dailyRoutineListResponse: LiveData<List<DailyRoutine>>
         get() = _dailyRoutineListResponse
@@ -24,6 +23,7 @@ class DailyRoutineViewModel @Inject constructor(private val getDailyRoutineUseCa
             getDailyRoutineUseCase()
                 .onSuccess { response ->
                     _dailyRoutineListResponse.value = response
+                    println(response)
                     Timber.d("뷰모델 서버 성공")
                 }
                 .onFailure { throwable ->
