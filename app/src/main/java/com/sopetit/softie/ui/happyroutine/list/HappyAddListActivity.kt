@@ -1,4 +1,4 @@
-package com.sopetit.softie.ui.happyroutine.addlist
+package com.sopetit.softie.ui.happyroutine.list
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityHappyAddListBinding
 import com.sopetit.softie.domain.entity.HappyContent
-import com.sopetit.softie.ui.happyroutine.adddetail.HappyDetailActivity
+import com.sopetit.softie.ui.happyroutine.detail.HappyDetailActivity
 import com.sopetit.softie.util.HorizontalChipItemDecoration
 import com.sopetit.softie.util.VerticalItemDecoration
 import com.sopetit.softie.util.binding.BindingActivity

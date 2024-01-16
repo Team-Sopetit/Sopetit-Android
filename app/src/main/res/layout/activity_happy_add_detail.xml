@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.sopetit.softie.ui.happyroutine.adddetail.HappyDetailCardViewModel" />
+            type="com.sopetit.softie.ui.happyroutine.detail.HappyDetailCardViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

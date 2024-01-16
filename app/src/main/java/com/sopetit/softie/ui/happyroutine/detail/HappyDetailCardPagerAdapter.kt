@@ -1,4 +1,4 @@
-package com.sopetit.softie.ui.happyroutine.adddetail
+package com.sopetit.softie.ui.happyroutine.detail
 
 import android.view.LayoutInflater
 import android.view.View

@@ -1,4 +1,4 @@
-package com.sopetit.softie.ui.happyroutine.addlist
+package com.sopetit.softie.ui.happyroutine.list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

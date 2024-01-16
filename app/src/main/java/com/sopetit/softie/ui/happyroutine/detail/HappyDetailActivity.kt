@@ -1,4 +1,4 @@
-package com.sopetit.softie.ui.happyroutine.adddetail
+package com.sopetit.softie.ui.happyroutine.detail
 
 import android.content.Intent
 import android.graphics.Color
@@ -12,7 +12,7 @@ import androidx.viewpager2.widget.ViewPager2
 import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityHappyAddDetailBinding
-import com.sopetit.softie.ui.happyroutine.addlist.HappyAddListActivity.Companion.ID
+import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity.Companion.ID
 import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.setStatusBarColorFromResource
