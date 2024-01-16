@@ -7,10 +7,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentOnboardingChoiceThemeBinding
+import com.sopetit.softie.ui.LoadingIndicator
 import com.sopetit.softie.ui.onboarding.OnboardingActivity.Companion.MAXIMUM_THEME_SELECTION
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
 import com.sopetit.softie.util.binding.BindingFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ChoiceThemeFragment :
@@ -30,8 +35,19 @@ class ChoiceThemeFragment :
         binding.viewModel = viewModel
         binding.themeViewModel = themeViewModel
 
-        initMakeThemeAdapter()
+        initSetChoiceThemeView()
+//        initMakeThemeAdapter()
         initChangeFragment()
+    }
+
+    private fun initSetChoiceThemeView() {
+        val dialog = LoadingIndicator(requireContext())
+        CoroutineScope(Main).launch {
+            dialog.show()
+            delay(2000)
+            dialog.dismiss()
+        }
+        initMakeThemeAdapter()
     }
 
     private fun initMakeThemeAdapter() {
@@ -41,11 +57,16 @@ class ChoiceThemeFragment :
             layoutManager = GridLayoutManager(requireContext(), 3)
             adapter = choiceThemeAdapter
         }
+
+        setThemeList()
+        selectThemes()
+    }
+
+    private fun setThemeList() {
         themeViewModel.themeList.observe(viewLifecycleOwner) {
             choiceThemeAdapter.submitList(it)
+//            dialog.dismiss()
         }
-
-        selectThemes()
     }
 
     private fun selectThemes() {
