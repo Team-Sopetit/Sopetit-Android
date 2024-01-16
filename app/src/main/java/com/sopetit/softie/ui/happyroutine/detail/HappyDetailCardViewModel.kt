@@ -1,6 +1,5 @@
 package com.sopetit.softie.ui.happyroutine.detail
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -24,10 +23,8 @@ class HappyDetailCardViewModel @Inject constructor(
             getHappyCardUseCase(routineId)
                 .onSuccess { response ->
                     _happyCardResponse.value = response
-                    Log.e("hoyeon", "성공인가??")
                 }
                 .onFailure { throwable ->
-                    Log.e("hoyeon", "$throwable")
                     Timber.e("$throwable")
                 }
         }

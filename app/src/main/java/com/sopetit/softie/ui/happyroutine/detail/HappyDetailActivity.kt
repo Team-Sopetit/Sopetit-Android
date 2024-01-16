@@ -100,8 +100,8 @@ class HappyDetailActivity :
                 HappyDetailCardPagerAdapter()
             vpHappyAddDetailCard.adapter = happyRoutineAddCardPagerAdapter
         }
-        viewModel.happyCardResponse.observe(this) {
-            happyRoutineAddCardPagerAdapter?.submitList(it.subRoutines)
+        viewModel.happyCardResponse.observe(this) { happyCard ->
+            happyRoutineAddCardPagerAdapter?.submitList(happyCard.subRoutines)
         }
     }
 

@@ -1,5 +1,6 @@
 package com.sopetit.softie.data.entity.response
 
+import com.sopetit.softie.domain.entity.HappyCard
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -32,14 +33,14 @@ data class HappyCardResponse(
         val place: String
     )
 
-    fun toHappyCard() = com.sopetit.softie.domain.entity.HappyCard(
-        title = title,
-        name = name,
-        nameColor = nameColor,
-        iconImageUrl = iconImageUrl,
-        contentImageUrl = contentImageUrl,
-        subRoutines = subRoutines.map { subRoutine ->
-            com.sopetit.softie.domain.entity.HappyCard.SubRoutines(
+    fun toHappyCard() = HappyCard(
+        title = this.title,
+        name = this.name,
+        nameColor = this.nameColor,
+        iconImageUrl = this.iconImageUrl,
+        contentImageUrl = this.contentImageUrl,
+        subRoutines = this.subRoutines.map { subRoutine ->
+            HappyCard.SubRoutines(
                 subRoutineId = subRoutine.subRoutineId,
                 content = subRoutine.content,
                 detailContent = subRoutine.detailContent,
