@@ -8,12 +8,12 @@ import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
-import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
 import com.sopetit.softie.domain.entity.Bear
 import com.sopetit.softie.ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity
 import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
+import com.sopetit.softie.util.binding.BindingAdapter.setImage
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setStatusBarColor
@@ -87,7 +87,8 @@ class DailyRoutineFragment :
                 getString(R.string.daily_routine_ing).format(dailyRoutineList[index].achieveCount)
             achieveMsg.text = achieveCountMsg
             routineTitle.text = dailyRoutineList[index].content
-            dailyIcon.load(dailyRoutineList[index].iconImageUrl)
+//            dailyIcon.load(dailyRoutineList[index].iconImageUrl)
+            dailyIcon.setImage(dailyRoutineList[index].iconImageUrl)
             viewModel.setRoutineAchieve(dailyRoutineList[index].isAchieve, index)
 
             initSetDailyRoutineAchieve(btn, dailyRoutineList[index].routineId)

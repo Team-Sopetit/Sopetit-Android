@@ -23,7 +23,6 @@ class DailyRoutineViewModel @Inject constructor(private val getDailyRoutineUseCa
             getDailyRoutineUseCase()
                 .onSuccess { response ->
                     _dailyRoutineListResponse.value = response
-                    println(response)
                     Timber.d("뷰모델 서버 성공")
                 }
                 .onFailure { throwable ->
