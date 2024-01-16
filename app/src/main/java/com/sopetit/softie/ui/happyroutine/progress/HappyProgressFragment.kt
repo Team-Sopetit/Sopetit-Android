@@ -7,7 +7,7 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyProgressBinding
 import com.sopetit.softie.domain.entity.HappyProgress
 import com.sopetit.softie.ui.happyroutine.HappyRoutineFragment
-import com.sopetit.softie.ui.main.home.HomeFragment
+import com.sopetit.softie.ui.happyroutine.delete.HappyDeleteFragment
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
@@ -53,9 +53,9 @@ class HappyProgressFragment :
 
     private fun setEditEnter() {
         binding.tvHappyProgressEdit.setOnClickListener {
-            val homeFragment = HomeFragment()
+            val happyDeleteFragment = HappyDeleteFragment()
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fcv_main, homeFragment)
+                .replace(R.id.fcv_main, happyDeleteFragment)
                 .commit()
         }
     }
