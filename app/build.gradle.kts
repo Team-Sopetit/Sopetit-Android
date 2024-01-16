@@ -97,9 +97,8 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
 
     // Coil
-    implementation("io.coil-kt:coil:1.2.0")
-    implementation("io.coil-kt:coil-svg:1.2.0")
-
+    implementation("io.coil-kt:coil:2.5.0")
+    implementation("io.coil-kt:coil-svg:2.4.0")
 
     // Lottie
     implementation("com.airbnb.android:lottie:5.2.0")
