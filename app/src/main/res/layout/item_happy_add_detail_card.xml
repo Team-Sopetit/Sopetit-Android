@@ -14,8 +14,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_happy_routine_add_card"
             android:layout_width="match_parent"
-            android:layout_height="398dp"
-            android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
+            android:layout_height="0dp"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,11 +23,12 @@
 
             <ImageView
                 android:id="@+id/iv_happy_routine_add_card"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 tools:src="@drawable/ic_happycard_up_green" />
 
             <TextView
@@ -42,7 +42,8 @@
                 android:textAppearance="@style/body2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_happy_routine_add_card"
+                app:layout_constraintTop_toTopOf="@id/iv_happy_routine_add_card"
+                app:layout_constraintBottom_toBottomOf="@id/iv_happy_routine_add_card"
                 tools:text="이상형의 특성 10가지 적어보고,\n절대 포기 못할 2가지와\n나와 비슷한 3가지 찾아보기" />
 
             <ImageView
@@ -52,15 +53,15 @@
                 android:layout_marginEnd="22dp"
                 android:layout_marginBottom="22dp"
                 android:src="@drawable/ic_magnify"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintBottom_toBottomOf="@id/iv_happy_routine_add_card"
+                app:layout_constraintEnd_toEndOf="@id/iv_happy_routine_add_card" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_happy_routine_add_card_back"
-            android:layout_width="match_parent"
-            android:layout_height="398dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@id/cl_happy_routine_add_card"
