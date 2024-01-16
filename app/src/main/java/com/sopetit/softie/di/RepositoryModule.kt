@@ -23,6 +23,12 @@ abstract class RepositoryModule {
         memberRepositoryImpl: MemberRepositoryImpl
     ): MemberRepository
 
+    /*@Binds
+    @Singleton
+    abstract fun bindToHappyCardRepository(
+        happinessRoutineRepositoryImpl: HappinessRoutineRepositoryImpl
+    ): HappinessRoutineRepository*/
+
     @Binds
     @Singleton
     abstract fun bindToDailyRoutineRepository(

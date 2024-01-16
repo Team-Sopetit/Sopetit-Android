@@ -18,14 +18,14 @@ object RetrofitServiceModule {
         retrofit.create(MemberService::class.java)
 
     @Provides
+    fun providesHappinessRoutineService(@RetrofitModule.SoftieType retrofit: Retrofit): HappinessRoutineService =
+        retrofit.create(HappinessRoutineService::class.java)
+
+    @Provides
     fun providesDailyRoutineService(@RetrofitModule.SoftieType retrofit: Retrofit): DailyRoutineService =
         retrofit.create(DailyRoutineService::class.java)
 
     @Provides
     fun providesDollService(@RetrofitModule.SoftieType retrofit: Retrofit): DollService =
         retrofit.create(DollService::class.java)
-
-    @Provides
-    fun providesHappinessRoutineService(@RetrofitModule.SoftieType retrofit: Retrofit): HappinessRoutineService =
-        retrofit.create(HappinessRoutineService::class.java)
 }

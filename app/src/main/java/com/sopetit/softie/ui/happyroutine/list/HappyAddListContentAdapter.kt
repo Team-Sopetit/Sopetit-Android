@@ -1,4 +1,4 @@
-package com.sopetit.softie.ui.happyroutine.addlist
+package com.sopetit.softie.ui.happyroutine.list
 
 import android.graphics.Color
 import android.view.LayoutInflater
