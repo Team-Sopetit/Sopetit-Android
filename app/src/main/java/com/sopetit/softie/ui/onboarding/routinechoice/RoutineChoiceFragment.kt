@@ -13,8 +13,10 @@ import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.ui.onboarding.OnboardingActivity
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
 import com.sopetit.softie.util.binding.BindingFragment
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
+@AndroidEntryPoint
 class RoutineChoiceFragment :
     BindingFragment<FragmentOnboardingChoiceRoutineBinding>(R.layout.fragment_onboarding_choice_routine) {
 
@@ -31,10 +33,7 @@ class RoutineChoiceFragment :
         binding.viewModel = viewModel
         binding.routineViewModel = routineViewModel
 
-        Timber.d("routineChoice: theme -> ${viewModel.selectedThemeArray.value}")
-
         initSetThemeBackBtn()
-        initSetRoutineBtn()
         initSetSelectRoutineBtn()
         initMakeRoutineAdapter()
     }
@@ -45,20 +44,20 @@ class RoutineChoiceFragment :
         }
     }
 
-    private fun initSetRoutineBtn() {
-        binding.rvOnboardingChoiceRoutine.setOnClickListener {
-            // TODO 프로필 생성 서버 통신
-        }
-    }
-
     private fun initSetSelectRoutineBtn() {
         binding.btnOnboardingRoutineSelectRoutine.setOnClickListener {
+            postMemberInfo()
             val onboardingActivity = activity as OnboardingActivity
 
             val intentToMain = Intent(activity, MainActivity::class.java)
             startActivity(intentToMain)
             ActivityCompat.finishAffinity(onboardingActivity)
         }
+    }
+
+    private fun postMemberInfo() {
+        Timber.d("routine -> ${viewModel.selectedRoutineArray.value}")
+        // TODO 프로필 생성 서버통신
     }
 
     private fun initMakeRoutineAdapter() {
@@ -72,7 +71,8 @@ class RoutineChoiceFragment :
     }
 
     private fun updateRoutines() {
-        routineViewModel.mockRoutineList.observe(viewLifecycleOwner) {
+        viewModel.selectedThemeArray.value?.let { routineViewModel.getRoutineList(it.toList()) }
+        routineViewModel.routineList.observe(viewLifecycleOwner) {
             choiceRoutineAdapter.submitList(it)
         }
     }
