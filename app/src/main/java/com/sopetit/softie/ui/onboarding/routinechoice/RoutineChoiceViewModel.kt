@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.domain.entity.Routine
 import com.sopetit.softie.domain.usecase.dailyroutine.GetRoutineListUseCase
+import com.sopetit.softie.domain.usecase.member.PostMemberUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -13,7 +14,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RoutineChoiceViewModel @Inject constructor(
-    private val getRoutineListUseCase: GetRoutineListUseCase
+    private val getRoutineListUseCase: GetRoutineListUseCase,
+    private val postMemberUseCase: PostMemberUseCase
 ) : ViewModel() {
 
     private val _routineList = MutableLiveData<List<Routine>>()
