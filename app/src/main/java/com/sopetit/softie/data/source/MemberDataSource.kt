@@ -14,5 +14,6 @@ class MemberDataSource @Inject constructor(
     suspend fun patchCotton(cottonType: String): BaseResponse<CottonCountResponse> =
         memberService.patchCotton(cottonType)
 
-    suspend fun postMember(request: PostMemberRequest): BaseResponse<Unit> = memberService.postMember(request)
+    suspend fun postMember(request: PostMemberRequest): BaseResponse<Unit> =
+        memberService.postMember(request)
 }
