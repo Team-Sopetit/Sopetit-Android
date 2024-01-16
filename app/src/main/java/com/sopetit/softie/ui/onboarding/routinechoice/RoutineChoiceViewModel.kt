@@ -81,7 +81,7 @@ class RoutineChoiceViewModel @Inject constructor(
             getRoutineListUseCase.invoke(themeId)
                 .onSuccess { response ->
                     _routineList.value = response
-                    Timber.e("서버 통신 성공 -> ${response}")
+                    Timber.e("서버 통신 성공 -> $response")
                 }.onFailure {
                     Timber.e("서버 통신 실패 -> ${it.message}")
                 }

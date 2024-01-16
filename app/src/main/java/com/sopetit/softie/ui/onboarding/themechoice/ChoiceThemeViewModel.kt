@@ -31,7 +31,7 @@ class ChoiceThemeViewModel @Inject constructor(
             getThemeListUseCase.invoke()
                 .onSuccess { response ->
                     _themeList.value = response
-                    Timber.d("서버 통신 성공 -> ${response}")
+                    Timber.d("서버 통신 성공 -> $response")
                 }.onFailure {
                     Timber.e("서버 통신 실패 -> ${it.message}")
                 }

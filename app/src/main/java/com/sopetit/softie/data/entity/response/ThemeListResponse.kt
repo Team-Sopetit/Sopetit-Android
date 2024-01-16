@@ -30,5 +30,3 @@ data class ThemeListResponse(
         )
     }
 }
-
-
