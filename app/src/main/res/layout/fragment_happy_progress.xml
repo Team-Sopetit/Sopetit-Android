@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="24dp"
             android:text="@string/happy_progress_title"
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"

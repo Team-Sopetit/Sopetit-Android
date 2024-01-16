@@ -54,7 +54,9 @@ class HappyDetailCardPagerAdapter() :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HappyPagerViewHolder {
         val binding = ItemHappyAddDetailCardBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
+            LayoutInflater.from(parent.context),
+            parent,
+            false
         )
         return HappyPagerViewHolder(binding)
     }
