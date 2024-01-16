@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.domain.entity.Routine
-import com.sopetit.softie.domain.usecase.GetRoutineListUseCase
+import com.sopetit.softie.domain.usecase.dailyroutine.GetRoutineListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber

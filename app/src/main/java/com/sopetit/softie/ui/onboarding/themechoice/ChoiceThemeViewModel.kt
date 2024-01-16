@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.domain.entity.Theme
-import com.sopetit.softie.domain.usecase.GetDollUseCase
-import com.sopetit.softie.domain.usecase.GetThemeListUseCase
+import com.sopetit.softie.domain.usecase.dailyroutine.GetThemeListUseCase
+import com.sopetit.softie.domain.usecase.doll.GetDollUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber

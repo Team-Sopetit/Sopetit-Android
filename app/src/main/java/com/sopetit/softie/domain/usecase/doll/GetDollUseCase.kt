@@ -1,4 +1,4 @@
-package com.sopetit.softie.domain.usecase
+package com.sopetit.softie.domain.usecase.doll
 
 import com.sopetit.softie.domain.repository.DollRepository
 import javax.inject.Inject
