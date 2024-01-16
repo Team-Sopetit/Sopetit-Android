@@ -1,5 +1,7 @@
 package com.sopetit.softie.ui.dailyroutine.dailyroutineadd
 
+import android.app.Activity
+import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
@@ -11,7 +13,10 @@ import androidx.viewpager2.widget.ViewPager2
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityDailyRoutineAddBinding
 import com.sopetit.softie.domain.entity.Theme
+import com.sopetit.softie.ui.main.MainActivity
+import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.setStatusBarColorFromResource
 
 class DailyRoutineAddActivity :
@@ -35,6 +40,7 @@ class DailyRoutineAddActivity :
         setItemDiv()
         initPagerDiv(0, 90)
         addClickListener()
+        initSetDailyRoutineAdd()
     }
 
     private fun addClickListener() {
@@ -150,6 +156,35 @@ class DailyRoutineAddActivity :
         binding.ivDailyRoutineAddBack.setOnClickListener {
             finish()
         }
+    }
+
+    private fun initSetDailyRoutineAdd() {
+        binding.btnDailyRoutineAdd.setOnClickListener {
+            // TODO 서버통신 구현 후 imageUri 버전으로 수정
+
+            BindingBottomSheet.Builder().build(
+                isDrawable = false,
+                imageDrawable = 0,
+                imageUri = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
+                title = getString(R.string.daily_routine_add_question),
+                content = getString(R.string.daily_routine_content),
+                isContentVisible = true,
+                contentColor = R.color.gray400,
+                backBtnContent = getString(R.string.daily_routine_add_no),
+                doBtnContent = getString(R.string.daily_routine_add_yes),
+                doBtnColor = R.drawable.shape_main1_fill_12_rect,
+                backBtnAction = {},
+                doBtnAction = {
+                    tossMsg()
+                }
+            ).show(supportFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
+        }
+    }
+
+    private fun tossMsg() {
+        val resultIntent = Intent(this, MainActivity::class.java)
+        setResult(Activity.RESULT_OK, resultIntent)
+        finish()
     }
 
     companion object {

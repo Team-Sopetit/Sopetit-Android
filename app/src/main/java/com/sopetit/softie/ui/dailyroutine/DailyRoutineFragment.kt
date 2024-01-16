@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import coil.load
 import com.sopetit.softie.R
@@ -38,6 +40,7 @@ class DailyRoutineFragment :
         initSetDailyRoutineContent()
         initSetDeleteView()
         initSetRoutineDelete()
+        addDailyRoutineMsg()
     }
 
     private fun getBundle() {
@@ -205,6 +208,24 @@ class DailyRoutineFragment :
             Intent(requireActivity(), DailyRoutineCompleteActivity::class.java)
         intentToCompleteActivity.putExtras(bundle)
         startActivity(intentToCompleteActivity)
+    }
+
+    private val addDailyRoutineLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == AppCompatActivity.RESULT_OK) {
+                snackBar(binding.root, getString(R.string.daily_routine_snack_bar))
+            }
+        }
+
+    private fun addDailyRoutineMsg() {
+        binding.ivDailyRoutineEmpty.setOnClickListener {
+            addDailyRoutineLauncher.launch(
+                Intent(
+                    requireActivity(),
+                    DailyRoutineAddActivity::class.java
+                )
+            )
+        }
     }
 
     private fun moveToAddRoutine() {
