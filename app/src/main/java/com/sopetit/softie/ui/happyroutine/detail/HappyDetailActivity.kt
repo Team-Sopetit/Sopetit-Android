@@ -51,7 +51,7 @@ class HappyDetailActivity :
                     tvHappyAddDetailSubtitle.text = happyCard.title
                     tvHappyAddDetailTitle.setTextColor(Color.parseColor(happyCard.nameColor))
                 }
-                setSnackbarEnter(happyCard.iconImageUrl)
+                setBottomSheetEnter(happyCard.iconImageUrl)
             }
         }
 
@@ -69,7 +69,7 @@ class HappyDetailActivity :
         }
     }
 
-    private fun setSnackbarEnter(icon: String) {
+    private fun setBottomSheetEnter(icon: String) {
         binding.btnHappyDetailAdd.setOnClickListener {
             initHappyRoutineAddBottomSheet(icon)
         }
