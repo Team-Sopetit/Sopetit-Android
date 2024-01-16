@@ -6,7 +6,6 @@ import androidx.fragment.app.activityViewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyProgressBinding
 import com.sopetit.softie.domain.entity.HappyProgress
-import com.sopetit.softie.ui.happyroutine.delete.HappyDeleteFragment
 import com.sopetit.softie.ui.happyroutine.HappyRoutineFragment
 import com.sopetit.softie.ui.main.home.HomeFragment
 import com.sopetit.softie.util.OriginalBottomSheet
@@ -72,13 +71,6 @@ class HappyProgressFragment :
         }
     }
 
-    private fun setClearEnter() {
-        binding.btnHappyProgressClear.setOnClickListener {
-        }
-            initHappyRoutineCompleteBottomSheet()
-        }
-    }
-
     private fun initHappyRoutineCompleteBottomSheet() {
         BindingBottomSheet.Builder().build(
             isDrawable = false,
@@ -108,4 +100,11 @@ class HappyProgressFragment :
             .replace(R.id.fcv_main, happyRoutineFragment)
             .commit()
     }
+
+    private fun setClearEnter() {
+        binding.btnHappyProgressClear.setOnClickListener {
+        }
+        initHappyRoutineCompleteBottomSheet()
+    }
 }
+
