@@ -102,8 +102,6 @@ class HappyProgressFragment :
     }
 
     private fun setClearEnter() {
-        binding.btnHappyProgressClear.setOnClickListener {
-        }
         initHappyRoutineCompleteBottomSheet()
     }
 }

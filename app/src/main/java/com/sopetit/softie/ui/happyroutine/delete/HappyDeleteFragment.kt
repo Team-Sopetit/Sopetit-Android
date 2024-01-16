@@ -75,18 +75,18 @@ class HappyDeleteFragment :
                 isDrawable = true,
                 imageDrawable = R.drawable.ic_bear_face_crying,
                 imageUri = "",
-                title = "정말 삭제할까요?",
+                title = getString(R.string.happy_delete_bottom_sheet_title),
                 content = "",
                 isContentVisible = true,
                 contentColor = R.color.gray400,
-                backBtnContent = "취소",
-                doBtnContent = "삭제할래",
+                backBtnContent = getString(R.string.happy_delete_bottom_sheet_back_btn),
+                doBtnContent = getString(R.string.happy_delete_bottom_sheet_do_btn),
                 doBtnColor = R.drawable.shape_red_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {
                     snackBar(
                         binding.root.rootView,
-                        "행복루틴을 삭제했어요"
+                        getString(R.string.happy_routine_delete_snack_bar)
                     )
                     requireActivity().supportFragmentManager.beginTransaction()
                         .replace(R.id.fcv_main, HappyRoutineFragment())

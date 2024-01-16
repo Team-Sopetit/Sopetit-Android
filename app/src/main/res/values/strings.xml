@@ -61,6 +61,9 @@
     <!-- happy delete -->
     <string name="happy_delete_destroy">취소</string>
     <string name="happy_delete_button">삭제하기</string>
+    <string name="happy_delete_bottom_sheet_title">정말 삭제할까요?</string>
+    <string name="happy_delete_bottom_sheet_do_btn">삭제할래</string>
+    <string name="happy_delete_bottom_sheet_back_btn">취소</string>
 
     <!-- doll selection -->
     <string name="doll_selection_question">어떤 친구와 함께 할까요?</string>
