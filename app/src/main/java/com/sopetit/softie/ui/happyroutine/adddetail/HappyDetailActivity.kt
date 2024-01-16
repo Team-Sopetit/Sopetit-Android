@@ -6,19 +6,19 @@ import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityHappyAddDetailBinding
 import com.sopetit.softie.ui.happyroutine.addlist.HappyAddListActivity.Companion.ID
 import com.sopetit.softie.ui.main.MainActivity
-import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingActivity
-import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.setStatusBarColorFromResource
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HappyDetailActivity :
     BindingActivity<ActivityHappyAddDetailBinding>(R.layout.activity_happy_add_detail) {
     private lateinit var viewPager: ViewPager2
@@ -28,27 +28,27 @@ class HappyDetailActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding.viewModel = viewModel
         viewPager = binding.vpHappyAddDetailCard
         setStatusBarColorFromResource(R.color.background)
 
-        val categoryId = intent.getIntExtra(ID, -1)
-        val viewModel = ViewModelProvider(this).get(HappyDetailCardViewModel::class.java)
-        val happyCard = viewModel.mockHappyCardList.value?.get(categoryId - 1)
+        val routineId = intent.getIntExtra(ID, -1).toString()
+        viewModel.getHappyCard(routineId)
 
-        happyCard?.let {
-            with(binding) {
-                tvHappyAddDetailTitle.text = happyCard.name
-                ivHappyAddDetailIcon.setImageResource(happyCard.iconImageUrl)
-                tvHappyAddDetailSubtitle.text = happyCard.title
-                tvHappyAddDetailTitle.setTextColor(Color.parseColor(happyCard.nameColor))
+        viewModel.happyCardResponse.observe(this) { happyCard ->
+            happyCard?.let {
+                with(binding) {
+                    tvHappyAddDetailTitle.text = happyCard.name
+                    ivHappyAddDetailIcon.load(happyCard.iconImageUrl)
+                    tvHappyAddDetailSubtitle.text = happyCard.title
+                    tvHappyAddDetailTitle.setTextColor(Color.parseColor(happyCard.nameColor))
+                }
             }
         }
 
         setBackEnter()
-        if (happyCard != null) {
-            setSnackbarEnter(happyCard.iconImageUrl)
-        }
-        setupAdapter(categoryId)
+        setSnackbarEnter()
+        setupAdapter(routineId)
         setIndicator()
         initViewPager()
         initPagerDiv(0, 90)
@@ -60,29 +60,10 @@ class HappyDetailActivity :
         }
     }
 
-    private fun setSnackbarEnter(icon: Int) {
+    private fun setSnackbarEnter() {
         binding.btnHappyDetailAdd.setOnClickListener {
-            initHappyRoutineAddBottomSheet(icon)
+            moveToProgress()
         }
-    }
-
-    private fun initHappyRoutineAddBottomSheet(icon: Int) {
-        BindingBottomSheet.Builder().build(
-            isDrawable = true,
-            imageDrawable = icon,
-            imageUri = "",
-            title = getString(R.string.happy_add_bottom_sheet_title),
-            content = "",
-            isContentVisible = true,
-            contentColor = R.color.main1,
-            backBtnContent = getString(R.string.happy_add_bottom_sheet_back_btn),
-            doBtnContent = getString(R.string.happy_add_bottom_sheet_do_btn),
-            doBtnColor = R.drawable.shape_main1_fill_12_rect,
-            backBtnAction = {},
-            doBtnAction = {
-                moveToProgress()
-            }
-        ).show(this.supportFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
     }
 
     private fun moveToProgress() {
@@ -93,15 +74,18 @@ class HappyDetailActivity :
         finish()
     }
 
-    private fun setupAdapter(categoryId: Int) {
+    private fun setupAdapter(routineId: String) {
         with(binding) {
             happyRoutineAddCardPagerAdapter =
                 HappyDetailCardPagerAdapter()
             vpHappyAddDetailCard.adapter = happyRoutineAddCardPagerAdapter
         }
-        happyRoutineAddCardPagerAdapter.submitList(
-            viewModel.getHappyCardListForId(categoryId)[0].routines
-        )
+        /*happyRoutineAddCardPagerAdapter.submitList(
+            viewModel.getHappyCardListForId(routineId).get(0).subRoutines
+        )*/
+        viewModel.happyCardResponse.observe(this) {
+            happyRoutineAddCardPagerAdapter?.submitList(it.subRoutines)
+        }
     }
 
     private fun setIndicator() {
@@ -140,7 +124,6 @@ class HappyDetailActivity :
     }
 
     private class PageDecoration(private val margin: Int) : RecyclerView.ItemDecoration() {
-
         override fun getItemOffsets(
             outRect: Rect,
             view: View,
