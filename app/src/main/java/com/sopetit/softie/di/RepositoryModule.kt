@@ -40,4 +40,10 @@ abstract class RepositoryModule {
     abstract fun bindToDollRepository(
         dollRepositoryImpl: DollRepositoryImpl
     ): DollRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindToHappinessRoutineRepository(
+        happinessRoutineRepositoryImpl: HappinessRoutineRepositoryImpl
+    ): HappinessRoutineRepository
 }
