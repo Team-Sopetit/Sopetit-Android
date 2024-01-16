@@ -63,6 +63,7 @@ class DailyRoutineFragment :
         btn: View,
         index: Int
     ) {
+        viewModel.getDailyRoutine()
         viewModel.mockDailyRoutineList.observe(viewLifecycleOwner) { dailyRoutineList ->
             val achieveCountMsg =
                 getString(R.string.daily_routine_ing).format(dailyRoutineList[index].achieveCount)
@@ -122,6 +123,7 @@ class DailyRoutineFragment :
     }
 
     private fun clickEditRadioBtn() {
+        viewModel.getDailyRoutine()
         viewModel.mockDailyRoutineList.observe(viewLifecycleOwner) { routineList ->
             with(binding) {
                 changeBtnSelectState(btnDailyRoutineRadioFirst, routineList[0].routineId)
