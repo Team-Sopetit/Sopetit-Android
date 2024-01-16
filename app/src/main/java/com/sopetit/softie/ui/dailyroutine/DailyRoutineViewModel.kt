@@ -72,19 +72,19 @@ class DailyRoutineViewModel @Inject constructor(
     val isDeleteView: LiveData<Boolean>
         get() = _isDeleteView
 
-    fun deleteDailyRoutine(routineId: Int) {
-        viewModelScope.launch {
-            deleteDailyRoutineUseCase(routineId)
-                .onSuccess {
-                    _isDeleteView.value = true
-                    Timber.d("삭제 서버 성공")
-                }
-                .onFailure { throwable ->
-                    Timber.d("삭제 서버 실패")
-                    Timber.e("$throwable")
-                }
-        }
-    }
+//    fun deleteDailyRoutine(routineId: Int) {
+//        viewModelScope.launch {
+//            deleteDailyRoutineUseCase(routineId)
+//                .onSuccess {
+//                    _isDeleteView.value = true
+//                    Timber.d("삭제 서버 성공")
+//                }
+//                .onFailure { throwable ->
+//                    Timber.d("삭제 서버 실패")
+//                    Timber.e("$throwable")
+//                }
+//        }
+//    }
 
     val editRoutineIdArray = ArrayList<Int>()
 
@@ -102,6 +102,20 @@ class DailyRoutineViewModel @Inject constructor(
 
     fun setDeleteView(deleteEnabled: Boolean) {
         _isDeleteView.value = deleteEnabled
+    }
+
+    fun deleteDailyRoutine(routineId: Int) {
+        viewModelScope.launch {
+            deleteDailyRoutineUseCase(routineId)
+                .onSuccess {
+                    setDeleteView(deleteEnabled = false)
+                    Timber.d("삭제 서버 성공")
+                }
+                .onFailure { throwable ->
+                    Timber.d("삭제 서버 실패")
+                    Timber.e("$throwable")
+                }
+        }
     }
 
     fun setEditRoutineIdArray(routineId: Int) {
