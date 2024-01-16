@@ -3,8 +3,10 @@ package com.sopetit.softie.ui.dailyroutine
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.viewModels
+import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
 import com.sopetit.softie.domain.entity.Bear
@@ -47,21 +49,31 @@ class DailyRoutineFragment :
     private fun initSetDailyRoutineContent() {
         with(binding) {
             routineItemView(
+                ivDailyRoutineIconFirst,
                 tvDailyRoutineAddNameFirst,
                 tvDailyRoutineIngFirst,
                 btnDailyRoutineYetFinFirst,
                 0
             )
             routineItemView(
+                ivDailyRoutineIconSecond,
                 tvDailyRoutineAddNameSecond,
                 tvDailyRoutineIngSecond,
                 btnDailyRoutineYetFinSecond,
                 1
             )
+            routineItemView(
+                ivDailyRoutineIconThird,
+                tvDailyRoutineAddNameThird,
+                tvDailyRoutineIngThird,
+                btnDailyRoutineYetFinThird,
+                2
+            )
         }
     }
 
     private fun routineItemView(
+        dailyIcon: ImageView,
         routineTitle: TextView,
         achieveMsg: TextView,
         btn: View,
@@ -72,6 +84,7 @@ class DailyRoutineFragment :
                 getString(R.string.daily_routine_ing).format(dailyRoutineList[index].achieveCount)
             achieveMsg.text = achieveCountMsg
             routineTitle.text = dailyRoutineList[index].content
+            dailyIcon.load(dailyRoutineList[index].iconImageUrl)
             viewModel.setRoutineAchieve(dailyRoutineList[index].isAchieve, index)
 
             initSetDailyRoutineAchieve(btn, dailyRoutineList[index].routineId)
@@ -131,6 +144,7 @@ class DailyRoutineFragment :
             with(binding) {
                 changeBtnSelectState(btnDailyRoutineRadioFirst, routineList[0].routineId)
                 changeBtnSelectState(btnDailyRoutineRadioSecond, routineList[1].routineId)
+                changeBtnSelectState(btnDailyRoutineRadioThird, routineList[2].routineId)
             }
         }
     }
