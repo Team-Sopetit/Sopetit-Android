@@ -7,7 +7,7 @@ plugins {
     id("dagger.hilt.android.plugin")
     id("kotlin-parcelize")
     id("org.jlleitschuh.gradle.ktlint")
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.7.20"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.0"
 }
 
 android {
@@ -21,7 +21,8 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "API_KEY", getApiKey("API_KEY"))
+        buildConfigField("String", "BASE_URL", getApiKey("BASE_URL"))
+        buildConfigField("String", "ACCESS_TOKEN", getApiKey("ACCESS_TOKEN"))
     }
 
     buildTypes {
@@ -29,7 +30,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro",
+                "proguard-rules.pro"
             )
         }
     }
@@ -57,9 +58,9 @@ dependencies {
     kapt("com.github.bumptech.glide:glide:4.13.2")
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.47")
+    implementation("com.google.dagger:hilt-android:2.48.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    kapt("com.google.dagger:hilt-compiler:2.47")
+    kapt("com.google.dagger:hilt-compiler:2.48.1")
 
     // Shared Preference
     implementation("androidx.security:security-crypto-ktx:1.1.0-alpha06")
@@ -74,11 +75,11 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.2")
 
     // Coroutine
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     // Network
-    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
     implementation(platform("com.squareup.okhttp3:okhttp-bom:4.10.0"))
@@ -86,7 +87,7 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor")
 
     // JSON
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.1")
 
     // Timber
     implementation("com.jakewharton.timber:timber:5.0.1")
@@ -96,7 +97,8 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
 
     // Coil
-    implementation("io.coil-kt:coil:2.4.0")
+    implementation("io.coil-kt:coil:2.5.0")
+    implementation("io.coil-kt:coil-svg:2.4.0")
 
     // Lottie
     implementation("com.airbnb.android:lottie:5.2.0")
@@ -112,13 +114,10 @@ dependencies {
     // viewPager2
     implementation("androidx.viewpager2:viewpager2:1.1.0-beta02")
     implementation("me.relex:circleindicator:2.1.6")
-    implementation("com.tbuonomo:dotsindicator:4.2")
+    implementation("com.tbuonomo:dotsindicator:5.0")
 
     // Splash Screen
     implementation("androidx.core:core-splashscreen:1.0.1")
-
-    // indicator
-    implementation("com.tbuonomo:dotsindicator:5.0")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

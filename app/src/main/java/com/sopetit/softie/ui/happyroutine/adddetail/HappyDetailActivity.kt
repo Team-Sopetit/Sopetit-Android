@@ -14,7 +14,9 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityHappyAddDetailBinding
 import com.sopetit.softie.ui.happyroutine.addlist.HappyAddListActivity.Companion.ID
 import com.sopetit.softie.ui.main.MainActivity
+import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.setStatusBarColorFromResource
 
 class HappyDetailActivity :
@@ -43,7 +45,9 @@ class HappyDetailActivity :
         }
 
         setBackEnter()
-        setSnackbarEnter()
+        if (happyCard != null) {
+            setSnackbarEnter(happyCard.iconImageUrl)
+        }
         setupAdapter(categoryId)
         setIndicator()
         initViewPager()
@@ -56,10 +60,29 @@ class HappyDetailActivity :
         }
     }
 
-    private fun setSnackbarEnter() {
+    private fun setSnackbarEnter(icon: Int) {
         binding.btnHappyDetailAdd.setOnClickListener {
-            moveToProgress()
+            initHappyRoutineAddBottomSheet(icon)
         }
+    }
+
+    private fun initHappyRoutineAddBottomSheet(icon: Int) {
+        BindingBottomSheet.Builder().build(
+            isDrawable = true,
+            imageDrawable = icon,
+            imageUri = "",
+            title = getString(R.string.happy_add_bottom_sheet_title),
+            content = "",
+            isContentVisible = true,
+            contentColor = R.color.main1,
+            backBtnContent = getString(R.string.happy_add_bottom_sheet_back_btn),
+            doBtnContent = getString(R.string.happy_add_bottom_sheet_do_btn),
+            doBtnColor = R.drawable.shape_main1_fill_12_rect,
+            backBtnAction = {},
+            doBtnAction = {
+                moveToProgress()
+            }
+        ).show(this.supportFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
     }
 
     private fun moveToProgress() {
@@ -77,7 +100,7 @@ class HappyDetailActivity :
             vpHappyAddDetailCard.adapter = happyRoutineAddCardPagerAdapter
         }
         happyRoutineAddCardPagerAdapter.submitList(
-            viewModel.getHappyCardListForId(categoryId).get(0).routines
+            viewModel.getHappyCardListForId(categoryId)[0].routines
         )
     }
 

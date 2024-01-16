@@ -10,8 +10,10 @@ import com.sopetit.softie.domain.entity.Cotton
 import com.sopetit.softie.ui.setting.SettingActivity
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setStatusBarColor
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.random.Random
 
+@AndroidEntryPoint
 class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private val viewModel by viewModels<HomeViewModel>()
     private val brownBearLottieList =
@@ -32,6 +34,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         setUserLottieList()
         initLottie()
         setClickListener()
+        setObserveHomeResponse()
     }
 
     private fun setUserLottieList() {
@@ -51,7 +54,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     }
 
     private fun setRandomMessage() {
-        val speechNum = viewModel.homeResponse.value?.conversations?.size ?: RUN_OUT
+        val speechNum = viewModel.homeResponse.value?.conversations?.size ?: 1
         val randomSpeech = Random.nextInt(START, speechNum)
         binding.tvHomeBearSpeech.text =
             viewModel.homeResponse.value?.conversations?.get(randomSpeech)
@@ -97,7 +100,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             Cotton.DAILY -> {
                 val cottonNum = viewModel.homeResponse.value?.dailyCottonCount ?: RUN_OUT
                 if (isCottonRemain(cottonNum)) {
-                    viewModel.patchSom(cottonType)
+                    viewModel.checkCotton(cottonType)
                     playLottieAnimation(userLottieList[DAILY])
                 }
             }
@@ -105,7 +108,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             Cotton.HAPPINESS -> {
                 val cottonNum = viewModel.homeResponse.value?.happinessCottonCount ?: RUN_OUT
                 if (isCottonRemain(cottonNum)) {
-                    viewModel.patchSom(cottonType)
+                    viewModel.checkCotton(cottonType)
                     playLottieAnimation(userLottieList[HAPPINESS])
                 }
             }
@@ -115,6 +118,12 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private fun playLottieAnimation(lottieFile: Int) {
         binding.lottieHomeBear.setAnimation(lottieFile)
         binding.lottieHomeBear.playAnimation()
+    }
+
+    private fun setObserveHomeResponse() {
+        viewModel.conversations.observe(viewLifecycleOwner) {
+            initLottie()
+        }
     }
 
     companion object {
