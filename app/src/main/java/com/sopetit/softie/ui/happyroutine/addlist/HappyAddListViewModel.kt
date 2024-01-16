@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sopetit.softie.R
 import com.sopetit.softie.domain.entity.HappyChip
 import com.sopetit.softie.domain.entity.HappyContent
 import com.sopetit.softie.domain.usecase.GetHappyChipUseCase
@@ -42,102 +41,116 @@ class HappyAddListViewModel @Inject constructor(
         _HappyContentList.value = listOf<HappyContent>(
             HappyContent(
                 routineId = 1,
-                title = "관계쌓기",
-                content = "성숙한 사랑을 만나기 위한",
-                imageUrl = R.drawable.ic_happy_red
+                name = "관계쌓기",
+                nameColor = "#FFFF5D76",
+                title = "성숙한 사랑을 만나기 위한",
+                iconImageUrl = "https://raw.githubusercontent.com/Team-Sopetit/sopetit-image/c13153794106845de32863a6ecd38dd05b9480fb/routine/happiness/icon/relationship/icon.svg"
             ),
             HappyContent(
                 routineId = 2,
-                title = "관계쌓기",
-                content = "진정성 있는 관계를 만드는",
-                imageUrl = R.drawable.ic_happy_red
+                name = "관계쌓기",
+                nameColor = "#FFFF5D76",
+                title = "진정성 있는 관계를 만드는",
+                iconImageUrl = "https://raw.githubusercontent.com/Team-Sopetit/sopetit-image/c13153794106845de32863a6ecd38dd05b9480fb/routine/happiness/icon/relationship/icon.svg"
             ),
             HappyContent(
                 routineId = 3,
-                title = "한 걸음 성장",
-                content = "나를 알고 진짜 목표를 세우는",
-                imageUrl = R.drawable.ic_happy_orange
+                name = "한 걸음 성장",
+                nameColor = "#FFF27400",
+                title = "나를 알고 진짜 목표를 세우는",
+                iconImageUrl = "https://raw.githubusercontent.com/Team-Sopetit/sopetit-image/c13153794106845de32863a6ecd38dd05b9480fb/routine/happiness/icon/one_more_growth/icon.svg"
             ),
             HappyContent(
                 routineId = 4,
-                title = "한 걸음 성장",
-                content = "좋아하는, 잘하는 일을 찾아 가는",
-                imageUrl = R.drawable.ic_happy_orange
+                name = "한 걸음 성장",
+                nameColor = "#FFF27400",
+                title = "좋아하는, 잘하는 일을 찾아 가는",
+                iconImageUrl = "https://raw.githubusercontent.com/Team-Sopetit/sopetit-image/c13153794106845de32863a6ecd38dd05b9480fb/routine/happiness/icon/one_more_growth/icon.svg"
             ),
             HappyContent(
                 routineId = 5,
-                title = "잘 쉬어가기",
-                content = "데이터가 아직 없습니다",
-                imageUrl = R.drawable.ic_happy_green
+                name = "잘 쉬어가기",
+                nameColor = "#FF3DB96F",
+                title = "데이터가 아직 없습니다",
+                iconImageUrl = "https://raw.githubusercontent.com/Team-Sopetit/sopetit-image/c13153794106845de32863a6ecd38dd05b9480fb/routine/happiness/icon/good_rest/icon.svg"
             ),
             HappyContent(
                 routineId = 6,
-                title = "새로운 나",
-                content = "나를 알고 진짜 목표를 세우는",
-                imageUrl = R.drawable.ic_happy_blue
+                name = "새로운 나",
+                nameColor = "#FF7B89D1",
+                title = "나를 알고 진짜 목표를 세우는",
+                iconImageUrl = "https://raw.githubusercontent.com/Team-Sopetit/sopetit-image/c13153794106845de32863a6ecd38dd05b9480fb/routine/happiness/icon/new_myself/icon.svg"
             ),
             HappyContent(
                 routineId = 7,
-                title = "마음 챙김",
-                content = "데이터가 아직 없습니다",
-                imageUrl = R.drawable.ic_happy_purple
+                name = "마음 챙김",
+                nameColor = "#FFBC73E6",
+                title = "데이터가 아직 없습니다",
+                iconImageUrl = "https://raw.githubusercontent.com/Team-Sopetit/sopetit-image/c13153794106845de32863a6ecd38dd05b9480fb/routine/happiness/icon/mindfulness/icon.svg"
             )
         )
 
         _HappyContentListOne.value = listOf<HappyContent>(
             HappyContent(
                 routineId = 1,
-                title = "관계쌓기",
-                content = "성숙한 사랑을 만나기 위한",
-                imageUrl = R.drawable.ic_happy_red
+                name = "관계쌓기",
+                nameColor = "#FFFF5D76",
+                title = "성숙한 사랑을 만나기 위한",
+                iconImageUrl = "https://raw.githubusercontent.com/Team-Sopetit/sopetit-image/c13153794106845de32863a6ecd38dd05b9480fb/routine/happiness/icon/relationship/icon.svg"
             ),
             HappyContent(
                 routineId = 2,
-                title = "관계쌓기",
-                content = "진정성 있는 관계를 만드는",
-                imageUrl = R.drawable.ic_happy_red
+                name = "관계쌓기",
+                nameColor = "#FFFF5D76",
+                title = "진정성 있는 관계를 만드는",
+                iconImageUrl = "https://raw.githubusercontent.com/Team-Sopetit/sopetit-image/c13153794106845de32863a6ecd38dd05b9480fb/routine/happiness/icon/relationship/icon.svg"
             )
         )
 
         _HappyContentListTwo.value = listOf<HappyContent>(
             HappyContent(
                 routineId = 3,
-                title = "한 걸음 성장",
-                content = "나를 알고 진짜 목표를 세우는",
-                imageUrl = R.drawable.ic_happy_orange
+                name = "한 걸음 성장",
+                nameColor = "#FFF27400",
+                title = "나를 알고 진짜 목표를 세우는",
+                iconImageUrl = "https://raw.githubusercontent.com/Team-Sopetit/sopetit-image/c13153794106845de32863a6ecd38dd05b9480fb/routine/happiness/icon/one_more_growth/icon.svg"
             ),
             HappyContent(
                 routineId = 4,
-                title = "한 걸음 성장",
-                content = "좋아하는, 잘하는 일을 찾아 가는",
-                imageUrl = R.drawable.ic_happy_orange
+                name = "한 걸음 성장",
+                nameColor = "#FFF27400",
+                title = "좋아하는, 잘하는 일을 찾아 가는",
+                iconImageUrl = "https://raw.githubusercontent.com/Team-Sopetit/sopetit-image/c13153794106845de32863a6ecd38dd05b9480fb/routine/happiness/icon/one_more_growth/icon.svg"
             )
         )
 
         _HappyContentListThree.value = listOf<HappyContent>(
             HappyContent(
                 routineId = 5,
-                title = "잘 쉬어가기",
-                content = "데이터가 아직 없습니다",
-                imageUrl = R.drawable.ic_happy_green
+                name = "잘 쉬어가기",
+                nameColor = "#FF3DB96F",
+                title = "데이터가 아직 없습니다",
+                iconImageUrl = "https://raw.githubusercontent.com/Team-Sopetit/sopetit-image/c13153794106845de32863a6ecd38dd05b9480fb/routine/happiness/icon/good_rest/icon.svg"
             )
         )
 
         _HappyContentListFour.value = listOf<HappyContent>(
             HappyContent(
                 routineId = 6,
-                title = "새로운 나",
-                content = "나를 알고 진짜 목표를 세우는",
-                imageUrl = R.drawable.ic_happy_blue
+                name = "새로운 나",
+                nameColor = "#FF7B89D1",
+                title = "나를 알고 진짜 목표를 세우는",
+                iconImageUrl = "https://raw.githubusercontent.com/Team-Sopetit/sopetit-image/c13153794106845de32863a6ecd38dd05b9480fb/routine/happiness/icon/new_myself/icon.svg"
             )
         )
 
         _HappyContentListFive.value = listOf<HappyContent>(
             HappyContent(
                 routineId = 7,
-                title = "마음 챙김",
-                content = "데이터가 아직 없습니다",
-                imageUrl = R.drawable.ic_happy_purple
+                name = "마음 챙김",
+                nameColor = "#FFBC73E6",
+                title = "데이터가 아직 없습니다",
+                iconImageUrl = "https://raw.githubusercontent.com/Team-Sopetit/sopetit-image/c13153794106845de32863a6ecd38dd05b9480fb/routine/happiness/icon/mindfulness/icon.svg"
             )
         )
     }
