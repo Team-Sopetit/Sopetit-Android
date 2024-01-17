@@ -5,8 +5,10 @@ import com.sopetit.softie.data.entity.request.PostMemberHappyRoutineRequest
 import com.sopetit.softie.data.entity.response.HappyProgressResponse
 import com.sopetit.softie.data.entity.response.MemberHappyRoutinePostResponse
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface MemberHappinessRoutineService {
     @GET("api/v1/routines/happiness/member")
@@ -14,4 +16,7 @@ interface MemberHappinessRoutineService {
 
     @POST("api/v1/routines/happiness/member")
     suspend fun postMemberHappyRoutine(@Body request: PostMemberHappyRoutineRequest): BaseResponse<MemberHappyRoutinePostResponse>
+
+    @DELETE("api/v1/routines/happiness/member/routine/{routineId}")
+    suspend fun deleteMemberHappyRoutine(@Path("routineId") routineId: Int): BaseResponse<Unit>
 }

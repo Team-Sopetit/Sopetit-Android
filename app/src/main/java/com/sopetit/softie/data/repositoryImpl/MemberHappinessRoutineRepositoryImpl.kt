@@ -18,4 +18,7 @@ class MemberHappinessRoutineRepositoryImpl @Inject constructor(
         runCatching { memberHappinessRoutineDataSource.postMemberHappyRoutine(request) }.map { response ->
             requireNotNull(response.data).routineId
         }
+
+    override suspend fun deleteMemberHappyRoutine(routineId: Int): Result<Unit> =
+        runCatching { memberHappinessRoutineDataSource.deleteMemberHappyRoutine(routineId) }
 }
