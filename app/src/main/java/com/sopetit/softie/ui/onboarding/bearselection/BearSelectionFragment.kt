@@ -30,6 +30,7 @@ class BearSelectionFragment :
 
     private fun initChangeFragment() {
         binding.btnBearSelection.setOnClickListener {
+            viewModel.setBearType()
             activityViewModel.changeBearNameChoiceView()
             activityViewModel.setSelectedBearType(viewModel.selectedBearType.value ?: BROWN)
 
