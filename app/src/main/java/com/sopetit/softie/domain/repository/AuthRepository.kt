@@ -1,4 +1,5 @@
 package com.sopetit.softie.domain.repository
+
 import com.sopetit.softie.domain.entity.Token
 
 interface AuthRepository {
