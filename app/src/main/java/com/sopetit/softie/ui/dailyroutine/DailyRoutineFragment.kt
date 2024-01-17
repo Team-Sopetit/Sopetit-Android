@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
-import com.sopetit.softie.domain.entity.Bear
+import com.sopetit.softie.ui.dailyroutine.complete.DailyRoutineCompleteActivity
 import com.sopetit.softie.ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity
 import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
 import com.sopetit.softie.util.binding.BindingAdapter.setCoilImage
@@ -23,9 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class DailyRoutineFragment :
     BindingFragment<FragmentDailyRoutineBinding>(R.layout.fragment_daily_routine) {
-
     private val viewModel by viewModels<DailyRoutineViewModel>()
-    private lateinit var bundle: Bundle
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,18 +34,11 @@ class DailyRoutineFragment :
         viewModel.getDailyRoutine()
 
         moveToAddRoutine()
-        getBundle()
         initSetDailyRoutineContent()
         initSetDeleteView()
         initSetRoutineDelete()
         addDailyRoutineMsg()
         achieveRoutine()
-    }
-
-    private fun getBundle() {
-        bundle = Bundle().apply {
-            putSerializable("key", Bear.RED)
-        }
     }
 
     private fun initSetDailyRoutineContent() {
@@ -262,7 +253,6 @@ class DailyRoutineFragment :
     private fun startDailyRoutineCompleteActivity() {
         val intentToCompleteActivity =
             Intent(requireActivity(), DailyRoutineCompleteActivity::class.java)
-        intentToCompleteActivity.putExtras(bundle)
         startActivity(intentToCompleteActivity)
     }
 
