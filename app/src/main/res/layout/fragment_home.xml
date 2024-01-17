@@ -72,6 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="6dp"
+            android:gravity="center"
             android:textColor="@color/gray700"
             app:layout_constraintBottom_toBottomOf="@id/iv_home_speech"
             app:layout_constraintEnd_toEndOf="@id/iv_home_speech"
@@ -98,11 +99,9 @@
             app:layout_constraintBottom_toTopOf="@id/cl_home_som_white"
             app:layout_constraintDimensionRatio="0.8"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            app:lottie_rawRes="@raw/red_hello" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             style="@style/bubble16"
