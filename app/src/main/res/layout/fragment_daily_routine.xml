@@ -34,11 +34,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="6dp"
+            android:clickable="@{viewModel.dailyRoutineListResponse.size() == 0 ? false : true}"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="12dp"
             android:text="@{viewModel.isDeleteView ? @string/daily_routine_edit_cancel : @string/daily_routine_edit}"
             android:textAppearance="@style/body4"
             android:textColor="@color/gray400"
-            android:paddingVertical="12dp"
-            android:paddingHorizontal="14dp"
             app:layout_constraintBottom_toBottomOf="@id/tv_daily_routine_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_daily_routine_name" />
@@ -47,17 +48,17 @@
             android:id="@+id/v_daily_routine_blank"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:visibility="@{viewModel.mockDailyRoutineList.size() == 0 ? View.VISIBLE : View.GONE}"
+            android:visibility="@{viewModel.dailyRoutineListResponse.size() == 0 ? View.VISIBLE : View.GONE}"
             app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_name" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_daily_routine_first"
             android:layout_width="0dp"
-            android:layout_height="136dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
-            android:visibility="@{viewModel.mockDailyRoutineList.size() >= 1 ? View.VISIBLE : View.GONE}"
+            android:visibility="@{viewModel.dailyRoutineListResponse.size() >= 1 ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_name">
@@ -88,6 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
+                android:lineSpacingMultiplier="1.5"
                 android:text="@string/daily_routine_user_add"
                 android:textAppearance="@style/body1"
                 app:layout_constraintStart_toEndOf="@id/iv_daily_routine_icon_first"
@@ -108,9 +110,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="5dp"
-                android:text="@{@string/daily_routine_ing(viewModel.mockDailyRoutineList[0].achieveCount)}"
+                android:layout_marginBottom="21dp"
+                android:text="@{@string/daily_routine_ing(viewModel.dailyRoutineListResponse[0].achieveCount)}"
                 android:textAppearance="@style/caption1"
                 android:textColor="@color/gray300"
+                app:layout_constraintBottom_toTopOf="@id/btn_daily_routine_yet_fin_first"
                 app:layout_constraintStart_toEndOf="@id/iv_daily_routine_fin_first"
                 app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_add_name_first" />
 
@@ -119,20 +123,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="82dp"
                 android:layout_marginBottom="16dp"
                 android:background="@{viewModel.isRoutineAchieveFirst ? @drawable/shape_gray100_fill_10_rect : @drawable/shape_main1_fill_10_rect}"
-                android:enabled="@{!viewModel.isRoutineAchieveFirst}"
                 android:clickable="@{!viewModel.isRoutineAchieveFirst}"
-                android:text="@{viewModel.isRoutineAchieveFirst ? @string/daily_routine_fin : @string/daily_routine_fin_btn}"
+                android:enabled="@{!viewModel.isRoutineAchieveFirst}"
                 android:minHeight="0dp"
+                android:outlineProvider="none"
                 android:paddingTop="10dp"
                 android:paddingBottom="11dp"
+                android:text="@{viewModel.isRoutineAchieveFirst ? @string/daily_routine_fin : @string/daily_routine_fin_btn}"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/white"
-                android:outlineProvider="none"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -141,11 +147,11 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_daily_routine_second"
             android:layout_width="0dp"
-            android:layout_height="136dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
-            android:visibility="@{viewModel.mockDailyRoutineList.size() >= 2 ? View.VISIBLE : View.GONE}"
+            android:visibility="@{viewModel.dailyRoutineListResponse.size() >= 2 ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_daily_routine_first">
@@ -176,6 +182,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
+                android:lineSpacingMultiplier="1.5"
                 android:text="@string/daily_routine_user_add"
                 android:textAppearance="@style/body1"
                 app:layout_constraintStart_toEndOf="@id/iv_daily_routine_icon_second"
@@ -183,8 +190,8 @@
 
             <ImageView
                 android:id="@+id/iv_daily_routine_fin_second"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
                 android:layout_marginTop="6dp"
                 android:src="@drawable/ic_daily_fin"
                 app:layout_constraintStart_toStartOf="@id/tv_daily_routine_add_name_second"
@@ -196,9 +203,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="21dp"
                 android:text="@string/daily_routine_ing"
                 android:textAppearance="@style/caption1"
                 android:textColor="@color/gray300"
+                app:layout_constraintBottom_toTopOf="@id/btn_daily_routine_yet_fin_second"
                 app:layout_constraintStart_toEndOf="@id/iv_daily_routine_fin_second"
                 app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_add_name_second" />
 
@@ -207,28 +216,30 @@
                 android:layout_width="0dp"
                 android:layout_height="38dp"
                 android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="82dp"
                 android:layout_marginBottom="16dp"
                 android:background="@{viewModel.isRoutineAchieveSecond ? @drawable/shape_gray100_fill_10_rect : @drawable/shape_main1_fill_10_rect}"
-                android:enabled="@{!viewModel.isRoutineAchieveSecond}"
                 android:clickable="@{!viewModel.isRoutineAchieveSecond}"
+                android:enabled="@{!viewModel.isRoutineAchieveSecond}"
+                android:outlineProvider="none"
                 android:text="@{viewModel.isRoutineAchieveSecond ? @string/daily_routine_fin : @string/daily_routine_fin_btn}"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/white"
-                android:outlineProvider="none"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_daily_routine_third"
             android:layout_width="0dp"
-            android:layout_height="136dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
-            android:visibility="@{viewModel.mockDailyRoutineList.size() == 3 ? View.VISIBLE : View.GONE}"
+            android:visibility="@{viewModel.dailyRoutineListResponse.size() == 3 ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_daily_routine_second">
@@ -259,6 +270,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
+                android:lineSpacingMultiplier="1.5"
                 android:text="@string/daily_routine_user_add"
                 android:textAppearance="@style/body1"
                 app:layout_constraintStart_toEndOf="@id/iv_daily_routine_icon_third"
@@ -279,9 +291,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="21dp"
                 android:text="@string/daily_routine_ing"
                 android:textAppearance="@style/caption1"
                 android:textColor="@color/gray300"
+                app:layout_constraintBottom_toTopOf="@id/btn_daily_routine_yet_fin_third"
                 app:layout_constraintStart_toEndOf="@id/iv_daily_routine_fin_third"
                 app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_add_name_third" />
 
@@ -290,20 +304,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="82dp"
                 android:layout_marginBottom="16dp"
                 android:background="@{viewModel.isRoutineAchieveThird ? @drawable/shape_gray100_fill_10_rect : @drawable/shape_main1_fill_10_rect}"
-                android:enabled="@{!viewModel.isRoutineAchieveThird}"
                 android:clickable="@{!viewModel.isRoutineAchieveThird}"
-                android:text="@{viewModel.isRoutineAchieveThird ? @string/daily_routine_fin : @string/daily_routine_fin_btn}"
+                android:enabled="@{!viewModel.isRoutineAchieveThird}"
                 android:minHeight="0dp"
+                android:outlineProvider="none"
                 android:paddingTop="10dp"
                 android:paddingBottom="11dp"
+                android:text="@{viewModel.isRoutineAchieveThird ? @string/daily_routine_fin : @string/daily_routine_fin_btn}"
                 android:textAppearance="@style/body4"
                 android:textColor="@color/white"
-                android:outlineProvider="none"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -315,7 +331,7 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/shape_gray200_line_20_rect"
             android:clickable="true"
-            android:visibility="@{viewModel.mockDailyRoutineList.size() == 3 ? View.GONE : View.VISIBLE}"
+            android:visibility="@{viewModel.dailyRoutineListResponse.size() == 3 ? View.GONE : View.VISIBLE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_daily_routine_third">
@@ -340,13 +356,13 @@
             android:background="@{viewModel.isEditBtnEnabled ? @drawable/shape_red_fill_12_rect : @drawable/shape_gray200_fill_12_rect}"
             android:clickable="@{viewModel.isEditBtnEnabled ? true : false}"
             android:enabled="@{viewModel.isEditBtnEnabled ? true : false}"
+            android:outlineProvider="none"
             android:paddingTop="20dp"
             android:paddingBottom="18dp"
             android:text="@{@string/daily_routine_edit_delete(viewModel.editRoutineIdArray.size)}"
             android:textAppearance="@style/body1"
             android:textColor="@color/gray000"
             android:visibility="@{viewModel.isDeleteView ? View.VISIBLE : View.INVISIBLE}"
-            android:outlineProvider="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
