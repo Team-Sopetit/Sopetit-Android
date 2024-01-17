@@ -27,6 +27,12 @@ abstract class RepositoryModule {
 
     @Binds
     @Singleton
+    abstract fun bindToAuthRepository(
+        authRepositoryImpl: AuthRepositoryImpl
+    ): AuthRepository
+
+    @Binds
+    @Singleton
     abstract fun bindToDailyRoutineRepository(
         dailyRoutineRepositoryImpl: DailyRoutineRepositoryImpl
     ): DailyRoutineRepository

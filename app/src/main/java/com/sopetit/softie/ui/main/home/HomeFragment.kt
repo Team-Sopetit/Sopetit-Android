@@ -9,6 +9,10 @@ import androidx.fragment.app.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHomeBinding
 import com.sopetit.softie.domain.entity.Cotton
+import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.BROWN
+import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.GRAY
+import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.RED
+import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.WHITE
 import com.sopetit.softie.ui.setting.SettingActivity
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setStatusBarColor
@@ -41,16 +45,16 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         sharedPreferences =
             this.requireActivity().getSharedPreferences("user", Context.MODE_PRIVATE)
         sharedPreferences.edit()
-            .putString("bearType", viewModel.homeResponse.value?.dollType ?: "BROWN").commit()
+            .putString("bearType", viewModel.homeResponse.value?.dollType ?: BROWN).commit()
     }
 
     private fun setUserLottieList() {
         viewModel.getHome()
         userLottieList = when (viewModel.homeResponse.value?.dollType) {
-            "BROWN" -> brownBearLottieList
-            "GRAY" -> grayBearLottieList
-            "RED" -> redBearLottieList
-            "PANDA" -> pandaBearLottieList
+            BROWN -> brownBearLottieList
+            GRAY -> grayBearLottieList
+            RED -> redBearLottieList
+            WHITE -> pandaBearLottieList
             else -> brownBearLottieList
         }
     }

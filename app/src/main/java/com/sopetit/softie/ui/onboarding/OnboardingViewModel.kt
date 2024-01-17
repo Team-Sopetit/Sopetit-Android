@@ -47,8 +47,8 @@ class OnboardingViewModel @Inject constructor(
     val layoutTranslucent: LiveData<Boolean>
         get() = _layoutTranslucent
 
-    private val _selectedBearType: MutableLiveData<Int> = MutableLiveData()
-    val selectedBearType: LiveData<Int> get() = _selectedBearType
+    private val _selectedBearType: MutableLiveData<String> = MutableLiveData()
+    val selectedBearType: LiveData<String> get() = _selectedBearType
 
     private val _bearNickname: MutableLiveData<String> = MutableLiveData("")
     val bearNickname: LiveData<String> get() = _bearNickname
@@ -89,7 +89,7 @@ class OnboardingViewModel @Inject constructor(
         _layoutTranslucent.value = boolean
     }
 
-    fun setSelectedBearType(bearType: Int) {
+    fun setSelectedBearType(bearType: String) {
         _selectedBearType.value = bearType
     }
 
@@ -97,13 +97,13 @@ class OnboardingViewModel @Inject constructor(
         _bearNickname.value = nickname
     }
 
-    fun setDollFace(type: Int) {
+    fun setDollFace(type: String) {
         viewModelScope.launch {
             when (type) {
-                BROWN_BEAR -> getDollUseCase.invoke(BROWN)
-                GRAY_BEAR -> getDollUseCase.invoke(GRAY)
-                PANDA_BEAR -> getDollUseCase.invoke(WHITE)
-                RED_BEAR -> getDollUseCase.invoke(RED)
+                BROWN -> getDollUseCase.invoke(BROWN)
+                GRAY -> getDollUseCase.invoke(GRAY)
+                WHITE -> getDollUseCase.invoke(WHITE)
+                RED -> getDollUseCase.invoke(RED)
                 else -> getDollUseCase.invoke(BROWN)
             }.onSuccess { response ->
                 _bearFace.value = response
@@ -115,12 +115,7 @@ class OnboardingViewModel @Inject constructor(
     }
 
     companion object {
-        const val NONE = 0
-        const val BROWN_BEAR = 1
-        const val GRAY_BEAR = 2
-        const val PANDA_BEAR = 3
-        const val RED_BEAR = 4
-
+        const val NONE = ""
         const val BROWN = "BROWN"
         const val GRAY = "GRAY"
         const val WHITE = "WHITE"
