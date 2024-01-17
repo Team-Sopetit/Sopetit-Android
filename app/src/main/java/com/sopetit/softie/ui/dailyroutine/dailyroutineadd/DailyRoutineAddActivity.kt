@@ -11,6 +11,7 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.sopetit.softie.R
+import com.sopetit.softie.data.entity.request.AddDailyRoutineRequest
 import com.sopetit.softie.databinding.ActivityDailyRoutineAddBinding
 import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.ui.main.MainActivity
@@ -18,7 +19,9 @@ import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.setStatusBarColorFromResource
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DailyRoutineAddActivity :
     BindingActivity<ActivityDailyRoutineAddBinding>(R.layout.activity_daily_routine_add) {
     private lateinit var viewPager: ViewPager2
@@ -30,8 +33,12 @@ class DailyRoutineAddActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewPager = binding.vpDailyRoutineAddCard
+
         binding.viewModel = dailyRoutineAddViewModel
         setStatusBarColorFromResource(R.color.background)
+
+        val request = AddDailyRoutineRequest(routineId = 1)
+        initSetDailyRoutineAdd(request)
 
         setupAdapter()
         setViewPager()
@@ -40,11 +47,9 @@ class DailyRoutineAddActivity :
         setItemDiv()
         initPagerDiv(0, 90)
         addClickListener()
-        initSetDailyRoutineAdd()
     }
 
     private fun addClickListener() {
-        addRoutine()
         backToDailyRoutine()
     }
 
@@ -146,22 +151,14 @@ class DailyRoutineAddActivity :
         binding.rvDailyRoutineAddTheme.addItemDecoration(HorizontalItemDecorator(16))
     }
 
-    private fun addRoutine() {
-        binding.btnDailyRoutineAdd.setOnClickListener {
-            finish()
-        }
-    }
-
     private fun backToDailyRoutine() {
         binding.ivDailyRoutineAddBack.setOnClickListener {
             finish()
         }
     }
 
-    private fun initSetDailyRoutineAdd() {
+    private fun initSetDailyRoutineAdd(request: AddDailyRoutineRequest) {
         binding.btnDailyRoutineAdd.setOnClickListener {
-            // TODO 서버통신 구현 후 imageUri 버전으로 수정
-
             BindingBottomSheet.Builder().build(
                 isDrawable = false,
                 imageDrawable = 0,
@@ -176,6 +173,7 @@ class DailyRoutineAddActivity :
                 backBtnAction = {},
                 doBtnAction = {
                     tossMsg()
+                    dailyRoutineAddViewModel.postAddDailyRoutine(request.routineId)
                 }
             ).show(supportFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
         }
@@ -191,5 +189,6 @@ class DailyRoutineAddActivity :
         const val VIEW_PAGE = 3
         const val PADDING_PAGE = 40
         const val PADDING_CARD = 0
+        const val ID = "id"
     }
 }
