@@ -10,6 +10,7 @@ import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyRoutineBinding
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity
+import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.BROWN
 import com.sopetit.softie.util.binding.BindingFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,7 +26,7 @@ class HappyRoutineFragment :
 
         sharedPreferences =
             this.requireActivity().getSharedPreferences("user", Context.MODE_PRIVATE)
-        val bearType = sharedPreferences.getString("bearType", "BROWN")
+        val bearType = sharedPreferences.getString("bearType", BROWN)
 
         initSetBearFace(bearType)
         setCardEnter()
