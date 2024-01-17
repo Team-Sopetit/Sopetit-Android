@@ -21,7 +21,6 @@ class HappyDetailCardViewModel @Inject constructor(
     private val _happyCardResponse = MutableLiveData<HappyCard>()
     val happyCardResponse: LiveData<HappyCard> get() = _happyCardResponse
 
-
     private val _isPostAddRoutine: MutableLiveData<Boolean> = MutableLiveData()
     val isPostAddRoutine: LiveData<Boolean>
         get() = _isPostAddRoutine
