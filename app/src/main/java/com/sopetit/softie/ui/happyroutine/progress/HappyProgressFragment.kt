@@ -2,10 +2,10 @@ package com.sopetit.softie.ui.happyroutine.progress
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyProgressBinding
-import com.sopetit.softie.domain.entity.HappyProgress
 import com.sopetit.softie.ui.happyroutine.HappyRoutineFragment
 import com.sopetit.softie.ui.happyroutine.delete.HappyDeleteFragment
 import com.sopetit.softie.util.OriginalBottomSheet
@@ -16,11 +16,13 @@ import com.sopetit.softie.util.snackBar
 class HappyProgressFragment :
     BindingFragment<FragmentHappyProgressBinding>(R.layout.fragment_happy_progress) {
 
+    private val viewModel by viewModels<HappyProgressViewModel>()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val viewModel: HappyProgressViewModel by activityViewModels()
-        val happyProgress = viewModel.mockHappyProgress
+        /*val viewModel: HappyProgressViewModel by activityViewModels()*/
+        val happyProgress = viewModel.getHappyProgress()
 
         setCardBinding(happyProgress)
         setCardEnter()
@@ -28,15 +30,16 @@ class HappyProgressFragment :
         setClearEnter()
     }
 
-    private fun setCardBinding(happyProgress: HappyProgress) {
+    private fun setCardBinding(happyProgress: Unit) {
         with(binding) {
-            tvHappyProgressSubtitle.text = happyProgress.title
-            ivHappyProgressCardFront.setImageResource(happyProgress.imageUrl)
-            tvHappyProgressCardFrontTitle.text = happyProgress.content
-            tvHappyProgressCardBackTitle.text = happyProgress.detailTitle
-            tvHappyProgressCardBackContent.text = happyProgress.detailContent
-            tvHappyProgressCardBackTime.text = happyProgress.detailTime
-            tvHappyProgressCardBackPlace.text = happyProgress.detailPlace
+            tvHappyProgressSubtitle.text = viewModel.happyProgressResponse.value?.title
+            ivHappyProgressCardFront.load(viewModel.happyProgressResponse.value?.contentImageUrl)
+            tvHappyProgressCardFrontTitle.text = viewModel.happyProgressResponse.value?.content
+            tvHappyProgressCardBackTitle.text = viewModel.happyProgressResponse.value?.content
+            tvHappyProgressCardBackContent.text =
+                viewModel.happyProgressResponse.value?.detailContent
+            tvHappyProgressCardBackTime.text = viewModel.happyProgressResponse.value?.timeTaken
+            tvHappyProgressCardBackPlace.text = viewModel.happyProgressResponse.value?.place
         }
     }
 
@@ -102,6 +105,8 @@ class HappyProgressFragment :
     }
 
     private fun setClearEnter() {
-        initHappyRoutineCompleteBottomSheet()
+        binding.btnHappyProgressClear.setOnClickListener {
+            initHappyRoutineCompleteBottomSheet()
+        }
     }
 }
