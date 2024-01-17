@@ -7,7 +7,7 @@ import android.os.Looper
 import androidx.core.content.ContextCompat
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivitySplashBinding
-import com.sopetit.softie.ui.main.LoginActivity
+import com.sopetit.softie.ui.login.LoginActivity
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.setStatusBarColorFromResource
 import kotlin.random.Random
