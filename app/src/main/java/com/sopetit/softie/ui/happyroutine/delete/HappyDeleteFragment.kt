@@ -30,7 +30,7 @@ class HappyDeleteFragment :
     }
 
     private fun setCardBinding(happyProgress: Unit) {
-        viewModel.happyProgressResponse.observe(this) { happyProgress ->
+        viewModel.happyProgressResponse.observe(viewLifecycleOwner) { happyProgress ->
             happyProgress?.let {
                 with(binding) {
                     tvHappyDeleteSubtitle.text = happyProgress.title
