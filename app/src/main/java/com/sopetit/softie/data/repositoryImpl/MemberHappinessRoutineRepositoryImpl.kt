@@ -1,9 +1,8 @@
 package com.sopetit.softie.data.repositoryImpl
 
-import com.sopetit.softie.data.source.MemberHappinessRoutineDataSource
-import com.sopetit.softie.domain.entity.HappyProgress
 import com.sopetit.softie.data.entity.request.PostMemberHappyRoutineRequest
 import com.sopetit.softie.data.source.MemberHappinessRoutineDataSource
+import com.sopetit.softie.domain.entity.HappyProgress
 import com.sopetit.softie.domain.repository.MemberHappinessRoutineRepository
 import javax.inject.Inject
 
@@ -13,6 +12,8 @@ class MemberHappinessRoutineRepositoryImpl @Inject constructor(
     override suspend fun getHappyProgress(): Result<HappyProgress> =
         runCatching { memberHappinessRoutineDataSource.getHappyProgress() }.map { response ->
             requireNotNull(response.data).toHappyProgress()
+        }
+
     override suspend fun postMemberHappinessRoutine(request: PostMemberHappyRoutineRequest): Result<Int> =
         runCatching { memberHappinessRoutineDataSource.postMemberHappyRoutine(request) }.map { response ->
             requireNotNull(response.data).routineId
