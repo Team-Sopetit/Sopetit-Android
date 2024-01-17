@@ -1,5 +1,6 @@
 package com.sopetit.softie.di
 
+import com.sopetit.softie.data.service.AuthService
 import com.sopetit.softie.data.service.DailyRoutineService
 import com.sopetit.softie.data.service.DollService
 import com.sopetit.softie.data.service.HappinessRoutineService
@@ -28,4 +29,8 @@ object RetrofitServiceModule {
     @Provides
     fun providesDollService(@RetrofitModule.SoftieType retrofit: Retrofit): DollService =
         retrofit.create(DollService::class.java)
+
+    @Provides
+    fun providesAuthService(@RetrofitModule.SoftieType retrofit: Retrofit): AuthService =
+        retrofit.create(AuthService::class.java)
 }
