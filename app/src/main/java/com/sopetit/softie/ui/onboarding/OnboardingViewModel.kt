@@ -115,12 +115,6 @@ class OnboardingViewModel @Inject constructor(
     }
 
     companion object {
-//        const val NONE = 0
-//        const val BROWN_BEAR = 1
-//        const val GRAY_BEAR = 2
-//        const val PANDA_BEAR = 3
-//        const val RED_BEAR = 4
-
         const val NONE = ""
         const val BROWN = "BROWN"
         const val GRAY = "GRAY"
