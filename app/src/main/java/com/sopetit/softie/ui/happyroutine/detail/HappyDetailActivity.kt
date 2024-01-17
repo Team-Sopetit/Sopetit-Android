@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.RecyclerView
@@ -124,6 +125,11 @@ class HappyDetailActivity :
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         finish()
+        Log.d("HappyDetailActivity", "moveToProgress이 잘 되는가?")
+        /*Intent(this, MainActivity::class.java).apply {
+            putExtra(ID, id)
+            startActivity(this)
+        }*/
     }
 
     private fun setupAdapter(routineId: String) {

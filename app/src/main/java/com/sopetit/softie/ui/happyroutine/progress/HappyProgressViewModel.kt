@@ -6,10 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.domain.entity.HappyProgress
 import com.sopetit.softie.domain.usecase.GetHappyProgressUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
+@HiltViewModel
 class HappyProgressViewModel @Inject constructor(
     private val getHappyProgressUseCase: GetHappyProgressUseCase
 ) : ViewModel() {

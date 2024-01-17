@@ -12,7 +12,9 @@ import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.snackBar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HappyProgressFragment :
     BindingFragment<FragmentHappyProgressBinding>(R.layout.fragment_happy_progress) {
 
@@ -31,15 +33,22 @@ class HappyProgressFragment :
     }
 
     private fun setCardBinding(happyProgress: Unit) {
-        with(binding) {
-            tvHappyProgressSubtitle.text = viewModel.happyProgressResponse.value?.title
-            ivHappyProgressCardFront.load(viewModel.happyProgressResponse.value?.contentImageUrl)
-            tvHappyProgressCardFrontTitle.text = viewModel.happyProgressResponse.value?.content
-            tvHappyProgressCardBackTitle.text = viewModel.happyProgressResponse.value?.content
-            tvHappyProgressCardBackContent.text =
-                viewModel.happyProgressResponse.value?.detailContent
-            tvHappyProgressCardBackTime.text = viewModel.happyProgressResponse.value?.timeTaken
-            tvHappyProgressCardBackPlace.text = viewModel.happyProgressResponse.value?.place
+        viewModel.happyProgressResponse.observe(this) { happyProgress ->
+            happyProgress?.let {
+                with(binding) {
+                    tvHappyProgressSubtitle.text = viewModel.happyProgressResponse.value?.title
+                    ivHappyProgressCardFront.load(viewModel.happyProgressResponse.value?.contentImageUrl)
+                    tvHappyProgressCardFrontTitle.text =
+                        viewModel.happyProgressResponse.value?.content
+                    tvHappyProgressCardBackTitle.text =
+                        viewModel.happyProgressResponse.value?.content
+                    tvHappyProgressCardBackContent.text =
+                        viewModel.happyProgressResponse.value?.detailContent
+                    tvHappyProgressCardBackTime.text =
+                        viewModel.happyProgressResponse.value?.timeTaken
+                    tvHappyProgressCardBackPlace.text = viewModel.happyProgressResponse.value?.place
+                }
+            }
         }
     }
 
