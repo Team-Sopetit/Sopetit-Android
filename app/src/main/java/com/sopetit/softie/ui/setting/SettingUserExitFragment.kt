@@ -1,23 +1,36 @@
 package com.sopetit.softie.ui.setting
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentSettingUserExitBinding
+import com.sopetit.softie.ui.main.LoginActivity
 import com.sopetit.softie.util.binding.BindingFragment
+import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
+@AndroidEntryPoint
 class SettingUserExitFragment :
     BindingFragment<FragmentSettingUserExitBinding>(R.layout.fragment_setting_user_exit) {
+
+    private lateinit var viewModel: SettingViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel = ViewModelProvider(requireActivity()).get(SettingViewModel::class.java)
+        binding.viewModel = viewModel
+
+        initSetBear()
         initSetSpeechText()
         initSetClickBackBtn()
+        initSetClickExitBtn()
     }
 
     private fun initSetSpeechText() {
@@ -49,7 +62,19 @@ class SettingUserExitFragment :
 
     private fun initSetClickExitBtn() {
         binding.btnUserExitExit.setOnClickListener {
-            // TODO 회원탈퇴 로직 추가
+            viewModel.setDeleteAuth()
+
+            deleteAuth()
+        }
+    }
+
+    private fun deleteAuth() {
+        val intent = Intent(requireActivity(), LoginActivity::class.java)
+        viewModel.isDeleteAuthResponse.observe(viewLifecycleOwner) { deleteSuccess ->
+            if (deleteSuccess) {
+                Timber.d("setting -> 멤버 탈퇴 성공")
+                startActivity(intent)
+            }
         }
     }
 
