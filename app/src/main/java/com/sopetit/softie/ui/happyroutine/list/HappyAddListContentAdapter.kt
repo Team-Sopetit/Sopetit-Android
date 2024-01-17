@@ -1,9 +1,11 @@
-package com.sopetit.softie.ui.happyroutine.addlist
+package com.sopetit.softie.ui.happyroutine.list
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.sopetit.softie.databinding.ItemHappyAddListBinding
 import com.sopetit.softie.domain.entity.HappyContent
 import com.sopetit.softie.util.ItemDiffCallback
@@ -22,9 +24,10 @@ class HappyAddListContentAdapter(private val moveToDetail: (Int) -> Unit) :
     ) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: HappyContent) {
-            binding.tvHappyListItemTitle.text = data.title
-            binding.tvHappyListItemContent.text = data.content
-            binding.ivHappyListItemIcon.setImageResource(data.imageUrl)
+            binding.tvHappyListItemTitle.text = data.name
+            binding.tvHappyListItemTitle.setTextColor(Color.parseColor(data.nameColor))
+            binding.tvHappyListItemContent.text = data.title
+            binding.ivHappyListItemIcon.load(data.iconImageUrl)
 
             binding.root.setOnClickListener {
                 moveToDetail(data.routineId)

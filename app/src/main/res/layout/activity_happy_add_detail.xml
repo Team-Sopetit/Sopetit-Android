@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.sopetit.softie.ui.happyroutine.detail.HappyDetailCardViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/ic_back_arrow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -58,7 +61,7 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_happy_add_detail_card"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="398dp"
             android:layout_marginTop="24dp"
             android:clipChildren="false"
             android:clipToPadding="false"

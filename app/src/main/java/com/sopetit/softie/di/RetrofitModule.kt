@@ -2,6 +2,7 @@ package com.sopetit.softie.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.sopetit.softie.BuildConfig
+import com.sopetit.softie.data.source.LocalDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,13 +33,15 @@ object RetrofitModule {
     @Provides
     @Singleton
     @SoftieType
-    fun providesSoftieInterceptor(): Interceptor = Interceptor { chain ->
+    fun providesSoftieInterceptor(
+        localDataSource: LocalDataSource
+    ): Interceptor = Interceptor { chain ->
         val request = chain.request()
         var response = chain.proceed(
             request
                 .newBuilder()
                 .addHeader(CONTENT_TYPE, APPLICATION_JSON)
-                .addHeader(AUTHORIZATION, BEARER + BuildConfig.ACCESS_TOKEN)
+                .addHeader(AUTHORIZATION, BEARER + localDataSource.accessToken)
                 .build()
         )
         response

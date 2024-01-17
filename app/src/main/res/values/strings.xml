@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Softie</string>
 
+    <!-- util -->
+    <string name="finish_app_toast_msg">뒤로가기를 한 번 더 누르면 종료됩니다</string>
+
+    <!-- login -->
+    <string name="login_content">날 꺼내줘!</string>
+
     <!-- daily routine add -->
     <string name="daily_routine_add_title">데일리 루틴 추가</string>
     <string name="daily_routine_add_btn">이 루틴을 추가할래</string>
@@ -57,6 +63,13 @@
     <string name="happy_progress_bottom_sheet_content">한 번 완료하면 이전으로 되돌릴 수 없어요</string>
     <string name="happy_progress_sheet_do_btn">완료했어</string>
     <string name="happy_progress_sheet_back_btn">아니, 아직이야</string>
+
+    <!-- happy delete -->
+    <string name="happy_delete_destroy">취소</string>
+    <string name="happy_delete_button">삭제하기</string>
+    <string name="happy_delete_bottom_sheet_title">정말 삭제할까요?</string>
+    <string name="happy_delete_bottom_sheet_do_btn">삭제할래</string>
+    <string name="happy_delete_bottom_sheet_back_btn">취소</string>
 
     <!-- doll selection -->
     <string name="doll_selection_question">어떤 친구와 함께 할까요?</string>
