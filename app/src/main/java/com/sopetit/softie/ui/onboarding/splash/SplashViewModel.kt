@@ -1,4 +1,4 @@
-package com.sopetit.softie.ui.onboarding.splash // ktlint-disable filename
+package com.sopetit.softie.ui.onboarding.splash
 
 import androidx.lifecycle.ViewModel
 import com.sopetit.softie.domain.usecase.GetSignedUpUseCase
