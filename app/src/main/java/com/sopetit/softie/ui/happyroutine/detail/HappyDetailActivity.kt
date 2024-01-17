@@ -30,8 +30,7 @@ import kotlinx.coroutines.launch
 class HappyDetailActivity :
     BindingActivity<ActivityHappyAddDetailBinding>(R.layout.activity_happy_add_detail) {
     private lateinit var viewPager: ViewPager2
-    private lateinit var happyRoutineAddCardPagerAdapter: HappyDetailCardPagerAdapter
-
+    private val happyRoutineAddCardPagerAdapter = HappyDetailCardPagerAdapter()
     private val viewModel by viewModels<HappyDetailCardViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,8 +40,19 @@ class HappyDetailActivity :
         setStatusBarColorFromResource(R.color.background)
 
         val routineId = intent.getIntExtra(ID, -1).toString()
-        viewModel.getHappyCard(routineId)
 
+        setInitBinding(routineId)
+        setCurrentCard()
+        setBackEnter()
+        setupAdapter(routineId)
+        setIndicator()
+        initSetLoading()
+        initViewPager()
+        initPagerDiv(0, 90)
+    }
+
+    private fun setInitBinding(routineId: String) {
+        viewModel.getHappyCard(routineId)
         viewModel.happyCardResponse.observe(this) { happyCard ->
             happyCard?.let {
                 with(binding) {
@@ -51,16 +61,29 @@ class HappyDetailActivity :
                     tvHappyAddDetailSubtitle.text = happyCard.title
                     tvHappyAddDetailTitle.setTextColor(Color.parseColor(happyCard.nameColor))
                 }
-                setBottomSheetEnter(happyCard.iconImageUrl)
+                viewModel.mySubroutineId.observe(this) { mySubRoutineId ->
+                    mySubRoutineId?.let {
+                        setBottomSheetEnter(happyCard.iconImageUrl, mySubRoutineId)
+                    }
+                }
             }
         }
+    }
 
-        initSetLoading()
-        setBackEnter()
-        setupAdapter(routineId)
-        setIndicator()
-        initViewPager()
-        initPagerDiv(0, 90)
+    private fun setCurrentCard() {
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                val currentSubRoutineId = getCurrentSelectedSubRoutineId()
+                viewModel.setSubRoutineId(currentSubRoutineId)
+            }
+        })
+    }
+
+    private fun getCurrentSelectedSubRoutineId(): Int {
+        val currentItem = binding.vpHappyAddDetailCard.currentItem
+        val itemId = happyRoutineAddCardPagerAdapter.getItemId(currentItem)
+        return itemId.toInt()
     }
 
     private fun setBackEnter() {
@@ -69,13 +92,13 @@ class HappyDetailActivity :
         }
     }
 
-    private fun setBottomSheetEnter(icon: String) {
+    private fun setBottomSheetEnter(icon: String, subRoutineId: Int) {
         binding.btnHappyDetailAdd.setOnClickListener {
-            initHappyRoutineAddBottomSheet(icon)
+            initHappyRoutineAddBottomSheet(icon, subRoutineId)
         }
     }
 
-    private fun initHappyRoutineAddBottomSheet(icon: String) {
+    private fun initHappyRoutineAddBottomSheet(icon: String, subRoutineId: Int) {
         BindingBottomSheet.Builder().build(
             isDrawable = false,
             imageDrawable = 0,
@@ -90,6 +113,7 @@ class HappyDetailActivity :
             backBtnAction = {},
             doBtnAction = {
                 moveToProgress()
+                viewModel.postAddRoutine(subRoutineId)
             }
         ).show(this.supportFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
     }
@@ -104,8 +128,6 @@ class HappyDetailActivity :
 
     private fun setupAdapter(routineId: String) {
         with(binding) {
-            happyRoutineAddCardPagerAdapter =
-                HappyDetailCardPagerAdapter()
             vpHappyAddDetailCard.adapter = happyRoutineAddCardPagerAdapter
         }
         viewModel.happyCardResponse.observe(this) { happyCard ->
