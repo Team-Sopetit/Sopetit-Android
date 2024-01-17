@@ -19,9 +19,14 @@ class LocalDataSource @Inject constructor(
         set(value) = prefs.edit { putBoolean(USER, value) }
         get() = prefs.getBoolean(USER, false)
 
+    var bearType: String
+        set(value) = prefs.edit { putString(BEAR_TYPE, value) }
+        get() = prefs.getString(BEAR_TYPE, "BROWN") ?: "BROWN"
+
     companion object {
         private const val ACCESS_TOKEN = "access_token"
         private const val REFRESH_TOKEN = "refresh_token"
         private const val USER = "user"
+        private const val BEAR_TYPE = "bear_type"
     }
 }

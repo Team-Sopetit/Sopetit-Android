@@ -1,5 +1,6 @@
 package com.sopetit.softie.ui.happyroutine.progress
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
@@ -7,6 +8,7 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyProgressBinding
 import com.sopetit.softie.domain.entity.HappyProgress
 import com.sopetit.softie.ui.happyroutine.HappyRoutineFragment
+import com.sopetit.softie.ui.happyroutine.complete.HappyRoutineCompleteActivity
 import com.sopetit.softie.ui.happyroutine.delete.HappyDeleteFragment
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
@@ -85,11 +87,12 @@ class HappyProgressFragment :
             doBtnColor = R.drawable.shape_main1_fill_12_rect,
             backBtnAction = {},
             doBtnAction = {
-                moveToHappyRoutineEmptyCardView()
+                startHappyRoutineCompleteActivity()
                 snackBar(
                     binding.btnHappyProgressClear,
-                    getString(R.string.happy_routine_delete_snack_bar)
+                    getString(R.string.happy_routine_complete_title)
                 )
+                moveToHappyRoutineEmptyCardView()
             }
         ).show(parentFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
     }
@@ -99,6 +102,12 @@ class HappyProgressFragment :
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.fcv_main, happyRoutineFragment)
             .commit()
+    }
+
+    private fun startHappyRoutineCompleteActivity() {
+        val intentToCompleteActivity =
+            Intent(requireActivity(), HappyRoutineCompleteActivity::class.java)
+        startActivity(intentToCompleteActivity)
     }
 
     private fun setClearEnter() {

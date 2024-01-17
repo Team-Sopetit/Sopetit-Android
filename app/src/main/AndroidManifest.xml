@@ -72,12 +72,12 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.happyroutine.HappyRoutineCompleteActivity"
+            android:name=".ui.happyroutine.complete.HappyRoutineCompleteActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.dailyroutine.DailyRoutineCompleteActivity"
+            android:name=".ui.dailyroutine.complete.DailyRoutineCompleteActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
