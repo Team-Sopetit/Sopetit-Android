@@ -47,17 +47,30 @@ class RoutineChoiceFragment :
     private fun initSetSelectRoutineBtn() {
         binding.btnOnboardingRoutineSelectRoutine.setOnClickListener {
             postMemberInfo()
-            val onboardingActivity = activity as OnboardingActivity
-
-            val intentToMain = Intent(activity, MainActivity::class.java)
-            startActivity(intentToMain)
-            ActivityCompat.finishAffinity(onboardingActivity)
         }
     }
 
     private fun postMemberInfo() {
-        Timber.d("routine -> ${viewModel.selectedRoutineArray.value}")
-        // TODO 프로필 생성 서버통신
+        viewModel.selectedRoutineArray.value?.let {
+            routineViewModel.postNewMember(
+                viewModel.selectedBearType.value ?: "",
+                viewModel.bearNickname.value ?: "",
+                it
+            )
+        }
+        moveToHome()
+    }
+
+    private fun moveToHome() {
+        val onboardingActivity = activity as OnboardingActivity
+        val intentToMain = Intent(activity, MainActivity::class.java)
+
+        routineViewModel.isPostNewMember.observe(viewLifecycleOwner) { isPostSuccess ->
+            if (isPostSuccess) {
+                startActivity(intentToMain)
+                ActivityCompat.finishAffinity(onboardingActivity)
+            }
+        }
     }
 
     private fun initMakeRoutineAdapter() {

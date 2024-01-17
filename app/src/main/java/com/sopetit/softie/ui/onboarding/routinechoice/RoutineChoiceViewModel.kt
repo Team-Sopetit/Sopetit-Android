@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sopetit.softie.data.entity.request.PostMemberRequest
 import com.sopetit.softie.domain.entity.Routine
 import com.sopetit.softie.domain.usecase.dailyroutine.GetRoutineListUseCase
 import com.sopetit.softie.domain.usecase.member.PostMemberUseCase
@@ -30,6 +31,10 @@ class RoutineChoiceViewModel @Inject constructor(
     val isRoutineBtnEnabled: LiveData<Boolean>
         get() = _isRoutineBtnEnabled
 
+    private val _isPostNewMember: MutableLiveData<Boolean> = MutableLiveData()
+    val isPostNewMember: LiveData<Boolean>
+        get() = _isPostNewMember
+
     fun getRoutineList(themeId: List<Int>) {
         viewModelScope.launch {
             getRoutineListUseCase.invoke(themeId)
@@ -48,5 +53,20 @@ class RoutineChoiceViewModel @Inject constructor(
 
     fun setRoutineBtnEnabled(isEnabled: Boolean) {
         _isRoutineBtnEnabled.value = isEnabled
+    }
+
+    fun postNewMember(dollType: String, name: String, routines: ArrayList<Int>) {
+        viewModelScope.launch {
+            postMemberUseCase.invoke(
+                PostMemberRequest(
+                    dollType, name, routines
+                )
+            ).onSuccess {
+                _isPostNewMember.value = true
+            }.onFailure { throwable ->
+                _isPostNewMember.value = false
+                Timber.e("서버 통신 실패 ${throwable.message}")
+            }
+        }
     }
 }
