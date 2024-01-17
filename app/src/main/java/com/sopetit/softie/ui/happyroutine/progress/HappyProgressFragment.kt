@@ -68,6 +68,7 @@ class HappyProgressFragment :
             val happyDeleteFragment = HappyDeleteFragment()
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.fcv_main, happyDeleteFragment)
+                .addToBackStack(null)
                 .commit()
         }
     }
