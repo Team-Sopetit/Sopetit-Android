@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">Softie</string>
 
+    <!-- bear type -->
+    <string name="brown">BROWN</string>
+    <string name="red">RED</string>
+    <string name="white">WHITE</string>
+    <string name="gray">GRAY</string>
+    <string name="none"></string>
+
     <!-- daily routine add -->
     <string name="daily_routine_add_title">데일리 루틴 추가</string>
     <string name="daily_routine_add_btn">이 루틴을 추가할래</string>
