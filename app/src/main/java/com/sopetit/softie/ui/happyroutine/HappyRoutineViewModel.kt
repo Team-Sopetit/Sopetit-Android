@@ -3,37 +3,35 @@ package com.sopetit.softie.ui.happyroutine
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sopetit.softie.R
-import com.sopetit.softie.domain.entity.HappyDoll
+import androidx.lifecycle.viewModelScope
+import com.sopetit.softie.domain.usecase.doll.GetDollUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import timber.log.Timber
+import javax.inject.Inject
 
-class HappyRoutineViewModel : ViewModel() {
+@HiltViewModel
+class HappyRoutineViewModel @Inject constructor(
+    private val getDollUseCase: GetDollUseCase
+) : ViewModel() {
+    private val _bearFace: MutableLiveData<String> = MutableLiveData()
+    val bearFace: LiveData<String>
+        get() = _bearFace
 
-    private val _mockHappyDollList: MutableLiveData<List<HappyDoll>> = MutableLiveData(
-        mutableListOf(
-            HappyDoll(
-                faceImageUrl = R.drawable.ic_bear_face_1
-            ),
-            HappyDoll(
-                faceImageUrl = R.drawable.ic_bear_face_2
-            ),
-            HappyDoll(
-                faceImageUrl = R.drawable.ic_bear_face_3
-            ),
-            HappyDoll(
-                faceImageUrl = R.drawable.ic_bear_face_4
-            ),
-        )
-    )
-
-    val mockHappyDollList: LiveData<List<HappyDoll>> get() = _mockHappyDollList
-
-    fun getFaceImageUrl(type: String): Int {
-        return when (type) {
-            "BROWN" -> R.drawable.ic_bear_face_1
-            "GRAY" -> R.drawable.ic_bear_face_2
-            "PANDA" -> R.drawable.ic_bear_face_3
-            "RED" -> R.drawable.ic_bear_face_4
-            else -> R.drawable.ic_bear_face_1
+    fun setDollFace(type: String) {
+        viewModelScope.launch {
+            when (type) {
+                "BROWN" -> getDollUseCase.invoke(type)
+                "GRAY" -> getDollUseCase.invoke(type)
+                "PANDA" -> getDollUseCase.invoke(type)
+                "RED" -> getDollUseCase.invoke(type)
+                else -> getDollUseCase.invoke("BROWN")
+            }.onSuccess { response ->
+                _bearFace.value = response
+                Timber.d("곰돌이 서버 통신 성공 -> $response")
+            }.onFailure {
+                Timber.e("곰돌이 서버 통신 실패 -> ${it.message}")
+            }
         }
     }
 }
