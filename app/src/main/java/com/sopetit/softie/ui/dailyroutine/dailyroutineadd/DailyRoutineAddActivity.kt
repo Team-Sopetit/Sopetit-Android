@@ -179,13 +179,11 @@ class DailyRoutineAddActivity :
         }
     }
 
-
     private fun tossMsg() {
         val resultIntent = Intent(this, MainActivity::class.java)
         setResult(Activity.RESULT_OK, resultIntent)
         finish()
     }
-
 
     companion object {
         const val VIEW_PAGE = 3

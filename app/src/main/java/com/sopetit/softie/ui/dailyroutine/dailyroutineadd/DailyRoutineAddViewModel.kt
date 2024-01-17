@@ -548,7 +548,6 @@ class DailyRoutineAddViewModel @Inject constructor(private val postAddDailyRouti
             )
         )
 
-
     private val themeDailyRoutineList: LiveData<List<DailyRoutineAdd>>
         get() = _themeDailyRoutineList
 
@@ -571,9 +570,6 @@ class DailyRoutineAddViewModel @Inject constructor(private val postAddDailyRouti
                     Timber.e("$throwable")
                     Timber.d("추가 실패")
                 }
-
         }
     }
-
-
 }

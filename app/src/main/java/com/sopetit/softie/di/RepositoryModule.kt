@@ -33,7 +33,6 @@ abstract class RepositoryModule {
         dailyRoutineRepositoryImpl: DailyRoutineRepositoryImpl
     ): DailyRoutineRepository
 
-
     @Binds
     @Singleton
     abstract fun bindToDollRepository(
