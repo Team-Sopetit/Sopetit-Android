@@ -7,11 +7,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentOnboardingBearNamingBinding
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
-import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.BROWN_BEAR
-import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.GRAY_BEAR
+import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.BROWN
+import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.GRAY
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.NONE
-import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.PANDA_BEAR
-import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.RED_BEAR
+import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.RED
+import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.WHITE
 import com.sopetit.softie.util.binding.BindingFragment
 
 class BearNamingFragment :
@@ -34,10 +34,10 @@ class BearNamingFragment :
     private fun setLottieFile() {
         when (activityViewModel.selectedBearType.value) {
             NONE -> setLottieAnimation(R.raw.brown_hello)
-            BROWN_BEAR -> setLottieAnimation(R.raw.brown_hello)
-            GRAY_BEAR -> setLottieAnimation(R.raw.gray_hello)
-            RED_BEAR -> setLottieAnimation(R.raw.red_hello)
-            PANDA_BEAR -> setLottieAnimation(R.raw.panda_hello)
+            BROWN -> setLottieAnimation(R.raw.brown_hello)
+            GRAY -> setLottieAnimation(R.raw.gray_hello)
+            RED -> setLottieAnimation(R.raw.red_hello)
+            WHITE -> setLottieAnimation(R.raw.panda_hello)
         }
     }
 

@@ -9,10 +9,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BearSelectionViewModel @Inject constructor() : ViewModel() {
-    private val _selectedBearType: MutableLiveData<Int> = MutableLiveData(NONE)
-    val selectedBearType: LiveData<Int> get() = _selectedBearType
+    private val _selectedBearType: MutableLiveData<String> = MutableLiveData(NONE)
+    val selectedBearType: LiveData<String> get() = _selectedBearType
 
-    fun selectBearType(dollType: Int) {
+    fun selectBearType(dollType: String) {
         val isSameBearSelected = _selectedBearType.value == dollType
 
         if (isSameBearSelected) _selectedBearType.value = NONE
