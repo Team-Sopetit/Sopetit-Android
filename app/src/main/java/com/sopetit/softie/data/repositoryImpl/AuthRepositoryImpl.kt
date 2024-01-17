@@ -27,4 +27,8 @@ class AuthRepositoryImpl @Inject constructor(
     }
 
     override fun getSignedUp(): Boolean = localDataSource.isUserSignUp
+
+    override suspend fun logOut(): Result<Unit> = runCatching {
+        authDataSource.logOut()
+    }
 }
