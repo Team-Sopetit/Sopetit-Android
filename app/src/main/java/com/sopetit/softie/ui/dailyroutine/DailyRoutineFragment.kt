@@ -42,13 +42,6 @@ class DailyRoutineFragment :
         initSetRoutineDelete()
         addDailyRoutineMsg()
         achieveRoutine()
-        updateDailyRoutine()
-    }
-
-    private fun updateDailyRoutine() {
-        viewModel.isDailyRoutineDelete.observe(viewLifecycleOwner) {
-            if (viewModel.isDailyRoutineDelete.value == true) viewModel.getDailyRoutine()
-        }
     }
 
     private fun getBundle() {
@@ -58,6 +51,27 @@ class DailyRoutineFragment :
     }
 
     private fun initSetDailyRoutineContent() {
+        viewModel.dailyRoutineListResponse.observe(viewLifecycleOwner) { dailyRoutineList ->
+            when (dailyRoutineList.size) {
+                3 -> {
+                    makeRoutineItemThirdView()
+                    makeRoutineItemSecondView()
+                    makeRoutineItemFirstView()
+                }
+
+                2 -> {
+                    makeRoutineItemFirstView()
+                    makeRoutineItemSecondView()
+                }
+
+                1 -> {
+                    makeRoutineItemFirstView()
+                }
+            }
+        }
+    }
+
+    private fun makeRoutineItemFirstView() {
         with(binding) {
             routineItemView(
                 ivDailyRoutineIconFirst,
@@ -66,6 +80,11 @@ class DailyRoutineFragment :
                 btnDailyRoutineYetFinFirst,
                 0
             )
+        }
+    }
+
+    private fun makeRoutineItemSecondView() {
+        with(binding) {
             routineItemView(
                 ivDailyRoutineIconSecond,
                 tvDailyRoutineAddNameSecond,
@@ -73,6 +92,11 @@ class DailyRoutineFragment :
                 btnDailyRoutineYetFinSecond,
                 1
             )
+        }
+    }
+
+    private fun makeRoutineItemThirdView() {
+        with(binding) {
             routineItemView(
                 ivDailyRoutineIconThird,
                 tvDailyRoutineAddNameThird,
@@ -90,23 +114,16 @@ class DailyRoutineFragment :
         btn: View,
         index: Int
     ) {
-        viewModel.dailyRoutineListResponse.observe(viewLifecycleOwner) { dailyRoutineList ->
-            if (dailyRoutineList.isNotEmpty()) {
-                val achieveCountMsg =
-                    getString(R.string.daily_routine_ing).format(dailyRoutineList[index].achieveCount)
-                achieveMsg.text = achieveCountMsg
-                routineTitle.text = dailyRoutineList[index].content
-                dailyIcon.setCoilImage(dailyRoutineList[index].iconImageUrl)
-                viewModel.setRoutineAchieve(dailyRoutineList[index].isAchieve, index)
+        val dailyRoutine = viewModel.dailyRoutineListResponse.value
 
-                initSetDailyRoutineAchieve(btn, dailyRoutineList[index].routineId)
+        val achieveCountMsg =
+            getString(R.string.daily_routine_ing).format(dailyRoutine?.get(index)?.achieveCount)
+        achieveMsg.text = achieveCountMsg
+        routineTitle.text = dailyRoutine?.get(index)?.content
+        dailyIcon.setCoilImage(dailyRoutine?.get(index)?.iconImageUrl)
+        viewModel.setRoutineAchieve(dailyRoutine?.get(index)?.isAchieve ?: false, index)
 
-            } else {
-                binding.clDailyRoutineFirst.visibility = View.GONE
-                binding.clDailyRoutineSecond.visibility = View.GONE
-                binding.clDailyRoutineThird.visibility = View.GONE
-            }
-        }
+        initSetDailyRoutineAchieve(btn, dailyRoutine?.get(index)?.routineId ?: 0)
     }
 
     private fun achieveRoutine() {
@@ -165,12 +182,28 @@ class DailyRoutineFragment :
     }
 
     private fun clickEditRadioBtn() {
-        viewModel.getDailyRoutine()
         viewModel.dailyRoutineListResponse.observe(viewLifecycleOwner) { routineList ->
-            with(binding) {
-                changeBtnSelectState(btnDailyRoutineRadioFirst, routineList[0].routineId)
-                changeBtnSelectState(btnDailyRoutineRadioSecond, routineList[1].routineId)
-                changeBtnSelectState(btnDailyRoutineRadioThird, routineList[2].routineId)
+            when (routineList.size) {
+                3 -> {
+                    with(binding) {
+                        changeBtnSelectState(btnDailyRoutineRadioFirst, routineList[0].routineId)
+                        changeBtnSelectState(btnDailyRoutineRadioSecond, routineList[1].routineId)
+                        changeBtnSelectState(btnDailyRoutineRadioThird, routineList[2].routineId)
+                    }
+                }
+
+                2 -> {
+                    with(binding) {
+                        changeBtnSelectState(btnDailyRoutineRadioFirst, routineList[0].routineId)
+                        changeBtnSelectState(btnDailyRoutineRadioSecond, routineList[1].routineId)
+                    }
+                }
+
+                1 -> {
+                    with(binding) {
+                        changeBtnSelectState(btnDailyRoutineRadioFirst, routineList[0].routineId)
+                    }
+                }
             }
         }
     }
@@ -212,12 +245,15 @@ class DailyRoutineFragment :
                 doBtnColor = R.drawable.shape_red_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {
-                    snackBar(
-                        binding.root.rootView,
-                        "데일리 루틴을 ${viewModel.editRoutineIdArray.size}개 삭제했어요"
-                    )
-                    viewModel.setDeleteView(false)
                     viewModel.deleteDailyRoutine()
+                    viewModel.isDailyRoutineDelete.observe(viewLifecycleOwner) {
+                        snackBar(
+                            binding.root.rootView,
+                            "데일리 루틴을 ${viewModel.editRoutineIdArray.size}개 삭제했어요"
+                        )
+                        viewModel.setDeleteView(false)
+                        viewModel.getDailyRoutine()
+                    }
                 }
             ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
         }
