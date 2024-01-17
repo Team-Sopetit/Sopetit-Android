@@ -94,6 +94,7 @@ class SettingUserExitFragment :
             if (deleteSuccess) {
                 Timber.d("setting -> 멤버 탈퇴 성공")
                 startActivity(intent)
+                requireActivity().finishAffinity()
             }
         }
     }

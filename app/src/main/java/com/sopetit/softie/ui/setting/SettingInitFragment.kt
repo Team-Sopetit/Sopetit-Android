@@ -74,6 +74,7 @@ class SettingInitFragment :
                         if (logOutSuccess) {
                             Timber.d("setting -> 로그 아웃 성공")
                             startActivity(intent)
+                            requireActivity().finishAffinity()
                         }
                     }
                 }
