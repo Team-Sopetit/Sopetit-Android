@@ -6,9 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.domain.entity.Cotton
 import com.sopetit.softie.domain.entity.Home
+import com.sopetit.softie.domain.usecase.GetBearTypeUseCase
 import com.sopetit.softie.domain.usecase.GetHomeUseCase
 import com.sopetit.softie.domain.usecase.PatchCottonUseCase
-import com.sopetit.softie.domain.usecase.doll.GetDollUseCase
+import com.sopetit.softie.domain.usecase.member.SetBearTypeUseCase
 import com.sopetit.softie.ui.main.home.HomeFragment.Companion.RUN_OUT
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -17,14 +18,19 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
+    private val getBearTypeUseCase: GetBearTypeUseCase,
     private val getHomeUseCase: GetHomeUseCase,
     private val patchCottonUseCase: PatchCottonUseCase,
-    private val getDollUseCase: GetDollUseCase
+    private val setBearTypeUseCase: SetBearTypeUseCase
 ) : ViewModel() {
     private val _homeResponse = MutableLiveData<Home>()
     val homeResponse: LiveData<Home> get() = _homeResponse
     private val _conversations = MutableLiveData<List<String>>(_homeResponse.value?.conversations)
     val conversations: LiveData<List<String>> get() = _conversations
+
+    fun getBearType(): String {
+        return getBearTypeUseCase()
+    }
 
     fun getHome() {
         viewModelScope.launch {
@@ -32,6 +38,7 @@ class HomeViewModel @Inject constructor(
                 .onSuccess { response ->
                     _homeResponse.value = response
                     _conversations.value = response.conversations
+                    setBearTypeUseCase(response.dollType)
                 }
                 .onFailure { throwable ->
                     Timber.e("$throwable")
