@@ -36,17 +36,17 @@ class HappyProgressFragment :
         viewModel.happyProgressResponse.observe(this) { happyProgress ->
             happyProgress?.let {
                 with(binding) {
-                    tvHappyProgressSubtitle.text = viewModel.happyProgressResponse.value?.title
-                    ivHappyProgressCardFront.load(viewModel.happyProgressResponse.value?.contentImageUrl)
+                    tvHappyProgressSubtitle.text = happyProgress.title
+                    ivHappyProgressCardFront.load(happyProgress.contentImageUrl)
                     tvHappyProgressCardFrontTitle.text =
-                        viewModel.happyProgressResponse.value?.content
+                        happyProgress.content
                     tvHappyProgressCardBackTitle.text =
-                        viewModel.happyProgressResponse.value?.content
+                        happyProgress.content
                     tvHappyProgressCardBackContent.text =
-                        viewModel.happyProgressResponse.value?.detailContent
+                        happyProgress.detailContent
                     tvHappyProgressCardBackTime.text =
-                        viewModel.happyProgressResponse.value?.timeTaken
-                    tvHappyProgressCardBackPlace.text = viewModel.happyProgressResponse.value?.place
+                        happyProgress.timeTaken
+                    tvHappyProgressCardBackPlace.text = happyProgress.place
                 }
             }
         }

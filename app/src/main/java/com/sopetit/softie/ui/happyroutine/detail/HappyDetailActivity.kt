@@ -126,10 +126,6 @@ class HappyDetailActivity :
         startActivity(intent)
         finish()
         Log.d("HappyDetailActivity", "moveToProgress이 잘 되는가?")
-        /*Intent(this, MainActivity::class.java).apply {
-            putExtra(ID, id)
-            startActivity(this)
-        }*/
     }
 
     private fun setupAdapter(routineId: String) {
