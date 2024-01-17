@@ -88,7 +88,7 @@ class HappyDeleteFragment :
                 doBtnColor = R.drawable.shape_red_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {
-                    viewModel.happyProgressResponse.observe(this) { happyProgress ->
+                    viewModel.happyProgressResponse.observe(viewLifecycleOwner) { happyProgress ->
                         happyProgress?.let {
                             viewModel.deleteHappyProgress(happyProgress.routineId)
                         }
