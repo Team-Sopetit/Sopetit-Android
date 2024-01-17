@@ -14,7 +14,6 @@ import com.sopetit.softie.ui.onboarding.OnboardingActivity
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
 import com.sopetit.softie.util.binding.BindingFragment
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class RoutineChoiceFragment :
