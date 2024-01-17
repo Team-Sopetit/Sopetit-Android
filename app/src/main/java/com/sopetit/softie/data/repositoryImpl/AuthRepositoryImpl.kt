@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
     private val authDataSource: AuthDataSource,
-    private val localTokenDataSource: LocalDataSource
+    private val localDataSource: LocalDataSource
 ) : AuthRepository {
     override suspend fun postLogin(socialPlatform: String): Result<Token> =
         kotlin.runCatching { authDataSource.postLogin(socialPlatform) }.map { response ->
@@ -16,7 +16,13 @@ class AuthRepositoryImpl @Inject constructor(
         }
 
     override fun initToken(accessToken: String, refreshToken: String) {
-        localTokenDataSource.accessToken = accessToken
-        localTokenDataSource.refreshToken = refreshToken
+        localDataSource.accessToken = accessToken
+        localDataSource.refreshToken = refreshToken
     }
+
+    override fun initSignUpState(isSignUpState: Boolean) {
+        localDataSource.isUserSignUp = isSignUpState
+    }
+
+    override fun getSignedUp(): Boolean = localDataSource.isUserSignUp
 }
