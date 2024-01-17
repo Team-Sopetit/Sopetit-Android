@@ -15,4 +15,7 @@ interface AuthService {
 
     @DELETE("/api/v1/auth")
     suspend fun deleteAuth(): BaseResponse<Unit>
+
+    @POST("api/v1/auth/logout")
+    suspend fun logOut(): BaseResponse<Unit>
 }
