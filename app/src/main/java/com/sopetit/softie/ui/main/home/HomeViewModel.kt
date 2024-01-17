@@ -8,6 +8,7 @@ import com.sopetit.softie.domain.entity.Cotton
 import com.sopetit.softie.domain.entity.Home
 import com.sopetit.softie.domain.usecase.GetHomeUseCase
 import com.sopetit.softie.domain.usecase.PatchCottonUseCase
+import com.sopetit.softie.domain.usecase.doll.GetDollUseCase
 import com.sopetit.softie.ui.main.home.HomeFragment.Companion.RUN_OUT
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -17,7 +18,8 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val getHomeUseCase: GetHomeUseCase,
-    private val patchCottonUseCase: PatchCottonUseCase
+    private val patchCottonUseCase: PatchCottonUseCase,
+    private val getDollUseCase: GetDollUseCase
 ) : ViewModel() {
     private val _homeResponse = MutableLiveData<Home>()
     val homeResponse: LiveData<Home> get() = _homeResponse

@@ -1,18 +1,19 @@
-package com.sopetit.softie.ui.happyroutine.adddetail
+package com.sopetit.softie.ui.happyroutine.detail
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.sopetit.softie.databinding.ItemHappyAddDetailCardBinding
 import com.sopetit.softie.domain.entity.HappyCard
 import com.sopetit.softie.util.ItemDiffCallback
 
 class HappyDetailCardPagerAdapter() :
-    ListAdapter<HappyCard.Routines, HappyDetailCardPagerAdapter.HappyPagerViewHolder>(
-        ItemDiffCallback<HappyCard.Routines>(
-            onItemsTheSame = { oldItem, newItem -> oldItem.routineId == newItem.routineId },
+    ListAdapter<HappyCard.SubRoutines, HappyDetailCardPagerAdapter.HappyPagerViewHolder>(
+        ItemDiffCallback<HappyCard.SubRoutines>(
+            onItemsTheSame = { oldItem, newItem -> oldItem.subRoutineId == newItem.subRoutineId },
             onContentsTheSame = { oldItem, newItem -> oldItem == newItem }
         )
     ) {
@@ -22,14 +23,17 @@ class HappyDetailCardPagerAdapter() :
     ) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(data: HappyCard.Routines) {
+        fun onBind(data: HappyCard.SubRoutines) {
             with(binding) {
-                ivHappyRoutineAddCard.setImageResource(data.cardImageUrl)
-                tvHappyRoutineAddCardDetailTitle.text = data.detailTitle
-                tvHappyRoutineAddCardDetailTitleBack.text = data.detailTitle
-                tvHappyRoutineAddCardDetailContentBack.text = data.detailContent
-                tvHappyRoutineAddCardDetailTimeBack.text = data.detailTime
-                tvHappyRoutineAddCardDetailPlaceBack.text = data.detailPlace
+                ivHappyRoutineAddCard.load(data.contentImageUrl)
+                tvHappyRoutineAddCardDetailTitle.text = data.content
+                tvHappyRoutineAddCardDetailTitleBack.text =
+                    data.content
+                tvHappyRoutineAddCardDetailContentBack.text =
+                    data.detailContent
+                tvHappyRoutineAddCardDetailTimeBack.text =
+                    data.timeTaken
+                tvHappyRoutineAddCardDetailPlaceBack.text = data.place
 
                 clHappyRoutineAddCard.setOnClickListener {
                     setCardFlip(clHappyRoutineAddCard, clHappyRoutineAddCardBack)

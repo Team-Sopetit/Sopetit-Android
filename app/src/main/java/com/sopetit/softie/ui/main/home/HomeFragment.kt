@@ -1,6 +1,8 @@
 package com.sopetit.softie.ui.main.home
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -25,6 +27,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private val pandaBearLottieList =
         listOf(R.raw.panda_hello, R.raw.panda_eating_daily, R.raw.panda_eating_happy)
     private lateinit var userLottieList: List<Int>
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,6 +38,10 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         initLottie()
         setClickListener()
         setObserveHomeResponse()
+        sharedPreferences =
+            this.requireActivity().getSharedPreferences("user", Context.MODE_PRIVATE)
+        sharedPreferences.edit()
+            .putString("bearType", viewModel.homeResponse.value?.dollType ?: "BROWN").commit()
     }
 
     private fun setUserLottieList() {
