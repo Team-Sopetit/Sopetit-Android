@@ -186,12 +186,6 @@ class DailyRoutineAddActivity :
         finish()
     }
 
-//    private fun moveToDailyRoutine(id: Int) {
-//        Intent(this, MainActivity::class.java).apply {
-//            putExtra(ID, id)
-//            startActivity(this)
-//        }
-//    }
 
     companion object {
         const val VIEW_PAGE = 3

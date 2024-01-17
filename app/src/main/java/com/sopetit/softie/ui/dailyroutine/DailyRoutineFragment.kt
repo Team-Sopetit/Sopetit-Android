@@ -39,9 +39,16 @@ class DailyRoutineFragment :
         getBundle()
         initSetDailyRoutineContent()
         initSetDeleteView()
-        initSetRoutineDelete(0)
+        initSetRoutineDelete()
         addDailyRoutineMsg()
         achieveRoutine()
+        updateDailyRoutine()
+    }
+
+    private fun updateDailyRoutine() {
+        viewModel.isDailyRoutineDelete.observe(viewLifecycleOwner) {
+            if (viewModel.isDailyRoutineDelete.value == true) viewModel.getDailyRoutine()
+        }
     }
 
     private fun getBundle() {
@@ -190,33 +197,29 @@ class DailyRoutineFragment :
         binding.btnDailyRoutineDelete.text = deleteBtnContent
     }
 
-    private fun initSetRoutineDelete(routineId: Int) {
-        viewModel.isEditBtnEnabled.observe(viewLifecycleOwner) { isBtnEnabled ->
-            if (isBtnEnabled) {
-                binding.btnDailyRoutineDelete.setOnClickListener {
-                    BindingBottomSheet.Builder().build(
-                        isDrawable = true,
-                        imageDrawable = R.drawable.ic_bear_face_crying,
-                        imageUri = "",
-                        title = "정말 삭제할까요?",
-                        content = "루틴을 삭제해도 달성 횟수는 저장돼요",
-                        isContentVisible = true,
-                        contentColor = R.color.red,
-                        backBtnContent = "취소",
-                        doBtnContent = "삭제할래",
-                        doBtnColor = R.drawable.shape_red_fill_12_rect,
-                        backBtnAction = {},
-                        doBtnAction = {
-                            snackBar(
-                                binding.root.rootView,
-                                "데일리 루틴을 ${viewModel.editRoutineIdArray.size}개 삭제했어요"
-                            )
-                            viewModel.setDeleteView(false)
-                            viewModel.deleteDailyRoutine(routineId)
-                        }
-                    ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
+    private fun initSetRoutineDelete() {
+        binding.btnDailyRoutineDelete.setOnClickListener {
+            BindingBottomSheet.Builder().build(
+                isDrawable = true,
+                imageDrawable = R.drawable.ic_bear_face_crying,
+                imageUri = "",
+                title = "정말 삭제할까요?",
+                content = "루틴을 삭제해도 달성 횟수는 저장돼요",
+                isContentVisible = true,
+                contentColor = R.color.red,
+                backBtnContent = "취소",
+                doBtnContent = "삭제할래",
+                doBtnColor = R.drawable.shape_red_fill_12_rect,
+                backBtnAction = {},
+                doBtnAction = {
+                    snackBar(
+                        binding.root.rootView,
+                        "데일리 루틴을 ${viewModel.editRoutineIdArray.size}개 삭제했어요"
+                    )
+                    viewModel.setDeleteView(false)
+                    viewModel.deleteDailyRoutine()
                 }
-            }
+            ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
         }
     }
 
@@ -251,18 +254,4 @@ class DailyRoutineFragment :
             startActivity(intent)
         }
     }
-
-//    private fun addRoutine() {
-//        val intent = Intent()
-//        val routineId = intent.getIntExtra(HappyAddListActivity.ID, -1)
-//        val viewModel = ViewModelProvider(this).get(DailyRoutineViewModel::class.java)
-//        val dailyCard = viewModel.userDaily.value?.get(routineId - 1)
-//
-//        dailyCard?.let {
-//            with(binding) {
-//                tvDailyRoutineAddNameFirst.text = dailyCard.content
-//                ivDailyRoutineIconFirst.setImageResource(dailyCard.iconImageUrl)
-//            }
-//        }
-//    }
 }

@@ -18,8 +18,8 @@ class DailyRoutineDataSource @Inject constructor(
     suspend fun patchAchieveDaily(routineId: Int): BaseResponse<AchieveDailyResponse> =
         dailyRoutineService.patchAchieveDaily(routineId)
 
-    suspend fun deleteDailyRoutine(routineId: Int): BaseResponse<Unit> =
-        dailyRoutineService.deleteDailyRoutine(routineId)
+    suspend fun deleteDailyRoutine(routineIdList: List<Int>): BaseResponse<Unit> =
+        dailyRoutineService.deleteDailyRoutine(routineIdList)
 
     suspend fun getTheme(): BaseResponse<ThemeListResponse> = dailyRoutineService.getTheme()
 

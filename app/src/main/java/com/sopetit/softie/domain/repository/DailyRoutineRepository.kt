@@ -9,7 +9,7 @@ import com.sopetit.softie.domain.entity.Theme
 interface DailyRoutineRepository {
     suspend fun getDailyRoutine(): Result<List<DailyRoutine>>
     suspend fun patchAchieveDaily(routineId: Int): Result<DailyAchieve>
-    suspend fun deleteDailyRoutine(routineId: Int): Result<Unit>
+    suspend fun deleteDailyRoutine(routineIdList: List<Int>): Result<Unit>
     suspend fun getTheme(): Result<List<Theme>>
 
     suspend fun getRoutineList(themeId: List<Int>): Result<List<Routine>>

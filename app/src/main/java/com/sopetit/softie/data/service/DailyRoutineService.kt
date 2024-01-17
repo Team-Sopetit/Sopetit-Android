@@ -31,7 +31,7 @@ interface DailyRoutineService {
     suspend fun patchAchieveDaily(@Path("routineId") routineId: Int): BaseResponse<AchieveDailyResponse>
 
     @DELETE("api/v1/routines/daily/member/routine/{routineId}")
-    suspend fun deleteDailyRoutine(@Path("routineId") routineId: Int): BaseResponse<Unit>
+    suspend fun deleteDailyRoutine(@Query("routineId") routineIdList: List<Int>): BaseResponse<Unit>
 
     @POST("api/v1/routines/daily/member")
     suspend fun postAddDailyRoutine(@Body routineId: Int): BaseResponse<AddDailyRoutineResponse>

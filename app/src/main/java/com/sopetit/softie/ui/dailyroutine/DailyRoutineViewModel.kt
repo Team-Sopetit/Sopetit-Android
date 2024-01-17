@@ -51,11 +51,15 @@ class DailyRoutineViewModel @Inject constructor(
     val isRoutineAchieveThird: LiveData<Boolean>
         get() = _isRoutineAchieveThird
 
+    private val _isDailyRoutineDelete: MutableLiveData<Boolean> = MutableLiveData(false)
+    val isDailyRoutineDelete: LiveData<Boolean> get() = _isDailyRoutineDelete
+
     fun patchAchieveDaily(routineId: Int) {
         viewModelScope.launch {
             patchAchieveDailyUseCase(routineId)
                 .onSuccess { response ->
                     routineAchieve(routineId, response.isAchieve)
+                    _isDailyRoutineDelete.value = false
                 }
                 .onFailure { throwable ->
                     Timber.e("$throwable")
@@ -75,20 +79,6 @@ class DailyRoutineViewModel @Inject constructor(
     val isDeleteView: LiveData<Boolean>
         get() = _isDeleteView
 
-//    fun deleteDailyRoutine(routineId: Int) {
-//        viewModelScope.launch {
-//            deleteDailyRoutineUseCase(routineId)
-//                .onSuccess {
-//                    _isDeleteView.value = true
-//                    Timber.d("삭제 서버 성공")
-//                }
-//                .onFailure { throwable ->
-//                    Timber.d("삭제 서버 실패")
-//                    Timber.e("$throwable")
-//                }
-//        }
-//    }
-
     val editRoutineIdArray = ArrayList<Int>()
 
     private val _isEditBtnEnabled: MutableLiveData<Boolean> = MutableLiveData()
@@ -107,12 +97,13 @@ class DailyRoutineViewModel @Inject constructor(
         _isDeleteView.value = deleteEnabled
     }
 
-    fun deleteDailyRoutine(routineId: Int) {
+    fun deleteDailyRoutine() {
         viewModelScope.launch {
-            deleteDailyRoutineUseCase(routineId)
+            deleteDailyRoutineUseCase(editRoutineIdArray)
                 .onSuccess {
                     setDeleteView(deleteEnabled = false)
                     Timber.d("삭제 서버 성공")
+                    _isDailyRoutineDelete.value = true
                 }
                 .onFailure { throwable ->
                     Timber.d("삭제 서버 실패")

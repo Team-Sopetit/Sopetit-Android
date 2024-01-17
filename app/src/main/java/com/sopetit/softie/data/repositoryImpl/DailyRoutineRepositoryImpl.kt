@@ -22,8 +22,8 @@ class DailyRoutineRepositoryImpl @Inject constructor(
             requireNotNull(response.data).toAchieveDaily()
         }
 
-    override suspend fun deleteDailyRoutine(routineId: Int): Result<Unit> =
-        runCatching { dailyRoutineDataSource.deleteDailyRoutine(routineId) }
+    override suspend fun deleteDailyRoutine(routineIdList: List<Int>): Result<Unit> =
+        runCatching { dailyRoutineDataSource.deleteDailyRoutine(routineIdList) }
 
     override suspend fun getTheme(): Result<List<Theme>> = runCatching {
         dailyRoutineDataSource.getTheme()
