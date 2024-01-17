@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.domain.entity.DailyRoutine
+import com.sopetit.softie.domain.entity.UserDailyRoutine
 import com.sopetit.softie.domain.usecase.DeleteDailyRoutineUseCase
 import com.sopetit.softie.domain.usecase.GetDailyRoutineUseCase
 import com.sopetit.softie.domain.usecase.PatchAchieveDailyUseCase
@@ -29,9 +30,11 @@ class DailyRoutineViewModel @Inject constructor(
             getDailyRoutineUseCase()
                 .onSuccess { response ->
                     _dailyRoutineListResponse.value = response
+                    Timber.d("유저 데일리 성공")
                 }
                 .onFailure { throwable ->
                     Timber.e("$throwable")
+                    Timber.d("유저 데일리 실패")
                 }
         }
     }
@@ -60,7 +63,7 @@ class DailyRoutineViewModel @Inject constructor(
         }
     }
 
-    fun routineAchieve(routineId: Int, isAchieve: Boolean) {
+    private fun routineAchieve(routineId: Int, isAchieve: Boolean) {
         when (routineId) {
             dailyRoutineListResponse.value?.get(0)?.routineId -> setRoutineAchieve(isAchieve, 0)
             dailyRoutineListResponse.value?.get(1)?.routineId -> setRoutineAchieve(isAchieve, 1)
@@ -129,4 +132,8 @@ class DailyRoutineViewModel @Inject constructor(
     fun setEditBtnEnabled(enabled: Boolean) {
         _isEditBtnEnabled.value = enabled
     }
+
+    private val _userDaily: LiveData<UserDailyRoutine> = MutableLiveData()
+    val userDaily: LiveData<UserDailyRoutine>
+        get() = _userDaily
 }

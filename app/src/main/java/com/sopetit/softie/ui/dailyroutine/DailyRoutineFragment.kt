@@ -13,7 +13,7 @@ import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
 import com.sopetit.softie.domain.entity.Bear
 import com.sopetit.softie.ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity
 import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
-import com.sopetit.softie.util.binding.BindingAdapter.setImage
+import com.sopetit.softie.util.binding.BindingAdapter.setCoilImage
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setStatusBarColor
@@ -84,15 +84,21 @@ class DailyRoutineFragment :
         index: Int
     ) {
         viewModel.dailyRoutineListResponse.observe(viewLifecycleOwner) { dailyRoutineList ->
-            val achieveCountMsg =
-                getString(R.string.daily_routine_ing).format(dailyRoutineList[index].achieveCount)
-            achieveMsg.text = achieveCountMsg
-            routineTitle.text = dailyRoutineList[index].content
-//            dailyIcon.load(dailyRoutineList[index].iconImageUrl)
-            dailyIcon.setImage(dailyRoutineList[index].iconImageUrl)
-            viewModel.setRoutineAchieve(dailyRoutineList[index].isAchieve, index)
+            if (dailyRoutineList.isNotEmpty()) {
+                val achieveCountMsg =
+                    getString(R.string.daily_routine_ing).format(dailyRoutineList[index].achieveCount)
+                achieveMsg.text = achieveCountMsg
+                routineTitle.text = dailyRoutineList[index].content
+                dailyIcon.setCoilImage(dailyRoutineList[index].iconImageUrl)
+                viewModel.setRoutineAchieve(dailyRoutineList[index].isAchieve, index)
 
-            initSetDailyRoutineAchieve(btn, dailyRoutineList[index].routineId)
+                initSetDailyRoutineAchieve(btn, dailyRoutineList[index].routineId)
+
+            } else {
+                binding.clDailyRoutineFirst.visibility = View.GONE
+                binding.clDailyRoutineSecond.visibility = View.GONE
+                binding.clDailyRoutineThird.visibility = View.GONE
+            }
         }
     }
 
@@ -245,4 +251,18 @@ class DailyRoutineFragment :
             startActivity(intent)
         }
     }
+
+//    private fun addRoutine() {
+//        val intent = Intent()
+//        val routineId = intent.getIntExtra(HappyAddListActivity.ID, -1)
+//        val viewModel = ViewModelProvider(this).get(DailyRoutineViewModel::class.java)
+//        val dailyCard = viewModel.userDaily.value?.get(routineId - 1)
+//
+//        dailyCard?.let {
+//            with(binding) {
+//                tvDailyRoutineAddNameFirst.text = dailyCard.content
+//                ivDailyRoutineIconFirst.setImageResource(dailyCard.iconImageUrl)
+//            }
+//        }
+//    }
 }

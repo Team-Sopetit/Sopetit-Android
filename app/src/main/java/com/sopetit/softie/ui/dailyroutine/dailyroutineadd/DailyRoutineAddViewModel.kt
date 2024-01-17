@@ -3,11 +3,20 @@ package com.sopetit.softie.ui.dailyroutine.dailyroutineadd
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.sopetit.softie.domain.entity.AddRoutine
 import com.sopetit.softie.domain.entity.DailyCard
 import com.sopetit.softie.domain.entity.DailyRoutineAdd
 import com.sopetit.softie.domain.entity.Theme
+import com.sopetit.softie.domain.usecase.PostAddDailyRoutineUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import timber.log.Timber
+import javax.inject.Inject
 
-class DailyRoutineAddViewModel : ViewModel() {
+@HiltViewModel
+class DailyRoutineAddViewModel @Inject constructor(private val postAddDailyRoutineUseCase: PostAddDailyRoutineUseCase) :
+    ViewModel() {
     private val _mockThemeList: MutableLiveData<List<Theme>> = MutableLiveData(
         mutableListOf(
             Theme(
@@ -539,10 +548,32 @@ class DailyRoutineAddViewModel : ViewModel() {
             )
         )
 
+
     private val themeDailyRoutineList: LiveData<List<DailyRoutineAdd>>
         get() = _themeDailyRoutineList
 
     fun getDailyCardListForId(themeId: Int): List<DailyRoutineAdd> {
         return themeDailyRoutineList.value?.filter { it.themeId == themeId } ?: emptyList()
     }
+
+    private val _addDailyRoutine: MutableLiveData<AddRoutine> = MutableLiveData()
+    val addDailyRoutine: LiveData<AddRoutine>
+        get() = _addDailyRoutine
+
+    fun postAddDailyRoutine(routineId: Int) {
+        viewModelScope.launch {
+            postAddDailyRoutineUseCase.invoke(routineId)
+                .onSuccess { response ->
+                    _addDailyRoutine.value = response
+                    Timber.d("추가 성공")
+                }
+                .onFailure { throwable ->
+                    Timber.e("$throwable")
+                    Timber.d("추가 실패")
+                }
+
+        }
+    }
+
+
 }

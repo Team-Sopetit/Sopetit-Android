@@ -38,7 +38,9 @@ class DailyRoutineRepositoryImpl @Inject constructor(
     }
 
     override suspend fun postAddDailyRoutine(routineId: Int): Result<AddRoutine> =
-        runCatching { dailyRoutineDataSource.postAddDailyRoutine(routineId) }.map { response ->
-            response.toAddDailyRoutine()
+        runCatching {
+            dailyRoutineDataSource.postAddDailyRoutine(routineId)
+        }.map { response ->
+            requireNotNull(response.data).toAddDailyRoutine()
         }
 }

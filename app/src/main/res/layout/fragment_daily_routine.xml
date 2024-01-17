@@ -97,8 +97,8 @@
 
             <ImageView
                 android:id="@+id/iv_daily_routine_fin_first"
-                android:layout_width="10dp"
-                android:layout_height="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:src="@drawable/ic_daily_fin"
                 app:layout_constraintStart_toStartOf="@id/tv_daily_routine_add_name_first"
@@ -190,8 +190,8 @@
 
             <ImageView
                 android:id="@+id/iv_daily_routine_fin_second"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
                 android:layout_marginTop="6dp"
                 android:src="@drawable/ic_daily_fin"
                 app:layout_constraintStart_toStartOf="@id/tv_daily_routine_add_name_second"
