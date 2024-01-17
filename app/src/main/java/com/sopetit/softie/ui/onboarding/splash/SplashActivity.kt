@@ -67,7 +67,6 @@ class SplashActivity : BindingActivity<ActivitySplashBinding>(R.layout.activity_
             } else {
                 Intent(this, LoginActivity::class.java)
             }
-//            intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }, SPLASH_DELAY)
