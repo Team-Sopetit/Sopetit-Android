@@ -9,7 +9,7 @@ class MemberHappinessRoutineRepositoryImpl @Inject constructor(
     private val memberHappinessRoutineDataSource: MemberHappinessRoutineDataSource
 ) : MemberHappinessRoutineRepository {
     override suspend fun postMemberHappinessRoutine(request: PostMemberHappyRoutineRequest): Result<Int> =
-        runCatching { memberHappinessRoutineDataSource.postMemberHappyRoutine(request) }.map {
-            requireNotNull(it.data).routineId
+        runCatching { memberHappinessRoutineDataSource.postMemberHappyRoutine(request) }.map { response ->
+            requireNotNull(response.data).routineId
         }
 }
