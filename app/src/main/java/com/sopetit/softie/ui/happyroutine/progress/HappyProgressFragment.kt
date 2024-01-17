@@ -22,8 +22,6 @@ class HappyProgressFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        /*val viewModel: HappyProgressViewModel by activityViewModels()*/
         val happyProgress = viewModel.getHappyProgress()
 
         setCardBinding(happyProgress)
@@ -33,7 +31,7 @@ class HappyProgressFragment :
     }
 
     private fun setCardBinding(happyProgress: Unit) {
-        viewModel.happyProgressResponse.observe(this) { happyProgress ->
+        viewModel.happyProgressResponse.observe(viewLifecycleOwner) { happyProgress ->
             happyProgress?.let {
                 with(binding) {
                     tvHappyProgressSubtitle.text = happyProgress.title
