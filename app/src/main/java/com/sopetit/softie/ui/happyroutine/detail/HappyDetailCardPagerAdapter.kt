@@ -56,6 +56,15 @@ class HappyDetailCardPagerAdapter() :
         }
     }
 
+    override fun getItemId(position: Int): Long {
+        val itemCount = currentList.size
+        if (position in 0 until itemCount) {
+            return currentList[position].subRoutineId.toLong()
+        } else {
+            return RecyclerView.NO_ID
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HappyPagerViewHolder {
         val binding = ItemHappyAddDetailCardBinding.inflate(
             LayoutInflater.from(parent.context),

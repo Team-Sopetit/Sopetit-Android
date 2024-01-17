@@ -9,6 +9,9 @@ import javax.inject.Inject
 class AuthDataSource @Inject constructor(
     private val authService: AuthService
 ) {
+
+    suspend fun deleteAuth(): BaseResponse<Unit> = authService.deleteAuth()
+
     suspend fun postLogin(socialType: String): BaseResponse<LoginResponse> =
         authService.postLogin(LoginRequest(socialType))
 }
