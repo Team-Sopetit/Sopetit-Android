@@ -1,6 +1,7 @@
 package com.sopetit.softie.data.repositoryImpl
 
 import com.sopetit.softie.data.source.DailyRoutineDataSource
+import com.sopetit.softie.domain.entity.AddRoutine
 import com.sopetit.softie.domain.entity.DailyAchieve
 import com.sopetit.softie.domain.entity.DailyRoutine
 import com.sopetit.softie.domain.entity.Routine
@@ -35,4 +36,9 @@ class DailyRoutineRepositoryImpl @Inject constructor(
     }.mapCatching { dailyRoutineList ->
         requireNotNull(dailyRoutineList.data).toRoutine()
     }
+
+    override suspend fun postAddDailyRoutine(routineId: Int): Result<AddRoutine> =
+        runCatching { dailyRoutineDataSource.postAddDailyRoutine(routineId) }.map { response ->
+            response.toAddDailyRoutine()
+        }
 }
