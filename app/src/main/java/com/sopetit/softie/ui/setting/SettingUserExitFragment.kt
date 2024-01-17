@@ -12,7 +12,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentSettingUserExitBinding
-import com.sopetit.softie.ui.main.LoginActivity
+import com.sopetit.softie.ui.login.LoginActivity
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.BROWN
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.GRAY
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.RED
