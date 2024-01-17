@@ -7,7 +7,9 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivitySettingBinding
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.setStatusBarColorFromResource
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SettingActivity : BindingActivity<ActivitySettingBinding>(R.layout.activity_setting) {
 
     private val viewModel by viewModels<SettingViewModel>()

@@ -10,6 +10,8 @@ class AuthRepositoryImpl @Inject constructor(
     private val authDataSource: AuthDataSource,
     private val localDataSource: LocalDataSource
 ) : AuthRepository {
+    override suspend fun deleteAuth(): Result<Unit> = runCatching { authDataSource.deleteAuth() }
+
     override suspend fun postLogin(socialPlatform: String): Result<Token> =
         kotlin.runCatching { authDataSource.postLogin(socialPlatform) }.map { response ->
             requireNotNull(response.data).toToken()
