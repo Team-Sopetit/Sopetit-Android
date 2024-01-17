@@ -1,3 +1,8 @@
 package com.sopetit.softie.domain.repository
 
-interface AuthRepository
+import com.sopetit.softie.domain.entity.Token
+
+interface AuthRepository {
+    suspend fun postLogin(socialPlatform: String): Result<Token>
+    fun initToken(accessToken: String, refreshToken: String)
+}

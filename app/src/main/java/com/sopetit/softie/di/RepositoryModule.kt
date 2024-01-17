@@ -1,6 +1,8 @@
 package com.sopetit.softie.di
 
+import com.sopetit.softie.data.repositoryImpl.AuthRepositoryImpl
 import com.sopetit.softie.data.repositoryImpl.MemberRepositoryImpl
+import com.sopetit.softie.domain.repository.AuthRepository
 import com.sopetit.softie.domain.repository.MemberRepository
 import dagger.Binds
 import dagger.Module
@@ -16,4 +18,10 @@ abstract class RepositoryModule {
     abstract fun bindToMemberRepository(
         memberRepositoryImpl: MemberRepositoryImpl
     ): MemberRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindToAuthRepository(
+        authRepositoryImpl: AuthRepositoryImpl
+    ): AuthRepository
 }
