@@ -3,6 +3,7 @@ package com.sopetit.softie.ui.dailyroutine
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -12,11 +13,14 @@ import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
 import com.sopetit.softie.domain.entity.Bear
 import com.sopetit.softie.ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity
 import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
+import com.sopetit.softie.util.binding.BindingAdapter.setCoilImage
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setStatusBarColor
 import com.sopetit.softie.util.snackBar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DailyRoutineFragment :
     BindingFragment<FragmentDailyRoutineBinding>(R.layout.fragment_daily_routine) {
 
@@ -29,12 +33,15 @@ class DailyRoutineFragment :
 
         binding.viewModel = viewModel
 
+        viewModel.getDailyRoutine()
+
         moveToAddRoutine()
         getBundle()
         initSetDailyRoutineContent()
         initSetDeleteView()
         initSetRoutineDelete()
         addDailyRoutineMsg()
+        achieveRoutine()
     }
 
     private fun getBundle() {
@@ -44,14 +51,42 @@ class DailyRoutineFragment :
     }
 
     private fun initSetDailyRoutineContent() {
+        viewModel.dailyRoutineListResponse.observe(viewLifecycleOwner) { dailyRoutineList ->
+            when (dailyRoutineList.size) {
+                3 -> {
+                    makeRoutineItemThirdView()
+                    makeRoutineItemSecondView()
+                    makeRoutineItemFirstView()
+                }
+
+                2 -> {
+                    makeRoutineItemFirstView()
+                    makeRoutineItemSecondView()
+                }
+
+                1 -> {
+                    makeRoutineItemFirstView()
+                }
+            }
+        }
+    }
+
+    private fun makeRoutineItemFirstView() {
         with(binding) {
             routineItemView(
+                ivDailyRoutineIconFirst,
                 tvDailyRoutineAddNameFirst,
                 tvDailyRoutineIngFirst,
                 btnDailyRoutineYetFinFirst,
                 0
             )
+        }
+    }
+
+    private fun makeRoutineItemSecondView() {
+        with(binding) {
             routineItemView(
+                ivDailyRoutineIconSecond,
                 tvDailyRoutineAddNameSecond,
                 tvDailyRoutineIngSecond,
                 btnDailyRoutineYetFinSecond,
@@ -60,27 +95,48 @@ class DailyRoutineFragment :
         }
     }
 
+    private fun makeRoutineItemThirdView() {
+        with(binding) {
+            routineItemView(
+                ivDailyRoutineIconThird,
+                tvDailyRoutineAddNameThird,
+                tvDailyRoutineIngThird,
+                btnDailyRoutineYetFinThird,
+                2
+            )
+        }
+    }
+
     private fun routineItemView(
+        dailyIcon: ImageView,
         routineTitle: TextView,
         achieveMsg: TextView,
         btn: View,
         index: Int
     ) {
-        viewModel.mockDailyRoutineList.observe(viewLifecycleOwner) { dailyRoutineList ->
-            val achieveCountMsg =
-                getString(R.string.daily_routine_ing).format(dailyRoutineList[index].achieveCount)
-            achieveMsg.text = achieveCountMsg
-            routineTitle.text = dailyRoutineList[index].content
-            viewModel.setRoutineAchieve(dailyRoutineList[index].isAchieve, index)
+        val dailyRoutine = viewModel.dailyRoutineListResponse.value
 
-            initSetDailyRoutineAchieve(btn, dailyRoutineList[index].routineId)
+        val achieveCountMsg =
+            getString(R.string.daily_routine_ing).format(dailyRoutine?.get(index)?.achieveCount)
+        achieveMsg.text = achieveCountMsg
+        routineTitle.text = dailyRoutine?.get(index)?.content
+        dailyIcon.setCoilImage(dailyRoutine?.get(index)?.iconImageUrl)
+        viewModel.setRoutineAchieve(dailyRoutine?.get(index)?.isAchieve ?: false, index)
+
+        initSetDailyRoutineAchieve(btn, dailyRoutine?.get(index)?.routineId ?: 0)
+    }
+
+    private fun achieveRoutine() {
+        viewModel.isRoutineAchieveFirst.observe(viewLifecycleOwner) {
+        }
+        viewModel.isRoutineAchieveSecond.observe(viewLifecycleOwner) {
+        }
+        viewModel.isRoutineAchieveThird.observe(viewLifecycleOwner) {
         }
     }
 
     private fun initSetDailyRoutineAchieve(btn: View, routineId: Int) {
         btn.setOnClickListener {
-            // TODO 서버통신 구현 후 imageUri 버전으로 수정
-
             BindingBottomSheet.Builder().build(
                 isDrawable = true,
                 imageDrawable = R.drawable.ic_bear_face_crying,
@@ -95,6 +151,7 @@ class DailyRoutineFragment :
                 backBtnAction = {},
                 doBtnAction = {
                     startDailyRoutineCompleteActivity()
+                    viewModel.patchAchieveDaily(routineId)
                 }
             ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
         }
@@ -125,10 +182,28 @@ class DailyRoutineFragment :
     }
 
     private fun clickEditRadioBtn() {
-        viewModel.mockDailyRoutineList.observe(viewLifecycleOwner) { routineList ->
-            with(binding) {
-                changeBtnSelectState(btnDailyRoutineRadioFirst, routineList[0].routineId)
-                changeBtnSelectState(btnDailyRoutineRadioSecond, routineList[1].routineId)
+        viewModel.dailyRoutineListResponse.observe(viewLifecycleOwner) { routineList ->
+            when (routineList.size) {
+                3 -> {
+                    with(binding) {
+                        changeBtnSelectState(btnDailyRoutineRadioFirst, routineList[0].routineId)
+                        changeBtnSelectState(btnDailyRoutineRadioSecond, routineList[1].routineId)
+                        changeBtnSelectState(btnDailyRoutineRadioThird, routineList[2].routineId)
+                    }
+                }
+
+                2 -> {
+                    with(binding) {
+                        changeBtnSelectState(btnDailyRoutineRadioFirst, routineList[0].routineId)
+                        changeBtnSelectState(btnDailyRoutineRadioSecond, routineList[1].routineId)
+                    }
+                }
+
+                1 -> {
+                    with(binding) {
+                        changeBtnSelectState(btnDailyRoutineRadioFirst, routineList[0].routineId)
+                    }
+                }
             }
         }
     }
@@ -156,31 +231,31 @@ class DailyRoutineFragment :
     }
 
     private fun initSetRoutineDelete() {
-        viewModel.isEditBtnEnabled.observe(viewLifecycleOwner) { isBtnEnabled ->
-            if (isBtnEnabled) {
-                binding.btnDailyRoutineDelete.setOnClickListener {
-                    BindingBottomSheet.Builder().build(
-                        isDrawable = true,
-                        imageDrawable = R.drawable.ic_bear_face_crying,
-                        imageUri = "",
-                        title = "정말 삭제할까요?",
-                        content = "루틴을 삭제해도 달성 횟수는 저장돼요",
-                        isContentVisible = true,
-                        contentColor = R.color.red,
-                        backBtnContent = "취소",
-                        doBtnContent = "삭제할래",
-                        doBtnColor = R.drawable.shape_red_fill_12_rect,
-                        backBtnAction = {},
-                        doBtnAction = {
-                            snackBar(
-                                binding.root.rootView,
-                                "데일리 루틴을 ${viewModel.editRoutineIdArray.size}개 삭제했어요"
-                            )
-                            viewModel.setDeleteView(false)
-                        }
-                    ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
+        binding.btnDailyRoutineDelete.setOnClickListener {
+            BindingBottomSheet.Builder().build(
+                isDrawable = true,
+                imageDrawable = R.drawable.ic_bear_face_crying,
+                imageUri = "",
+                title = "정말 삭제할까요?",
+                content = "루틴을 삭제해도 달성 횟수는 저장돼요",
+                isContentVisible = true,
+                contentColor = R.color.red,
+                backBtnContent = "취소",
+                doBtnContent = "삭제할래",
+                doBtnColor = R.drawable.shape_red_fill_12_rect,
+                backBtnAction = {},
+                doBtnAction = {
+                    viewModel.deleteDailyRoutine()
+                    viewModel.isDailyRoutineDelete.observe(viewLifecycleOwner) {
+                        snackBar(
+                            binding.root.rootView,
+                            "데일리 루틴을 ${viewModel.editRoutineIdArray.size}개 삭제했어요"
+                        )
+                        viewModel.setDeleteView(false)
+                        viewModel.getDailyRoutine()
+                    }
                 }
-            }
+            ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
         }
     }
 
