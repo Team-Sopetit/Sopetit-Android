@@ -1,15 +1,18 @@
 package com.sopetit.softie.ui.setting
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentSettingInitBinding
+import com.sopetit.softie.ui.login.LoginActivity
 import com.sopetit.softie.ui.setting.SettingActivity.Companion.USER_EXIT
 import com.sopetit.softie.ui.setting.SettingActivity.Companion.USER_SECURITY
 import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
+import timber.log.Timber
 
 class SettingInitFragment :
     BindingFragment<FragmentSettingInitBinding>(R.layout.fragment_setting_init) {
@@ -63,7 +66,17 @@ class SettingInitFragment :
                 doBtnContent = getString(R.string.user_logout_exit),
                 doBtnColor = R.drawable.shape_red_fill_12_rect,
                 backBtnAction = {},
-                doBtnAction = {}
+                doBtnAction = {
+                    viewModel.setLogOut()
+
+                    val intent = Intent(requireActivity(), LoginActivity::class.java)
+                    viewModel.isLogOutResponse.observe(viewLifecycleOwner) { logOutSuccess ->
+                        if (logOutSuccess) {
+                            Timber.d("setting -> 로그 아웃 성공")
+                            startActivity(intent)
+                        }
+                    }
+                }
             ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
         }
     }
