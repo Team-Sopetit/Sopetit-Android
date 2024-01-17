@@ -1,10 +1,12 @@
 package com.sopetit.softie.di
 
+import com.sopetit.softie.data.repositoryImpl.AuthRepositoryImpl
 import com.sopetit.softie.data.repositoryImpl.DailyRoutineRepositoryImpl
 import com.sopetit.softie.data.repositoryImpl.DollRepositoryImpl
 import com.sopetit.softie.data.repositoryImpl.HappinessRoutineRepositoryImpl
 import com.sopetit.softie.data.repositoryImpl.MemberHappinessRoutineRepositoryImpl
 import com.sopetit.softie.data.repositoryImpl.MemberRepositoryImpl
+import com.sopetit.softie.domain.repository.AuthRepository
 import com.sopetit.softie.domain.repository.DailyRoutineRepository
 import com.sopetit.softie.domain.repository.DollRepository
 import com.sopetit.softie.domain.repository.HappinessRoutineRepository
@@ -24,6 +26,12 @@ abstract class RepositoryModule {
     abstract fun bindToMemberRepository(
         memberRepositoryImpl: MemberRepositoryImpl
     ): MemberRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindToAuthRepository(
+        authRepositoryImpl: AuthRepositoryImpl
+    ): AuthRepository
 
     @Binds
     @Singleton
