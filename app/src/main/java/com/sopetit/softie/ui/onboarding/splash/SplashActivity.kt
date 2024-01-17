@@ -4,15 +4,21 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivitySplashBinding
-import com.sopetit.softie.ui.main.LoginActivity
+import com.sopetit.softie.ui.login.LoginActivity
+import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.setStatusBarColorFromResource
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.random.Random
 
+@AndroidEntryPoint
 class SplashActivity : BindingActivity<ActivitySplashBinding>(R.layout.activity_splash) {
+
+    private val viewModel by viewModels<SplashViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,8 +60,13 @@ class SplashActivity : BindingActivity<ActivitySplashBinding>(R.layout.activity_
     }
 
     private fun initMakeSplash() {
+        lateinit var intent: Intent
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, LoginActivity::class.java)
+            intent = if (viewModel.isSignedUp()) {
+                Intent(this, MainActivity::class.java)
+            } else {
+                Intent(this, LoginActivity::class.java)
+            }
             startActivity(intent)
             finish()
         }, SPLASH_DELAY)

@@ -8,6 +8,12 @@
     <string name="gray">GRAY</string>
     <string name="none"></string>
 
+    <!-- util -->
+    <string name="finish_app_toast_msg">뒤로가기를 한 번 더 누르면 종료됩니다</string>
+
+    <!-- login -->
+    <string name="login_content">날 꺼내줘!</string>
+
     <!-- daily routine add -->
     <string name="daily_routine_add_title">데일리 루틴 추가</string>
     <string name="daily_routine_add_btn">이 루틴을 추가할래</string>
