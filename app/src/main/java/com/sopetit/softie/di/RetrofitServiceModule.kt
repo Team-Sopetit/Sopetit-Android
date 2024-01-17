@@ -4,6 +4,7 @@ import com.sopetit.softie.data.service.AuthService
 import com.sopetit.softie.data.service.DailyRoutineService
 import com.sopetit.softie.data.service.DollService
 import com.sopetit.softie.data.service.HappinessRoutineService
+import com.sopetit.softie.data.service.MemberHappinessRoutineService
 import com.sopetit.softie.data.service.MemberService
 import dagger.Module
 import dagger.Provides
@@ -33,4 +34,8 @@ object RetrofitServiceModule {
     @Provides
     fun providesAuthService(@RetrofitModule.SoftieType retrofit: Retrofit): AuthService =
         retrofit.create(AuthService::class.java)
+
+    @Provides
+    fun providesMemberHappinessRoutineService(@RetrofitModule.SoftieType retrofit: Retrofit): MemberHappinessRoutineService =
+        retrofit.create(MemberHappinessRoutineService::class.java)
 }
