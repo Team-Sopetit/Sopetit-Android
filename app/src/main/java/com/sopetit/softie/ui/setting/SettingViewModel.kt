@@ -40,7 +40,7 @@ class SettingViewModel @Inject constructor(
 
     fun setDeleteAuth() {
         viewModelScope.launch {
-            deleteAuthUseCase.invoke()
+            deleteAuthUseCase()
                 .onSuccess {
                     _isDeleteAuthResponse.value = true
                     initSIgnUpStateUseCase(false)
@@ -55,7 +55,7 @@ class SettingViewModel @Inject constructor(
 
     fun setLogOut() {
         viewModelScope.launch {
-            logOutUseCase.invoke()
+            logOutUseCase()
                 .onSuccess {
                     _isLogOutResponse.value = true
                     initSIgnUpStateUseCase(false)
