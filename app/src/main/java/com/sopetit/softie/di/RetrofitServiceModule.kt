@@ -19,10 +19,6 @@ object RetrofitServiceModule {
         retrofit.create(MemberService::class.java)
 
     @Provides
-    fun providesAuthService(@RetrofitModule.SoftieType retrofit: Retrofit): AuthService =
-        retrofit.create(AuthService::class.java)
-
-    @Provides
     fun providesHappinessRoutineService(@RetrofitModule.SoftieType retrofit: Retrofit): HappinessRoutineService =
         retrofit.create(HappinessRoutineService::class.java)
 
