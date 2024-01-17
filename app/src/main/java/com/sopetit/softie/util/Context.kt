@@ -4,16 +4,23 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import java.io.Serializable
 
-fun Context.hideKeyboard(view: View) {
-    val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-    inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+fun Context.hideKeyboard(view: View?) {
+    if (view is EditText) {
+        view.clearFocus()
+        val inputMethodManager =
+            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+    }
 }
 
 fun snackBar(
@@ -24,7 +31,11 @@ fun snackBar(
 }
 
 fun Context.toast(message: String) {
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    val toast = Toast.makeText(this, message, Toast.LENGTH_SHORT)
+    toast.show()
+    Handler(Looper.getMainLooper()).postDelayed({
+        run() { toast.cancel() }
+    }, 1000)
 }
 
 fun Fragment.setStatusBarColor(colorResId: Int) {
