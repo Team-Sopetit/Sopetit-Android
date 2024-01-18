@@ -8,7 +8,6 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
-import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityDailyRoutineAddBinding
@@ -39,11 +38,12 @@ class DailyRoutineAddActivity :
         dailyRoutineAddViewModel.getThemeList()
         dailyRoutineAddViewModel.setThemeId(6)
         setupAdapter()
-        setViewPager()
+        //setViewPager()
         setupList()
         setIndicator()
         setItemDiv()
         setCurrentCard()
+        initViewPager()
         initPagerDiv(0, 90)
         addClickListener()
         observeRoutineCardList()
@@ -90,13 +90,30 @@ class DailyRoutineAddActivity :
         }
     }
 
+    private fun initViewPager() {
+        viewPager.adapter = dailyRoutineAddCardPagerAdapter
+
+        val dp = resources.getDimensionPixelSize(R.dimen.view_margin)
+        val d = resources.displayMetrics.density
+        val margin = (dp * d).toInt()
+
+        with(binding.vpDailyRoutineAddCard) {
+            clipChildren = false
+            clipToPadding = false
+            offscreenPageLimit = 3
+            setPadding(margin, 0, margin, 0)
+        }
+        val compositePageTransformer = CompositePageTransformer()
+        binding.vpDailyRoutineAddCard.setPageTransformer(compositePageTransformer)
+    }
+
     private fun initPagerDiv(previewWidth: Int, itemMargin: Int) {
         val decoMargin = previewWidth + itemMargin
         val pageTransX = decoMargin + previewWidth
         val decoration = PageDecoration(decoMargin)
 
         binding.vpDailyRoutineAddCard.also {
-            it.offscreenPageLimit = VIEW_PAGE.toInt()
+            it.offscreenPageLimit = 1
             it.addItemDecoration(decoration)
             it.setPageTransformer { page, position ->
                 page.translationX = position * -pageTransX
@@ -104,22 +121,36 @@ class DailyRoutineAddActivity :
         }
     }
 
-    private fun setViewPager() {
-        with(binding.vpDailyRoutineAddCard) {
-            adapter = dailyRoutineAddCardPagerAdapter
-            offscreenPageLimit = VIEW_PAGE.toInt()
-
-            val dpValue = PADDING_PAGE
-            val margin = (dpValue * resources.displayMetrics.density).toInt()
-            setPadding(margin, PADDING_CARD, margin, PADDING_CARD)
-
-            setPageTransformer(
-                CompositePageTransformer().apply {
-                    addTransformer(MarginPageTransformer(resources.getDimensionPixelOffset(R.dimen.viewpager_margin)))
-                }
-            )
-        }
-    }
+//    private fun initPagerDiv(previewWidth: Int, itemMargin: Int) {
+//        val decoMargin = previewWidth + itemMargin
+//        val pageTransX = decoMargin + previewWidth
+//        val decoration = PageDecoration(decoMargin)
+//
+//        binding.vpDailyRoutineAddCard.also {
+//            it.offscreenPageLimit = VIEW_PAGE.toInt()
+//            it.addItemDecoration(decoration)
+//            it.setPageTransformer { page, position ->
+//                page.translationX = position * -pageTransX
+//            }
+//        }
+//    }
+//
+//    private fun setViewPager() {
+//        with(binding.vpDailyRoutineAddCard) {
+//            adapter = dailyRoutineAddCardPagerAdapter
+//            offscreenPageLimit = VIEW_PAGE.toInt()
+//
+//            val dpValue = PADDING_PAGE
+//            val margin = (dpValue * resources.displayMetrics.density).toInt()
+//            setPadding(margin, PADDING_CARD, margin, PADDING_CARD)
+//
+//            setPageTransformer(
+//                CompositePageTransformer().apply {
+//                    addTransformer(MarginPageTransformer(resources.getDimensionPixelOffset(R.dimen.viewpager_margin)))
+//                }
+//            )
+//        }
+//    }
 
     private fun setIndicator() {
         binding.diDailyRoutineAddIndicator.attachTo(binding.vpDailyRoutineAddCard)
