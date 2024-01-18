@@ -203,6 +203,7 @@ class DailyRoutineAddActivity :
                 doBtnAction = {
                     tossMsg()
                     dailyRoutineAddViewModel.postAddDailyRoutine()
+                    dailyRoutineAddViewModel.getDailyRoutine()
                 }
             ).show(supportFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
         }
