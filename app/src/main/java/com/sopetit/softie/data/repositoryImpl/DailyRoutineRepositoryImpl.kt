@@ -47,7 +47,7 @@ class DailyRoutineRepositoryImpl @Inject constructor(
         }
 
     override suspend fun getRoutineDailyThemeList(themeId: Int): Result<DailyCard> =
-        kotlin.runCatching {
+        runCatching {
             dailyRoutineDataSource.getRoutineDailyThemeList(themeId)
         }.map { response ->
             requireNotNull(response.data).toDailyCard()
