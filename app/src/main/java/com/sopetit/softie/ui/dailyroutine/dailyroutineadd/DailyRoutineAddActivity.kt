@@ -113,11 +113,7 @@ class DailyRoutineAddActivity :
 
             setPageTransformer(
                 CompositePageTransformer().apply {
-                    addTransformer(
-                        MarginPageTransformer(
-                            resources.getDimensionPixelOffset(R.dimen.viewpager_margin)
-                        )
-                    )
+                    addTransformer(MarginPageTransformer(resources.getDimensionPixelOffset(R.dimen.viewpager_margin)))
                 }
             )
         }
