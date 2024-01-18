@@ -13,12 +13,11 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_happy_routine_add_card"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="280dp"
+            android:layout_height="398dp"
             android:visibility="visible"
             android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="1:1.42"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
