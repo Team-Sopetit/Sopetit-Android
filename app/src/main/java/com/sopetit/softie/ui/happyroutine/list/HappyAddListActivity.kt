@@ -67,6 +67,7 @@ class HappyAddListActivity :
         viewModel.happyContentResponse.observe(this) {
             happyAddListContentAdapter?.submitList(viewModel.happyContentResponse.value)
         }
+        viewModel.getHappyContent(0)
         happyAddListChipContentAdapter?.setOnChipClickListener {
             viewModel.getHappyContent(it.themeId)
         }
