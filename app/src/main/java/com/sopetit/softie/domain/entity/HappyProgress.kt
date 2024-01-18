@@ -1,14 +1,14 @@
 package com.sopetit.softie.domain.entity
 
-import androidx.annotation.DrawableRes
-
 data class HappyProgress(
     val routineId: Int,
-    @DrawableRes val imageUrl: Int,
+    val iconImageUrl: String,
+    val contentImageUrl: String,
+    val themeName: String,
+    val themeNameColor: String,
     val title: String,
     val content: String,
-    val detailTitle: String,
     val detailContent: String,
-    val detailTime: String,
-    val detailPlace: String
+    val place: String,
+    val timeTaken: String
 )
