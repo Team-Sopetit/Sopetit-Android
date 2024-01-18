@@ -37,5 +37,5 @@ interface DailyRoutineService {
     suspend fun postAddDailyRoutine(@Body routineId: Int): BaseResponse<AddDailyRoutineResponse>
 
     @GET("api/v1/routines/daily/theme/{themeId}")
-    suspend fun getDailyCardList(@Path("themeId") themeId: Int): BaseResponse<DailyCardResponse>
+    suspend fun getRoutineDailyThemeList(@Path("themeId") themeId: Int): BaseResponse<DailyCardResponse>
 }

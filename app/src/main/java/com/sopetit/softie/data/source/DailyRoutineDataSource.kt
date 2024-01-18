@@ -3,6 +3,7 @@ package com.sopetit.softie.data.source
 import com.sopetit.softie.data.entity.BaseResponse
 import com.sopetit.softie.data.entity.response.AchieveDailyResponse
 import com.sopetit.softie.data.entity.response.AddDailyRoutineResponse
+import com.sopetit.softie.data.entity.response.DailyCardResponse
 import com.sopetit.softie.data.entity.response.DailyRoutineListResponse
 import com.sopetit.softie.data.entity.response.DailyRoutineResponse
 import com.sopetit.softie.data.entity.response.ThemeListResponse
@@ -28,4 +29,7 @@ class DailyRoutineDataSource @Inject constructor(
 
     suspend fun postAddDailyRoutine(routineId: Int): BaseResponse<AddDailyRoutineResponse> =
         dailyRoutineService.postAddDailyRoutine(routineId)
+
+    suspend fun getRoutineDailyThemeList(themeId: Int): BaseResponse<DailyCardResponse> =
+        dailyRoutineService.getRoutineDailyThemeList(themeId)
 }
