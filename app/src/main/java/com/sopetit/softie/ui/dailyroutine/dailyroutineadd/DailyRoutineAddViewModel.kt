@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sopetit.softie.data.entity.request.AddDailyRoutineRequest
 import com.sopetit.softie.domain.entity.DailyCard
 import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.domain.usecase.GetRoutineDailyThemeListUseCase
@@ -42,14 +43,17 @@ class DailyRoutineAddViewModel @Inject constructor(
 
     fun postAddDailyRoutine() {
         viewModelScope.launch {
-            Timber.d("routineId is ${routineId.value}")
-            postAddDailyRoutineUseCase(routineId.value ?: 1)
-                .onSuccess { response ->
-                    Timber.d("response is $response")
-                }
-                .onFailure { throwable ->
-                    Timber.e("response is throwable $throwable")
-                }
+            val addDailyRoutineRequest =
+                routineId.value?.let { AddDailyRoutineRequest(routineId = it) }
+            if (addDailyRoutineRequest != null) {
+                postAddDailyRoutineUseCase(addDailyRoutineRequest)
+                    .onSuccess { response ->
+                        Timber.d("$response")
+                    }
+                    .onFailure { throwable ->
+                        Timber.e("$throwable")
+                    }
+            }
         }
     }
 

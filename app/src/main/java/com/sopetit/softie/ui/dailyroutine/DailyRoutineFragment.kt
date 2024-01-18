@@ -28,17 +28,20 @@ class DailyRoutineFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setStatusBarColor(R.color.background)
-
         binding.viewModel = viewModel
 
         viewModel.getDailyRoutine()
-
         moveToAddRoutine()
         initSetDailyRoutineContent()
         initSetDeleteView()
         initSetRoutineDelete()
         addDailyRoutineMsg()
         achieveRoutine()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getDailyRoutine()
     }
 
     private fun initSetDailyRoutineContent() {
