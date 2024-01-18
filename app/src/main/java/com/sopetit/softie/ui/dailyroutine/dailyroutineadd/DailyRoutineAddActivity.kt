@@ -12,6 +12,7 @@ import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityDailyRoutineAddBinding
+import com.sopetit.softie.domain.entity.Routine
 import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.util.OriginalBottomSheet
@@ -37,7 +38,7 @@ class DailyRoutineAddActivity :
 
         dailyRoutineAddViewModel.getThemeList()
         dailyRoutineAddViewModel.setThemeId(6)
-        initSetDailyRoutineAdd()
+//        initSetDailyRoutineAdd()
         setupAdapter()
         setViewPager()
         setupList()
@@ -85,6 +86,8 @@ class DailyRoutineAddActivity :
             dailyRoutineAddCardPagerAdapter.submitList(
                 dailyRoutineAddViewModel.dailyRoutineCardThemeList.value?.routine
             )
+
+            initSetDailyRoutineAdd()
         }
     }
 
@@ -170,6 +173,13 @@ class DailyRoutineAddActivity :
         })
     }
 
+    private fun getCurrentSelectedRoutine(): Routine {
+        val currentItem = binding.vpDailyRoutineAddCard.currentItem
+        val itemId = dailyRoutineAddCardPagerAdapter.getItemId(currentItem)
+        val itemContent = dailyRoutineAddCardPagerAdapter.content
+        return Routine(itemId.toInt(), itemContent)
+    }
+
     private fun getCurrentSelectedRoutineId(): Int {
         val currentItem = binding.vpDailyRoutineAddCard.currentItem
         val itemId = dailyRoutineAddCardPagerAdapter.getItemId(currentItem)
@@ -181,9 +191,9 @@ class DailyRoutineAddActivity :
             BindingBottomSheet.Builder().build(
                 isDrawable = false,
                 imageDrawable = 0,
-                imageUri = "https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/12/urbanbrush-20221214144619159434.jpg",
+                imageUri = dailyRoutineAddThemeAdapter.clickedThemeIcon,
                 title = getString(R.string.daily_routine_add_question),
-                content = getString(R.string.daily_routine_content),
+                content = getCurrentSelectedRoutine().content,
                 isContentVisible = true,
                 contentColor = R.color.gray400,
                 backBtnContent = getString(R.string.daily_routine_add_no),
