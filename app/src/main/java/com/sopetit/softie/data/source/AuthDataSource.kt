@@ -14,4 +14,6 @@ class AuthDataSource @Inject constructor(
 
     suspend fun postLogin(socialType: String): BaseResponse<LoginResponse> =
         authService.postLogin(LoginRequest(socialType))
+
+    suspend fun logOut(): BaseResponse<Unit> = authService.logOut()
 }

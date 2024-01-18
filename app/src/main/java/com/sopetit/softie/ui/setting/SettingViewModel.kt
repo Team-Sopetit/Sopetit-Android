@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.domain.usecase.InitSIgnUpStateUseCase
 import com.sopetit.softie.domain.usecase.InitTokenUseCase
 import com.sopetit.softie.domain.usecase.auth.DeleteAuthUseCase
+import com.sopetit.softie.domain.usecase.auth.LogOutUseCase
 import com.sopetit.softie.ui.setting.SettingActivity.Companion.SETTING_INIT
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -16,6 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SettingViewModel @Inject constructor(
     private val deleteAuthUseCase: DeleteAuthUseCase,
+    private val logOutUseCase: LogOutUseCase,
     private val initSIgnUpStateUseCase: InitSIgnUpStateUseCase,
     private val initTokenUseCase: InitTokenUseCase
 ) : ViewModel() {
@@ -28,19 +30,39 @@ class SettingViewModel @Inject constructor(
     val isDeleteAuthResponse: LiveData<Boolean>
         get() = _isDeleteAuthResponse
 
+    private val _isLogOutResponse: MutableLiveData<Boolean> = MutableLiveData()
+    val isLogOutResponse: LiveData<Boolean>
+        get() = _isLogOutResponse
+
     fun setSettingFragment(clickFragment: String) {
         _settingFragment.value = clickFragment
     }
 
     fun setDeleteAuth() {
         viewModelScope.launch {
-            deleteAuthUseCase.invoke()
+            deleteAuthUseCase()
                 .onSuccess {
                     _isDeleteAuthResponse.value = true
                     initSIgnUpStateUseCase(false)
                     initTokenUseCase("", "")
+                    Timber.d("회원 탈퇴 성공")
                 }.onFailure { throwable ->
                     _isDeleteAuthResponse.value = false
+                    Timber.e("서버 통신 실패 -> ${throwable.message}")
+                }
+        }
+    }
+
+    fun setLogOut() {
+        viewModelScope.launch {
+            logOutUseCase()
+                .onSuccess {
+                    _isLogOutResponse.value = true
+                    initSIgnUpStateUseCase(false)
+                    initTokenUseCase("", "")
+                    Timber.d("로그 아웃 성공")
+                }.onFailure { throwable ->
+                    _isLogOutResponse.value = false
                     Timber.e("서버 통신 실패 -> ${throwable.message}")
                 }
         }

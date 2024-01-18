@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ItemDailyRoutineAddThemeBinding
 import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.util.ItemDiffCallback
+import com.sopetit.softie.util.binding.BindingAdapter.setCoilImage
 
 class DailyRoutineAddThemeAdapter :
     ListAdapter<Theme, DailyRoutineAddThemeAdapter.DailyThemeViewHolder>(
@@ -36,7 +36,7 @@ class DailyRoutineAddThemeAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Theme) {
             binding.tvDailyRoutineAddThemeName.text = data.name
-            binding.ivDailyRoutineAddThemeIcon.load(data.iconImageUrl)
+            binding.ivDailyRoutineAddThemeIcon.setCoilImage(data.iconImageUrl)
             if (selectedPosition == absoluteAdapterPosition) {
                 changeThemeBackground(binding, true)
                 changeThemeTextColor(binding, true)
@@ -102,7 +102,9 @@ class DailyRoutineAddThemeAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DailyThemeViewHolder {
         val binding = ItemDailyRoutineAddThemeBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
+            LayoutInflater.from(parent.context),
+            parent,
+            false
         )
         return DailyThemeViewHolder(binding)
     }
