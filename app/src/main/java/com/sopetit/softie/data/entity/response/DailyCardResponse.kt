@@ -1,25 +1,20 @@
 package com.sopetit.softie.data.entity.response
 
-import com.sopetit.softie.domain.entity.Routine
+import com.sopetit.softie.domain.entity.DailyCard
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+@Serializable
 data class DailyCardResponse(
+    @SerialName("backgroundImageUrl")
+    val backgroundImageUrl: String,
     @SerialName("routines")
-    val routines: List<RoutineItem>
+    val routines: List<RoutineItemEntity>
 ) {
-    @Serializable
-    data class RoutineItem(
-        @SerialName("routineId")
-        val routineId: Int,
-        @SerialName("content")
-        val content: String
+    fun toDailyCard(): DailyCard = DailyCard(
+        backgroundImageUrl = this.backgroundImageUrl,
+        routine = this.routines.map { routineItemEntity ->
+            routineItemEntity.toRoutine()
+        }
     )
-
-    fun toRoutine() = routines.map {
-        Routine(
-            routineId = it.routineId,
-            content = it.content
-        )
-    }
 }
