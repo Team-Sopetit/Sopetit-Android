@@ -11,7 +11,6 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.sopetit.softie.R
-import com.sopetit.softie.data.entity.request.AddDailyRoutineRequest
 import com.sopetit.softie.databinding.ActivityDailyRoutineAddBinding
 import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.ui.main.MainActivity
@@ -33,20 +32,21 @@ class DailyRoutineAddActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewPager = binding.vpDailyRoutineAddCard
-
         binding.viewModel = dailyRoutineAddViewModel
         setStatusBarColorFromResource(R.color.background)
 
-        val request = AddDailyRoutineRequest(routineId = 1)
-        initSetDailyRoutineAdd(request)
-
+        dailyRoutineAddViewModel.getThemeList()
+        dailyRoutineAddViewModel.setThemeId(6)
+        initSetDailyRoutineAdd()
         setupAdapter()
         setViewPager()
         setupList()
         setIndicator()
         setItemDiv()
+        setCurrentCard()
         initPagerDiv(0, 90)
         addClickListener()
+        observeRoutineCardList()
     }
 
     private fun addClickListener() {
@@ -60,7 +60,7 @@ class DailyRoutineAddActivity :
             dailyRoutineAddThemeAdapter = DailyRoutineAddThemeAdapter().apply {
                 setOnItemClickListener(object : DailyRoutineAddThemeAdapter.OnItemClickListener {
                     override fun onItemClick(item: Theme, position: Int) {
-                        setRoutineList(item.themeId)
+                        dailyRoutineAddViewModel.setThemeId(item.themeId)
                     }
                 })
             }
@@ -69,16 +69,23 @@ class DailyRoutineAddActivity :
     }
 
     private fun setupList() {
-        dailyRoutineAddViewModel.mockThemeList.observe(this) {
-            dailyRoutineAddCardPagerAdapter.submitList(dailyRoutineAddViewModel.startNewDayCardList.value)
-            dailyRoutineAddThemeAdapter.submitList(dailyRoutineAddViewModel.mockThemeList.value)
+        dailyRoutineAddViewModel.themeList.observe(this) {
+            dailyRoutineAddThemeAdapter.submitList(dailyRoutineAddViewModel.themeList.value)
         }
     }
 
-    private fun setRoutineList(themeId: Int) {
-        dailyRoutineAddCardPagerAdapter.submitList(
-            dailyRoutineAddViewModel.getDailyCardListForId(themeId)[0].dailyRoutineCardList
-        )
+    private fun observeRoutineCardList() {
+        dailyRoutineAddViewModel.themeId.observe(this) {
+            dailyRoutineAddViewModel.getDailyRoutine()
+        }
+        dailyRoutineAddViewModel.dailyRoutineCardThemeList.observe(this) {
+            dailyRoutineAddCardPagerAdapter.updateBackground(
+                dailyRoutineAddViewModel.dailyRoutineCardThemeList.value?.backgroundImageUrl ?: ""
+            )
+            dailyRoutineAddCardPagerAdapter.submitList(
+                dailyRoutineAddViewModel.dailyRoutineCardThemeList.value?.routine
+            )
+        }
     }
 
     private fun initPagerDiv(previewWidth: Int, itemMargin: Int) {
@@ -157,7 +164,23 @@ class DailyRoutineAddActivity :
         }
     }
 
-    private fun initSetDailyRoutineAdd(request: AddDailyRoutineRequest) {
+    private fun setCurrentCard() {
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                val currentRoutineId = getCurrentSelectedRoutineId()
+                dailyRoutineAddViewModel.setRoutineId(currentRoutineId)
+            }
+        })
+    }
+
+    private fun getCurrentSelectedRoutineId(): Int {
+        val currentItem = binding.vpDailyRoutineAddCard.currentItem
+        val itemId = dailyRoutineAddCardPagerAdapter.getItemId(currentItem)
+        return itemId.toInt()
+    }
+
+    private fun initSetDailyRoutineAdd() {
         binding.btnDailyRoutineAdd.setOnClickListener {
             BindingBottomSheet.Builder().build(
                 isDrawable = false,
@@ -173,7 +196,7 @@ class DailyRoutineAddActivity :
                 backBtnAction = {},
                 doBtnAction = {
                     tossMsg()
-                    dailyRoutineAddViewModel.postAddDailyRoutine(request.routineId)
+                    dailyRoutineAddViewModel.postAddDailyRoutine()
                 }
             ).show(supportFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
         }
@@ -189,6 +212,5 @@ class DailyRoutineAddActivity :
         const val VIEW_PAGE = 3
         const val PADDING_PAGE = 40
         const val PADDING_CARD = 0
-        const val ID = "id"
     }
 }
