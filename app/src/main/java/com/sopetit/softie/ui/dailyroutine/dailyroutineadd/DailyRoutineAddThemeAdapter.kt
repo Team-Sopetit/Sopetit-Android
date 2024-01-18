@@ -21,6 +21,7 @@ class DailyRoutineAddThemeAdapter :
     private var onItemClickListener: OnItemClickListener? = null
     private var selectedPosition = 0
     var clickedThemeId: Int = 1
+    lateinit var clickedThemeIcon: String
 
     interface OnItemClickListener {
         fun onItemClick(item: Theme, position: Int)
@@ -55,6 +56,7 @@ class DailyRoutineAddThemeAdapter :
                         selectedPosition = absoluteAdapterPosition
                     }
                     clickedThemeId = data.themeId
+                    clickedThemeIcon = data.iconImageUrl
                 }
             }
         }
