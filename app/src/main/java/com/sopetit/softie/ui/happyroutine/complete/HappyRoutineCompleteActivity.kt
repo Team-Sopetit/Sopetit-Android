@@ -24,10 +24,10 @@ class HappyRoutineCompleteActivity : RoutineCompleteActivity(Cotton.HAPPINESS) {
 
     private fun setHappyRoutineImage() {
         val bearDrawableMap = mapOf(
-            BROWN to R.drawable.ic_bear_happy_complete_brown,
-            GRAY to R.drawable.ic_bear_happy_complete_gray,
-            RED to R.drawable.ic_bear_happy_complete_red,
-            WHITE to R.drawable.ic_bear_happy_complete_panda
+            BROWN to R.drawable.ic_happy_complete_brown,
+            GRAY to R.drawable.ic_happy_complete_gray,
+            RED to R.drawable.ic_happy_complete_red,
+            WHITE to R.drawable.ic_happy_complete_panda
         )
         val resourceId =
             bearDrawableMap[viewModel.getBearType()] ?: R.drawable.ic_bear_handsup_brown
