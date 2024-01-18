@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="24dp"
             android:visibility="visible"
             android:text="@string/happy_progress_title"
             app:layout_constraintStart_toStartOf="parent"
@@ -82,12 +82,12 @@
 
             <ImageView
                 android:id="@+id/iv_happy_delete_card_front"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/ic_happycard_up_green" />
+                tools:src="@drawable/ic_happycard" />
 
             <TextView
                 android:id="@+id/tv_happy_delete_card_front_title"
@@ -98,9 +98,10 @@
                 android:gravity="center"
                 android:lineSpacingExtra="4dp"
                 android:textAppearance="@style/body2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_happy_delete_card_front"
+                app:layout_constraintEnd_toEndOf="@id/iv_happy_delete_card_front"
+                app:layout_constraintStart_toStartOf="@id/iv_happy_delete_card_front"
+                app:layout_constraintTop_toTopOf="@id/iv_happy_delete_card_front"
+                app:layout_constraintBottom_toBottomOf="@id/iv_happy_delete_card_front"
                 tools:text="10년이 가도" />
 
             <ImageView
@@ -110,8 +111,8 @@
                 android:layout_marginEnd="22dp"
                 android:layout_marginBottom="22dp"
                 android:src="@drawable/ic_magnify"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintBottom_toBottomOf="@id/iv_happy_delete_card_front"
+                app:layout_constraintEnd_toEndOf="@id/iv_happy_delete_card_front" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
