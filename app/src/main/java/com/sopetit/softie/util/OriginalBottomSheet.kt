@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentBottomsheetBinding
-import com.sopetit.softie.util.binding.BindingAdapter.setImage
+import com.sopetit.softie.util.binding.BindingAdapter.setCoilImage
 import com.sopetit.softie.util.binding.BindingBottomSheet
 
 class OriginalBottomSheet : BindingBottomSheet() {
@@ -28,7 +28,7 @@ class OriginalBottomSheet : BindingBottomSheet() {
         if (isDrawable == true) {
             imageDrawable?.let { binding.ivBottomSheet.setImageResource(it) }
         } else {
-            binding.ivBottomSheet.setImage(imageUri)
+            binding.ivBottomSheet.setCoilImage(imageUri)
         }
     }
 

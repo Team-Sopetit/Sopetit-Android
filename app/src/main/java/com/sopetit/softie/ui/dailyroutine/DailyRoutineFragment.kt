@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
+import com.sopetit.softie.domain.entity.DailyRoutine
 import com.sopetit.softie.ui.dailyroutine.complete.DailyRoutineCompleteActivity
 import com.sopetit.softie.ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity
 import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
@@ -38,7 +39,6 @@ class DailyRoutineFragment :
         initSetDeleteView()
         initSetRoutineDelete()
         addDailyRoutineMsg()
-        achieveRoutine()
     }
 
     private fun initSetDailyRoutineContent() {
@@ -114,24 +114,19 @@ class DailyRoutineFragment :
         dailyIcon.setCoilImage(dailyRoutine?.get(index)?.iconImageUrl)
         viewModel.setRoutineAchieve(dailyRoutine?.get(index)?.isAchieve ?: false, index)
 
-        initSetDailyRoutineAchieve(btn, dailyRoutine?.get(index)?.routineId ?: 0)
+        initSetDailyRoutineAchieve(
+            btn,
+            (dailyRoutine?.get(index) ?: 0) as DailyRoutine,
+            dailyRoutine?.get(index)?.routineId ?: 0
+        )
     }
 
-    private fun achieveRoutine() {
-        viewModel.isRoutineAchieveFirst.observe(viewLifecycleOwner) {
-        }
-        viewModel.isRoutineAchieveSecond.observe(viewLifecycleOwner) {
-        }
-        viewModel.isRoutineAchieveThird.observe(viewLifecycleOwner) {
-        }
-    }
-
-    private fun initSetDailyRoutineAchieve(btn: View, routineId: Int) {
+    private fun initSetDailyRoutineAchieve(btn: View, dailyRoutine: DailyRoutine, routineId: Int) {
         btn.setOnClickListener {
             BindingBottomSheet.Builder().build(
-                isDrawable = true,
-                imageDrawable = R.drawable.ic_bear_face_crying,
-                imageUri = "",
+                isDrawable = false,
+                imageDrawable = 0,
+                imageUri = dailyRoutine.iconImageUrl,
                 title = "데일리 루틴을 완료했나요?",
                 content = "한 번 완료하면 이전으로 되돌릴 수 없어요",
                 isContentVisible = true,
@@ -143,6 +138,7 @@ class DailyRoutineFragment :
                 doBtnAction = {
                     startDailyRoutineCompleteActivity()
                     viewModel.patchAchieveDaily(routineId)
+                    viewModel.getDailyRoutine()
                 }
             ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
         }
