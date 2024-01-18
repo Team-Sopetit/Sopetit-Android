@@ -36,6 +36,10 @@ class HappyProgressViewModel @Inject constructor(
     val isHappyRoutineAchieve: LiveData<Boolean>
         get() = _isHappyRoutineAchieve
 
+    private val _myRoutineId: MutableLiveData<Int> = MutableLiveData()
+    val myRoutineId: LiveData<Int>
+        get() = _myRoutineId
+
     fun patchAchieveHappyRoutine(routineId: Int) {
         viewModelScope.launch {
             patchMemberHappinessAchieveUseCase(routineId)

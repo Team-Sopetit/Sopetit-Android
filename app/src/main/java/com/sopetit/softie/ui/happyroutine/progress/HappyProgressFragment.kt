@@ -28,7 +28,6 @@ class HappyProgressFragment :
         setCardBinding(happyProgress)
         setCardEnter()
         setEditEnter()
-        setClearEnter()
     }
 
     private fun setCardBinding(happyProgress: Unit) {
@@ -47,6 +46,7 @@ class HappyProgressFragment :
                         happyProgress.timeTaken
                     tvHappyProgressCardBackPlace.text = happyProgress.place
                 }
+                setClearEnter(happyProgress.iconImageUrl)
             }
         }
     }
@@ -83,11 +83,11 @@ class HappyProgressFragment :
         }
     }
 
-    private fun initHappyRoutineCompleteBottomSheet() {
+    private fun initHappyRoutineCompleteBottomSheet(icon: String) {
         BindingBottomSheet.Builder().build(
             isDrawable = false,
             imageDrawable = 0,
-            imageUri = "",
+            imageUri = icon,
             title = getString(R.string.happy_progress_bottom_sheet_title),
             content = getString(R.string.happy_progress_bottom_sheet_content),
             isContentVisible = true,
@@ -125,9 +125,9 @@ class HappyProgressFragment :
         startActivity(intentToCompleteActivity)
     }
 
-    private fun setClearEnter() {
+    private fun setClearEnter(icon: String) {
         binding.btnHappyProgressClear.setOnClickListener {
-            initHappyRoutineCompleteBottomSheet()
+            initHappyRoutineCompleteBottomSheet(icon)
         }
     }
 }
