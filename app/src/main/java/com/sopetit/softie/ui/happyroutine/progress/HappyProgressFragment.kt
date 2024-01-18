@@ -13,7 +13,6 @@ import com.sopetit.softie.ui.happyroutine.delete.HappyDeleteFragment
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
-import com.sopetit.softie.util.snackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,7 +28,6 @@ class HappyProgressFragment :
         setCardBinding(happyProgress)
         setCardEnter()
         setEditEnter()
-        setClearEnter()
     }
 
     private fun setCardBinding(happyProgress: Unit) {
@@ -48,6 +46,7 @@ class HappyProgressFragment :
                         happyProgress.timeTaken
                     tvHappyProgressCardBackPlace.text = happyProgress.place
                 }
+                setClearEnter(happyProgress.iconImageUrl)
             }
         }
     }
@@ -84,11 +83,11 @@ class HappyProgressFragment :
         }
     }
 
-    private fun initHappyRoutineCompleteBottomSheet() {
+    private fun initHappyRoutineCompleteBottomSheet(icon: String) {
         BindingBottomSheet.Builder().build(
             isDrawable = false,
             imageDrawable = 0,
-            imageUri = "",
+            imageUri = icon,
             title = getString(R.string.happy_progress_bottom_sheet_title),
             content = getString(R.string.happy_progress_bottom_sheet_content),
             isContentVisible = true,
@@ -98,12 +97,13 @@ class HappyProgressFragment :
             doBtnColor = R.drawable.shape_main1_fill_12_rect,
             backBtnAction = {},
             doBtnAction = {
-                startHappyRoutineCompleteActivity()
-                snackBar(
-                    binding.btnHappyProgressClear,
-                    getString(R.string.happy_routine_complete_title)
-                )
-                moveToHappyRoutineEmptyCardView()
+                viewModel.happyProgressResponse.observe(viewLifecycleOwner) { happyProgress ->
+                    happyProgress?.let {
+                        viewModel.patchAchieveHappyRoutine(happyProgress.routineId)
+                        startHappyRoutineCompleteActivity()
+                        moveToHappyRoutineEmptyCardView()
+                    }
+                }
             }
         ).show(parentFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
     }
@@ -121,9 +121,9 @@ class HappyProgressFragment :
         startActivity(intentToCompleteActivity)
     }
 
-    private fun setClearEnter() {
+    private fun setClearEnter(icon: String) {
         binding.btnHappyProgressClear.setOnClickListener {
-            initHappyRoutineCompleteBottomSheet()
+            initHappyRoutineCompleteBottomSheet(icon)
         }
     }
 }
