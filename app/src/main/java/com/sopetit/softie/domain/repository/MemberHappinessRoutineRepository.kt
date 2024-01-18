@@ -6,5 +6,5 @@ import com.sopetit.softie.domain.entity.HappyProgress
 interface MemberHappinessRoutineRepository {
     suspend fun getHappyProgress(): Result<HappyProgress>
     suspend fun postMemberHappinessRoutine(request: PostMemberHappyRoutineRequest): Result<Int>
-    suspend fun patchMemberHappinessAchieve(routineId: Int): Result<Unit>
+    suspend fun deleteMemberHappyRoutine(routineId: Int): Result<Unit>
 }
