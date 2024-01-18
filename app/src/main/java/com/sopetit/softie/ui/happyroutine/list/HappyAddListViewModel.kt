@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.domain.entity.HappyChip
 import com.sopetit.softie.domain.entity.HappyContent
-import com.sopetit.softie.domain.usecase.GetHappyChipUseCase
-import com.sopetit.softie.domain.usecase.GetHappyContentUseCase
+import com.sopetit.softie.domain.usecase.happyroutine.GetHappyChipUseCase
+import com.sopetit.softie.domain.usecase.happyroutine.GetHappyContentUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber
