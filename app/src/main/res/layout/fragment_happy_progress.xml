@@ -40,19 +40,19 @@
             android:id="@+id/iv_happy_progress_mention"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_speech_happy"
             android:layout_marginBottom="19dp"
+            android:src="@drawable/ic_speech_happy"
+            app:layout_constraintBottom_toTopOf="@id/tv_happy_progress_subtitle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/tv_happy_progress_subtitle" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/tv_happy_progress_mention"
             style="@style/bubble16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/happy_progress_mention"
             android:layout_marginBottom="4dp"
+            android:text="@string/happy_progress_mention"
             app:layout_constraintBottom_toBottomOf="@id/iv_happy_progress_mention"
             app:layout_constraintEnd_toEndOf="@id/iv_happy_progress_mention"
             app:layout_constraintStart_toStartOf="@id/iv_happy_progress_mention"
@@ -64,9 +64,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toTopOf="@id/cl_happy_progress_card_front"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/cl_happy_progress_card_front"
             tools:text="성숙한 사랑을 만나기 위한" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -76,9 +76,9 @@
             android:layout_marginBottom="41dp"
             android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
             android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@id/btn_happy_progress_clear"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/btn_happy_progress_clear">
+            app:layout_constraintStart_toStartOf="parent">
 
             <ImageView
                 android:id="@+id/iv_happy_progress_card_front"
@@ -98,10 +98,10 @@
                 android:gravity="center"
                 android:lineSpacingExtra="4dp"
                 android:textAppearance="@style/body2"
+                app:layout_constraintBottom_toBottomOf="@id/iv_happy_progress_card_front"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/iv_happy_progress_card_front"
-                app:layout_constraintBottom_toBottomOf="@id/iv_happy_progress_card_front"
                 tools:text="10년이 가도" />
 
             <ImageView
@@ -178,8 +178,8 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginBottom="7dp"
                 android:src="@drawable/ic_time"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/iv_happy_progress_card_back_place"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintVertical_bias="1" />
 
             <TextView
@@ -238,6 +238,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="34dp"
             android:background="@drawable/shape_black_fill_12_rect"
+            android:outlineProvider="none"
             android:text="@string/happy_progress_button"
             android:textAppearance="@style/body1"
             android:textColor="@color/gray000"

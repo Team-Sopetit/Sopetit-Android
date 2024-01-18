@@ -10,6 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:elevation="0dp"
         android:background="@color/background">
 
         <TextView
@@ -238,6 +239,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="34dp"
             android:background="@drawable/shape_red_fill_12_rect"
+            android:outlineProvider="none"
             android:text="@string/happy_delete_button"
             android:textAppearance="@style/body1"
             android:textColor="@color/gray000"
