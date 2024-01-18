@@ -24,10 +24,10 @@ class DailyRoutineCompleteActivity : RoutineCompleteActivity(Cotton.DAILY) {
 
     private fun setDailyRoutineImage() {
         val bearDrawableMap = mapOf(
-            BROWN to R.drawable.ic_bear_handsup_brown,
-            GRAY to R.drawable.ic_bear_handsup_gray,
-            RED to R.drawable.ic_bear_handsup_red,
-            WHITE to R.drawable.ic_bear_handsup_panda
+            BROWN to R.drawable.ic_daily_complete_brown,
+            GRAY to R.drawable.ic_daily_complete_gray,
+            RED to R.drawable.ic_daily_complete_red,
+            WHITE to R.drawable.ic_daily_complete_panda
         )
         val resourceId =
             bearDrawableMap[viewModel.getBearType()] ?: R.drawable.ic_bear_handsup_brown
