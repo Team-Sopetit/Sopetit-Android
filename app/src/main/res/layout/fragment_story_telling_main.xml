@@ -19,11 +19,15 @@
 
         <ImageView
             android:id="@+id/iv_story_telling_main_girl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="218dp"
-            android:src="@drawable/ic_girl2"
+            android:layout_marginEnd="130dp"
+            android:layout_marginBottom="63dp"
+            android:src="@drawable/ic_girl6"
+            app:layout_constraintBottom_toTopOf="@id/btn_story_telling_main_next"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
