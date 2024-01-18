@@ -37,7 +37,6 @@ class HappyAddListChipContentAdapter :
 
     private fun chipCurrentSelection(position: Int) {
         if (isSelected(position)) {
-            selectedPositions.remove(position)
         } else {
             selectedPositions.clear()
             selectedPositions.add(position)
