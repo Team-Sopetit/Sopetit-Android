@@ -13,18 +13,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/img_homeback_all">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/backgroundImageView"
             setImage="@{viewModel.homeResponse.frameImageUrl}"
-            android:layout_width="match_parent"
+            android:layout_width="489dp"
             android:layout_height="0dp"
+            android:background="@drawable/img_homeback_all"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1.7"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/iv_home_logo"
@@ -84,15 +85,16 @@
             android:id="@+id/iv_home_shadow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="130dp"
             android:src="@drawable/ic_shadow"
             app:layout_constraintBottom_toBottomOf="@id/lottie_home_bear"
             app:layout_constraintEnd_toEndOf="@id/lottie_home_bear"
-            app:layout_constraintStart_toStartOf="@id/lottie_home_bear" />
+            app:layout_constraintStart_toStartOf="@id/lottie_home_bear"
+            app:layout_constraintTop_toTopOf="@id/lottie_home_bear"
+            app:layout_constraintVertical_bias="0.74" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie_home_bear"
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="150dp"
             android:scaleType="centerCrop"
