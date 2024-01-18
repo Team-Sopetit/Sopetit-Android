@@ -19,6 +19,9 @@ class MemberHappinessRoutineRepositoryImpl @Inject constructor(
             requireNotNull(response.data).routineId
         }
 
+    override suspend fun patchMemberHappinessAchieve(routineId: Int): Result<Unit> =
+        runCatching { memberHappinessRoutineDataSource.patchMemberHappyRoutine(routineId) }
+
     override suspend fun deleteMemberHappyRoutine(routineId: Int): Result<Unit> =
         runCatching { memberHappinessRoutineDataSource.deleteMemberHappyRoutine(routineId) }
 }

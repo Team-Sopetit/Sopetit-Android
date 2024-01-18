@@ -7,4 +7,5 @@ interface MemberHappinessRoutineRepository {
     suspend fun getHappyProgress(): Result<HappyProgress>
     suspend fun postMemberHappinessRoutine(request: PostMemberHappyRoutineRequest): Result<Int>
     suspend fun deleteMemberHappyRoutine(routineId: Int): Result<Unit>
+    suspend fun patchMemberHappinessAchieve(routineId: Int): Result<Unit>
 }

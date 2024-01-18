@@ -17,6 +17,9 @@ class MemberHappinessRoutineDataSource @Inject constructor(
     suspend fun postMemberHappyRoutine(request: PostMemberHappyRoutineRequest): BaseResponse<MemberHappyRoutinePostResponse> =
         memberHappinessRoutineService.postMemberHappyRoutine(request)
 
+    suspend fun patchMemberHappyRoutine(routineId: Int): BaseResponse<Unit> =
+        memberHappinessRoutineService.patchAchieveHappyRoutine(routineId)
+
     suspend fun deleteMemberHappyRoutine(routineId: Int): BaseResponse<Unit> =
         memberHappinessRoutineService.deleteMemberHappyRoutine(routineId)
 }
