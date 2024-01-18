@@ -38,7 +38,6 @@ class DailyRoutineAddActivity :
 
         dailyRoutineAddViewModel.getThemeList()
         dailyRoutineAddViewModel.setThemeId(6)
-//        initSetDailyRoutineAdd()
         setupAdapter()
         setViewPager()
         setupList()
