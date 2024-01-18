@@ -108,7 +108,6 @@ class HappyProgressFragment :
         ).show(parentFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
     }
 
-
     private fun moveToHappyRoutineEmptyCardView() {
         val happyRoutineFragment = HappyRoutineFragment()
         requireActivity().supportFragmentManager.beginTransaction()
