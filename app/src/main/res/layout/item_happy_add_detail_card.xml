@@ -13,10 +13,12 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_happy_routine_add_card"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:visibility="visible"
+            android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1.42"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -25,10 +27,10 @@
                 android:id="@+id/iv_happy_routine_add_card"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 tools:src="@drawable/ic_happycard" />
 
             <TextView
@@ -40,10 +42,10 @@
                 android:gravity="center"
                 android:lineSpacingExtra="4dp"
                 android:textAppearance="@style/body2"
+                app:layout_constraintBottom_toBottomOf="@id/iv_happy_routine_add_card"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/iv_happy_routine_add_card"
-                app:layout_constraintBottom_toBottomOf="@id/iv_happy_routine_add_card"
                 tools:text="이상형의 특성 10가지 적어보고,\n절대 포기 못할 2가지와\n나와 비슷한 3가지 찾아보기" />
 
             <ImageView
