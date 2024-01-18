@@ -73,14 +73,16 @@ class HappyAddListActivity :
         }
     }
 
-    private fun moveToDetail(id: Int) {
+    private fun moveToDetail(id: Int, iconImageUrl: String) {
         Intent(this, HappyDetailActivity::class.java).apply {
             putExtra(ID, id)
+            putExtra(ICONIMAGEURL, iconImageUrl)
             startActivity(this)
         }
     }
 
     companion object {
         const val ID = "id"
+        const val ICONIMAGEURL = "iconImageUrl"
     }
 }

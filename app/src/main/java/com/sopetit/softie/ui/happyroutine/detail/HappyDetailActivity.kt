@@ -13,6 +13,7 @@ import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityHappyAddDetailBinding
 import com.sopetit.softie.ui.LoadingIndicator
+import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity.Companion.ICONIMAGEURL
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity.Companion.ID
 import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.ui.onboarding.OnboardingActivity.Companion.LOADING_DELAY
@@ -40,8 +41,9 @@ class HappyDetailActivity :
         setStatusBarColorFromResource(R.color.background)
 
         val routineId = intent.getIntExtra(ID, -1).toString()
+        val imageUrl = intent.getStringExtra(ICONIMAGEURL)
 
-        setInitBinding(routineId)
+        setInitBinding(routineId, imageUrl)
         setCurrentCard()
         setBackEnter()
         setupAdapter(routineId)
@@ -51,7 +53,7 @@ class HappyDetailActivity :
         initPagerDiv(0, 90)
     }
 
-    private fun setInitBinding(routineId: String) {
+    private fun setInitBinding(routineId: String, imageUrl: String?) {
         viewModel.getHappyCard(routineId)
         viewModel.happyCardResponse.observe(this) { happyCard ->
             happyCard?.let {
@@ -63,7 +65,9 @@ class HappyDetailActivity :
                 }
                 viewModel.mySubroutineId.observe(this) { mySubRoutineId ->
                     mySubRoutineId?.let {
-                        setBottomSheetEnter(happyCard.iconImageUrl, mySubRoutineId)
+                        imageUrl?.let {
+                            setBottomSheetEnter(it, mySubRoutineId)
+                        }
                     }
                 }
             }

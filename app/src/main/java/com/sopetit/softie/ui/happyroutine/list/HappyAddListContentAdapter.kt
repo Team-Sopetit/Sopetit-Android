@@ -11,7 +11,7 @@ import com.sopetit.softie.databinding.ItemHappyAddListBinding
 import com.sopetit.softie.domain.entity.HappyContent
 import com.sopetit.softie.util.ItemDiffCallback
 
-class HappyAddListContentAdapter(private val moveToDetail: (Int) -> Unit) :
+class HappyAddListContentAdapter(private val moveToDetail: (Int, String) -> Unit) :
     ListAdapter<HappyContent, HappyAddListContentAdapter.HappyAddListContentViewHolder>(
         ItemDiffCallback<HappyContent>(
             onItemsTheSame = { oldItem, newItem -> oldItem == newItem },
@@ -21,7 +21,7 @@ class HappyAddListContentAdapter(private val moveToDetail: (Int) -> Unit) :
 
     inner class HappyAddListContentViewHolder(
         private val binding: ItemHappyAddListBinding,
-        private val moveToDetail: (Int) -> Unit
+        private val moveToDetail: (Int, String) -> Unit
     ) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: HappyContent) {
@@ -33,7 +33,7 @@ class HappyAddListContentAdapter(private val moveToDetail: (Int) -> Unit) :
                 error(R.drawable.ic_bear_base)
             }
             binding.root.setOnClickListener {
-                moveToDetail(data.routineId)
+                moveToDetail(data.routineId, data.iconImageUrl)
             }
         }
     }

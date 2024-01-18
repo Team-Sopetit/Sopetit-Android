@@ -27,7 +27,10 @@ class HappyRoutineFragment :
     private fun initSetBearFace() {
         viewModel.setDollFace()
         viewModel.bearFace.observe(viewLifecycleOwner) { bearFace ->
-            binding.ivHappyRoutineCharacter.load(bearFace)
+            binding.ivHappyRoutineCharacter.load(bearFace) {
+                placeholder(R.drawable.ic_loading_bear)
+                error(R.drawable.ic_loading_bear)
+            }
         }
     }
 
