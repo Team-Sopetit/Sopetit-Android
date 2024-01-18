@@ -16,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HappyAddListViewModel @Inject constructor(
     private val getHappyChipUseCase: GetHappyChipUseCase,
-    private val getHappyContentUseCase: GetHappyContentUseCase
+    private val getHappyContentUseCase: GetHappyContentUseCase,
 ) : ViewModel() {
     private val _happyChipResponse = MutableLiveData<List<HappyChip>>()
     val happyChipResponse: LiveData<List<HappyChip>> get() = _happyChipResponse
@@ -24,11 +24,19 @@ class HappyAddListViewModel @Inject constructor(
     private val _happyContentResponse = MutableLiveData<List<HappyContent>>()
     val happyContentResponse: LiveData<List<HappyContent>> get() = _happyContentResponse
 
+    private val allChip = HappyChip(themeId = 0, name = "전체")
+
+    init {
+        _happyChipResponse.value = listOf(allChip)
+    }
+
     fun getHappyChip() {
         viewModelScope.launch {
             getHappyChipUseCase()
                 .onSuccess { response ->
-                    _happyChipResponse.value = response
+                    val chipList = _happyChipResponse.value?.toMutableList() ?: mutableListOf()
+                    chipList.addAll(response)
+                    _happyChipResponse.value = chipList
                 }
                 .onFailure { throwable ->
                     Timber.e("$throwable")
