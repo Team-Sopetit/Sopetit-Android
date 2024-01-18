@@ -18,6 +18,7 @@ class DailyRoutineAddCardPagerAdapter :
         )
     ) {
     lateinit var background: String
+    lateinit var content: String
     fun updateBackground(backgroundImg: String) {
         background = backgroundImg
     }
@@ -38,6 +39,7 @@ class DailyRoutineAddCardPagerAdapter :
     override fun getItemId(position: Int): Long {
         val itemCount = currentList.size
         return if (position in 0 until itemCount) {
+            content = currentList[position].content
             currentList[position].routineId.toLong()
         } else {
             RecyclerView.NO_ID
