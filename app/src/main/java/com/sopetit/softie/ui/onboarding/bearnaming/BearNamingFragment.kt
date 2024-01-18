@@ -1,6 +1,8 @@
 package com.sopetit.softie.ui.onboarding.bearnaming
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -46,7 +48,25 @@ class BearNamingFragment :
     }
 
     private fun setEditTextFilter() {
-        binding.etBearNaming.filters = arrayOf(viewModel.filterSpecialCharacter)
+        binding.etBearNaming.filters =
+            arrayOf(viewModel.filterLength, viewModel.filterSpecialCharacter)
+        changeNicknameLegnthWarning()
+    }
+
+    private fun changeNicknameLegnthWarning() {
+        binding.etBearNaming.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                if (s != null && s.length >= 10) {
+                    viewModel.warnNicknameLength()
+                }
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
     }
 
     private fun setNicknameObserver() {
