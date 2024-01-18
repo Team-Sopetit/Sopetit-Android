@@ -13,7 +13,6 @@ import com.sopetit.softie.ui.happyroutine.delete.HappyDeleteFragment
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
-import com.sopetit.softie.util.snackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -101,12 +100,8 @@ class HappyProgressFragment :
                     happyProgress?.let {
                         viewModel.patchAchieveHappyRoutine(happyProgress.routineId)
                         startHappyRoutineCompleteActivity()
+                        moveToHappyRoutineEmptyCardView()
                     }
-                    snackBar(
-                        binding.btnHappyProgressClear,
-                        getString(R.string.happy_routine_complete_title)
-                    )
-                    moveToHappyRoutineEmptyCardView()
                 }
             }
         ).show(parentFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
