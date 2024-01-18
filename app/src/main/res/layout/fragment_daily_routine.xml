@@ -86,12 +86,15 @@
 
             <TextView
                 android:id="@+id/tv_daily_routine_add_name_first"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:lineSpacingMultiplier="1.5"
+                android:lineHeight="20dp"
                 android:text="@string/daily_routine_user_add"
+                android:scrollHorizontally="false"
                 android:textAppearance="@style/body1"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="50dp"
                 app:layout_constraintStart_toEndOf="@id/iv_daily_routine_icon_first"
                 app:layout_constraintTop_toTopOf="@id/iv_daily_routine_icon_first" />
 
@@ -179,12 +182,15 @@
 
             <TextView
                 android:id="@+id/tv_daily_routine_add_name_second"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:lineSpacingMultiplier="1.5"
+                android:lineHeight="20dp"
                 android:text="@string/daily_routine_user_add"
+                android:scrollHorizontally="false"
                 android:textAppearance="@style/body1"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="50dp"
                 app:layout_constraintStart_toEndOf="@id/iv_daily_routine_icon_second"
                 app:layout_constraintTop_toTopOf="@id/iv_daily_routine_icon_second" />
 
@@ -204,7 +210,7 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="21dp"
-                android:text="@string/daily_routine_ing"
+                android:text="@{@string/daily_routine_ing(viewModel.dailyRoutineListResponse[1].achieveCount)}"
                 android:textAppearance="@style/caption1"
                 android:textColor="@color/gray300"
                 app:layout_constraintBottom_toTopOf="@id/btn_daily_routine_yet_fin_second"
@@ -267,12 +273,15 @@
 
             <TextView
                 android:id="@+id/tv_daily_routine_add_name_third"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:lineSpacingMultiplier="1.5"
+                android:lineHeight="20dp"
                 android:text="@string/daily_routine_user_add"
+                android:scrollHorizontally="false"
                 android:textAppearance="@style/body1"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="50dp"
                 app:layout_constraintStart_toEndOf="@id/iv_daily_routine_icon_third"
                 app:layout_constraintTop_toTopOf="@id/iv_daily_routine_icon_third" />
 
@@ -292,7 +301,7 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="21dp"
-                android:text="@string/daily_routine_ing"
+                android:text="@{@string/daily_routine_ing(viewModel.dailyRoutineListResponse[2].achieveCount)}"
                 android:textAppearance="@style/caption1"
                 android:textColor="@color/gray300"
                 app:layout_constraintBottom_toTopOf="@id/btn_daily_routine_yet_fin_third"
