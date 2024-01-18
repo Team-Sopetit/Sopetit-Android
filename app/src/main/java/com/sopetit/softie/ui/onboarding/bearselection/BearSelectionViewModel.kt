@@ -3,12 +3,15 @@ package com.sopetit.softie.ui.onboarding.bearselection
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.sopetit.softie.domain.usecase.member.SetBearTypeUseCase
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.NONE
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class BearSelectionViewModel @Inject constructor() : ViewModel() {
+class BearSelectionViewModel @Inject constructor(
+    private val setBearTypeUseCase: SetBearTypeUseCase
+) : ViewModel() {
     private val _selectedBearType: MutableLiveData<String> = MutableLiveData(NONE)
     val selectedBearType: LiveData<String> get() = _selectedBearType
 
@@ -17,5 +20,9 @@ class BearSelectionViewModel @Inject constructor() : ViewModel() {
 
         if (isSameBearSelected) _selectedBearType.value = NONE
         else _selectedBearType.value = dollType
+    }
+
+    fun setBearType() {
+        setBearTypeUseCase(_selectedBearType.value ?: "BROWN")
     }
 }

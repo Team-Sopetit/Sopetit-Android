@@ -26,6 +26,11 @@ class AuthRepositoryImpl @Inject constructor(
         localDataSource.isUserSignUp = isSignUpState
     }
 
+    override fun getBearType(): String = localDataSource.bearType
+    override fun setBearType(bearType: String) {
+        localDataSource.bearType = bearType
+    }
+
     override fun getSignedUp(): Boolean = localDataSource.isUserSignUp
 
     override suspend fun logOut(): Result<Unit> = runCatching {

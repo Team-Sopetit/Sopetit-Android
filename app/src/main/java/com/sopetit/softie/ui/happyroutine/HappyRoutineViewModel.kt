@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sopetit.softie.domain.usecase.GetBearTypeUseCase
 import com.sopetit.softie.domain.usecase.doll.GetDollUseCase
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.BROWN
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.GRAY
@@ -16,20 +17,21 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HappyRoutineViewModel @Inject constructor(
-    private val getDollUseCase: GetDollUseCase
+    private val getDollUseCase: GetDollUseCase,
+    private val getBearTypeUseCase: GetBearTypeUseCase
 ) : ViewModel() {
     private val _bearFace: MutableLiveData<String> = MutableLiveData()
     val bearFace: LiveData<String>
         get() = _bearFace
 
-    fun setDollFace(type: String) {
+    fun setDollFace() {
         viewModelScope.launch {
-            when (type) {
-                BROWN -> getDollUseCase.invoke(type)
-                GRAY -> getDollUseCase.invoke(type)
-                WHITE -> getDollUseCase.invoke(type)
-                RED -> getDollUseCase.invoke(type)
-                else -> getDollUseCase.invoke(BROWN)
+            when (getBearTypeUseCase()) {
+                BROWN -> getDollUseCase(BROWN)
+                GRAY -> getDollUseCase(GRAY)
+                WHITE -> getDollUseCase(WHITE)
+                RED -> getDollUseCase(RED)
+                else -> getDollUseCase(BROWN)
             }.onSuccess { response ->
                 _bearFace.value = response
                 Timber.d("곰돌이 서버 통신 성공 -> $response")

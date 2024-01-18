@@ -10,4 +10,6 @@ interface AuthRepository {
     fun initToken(accessToken: String, refreshToken: String)
     fun initSignUpState(isSignUpState: Boolean)
     suspend fun logOut(): Result<Unit>
+    fun getBearType(): String
+    fun setBearType(bearType: String)
 }

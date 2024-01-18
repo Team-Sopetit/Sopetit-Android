@@ -1,8 +1,6 @@
 package com.sopetit.softie.ui.main.home
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -31,7 +29,6 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private val pandaBearLottieList =
         listOf(R.raw.panda_hello, R.raw.panda_eating_daily, R.raw.panda_eating_happy)
     private lateinit var userLottieList: List<Int>
-    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,29 +36,19 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         setStatusBarColor(R.color.home_background)
 
         setUserLottieList()
-        initLottie()
+        viewModel.getHome()
         setClickListener()
         setObserveHomeResponse()
-        sharedPreferences =
-            this.requireActivity().getSharedPreferences("user", Context.MODE_PRIVATE)
-        sharedPreferences.edit()
-            .putString("bearType", viewModel.homeResponse.value?.dollType ?: BROWN).commit()
     }
 
     private fun setUserLottieList() {
-        viewModel.getHome()
-        userLottieList = when (viewModel.homeResponse.value?.dollType) {
+        userLottieList = when (viewModel.getBearType()) {
             BROWN -> brownBearLottieList
             GRAY -> grayBearLottieList
             RED -> redBearLottieList
             WHITE -> pandaBearLottieList
             else -> brownBearLottieList
         }
-    }
-
-    private fun initLottie() {
-        binding.lottieHomeBear.setAnimation(userLottieList[HELLO])
-        setRandomMessage()
     }
 
     private fun setRandomMessage() {
@@ -135,6 +122,11 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         viewModel.conversations.observe(viewLifecycleOwner) {
             initLottie()
         }
+    }
+
+    private fun initLottie() {
+        binding.lottieHomeBear.setAnimation(userLottieList[HELLO])
+        setRandomMessage()
     }
 
     companion object {
