@@ -11,6 +11,7 @@ import com.sopetit.softie.ui.happyroutine.detail.HappyDetailActivity
 import com.sopetit.softie.util.HorizontalChipItemDecoration
 import com.sopetit.softie.util.VerticalItemDecoration
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.setStatusBarColorFromResource
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -54,7 +55,7 @@ class HappyAddListActivity :
     }
 
     private fun setBackEnter() {
-        binding.ivHappyAddBackArrow.setOnClickListener {
+        binding.ivHappyAddBackArrow.setSingleOnClickListener {
             finish()
         }
     }

@@ -40,7 +40,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
     private fun setBottomNavigationClickListener() {
         binding.bnvMain.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.bottom_navigation_progress -> changeFragment(DailyRoutineFragment())
+                R.id.bottom_navigation_daily_routine -> changeFragment(DailyRoutineFragment())
                 R.id.bottom_navigation_home -> changeFragment(HomeFragment())
                 R.id.bottom_navigation_happiness_routine -> changeFragment(HappyMyRoutineFragment())
                 else -> true

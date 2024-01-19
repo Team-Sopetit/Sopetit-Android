@@ -18,6 +18,7 @@ import com.sopetit.softie.ui.onboarding.OnboardingActivity.Companion.LOADING_DEL
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.binding.BindingBottomSheet
+import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.setStatusBarColorFromResource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -89,13 +90,13 @@ class HappyDetailActivity :
     }
 
     private fun setBackEnter() {
-        binding.ivHappyAddDetailBack.setOnClickListener {
+        binding.ivHappyAddDetailBack.setSingleOnClickListener {
             finish()
         }
     }
 
     private fun setBottomSheetEnter(icon: String, subRoutineId: Int) {
-        binding.btnHappyDetailAdd.setOnClickListener {
+        binding.btnHappyDetailAdd.setSingleOnClickListener {
             initHappyRoutineAddBottomSheet(icon, subRoutineId)
         }
     }

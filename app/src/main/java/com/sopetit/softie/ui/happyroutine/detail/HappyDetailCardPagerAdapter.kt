@@ -9,6 +9,7 @@ import coil.load
 import com.sopetit.softie.databinding.ItemHappyAddDetailCardBinding
 import com.sopetit.softie.domain.entity.HappyCard
 import com.sopetit.softie.util.ItemDiffCallback
+import com.sopetit.softie.util.setSingleOnClickListener
 
 class HappyDetailCardPagerAdapter() :
     ListAdapter<HappyCard.SubRoutines, HappyDetailCardPagerAdapter.HappyPagerViewHolder>(
@@ -35,10 +36,10 @@ class HappyDetailCardPagerAdapter() :
                     data.timeTaken
                 tvHappyRoutineAddCardDetailPlaceBack.text = data.place
 
-                clHappyRoutineAddCard.setOnClickListener {
+                clHappyRoutineAddCard.setSingleOnClickListener {
                     setCardFlip(clHappyRoutineAddCard, clHappyRoutineAddCardBack)
                 }
-                clHappyRoutineAddCardBack.setOnClickListener {
+                clHappyRoutineAddCardBack.setSingleOnClickListener {
                     setCardFlip(clHappyRoutineAddCardBack, clHappyRoutineAddCard)
                 }
             }

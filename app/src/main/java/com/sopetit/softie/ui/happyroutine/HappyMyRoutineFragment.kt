@@ -1,4 +1,4 @@
-package com.sopetit.softie.ui.happyroutine
+package com.sopetit.softie.ui.happyroutine.progress
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,6 +13,7 @@ import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
+import com.sopetit.softie.util.setSingleOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -57,17 +58,17 @@ class HappyMyRoutineFragment :
 
     private fun setCardEnter() {
         with(binding) {
-            clHappyProgressCardFront.setOnClickListener {
+            clHappyProgressCardFront.setSingleOnClickListener {
                 setCardFlip(clHappyProgressCardFront, clHappyProgressCardBack)
             }
-            clHappyProgressCardBack.setOnClickListener {
+            clHappyProgressCardBack.setSingleOnClickListener {
                 setCardFlip(clHappyProgressCardBack, clHappyProgressCardFront)
             }
         }
     }
 
     private fun setEditEnter() {
-        binding.tvHappyProgressEdit.setOnClickListener {
+        binding.tvHappyProgressEdit.setSingleOnClickListener {
             val happyDeleteFragment = HappyDeleteFragment()
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.fcv_main, happyDeleteFragment)
@@ -105,6 +106,8 @@ class HappyMyRoutineFragment :
                     happyProgress?.let {
                         startHappyRoutineCompleteActivity()
                         viewModel.patchAchieveHappyRoutine(happyProgress.routineId)
+                        startHappyRoutineCompleteActivity()
+                        moveToHappyRoutineEmptyCardView()
                     }
                 }
             }

@@ -30,7 +30,7 @@ class HappyRoutineCompleteActivity : RoutineCompleteActivity(Cotton.HAPPINESS) {
             WHITE to R.drawable.ic_happy_complete_panda
         )
         val resourceId =
-            bearDrawableMap[viewModel.getBearType()] ?: R.drawable.ic_bear_handsup_brown
+            bearDrawableMap[viewModel.getBearType()] ?: R.drawable.ic_happy_complete_brown
 
         binding.ivRoutineComplete.setImageResource(resourceId)
     }

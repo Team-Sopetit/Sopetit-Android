@@ -1,9 +1,12 @@
 package com.sopetit.softie.ui.main.home
 
+import android.animation.Animator
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import com.airbnb.lottie.LottieAnimationView
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHomeBinding
 import com.sopetit.softie.domain.entity.Cotton
@@ -20,35 +23,55 @@ import kotlin.random.Random
 @AndroidEntryPoint
 class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private val viewModel by viewModels<HomeViewModel>()
-    private val brownBearLottieList =
-        listOf(R.raw.brown_hello, R.raw.brown_eating_daily, R.raw.brown_eating_happy)
-    private val redBearLottieList =
-        listOf(R.raw.red_hello, R.raw.red_eating_daily, R.raw.red_eating_happy)
-    private val grayBearLottieList =
-        listOf(R.raw.gray_hello, R.raw.gray_eating_daily, R.raw.gray_eating_happy)
-    private val pandaBearLottieList =
-        listOf(R.raw.panda_hello, R.raw.panda_eating_daily, R.raw.panda_eating_happy)
     private lateinit var userLottieList: List<Int>
+    private lateinit var helloLottie: LottieAnimationView
+    private lateinit var dailyLottie: LottieAnimationView
+    private lateinit var happinessLottie: LottieAnimationView
+
+    companion object {
+        const val RUN_OUT = 0
+        val START = 0
+        val HELLO = 0
+        val DAILY = 1
+        val HAPPINESS = 2
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         setStatusBarColor(R.color.home_background)
 
-        setUserLottieList()
+        setLottieVariable()
         viewModel.getHome()
+        setUserLottieList()
         setClickListener()
         setObserveHomeResponse()
+        moveToPaymentView()
+    }
+
+    private fun setLottiesListener() {
+        setLottieListener(helloLottie)
+        setLottieListener(dailyLottie)
+        setLottieListener(happinessLottie)
+    }
+
+    private fun setLottieVariable() {
+        helloLottie = binding.lottieHomeBearHello
+        dailyLottie = binding.lottieHomeBearDailyCotton
+        happinessLottie = binding.lottieHomeBearHappinessCotton
     }
 
     private fun setUserLottieList() {
         userLottieList = when (viewModel.getBearType()) {
-            BROWN -> brownBearLottieList
-            GRAY -> grayBearLottieList
-            RED -> redBearLottieList
-            WHITE -> pandaBearLottieList
-            else -> brownBearLottieList
+            BROWN -> listOf(R.raw.brown_hello, R.raw.brown_eating_daily, R.raw.brown_eating_happy)
+            GRAY -> listOf(R.raw.gray_hello, R.raw.gray_eating_daily, R.raw.gray_eating_happy)
+            RED -> listOf(R.raw.red_hello, R.raw.red_eating_daily, R.raw.red_eating_happy)
+            WHITE -> listOf(R.raw.panda_hello, R.raw.panda_eating_daily, R.raw.panda_eating_happy)
+            else -> listOf(R.raw.brown_hello, R.raw.brown_eating_daily, R.raw.brown_eating_happy)
         }
+        helloLottie.setAnimation(userLottieList[HELLO])
+        dailyLottie.setAnimation(userLottieList[DAILY])
+        happinessLottie.setAnimation(userLottieList[HAPPINESS])
     }
 
     private fun setRandomMessage() {
@@ -59,6 +82,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     }
 
     private fun setClickListener() {
+        setLottiesListener()
         setClickSetting()
         setClickBear()
         setClickDaily()
@@ -73,25 +97,44 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     }
 
     private fun setClickBear() {
-        binding.lottieHomeBear.setOnClickListener {
-            playLottieAnimation(userLottieList[HELLO])
-            setRandomMessage()
-        }
+        helloLottie.setOnClickListener { playHelloLottie() }
+        happinessLottie.setOnClickListener { playHelloLottie() }
+        dailyLottie.setOnClickListener { playHelloLottie() }
+    }
+
+    private fun playHelloLottie() {
+        viewModel.updateLottieVisibility(
+            helloLottie = true,
+            dailyLottie = false,
+            happinessLottie = false
+        )
+        helloLottie.playAnimation()
+        setRandomMessage()
     }
 
     private fun setClickDaily() {
         binding.clHomeSomWhite.setOnClickListener {
-            checkCottonRemain(Cotton.DAILY)
+            viewModel.updateLottieVisibility(
+                helloLottie = false,
+                dailyLottie = true,
+                happinessLottie = false
+            )
+            checkCottonRemain(dailyLottie, Cotton.DAILY)
         }
     }
 
     private fun setClickHappy() {
         binding.clHomeSomColor.setOnClickListener {
-            checkCottonRemain(Cotton.HAPPINESS)
+            viewModel.updateLottieVisibility(
+                helloLottie = false,
+                dailyLottie = false,
+                happinessLottie = true
+            )
+            checkCottonRemain(binding.lottieHomeBearHappinessCotton, Cotton.HAPPINESS)
         }
     }
 
-    private fun checkCottonRemain(cottonType: Cotton) {
+    private fun checkCottonRemain(view: LottieAnimationView, cottonType: Cotton) {
         val isCottonRemain: (Int) -> Boolean = { cotton -> cotton > RUN_OUT }
 
         when (cottonType) {
@@ -99,7 +142,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
                 val cottonNum = viewModel.homeResponse.value?.dailyCottonCount ?: RUN_OUT
                 if (isCottonRemain(cottonNum)) {
                     viewModel.checkCotton(cottonType)
-                    playLottieAnimation(userLottieList[DAILY])
+                    view.playAnimation()
                 }
             }
 
@@ -107,33 +150,43 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
                 val cottonNum = viewModel.homeResponse.value?.happinessCottonCount ?: RUN_OUT
                 if (isCottonRemain(cottonNum)) {
                     viewModel.checkCotton(cottonType)
-                    playLottieAnimation(userLottieList[HAPPINESS])
+                    view.playAnimation()
                 }
             }
         }
     }
 
-    private fun playLottieAnimation(lottieFile: Int) {
-        binding.lottieHomeBear.setAnimation(lottieFile)
-        binding.lottieHomeBear.playAnimation()
-    }
-
     private fun setObserveHomeResponse() {
         viewModel.conversations.observe(viewLifecycleOwner) {
-            initLottie()
+            setRandomMessage()
         }
     }
 
-    private fun initLottie() {
-        binding.lottieHomeBear.setAnimation(userLottieList[HELLO])
-        setRandomMessage()
+    private fun setLottieListener(view: LottieAnimationView) {
+        view.addAnimatorListener(object : Animator.AnimatorListener {
+            override fun onAnimationStart(animator: Animator) {
+                view.isClickable = false
+                binding.clHomeSomWhite.isClickable = false
+                binding.clHomeSomColor.isClickable = false
+            }
+
+            override fun onAnimationEnd(animator: Animator) {
+                view.isClickable = true
+                binding.clHomeSomWhite.isClickable = true
+                binding.clHomeSomColor.isClickable = true
+            }
+
+            override fun onAnimationCancel(animation: Animator) {}
+
+            override fun onAnimationRepeat(animation: Animator) {}
+        })
     }
 
-    companion object {
-        const val RUN_OUT = 0
-        val START = 0
-        val HELLO = 0
-        val DAILY = 1
-        val HAPPINESS = 2
+    private fun moveToPaymentView() {
+        binding.ivHomeMoney.setOnClickListener {
+            startActivity(
+                Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.my_page_policy_link)))
+            )
+        }
     }
 }
