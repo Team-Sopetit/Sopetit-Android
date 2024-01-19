@@ -7,7 +7,7 @@ interface AuthRepository {
     suspend fun deleteAuth(): Result<Unit>
     suspend fun postLogin(socialPlatform: String): Result<Token>
     fun getSignedUp(): Boolean
-    fun initToken(accessToken: String, refreshToken: String)
+    fun initToken(accessToken: String, refreshToken: String, isMemberDollExist: Boolean)
     fun initSignUpState(isSignUpState: Boolean)
     suspend fun logOut(): Result<Unit>
     fun getBearType(): String
