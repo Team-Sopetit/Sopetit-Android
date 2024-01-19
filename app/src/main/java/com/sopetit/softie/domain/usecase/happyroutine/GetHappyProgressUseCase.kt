@@ -1,4 +1,4 @@
-package com.sopetit.softie.domain.usecase
+package com.sopetit.softie.domain.usecase.happyroutine
 
 import com.sopetit.softie.domain.repository.MemberHappinessRoutineRepository
 import javax.inject.Inject
