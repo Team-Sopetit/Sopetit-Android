@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivitySettingBinding
 import com.sopetit.softie.util.binding.BindingActivity
-import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.setStatusBarColorFromResource
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -56,7 +55,7 @@ class SettingActivity : BindingActivity<ActivitySettingBinding>(R.layout.activit
     }
 
     private fun setClickBackBtnInDetailView(fragment: Fragment) {
-        binding.btnSettingBack.setSingleOnClickListener {
+        binding.btnSettingBack.setOnClickListener {
             if (viewModel.settingFragment.value == SETTING_INIT) finish()
             else backInitView(fragment)
         }

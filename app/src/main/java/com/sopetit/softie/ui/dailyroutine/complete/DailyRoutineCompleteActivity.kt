@@ -30,7 +30,7 @@ class DailyRoutineCompleteActivity : RoutineCompleteActivity(Cotton.DAILY) {
             WHITE to R.drawable.ic_daily_complete_panda
         )
         val resourceId =
-            bearDrawableMap[viewModel.getBearType()] ?: R.drawable.ic_bear_handsup_brown
+            bearDrawableMap[viewModel.getBearType()] ?: R.drawable.ic_daily_complete_brown
 
         binding.ivRoutineComplete.setImageResource(resourceId)
     }

@@ -11,7 +11,6 @@ import com.sopetit.softie.ui.happyroutine.progress.HappyProgressViewModel
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
-import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.snackBar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -48,17 +47,17 @@ class HappyDeleteFragment :
 
     private fun setCardEnter() {
         with(binding) {
-            clHappyDeleteCardFront.setSingleOnClickListener {
+            clHappyDeleteCardFront.setOnClickListener {
                 setCardFlip(clHappyDeleteCardFront, clHappyDeleteCardBack)
             }
-            clHappyDeleteCardBack.setSingleOnClickListener {
+            clHappyDeleteCardBack.setOnClickListener {
                 setCardFlip(clHappyDeleteCardBack, clHappyDeleteCardFront)
             }
         }
     }
 
     private fun setCancelEnter() {
-        binding.tvHappyDeleteDestroy.setSingleOnClickListener {
+        binding.tvHappyDeleteDestroy.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
         }
     }
@@ -75,7 +74,7 @@ class HappyDeleteFragment :
     }
 
     private fun setClearEnter() {
-        binding.btnHappyDeleteClear.setSingleOnClickListener {
+        binding.btnHappyDeleteClear.setOnClickListener {
             BindingBottomSheet.Builder().build(
                 isDrawable = true,
                 imageDrawable = R.drawable.ic_bear_face_crying,

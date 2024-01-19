@@ -22,7 +22,7 @@
             android:layout_height="0dp"
             android:background="@drawable/img_homeback_all"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="1:1.7"
+            app:layout_constraintDimensionRatio="1:1.66"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,9 +41,8 @@
             android:id="@+id/iv_home_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="15dp"
-            android:padding="7dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="22dp"
             android:src="@drawable/ic_home_settings"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -52,9 +51,8 @@
             android:id="@+id/iv_home_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="6dp"
-            android:padding="7dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
             android:src="@drawable/ic_home_money"
             app:layout_constraintEnd_toStartOf="@id/iv_home_setting"
             app:layout_constraintTop_toTopOf="parent" />

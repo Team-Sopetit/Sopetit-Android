@@ -17,7 +17,6 @@ import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
 import com.sopetit.softie.util.binding.BindingAdapter.setCoilImage
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
-import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.setStatusBarColor
 import com.sopetit.softie.util.snackBar
 import dagger.hilt.android.AndroidEntryPoint
@@ -126,7 +125,7 @@ class DailyRoutineFragment :
     }
 
     private fun initSetDailyRoutineAchieve(btn: View, dailyRoutine: DailyRoutine, routineId: Int) {
-        btn.setSingleOnClickListener {
+        btn.setOnClickListener {
             BindingBottomSheet.Builder().build(
                 isDrawable = false,
                 imageDrawable = 0,
@@ -152,7 +151,7 @@ class DailyRoutineFragment :
         viewModel.isDeleteView.observe(viewLifecycleOwner) { isDeleteView ->
             val isEditView = !isDeleteView
             if (isEditView) {
-                binding.tvDailyRoutineEdit.setSingleOnClickListener {
+                binding.tvDailyRoutineEdit.setOnClickListener {
                     viewModel.setDeleteView(true)
                 }
             }
@@ -164,7 +163,7 @@ class DailyRoutineFragment :
     private fun initSetBackOriginalView() {
         viewModel.isDeleteView.observe(viewLifecycleOwner) { isDeleteView ->
             if (isDeleteView) {
-                binding.tvDailyRoutineEdit.setSingleOnClickListener {
+                binding.tvDailyRoutineEdit.setOnClickListener {
                     viewModel.setDeleteView(false)
                 }
                 clickEditRadioBtn()
@@ -200,7 +199,7 @@ class DailyRoutineFragment :
     }
 
     private fun changeBtnSelectState(button: View, itemId: Int) {
-        button.setSingleOnClickListener {
+        button.setOnClickListener {
             it.isSelected = !it.isSelected
             viewModel.setEditRoutineIdArray(itemId)
             setDeleteRoutineBtnContent()
@@ -222,7 +221,7 @@ class DailyRoutineFragment :
     }
 
     private fun initSetRoutineDelete() {
-        binding.btnDailyRoutineDelete.setSingleOnClickListener {
+        binding.btnDailyRoutineDelete.setOnClickListener {
             BindingBottomSheet.Builder().build(
                 isDrawable = true,
                 imageDrawable = R.drawable.ic_bear_face_crying,
@@ -264,7 +263,7 @@ class DailyRoutineFragment :
         }
 
     private fun addDailyRoutineMsg() {
-        binding.ivDailyRoutineEmpty.setSingleOnClickListener {
+        binding.ivDailyRoutineEmpty.setOnClickListener {
             addDailyRoutineLauncher.launch(
                 Intent(
                     requireActivity(),
@@ -275,7 +274,7 @@ class DailyRoutineFragment :
     }
 
     private fun moveToAddRoutine() {
-        binding.ivDailyRoutineEmpty.setSingleOnClickListener {
+        binding.ivDailyRoutineEmpty.setOnClickListener {
             val intent = Intent(requireContext(), DailyRoutineAddActivity::class.java)
             startActivity(intent)
         }

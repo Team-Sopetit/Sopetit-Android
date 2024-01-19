@@ -9,7 +9,6 @@ import com.sopetit.softie.databinding.FragmentOnboardingBearSelectionBinding
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.BROWN
 import com.sopetit.softie.util.binding.BindingFragment
-import com.sopetit.softie.util.setSingleOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,14 +22,14 @@ class BearSelectionFragment :
         super.onViewCreated(view, savedInstanceState)
 
         activityViewModel =
-            ViewModelProvider(requireActivity()).get(OnboardingViewModel::class.java)
+            ViewModelProvider(requireActivity())[OnboardingViewModel::class.java]
         binding.viewModel = viewModel
 
         initChangeFragment()
     }
 
     private fun initChangeFragment() {
-        binding.btnBearSelection.setSingleOnClickListener {
+        binding.btnBearSelection.setOnClickListener {
             viewModel.setBearType()
             activityViewModel.changeBearNameChoiceView()
             activityViewModel.setSelectedBearType(viewModel.selectedBearType.value ?: BROWN)

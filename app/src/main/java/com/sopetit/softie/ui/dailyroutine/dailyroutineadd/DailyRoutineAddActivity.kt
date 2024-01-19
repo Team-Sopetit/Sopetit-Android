@@ -8,6 +8,7 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
+import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityDailyRoutineAddBinding
@@ -17,7 +18,6 @@ import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.binding.BindingBottomSheet
-import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.setStatusBarColorFromResource
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -39,11 +39,11 @@ class DailyRoutineAddActivity :
         dailyRoutineAddViewModel.getThemeList()
         dailyRoutineAddViewModel.setThemeId(6)
         setupAdapter()
+        setViewPager()
         setupList()
         setIndicator()
         setItemDiv()
         setCurrentCard()
-        initViewPager()
         initPagerDiv(0, 90)
         addClickListener()
         observeRoutineCardList()
@@ -90,23 +90,6 @@ class DailyRoutineAddActivity :
         }
     }
 
-    private fun initViewPager() {
-        viewPager.adapter = dailyRoutineAddCardPagerAdapter
-
-        val dp = resources.getDimensionPixelSize(R.dimen.view_margin)
-        val d = resources.displayMetrics.density
-        val margin = (dp * d).toInt()
-
-        with(binding.vpDailyRoutineAddCard) {
-            clipChildren = false
-            clipToPadding = false
-            offscreenPageLimit = VIEW_PAGE.toInt()
-            setPadding(margin, PADDING_CARD, margin, PADDING_CARD)
-        }
-        val compositePageTransformer = CompositePageTransformer()
-        binding.vpDailyRoutineAddCard.setPageTransformer(compositePageTransformer)
-    }
-
     private fun initPagerDiv(previewWidth: Int, itemMargin: Int) {
         val decoMargin = previewWidth + itemMargin
         val pageTransX = decoMargin + previewWidth
@@ -118,6 +101,23 @@ class DailyRoutineAddActivity :
             it.setPageTransformer { page, position ->
                 page.translationX = position * -pageTransX
             }
+        }
+    }
+
+    private fun setViewPager() {
+        with(binding.vpDailyRoutineAddCard) {
+            adapter = dailyRoutineAddCardPagerAdapter
+            offscreenPageLimit = VIEW_PAGE.toInt()
+
+            val dpValue = PADDING_PAGE
+            val margin = (dpValue * resources.displayMetrics.density).toInt()
+            setPadding(margin, PADDING_CARD, margin, PADDING_CARD)
+
+            setPageTransformer(
+                CompositePageTransformer().apply {
+                    addTransformer(MarginPageTransformer(resources.getDimensionPixelOffset(R.dimen.viewpager_margin)))
+                }
+            )
         }
     }
 
@@ -138,11 +138,8 @@ class DailyRoutineAddActivity :
         }
     }
 
-    class HorizontalItemDecorator(
-        private val marginStart: Int,
-        private val marginEnd: Int,
-        private val itemMargin: Int
-    ) : RecyclerView.ItemDecoration() {
+    class HorizontalItemDecorator(private val divHeight: Int) : RecyclerView.ItemDecoration() {
+        @Override
         override fun getItemOffsets(
             outRect: Rect,
             view: View,
@@ -150,29 +147,17 @@ class DailyRoutineAddActivity :
             state: RecyclerView.State
         ) {
             super.getItemOffsets(outRect, view, parent, state)
-
-            val position = parent.getChildAdapterPosition(view)
-            val itemCount = parent.adapter?.itemCount ?: 0
-
-            if (position == 0) {
-                outRect.left = marginStart
-                outRect.right = itemMargin
-            } else if (position == itemCount - 1) {
-                outRect.left = itemMargin
-                outRect.right = marginEnd
-            } else {
-                outRect.left = itemMargin
-                outRect.right = itemMargin
-            }
+            outRect.left = divHeight
+            outRect.right = divHeight
         }
     }
 
     private fun setItemDiv() {
-        binding.rvDailyRoutineAddTheme.addItemDecoration(HorizontalItemDecorator(65, 65, 16))
+        binding.rvDailyRoutineAddTheme.addItemDecoration(HorizontalItemDecorator(16))
     }
 
     private fun backToDailyRoutine() {
-        binding.ivDailyRoutineAddBack.setSingleOnClickListener {
+        binding.ivDailyRoutineAddBack.setOnClickListener {
             finish()
         }
     }
@@ -187,12 +172,11 @@ class DailyRoutineAddActivity :
         })
     }
 
-    private fun getCurrentSelectedRoutine(): Routine? {
+    private fun getCurrentSelectedRoutine(): Routine {
         val currentItem = binding.vpDailyRoutineAddCard.currentItem
         val itemId = dailyRoutineAddCardPagerAdapter.getItemId(currentItem)
         val itemContent = dailyRoutineAddCardPagerAdapter.content
-            ?: dailyRoutineAddViewModel.dailyRoutineCardThemeList.value?.routine?.get(0)?.content
-        return itemContent?.let { content -> Routine(itemId.toInt(), content) }
+        return Routine(itemId.toInt(), itemContent)
     }
 
     private fun getCurrentSelectedRoutineId(): Int {
@@ -202,14 +186,13 @@ class DailyRoutineAddActivity :
     }
 
     private fun initSetDailyRoutineAdd() {
-        binding.btnDailyRoutineAdd.setSingleOnClickListener {
+        binding.btnDailyRoutineAdd.setOnClickListener {
             BindingBottomSheet.Builder().build(
                 isDrawable = false,
                 imageDrawable = 0,
-                imageUri = dailyRoutineAddThemeAdapter.clickedThemeIcon ?: "",
+                imageUri = dailyRoutineAddThemeAdapter.clickedThemeIcon,
                 title = getString(R.string.daily_routine_add_question),
-                content = getCurrentSelectedRoutine()?.content
-                    ?: getString(R.string.daily_routine_basic_bottom_sheet_content),
+                content = getCurrentSelectedRoutine().content,
                 isContentVisible = true,
                 contentColor = R.color.gray400,
                 backBtnContent = getString(R.string.daily_routine_add_no),
@@ -233,6 +216,7 @@ class DailyRoutineAddActivity :
 
     companion object {
         const val VIEW_PAGE = 3
+        const val PADDING_PAGE = 40
         const val PADDING_CARD = 0
     }
 }

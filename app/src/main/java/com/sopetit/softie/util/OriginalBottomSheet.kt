@@ -67,11 +67,11 @@ class OriginalBottomSheet : BindingBottomSheet() {
     }
 
     override fun setBackBtnClick(action: () -> Unit) {
-        binding.btnBottomSheetBack.setSingleOnClickListener { action() }
+        binding.btnBottomSheetBack.setOnClickListener { action() }
     }
 
     override fun setDoBtnClick(action: () -> Unit) {
-        binding.btnBottomSheetDo.setSingleOnClickListener { action() }
+        binding.btnBottomSheetDo.setOnClickListener { action() }
     }
 
     companion object {

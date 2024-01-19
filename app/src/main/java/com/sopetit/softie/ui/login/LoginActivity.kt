@@ -6,9 +6,8 @@ import androidx.activity.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.data.service.KakaoLoginService
 import com.sopetit.softie.databinding.ActivityLoginBinding
-import com.sopetit.softie.ui.onboarding.OnboardingActivity
+import com.sopetit.softie.ui.storytelling.StoryTellingActivity
 import com.sopetit.softie.util.binding.BindingActivity
-import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.setStatusBarColorFromResource
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
@@ -30,7 +29,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
     }
 
     private fun initKakaoLoginBtnClickListener() {
-        binding.btnLoginKakao.setSingleOnClickListener {
+        binding.btnLoginKakao.setOnClickListener {
             startKakaoLogin()
         }
     }
@@ -53,7 +52,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
         viewModel.isSignedUp.observe(this) { isSignedUp ->
             if (isSignedUp) {
                 startActivity(
-                    Intent(this, OnboardingActivity::class.java).apply {
+                    Intent(this, StoryTellingActivity::class.java).apply {
                         addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     }
                 )
