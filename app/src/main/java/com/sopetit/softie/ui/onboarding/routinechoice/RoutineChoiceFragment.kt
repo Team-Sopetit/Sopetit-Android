@@ -1,12 +1,14 @@
 package com.sopetit.softie.ui.onboarding.routinechoice
 
 import android.content.Intent
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentOnboardingChoiceRoutineBinding
 import com.sopetit.softie.ui.main.MainActivity
@@ -36,6 +38,7 @@ class RoutineChoiceFragment :
         initSetThemeBackBtn()
         initSetSelectRoutineBtn()
         initMakeRoutineAdapter()
+        setItemDiv()
     }
 
     private fun initSetThemeBackBtn() {
@@ -96,6 +99,39 @@ class RoutineChoiceFragment :
             setNoticeVisible()
             setRoutineBtn()
         }
+    }
+
+    class HorizontalItemDecorator(
+        private val marginTop: Int,
+        private val marginBottom: Int,
+        private val itemMargin: Int
+    ) : RecyclerView.ItemDecoration() {
+        override fun getItemOffsets(
+            outRect: Rect,
+            view: View,
+            parent: RecyclerView,
+            state: RecyclerView.State
+        ) {
+            super.getItemOffsets(outRect, view, parent, state)
+
+            val position = parent.getChildAdapterPosition(view)
+            val itemCount = parent.adapter?.itemCount ?: 0
+
+            if (position == 0) {
+                outRect.top = marginTop
+                outRect.bottom = itemMargin
+            } else if (position == itemCount - 1) {
+                outRect.top = itemMargin
+                outRect.bottom = marginBottom
+            } else {
+                outRect.top = itemMargin
+                outRect.bottom = itemMargin
+            }
+        }
+    }
+
+    private fun setItemDiv() {
+        binding.rvOnboardingChoiceRoutine.addItemDecoration(HorizontalItemDecorator(30, 30, 0))
     }
 
     private fun setRoutineBtn() {
