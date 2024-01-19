@@ -137,46 +137,6 @@ class DailyRoutineAddActivity :
         }
     }
 
-//    class HorizontalItemDecorator(private val divHeight: Int) : RecyclerView.ItemDecoration() {
-//        @Override
-//        override fun getItemOffsets(
-//            outRect: Rect,
-//            view: View,
-//            parent: RecyclerView,
-//            state: RecyclerView.State
-//        ) {
-//            super.getItemOffsets(outRect, view, parent, state)
-//            outRect.left = divHeight
-//            outRect.right = divHeight
-//        }
-//    }
-
-//    class HorizontalItemDecorator(private val divHeight: Int) : RecyclerView.ItemDecoration() {
-//        @Override
-//        override fun getItemOffsets(
-//            outRect: Rect,
-//            view: View,
-//            parent: RecyclerView,
-//            state: RecyclerView.State
-//        ) {
-//            super.getItemOffsets(outRect, view, parent, state)
-//
-//            val position = parent.getChildAdapterPosition(view)
-//            val itemCount = parent.adapter?.itemCount ?: 0
-//
-//            if (position == 0) {
-//                outRect.left = 4
-//            }
-//
-//            if (position == itemCount - 1) {
-//                outRect.right = 4
-//            }
-//            outRect.left = divHeight
-//            outRect.right = divHeight
-//
-//        }
-//    }
-
     class HorizontalItemDecorator(
         private val marginStart: Int,
         private val marginEnd: Int,
