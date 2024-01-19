@@ -110,6 +110,11 @@
     <string name="user_logout_content">“잠시만 안녕.. 다음에 또 봐!”</string>
     <string name="user_logout_back">취소</string>
     <string name="user_logout_exit">로그아웃 할래</string>
+    <string name="setting_user_security_link">https://softie-link.notion.site/c2435b30cfdb45db82f91cae6d1cc789</string>
+    <string name="setting_service_document_link">https://softie-link.notion.site/b8b8c02805924f2ababd4de7b2306d64?pvs=4</string>
+    <string name="setting_service_guide_link">https://softie-link.notion.site/6a65faa32923410a84ff6a63c47cf752</string>
+    <string name="setting_feedback_link">https://docs.google.com/forms/d/e/1FAIpQLSfEtF_qWDu9mI1IcEBPTWsoBVCwPa0wunQK600EcjOMbz8upQ/viewform</string>
+
 
     <!-- bottom sheet -->
     <string name="bottom_sheet_title">정말 로그아웃할까요?</string>
@@ -127,7 +132,8 @@
     <string name="bear_naming_subtitle">한 번 지은 이름은 평생 가요.</string>
     <string name="bear_naming_hint">소프티</string>
     <string name="bear_naming_button">이 이름이 좋겠어</string>
-    <string name="bear_naming_warning">*특수문자는 사용할 수 없어요</string>
+    <string name="bear_naming_special_character_warning">*특수문자는 사용할 수 없어요</string>
+    <string name="bear_naming_length_warning">*10글자 이내로 작성해 주세요.</string>
 
     <!-- daily routine edit -->
     <string name="daily_routine_edit_name">데일리 루틴</string>
@@ -148,6 +154,7 @@
     <string name="home_happiness_cotton_btn">행복 솜뭉치 주기</string>
     <string name="home_daily_cotton_btn">솜뭉치 주기</string>
     <string name="splash_service_introduce">친구와 함께 하는 일상 속 작은 습관</string>
+    <string name="my_page_policy_link">https://softie-link.notion.site/92fc58e36cf448eca66ee47e1c50bee8</string>
 
     <!-- daily routine add -->
     <string name="daily_routine_add_question">데일리 루틴을 추가할까요?</string>

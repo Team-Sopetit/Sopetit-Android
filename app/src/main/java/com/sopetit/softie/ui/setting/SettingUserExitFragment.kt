@@ -18,6 +18,7 @@ import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.GRAY
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.RED
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.WHITE
 import com.sopetit.softie.util.binding.BindingFragment
+import com.sopetit.softie.util.setSingleOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -75,13 +76,13 @@ class SettingUserExitFragment :
     }
 
     private fun initSetClickBackBtn() {
-        binding.btnUserExitBack.setOnClickListener {
+        binding.btnUserExitBack.setSingleOnClickListener {
             (activity as SettingActivity).backInitView(this)
         }
     }
 
     private fun initSetClickExitBtn() {
-        binding.btnUserExitExit.setOnClickListener {
+        binding.btnUserExitExit.setSingleOnClickListener {
             viewModel.setDeleteAuth()
 
             deleteAuth()

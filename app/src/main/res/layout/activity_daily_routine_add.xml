@@ -24,7 +24,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/ic_daily_back"
+            android:scaleType="centerCrop"
+            android:padding="7dp"
+            android:src="@drawable/ic_daily_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
