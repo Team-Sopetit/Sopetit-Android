@@ -82,7 +82,7 @@ class HappyDeleteFragment :
                 imageUri = "",
                 title = getString(R.string.happy_delete_bottom_sheet_title),
                 content = "",
-                isContentVisible = true,
+                isContentVisible = false,
                 contentColor = R.color.gray400,
                 backBtnContent = getString(R.string.happy_delete_bottom_sheet_back_btn),
                 doBtnContent = getString(R.string.happy_delete_bottom_sheet_do_btn),
