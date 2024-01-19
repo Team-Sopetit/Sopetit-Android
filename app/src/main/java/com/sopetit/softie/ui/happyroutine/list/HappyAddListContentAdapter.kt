@@ -10,7 +10,6 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ItemHappyAddListBinding
 import com.sopetit.softie.domain.entity.HappyContent
 import com.sopetit.softie.util.ItemDiffCallback
-import com.sopetit.softie.util.setSingleOnClickListener
 
 class HappyAddListContentAdapter(private val moveToDetail: (Int, String) -> Unit) :
     ListAdapter<HappyContent, HappyAddListContentAdapter.HappyAddListContentViewHolder>(
