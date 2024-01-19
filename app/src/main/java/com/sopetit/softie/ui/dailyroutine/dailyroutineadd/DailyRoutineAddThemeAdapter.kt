@@ -10,6 +10,7 @@ import com.sopetit.softie.databinding.ItemDailyRoutineAddThemeBinding
 import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.util.ItemDiffCallback
 import com.sopetit.softie.util.binding.BindingAdapter.setCoilImage
+import com.sopetit.softie.util.setSingleOnClickListener
 
 class DailyRoutineAddThemeAdapter :
     ListAdapter<Theme, DailyRoutineAddThemeAdapter.DailyThemeViewHolder>(
@@ -47,7 +48,7 @@ class DailyRoutineAddThemeAdapter :
             }
 
             if (onItemClickListener != null) {
-                binding.root.setOnClickListener {
+                binding.root.setSingleOnClickListener {
                     onItemClickListener?.onItemClick(data, absoluteAdapterPosition)
                     if (selectedPosition != absoluteAdapterPosition) {
                         changeThemeBackground(binding, true)

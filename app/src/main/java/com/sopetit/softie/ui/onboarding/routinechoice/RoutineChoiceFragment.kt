@@ -13,6 +13,7 @@ import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.ui.onboarding.OnboardingActivity
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
 import com.sopetit.softie.util.binding.BindingFragment
+import com.sopetit.softie.util.setSingleOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,13 +39,13 @@ class RoutineChoiceFragment :
     }
 
     private fun initSetThemeBackBtn() {
-        binding.btnOnboardingRoutineBackTheme.setOnClickListener {
+        binding.btnOnboardingRoutineBackTheme.setSingleOnClickListener {
             viewModel.changeSecondThemeChoiceView()
         }
     }
 
     private fun initSetSelectRoutineBtn() {
-        binding.btnOnboardingRoutineSelectRoutine.setOnClickListener {
+        binding.btnOnboardingRoutineSelectRoutine.setSingleOnClickListener {
             postMemberInfo()
         }
     }

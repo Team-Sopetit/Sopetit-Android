@@ -57,3 +57,7 @@ fun <T : Serializable> Intent.intentSerializable(key: String, clazz: Class<T>): 
         this.getSerializableExtra(key) as T?
     }
 }
+
+fun View.setSingleOnClickListener(onSingleClick: (View) -> Unit) {
+    setOnClickListener(OnSingleClickListener { onSingleClick(it) })
+}
