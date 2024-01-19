@@ -219,10 +219,8 @@ class DailyRoutineFragment :
         } else {
             viewModel.setEditBtnEnabled(false)
         }
-
         binding.btnDailyRoutineDelete.text = deleteBtnContent
     }
-
 
     private fun initSetRoutineDelete() {
         binding.btnDailyRoutineDelete.setSingleOnClickListener {
@@ -265,7 +263,6 @@ class DailyRoutineFragment :
         viewModel.clearEditRoutineIdArray()
         setDeleteRoutineBtnContent()
     }
-
 
     private fun startDailyRoutineCompleteActivity() {
         val intentToCompleteActivity =

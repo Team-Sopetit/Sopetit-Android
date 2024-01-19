@@ -80,7 +80,6 @@ class DailyRoutineViewModel @Inject constructor(
         get() = _isDeleteView
 
     val editRoutineIdArray = ArrayList<Int>()
-//    val editRoutineIdArray : MutableLiveData<List<Int>> = MutableLiveData()
 
     private val _isEditBtnEnabled: MutableLiveData<Boolean> = MutableLiveData()
     val isEditBtnEnabled: LiveData<Boolean>
@@ -132,5 +131,4 @@ class DailyRoutineViewModel @Inject constructor(
     private val _userDaily: LiveData<UserDailyRoutine> = MutableLiveData()
     val userDaily: LiveData<UserDailyRoutine>
         get() = _userDaily
-
 }
