@@ -168,7 +168,7 @@ class DailyRoutineAddActivity :
 
 
     private fun setItemDiv() {
-        binding.rvDailyRoutineAddTheme.addItemDecoration(HorizontalItemDecorator(36, 36, 16))
+        binding.rvDailyRoutineAddTheme.addItemDecoration(HorizontalItemDecorator(65, 65, 16))
     }
 
     private fun backToDailyRoutine() {
