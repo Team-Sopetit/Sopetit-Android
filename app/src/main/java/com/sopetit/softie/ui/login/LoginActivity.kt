@@ -8,6 +8,7 @@ import com.sopetit.softie.data.service.KakaoLoginService
 import com.sopetit.softie.databinding.ActivityLoginBinding
 import com.sopetit.softie.ui.storytelling.StoryTellingActivity
 import com.sopetit.softie.util.binding.BindingActivity
+import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.setStatusBarColorFromResource
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
@@ -29,7 +30,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
     }
 
     private fun initKakaoLoginBtnClickListener() {
-        binding.btnLoginKakao.setOnClickListener {
+        binding.btnLoginKakao.setSingleOnClickListener {
             startKakaoLogin()
         }
     }

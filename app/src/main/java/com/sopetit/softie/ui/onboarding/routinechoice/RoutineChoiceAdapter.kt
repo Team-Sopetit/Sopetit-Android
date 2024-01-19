@@ -12,6 +12,7 @@ import com.sopetit.softie.databinding.ItemOnboardingChoiceRoutineBinding
 import com.sopetit.softie.domain.entity.Routine
 import com.sopetit.softie.ui.onboarding.routinechoice.RoutineChoiceFragment.Companion.MAXIMUM_ROUTINE_SELECTION
 import com.sopetit.softie.util.ItemDiffCallback
+import com.sopetit.softie.util.setSingleOnClickListener
 
 class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineChoiceViewHolder>(
     ItemDiffCallback<Routine>(
@@ -31,7 +32,7 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Routine) {
             binding.tvRoutineContent.text = data.content
-            binding.root.setOnClickListener {
+            binding.root.setSingleOnClickListener {
                 routineSelection(binding, data)
                 onItemClickListener?.let { it(data) }
             }

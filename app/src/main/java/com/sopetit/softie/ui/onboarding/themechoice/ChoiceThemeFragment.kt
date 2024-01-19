@@ -10,6 +10,7 @@ import com.sopetit.softie.databinding.FragmentOnboardingChoiceThemeBinding
 import com.sopetit.softie.ui.onboarding.OnboardingActivity.Companion.MAXIMUM_THEME_SELECTION
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
 import com.sopetit.softie.util.binding.BindingFragment
+import com.sopetit.softie.util.setSingleOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -72,7 +73,7 @@ class ChoiceThemeFragment :
     private fun initChangeFragment() {
         themeViewModel.themeBtnEnabled.observe(viewLifecycleOwner) {
             if (it) {
-                binding.btnOnboardingChoiceTheme.setOnClickListener {
+                binding.btnOnboardingChoiceTheme.setSingleOnClickListener {
                     viewModel.changeRoutineChoiceView(true)
                 }
             }

@@ -18,7 +18,7 @@ class DailyRoutineAddCardPagerAdapter :
         )
     ) {
     lateinit var background: String
-    lateinit var content: String
+    var content: String? = null
     fun updateBackground(backgroundImg: String) {
         background = backgroundImg
     }
@@ -33,6 +33,7 @@ class DailyRoutineAddCardPagerAdapter :
     }
 
     override fun onBindViewHolder(holder: DailyPagerViewHolder, position: Int) {
+        if (content == null) content = currentList[0].content
         holder.onBind(currentList[position])
     }
 
