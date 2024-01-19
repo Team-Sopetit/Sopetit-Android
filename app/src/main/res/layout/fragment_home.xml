@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.sopetit.softie.ui.main.home.HomeViewModel" />
@@ -65,7 +67,7 @@
             android:src="@drawable/ic_speech_home"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/lottie_home_bear" />
+            app:layout_constraintTop_toTopOf="@id/lottie_home_bear_hello" />
 
         <TextView
             android:id="@+id/tv_home_bear_speech"
@@ -86,18 +88,47 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_shadow"
-            app:layout_constraintBottom_toBottomOf="@id/lottie_home_bear"
-            app:layout_constraintEnd_toEndOf="@id/lottie_home_bear"
-            app:layout_constraintStart_toStartOf="@id/lottie_home_bear"
-            app:layout_constraintTop_toTopOf="@id/lottie_home_bear"
+            app:layout_constraintBottom_toBottomOf="@id/lottie_home_bear_hello"
+            app:layout_constraintEnd_toEndOf="@id/lottie_home_bear_hello"
+            app:layout_constraintStart_toStartOf="@id/lottie_home_bear_hello"
+            app:layout_constraintTop_toTopOf="@id/lottie_home_bear_hello"
             app:layout_constraintVertical_bias="0.74" />
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottie_home_bear"
+            android:id="@+id/lottie_home_bear_hello"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="150dp"
             android:scaleType="centerCrop"
+            android:visibility="@{viewModel.helloLottieVisible ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toTopOf="@id/cl_home_som_white"
+            app:layout_constraintDimensionRatio="0.8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_home_bear_daily_cotton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="150dp"
+            android:scaleType="centerCrop"
+            android:visibility="@{viewModel.dailyLottieVisible ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toTopOf="@id/cl_home_som_white"
+            app:layout_constraintDimensionRatio="0.8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_home_bear_happiness_cotton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="150dp"
+            android:scaleType="centerCrop"
+            android:visibility="@{viewModel.happinessLottieVisible ? View.VISIBLE : View.INVISIBLE}"
             app:layout_constraintBottom_toTopOf="@id/cl_home_som_white"
             app:layout_constraintDimensionRatio="0.8"
             app:layout_constraintEnd_toEndOf="parent"

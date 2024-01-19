@@ -28,6 +28,13 @@ class HomeViewModel @Inject constructor(
     private val _conversations = MutableLiveData<List<String>>(_homeResponse.value?.conversations)
     val conversations: LiveData<List<String>> get() = _conversations
 
+    private val _helloLottieVisible: MutableLiveData<Boolean> = MutableLiveData(false)
+    val helloLottieVisible: LiveData<Boolean> get() = _helloLottieVisible
+    private val _dailyLottieVisible: MutableLiveData<Boolean> = MutableLiveData(true)
+    val dailyLottieVisible: LiveData<Boolean> get() = _dailyLottieVisible
+    private val _happinessLottieVisible: MutableLiveData<Boolean> = MutableLiveData(false)
+    val happinessLottieVisible: LiveData<Boolean> get() = _happinessLottieVisible
+
     fun getBearType(): String {
         return getBearTypeUseCase()
     }
@@ -62,6 +69,16 @@ class HomeViewModel @Inject constructor(
             Cotton.HAPPINESS -> homeResponse.value?.happinessCottonCount ?: RUN_OUT
         }
         return cottonCount
+    }
+
+    fun updateLottieVisibility(
+        helloLottie: Boolean,
+        dailyLottie: Boolean,
+        happinessLottie: Boolean
+    ) {
+        _helloLottieVisible.value = helloLottie
+        _dailyLottieVisible.value = dailyLottie
+        _happinessLottieVisible.value = happinessLottie
     }
 
     private fun patchCotton(remainCottonCount: Int, cotton: Cotton): Int {
