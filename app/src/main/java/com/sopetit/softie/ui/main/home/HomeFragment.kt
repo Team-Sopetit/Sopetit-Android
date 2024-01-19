@@ -1,6 +1,7 @@
 package com.sopetit.softie.ui.main.home
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -64,6 +65,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         setClickBear()
         setClickDaily()
         setClickHappy()
+        moveToPaymentView()
     }
 
     private fun setClickSetting() {
@@ -89,6 +91,14 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private fun setClickHappy() {
         binding.clHomeSomColor.setSingleOnClickListener {
             checkCottonRemain(Cotton.HAPPINESS)
+        }
+    }
+
+    private fun moveToPaymentView() {
+        binding.ivHomeMoney.setOnClickListener {
+            startActivity(
+                Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.my_page_policy_link)))
+            )
         }
     }
 

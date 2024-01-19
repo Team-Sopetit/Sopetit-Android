@@ -1,6 +1,7 @@
 package com.sopetit.softie.ui.setting
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
@@ -33,24 +34,57 @@ class SettingInitFragment :
         clickUserSecurity()
         clickLogOut()
         clickUserExit()
+        clickUserSecurity()
+        clickDocument()
+        clickGuide()
+        clickFeedback()
     }
 
     private fun clickUserSecurity() {
         binding.clSettingInitUserSecurity.setSingleOnClickListener {
             viewModel.setSettingFragment(USER_SECURITY)
+        binding.clSettingInitUserSecurity.setOnClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse(getString(R.string.setting_user_security_link))
+                )
+            )
         }
     }
 
     private fun clickDocument() {
         // TODO 서비스 이용 약관
+        binding.clSettingInitDocument.setOnClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse(getString(R.string.setting_service_document_link))
+                )
+            )
+        }
     }
 
     private fun clickGuide() {
-        // TODO 서비스 이용 가이드
+        binding.clSettingInitGuide.setOnClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse(getString(R.string.setting_service_guide_link))
+                )
+            )
+        }
     }
 
     private fun clickFeedback() {
-        // TODO 피드백
+        binding.clSettingInitFeedback.setOnClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse(getString(R.string.setting_feedback_link))
+                )
+            )
+        }
     }
 
     private fun clickLogOut() {
