@@ -50,10 +50,10 @@ class BearNamingFragment :
     private fun setEditTextFilter() {
         binding.etBearNaming.filters =
             arrayOf(viewModel.filterLength, viewModel.filterSpecialCharacter)
-        changeNicknameLegnthWarning()
+        changeNicknameLengthWarning()
     }
 
-    private fun changeNicknameLegnthWarning() {
+    private fun changeNicknameLengthWarning() {
         binding.etBearNaming.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
