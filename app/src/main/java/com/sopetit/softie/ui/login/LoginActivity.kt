@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import com.sopetit.softie.R
 import com.sopetit.softie.data.service.KakaoLoginService
 import com.sopetit.softie.databinding.ActivityLoginBinding
+import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.ui.storytelling.StoryTellingActivity
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.setSingleOnClickListener
@@ -50,15 +51,21 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
     }
 
     private fun observeSignUp() {
-        viewModel.isSignedUp.observe(this) { isSignedUp ->
-            if (isSignedUp) {
-                startActivity(
-                    Intent(this, StoryTellingActivity::class.java).apply {
-                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                    }
-                )
-                finish()
+        viewModel.isMember.observe(this) {
+            if (viewModel.isSignedUp.value == true && viewModel.isMember.value == true) {
+                startTargetActivity(MainActivity::class.java)
+            } else if (viewModel.isSignedUp.value == true) {
+                startTargetActivity(StoryTellingActivity::class.java)
             }
         }
+    }
+
+    private fun startTargetActivity(targetClass: Class<*>) {
+        startActivity(
+            Intent(this, targetClass).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            }
+        )
+        finish()
     }
 }
