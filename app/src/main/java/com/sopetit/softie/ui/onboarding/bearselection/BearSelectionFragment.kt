@@ -22,7 +22,7 @@ class BearSelectionFragment :
         super.onViewCreated(view, savedInstanceState)
 
         activityViewModel =
-            ViewModelProvider(requireActivity()).get(OnboardingViewModel::class.java)
+            ViewModelProvider(requireActivity())[OnboardingViewModel::class.java]
         binding.viewModel = viewModel
 
         initChangeFragment()
