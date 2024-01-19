@@ -47,7 +47,6 @@ class SettingInitFragment :
                     Uri.parse(getString(R.string.setting_user_security_link))
                 )
             )
-
         }
     }
 
@@ -120,5 +119,3 @@ class SettingInitFragment :
         }
     }
 }
-
-
