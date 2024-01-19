@@ -6,8 +6,8 @@ import androidx.fragment.app.viewModels
 import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyDeleteBinding
-import com.sopetit.softie.ui.happyroutine.HappyMyRoutineFragment
 import com.sopetit.softie.ui.happyroutine.HappyMyRoutineViewModel
+import com.sopetit.softie.ui.happyroutine.progress.HappyMyRoutineFragment
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment

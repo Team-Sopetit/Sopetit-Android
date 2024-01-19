@@ -115,21 +115,12 @@ class HappyDetailActivity :
             doBtnColor = R.drawable.shape_main1_fill_12_rect,
             backBtnAction = {},
             doBtnAction = {
-                //moveToProgress()
                 moveToProgress()
                 viewModel.postAddRoutine(subRoutineId)
-
             }
         ).show(this.supportFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
     }
 
-    /*private fun moveToProgress() {
-        val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("happy_progress_fragment", "happy_progress")
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        startActivity(intent)
-        //finish()
-    }*/
     private fun moveToProgress() {
         val intentToHappinessAddRoutine = Intent().putExtra("isAdded", true)
         setResult(RESULT_OK, intentToHappinessAddRoutine)
@@ -172,7 +163,6 @@ class HappyDetailActivity :
             setPadding(margin, 0, margin, 0)
         }
     }
-
 
     private fun initPagerDiv(previewWidth: Int, itemMargin: Int) {
         val decoMargin = previewWidth + itemMargin

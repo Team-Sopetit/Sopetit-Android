@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyMyRoutineBinding
+import com.sopetit.softie.ui.happyroutine.HappyMyRoutineViewModel
 import com.sopetit.softie.ui.happyroutine.complete.HappyRoutineCompleteActivity
 import com.sopetit.softie.ui.happyroutine.delete.HappyDeleteFragment
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity
@@ -37,7 +38,6 @@ class HappyMyRoutineFragment :
         super.onResume()
         viewModel.getHappyProgress()
     }
-
 
     private fun initSetBearFace() {
         viewModel.setDollFace()
@@ -107,7 +107,6 @@ class HappyMyRoutineFragment :
                         startHappyRoutineCompleteActivity()
                         viewModel.patchAchieveHappyRoutine(happyProgress.routineId)
                         startHappyRoutineCompleteActivity()
-                        moveToHappyRoutineEmptyCardView()
                     }
                 }
             }
