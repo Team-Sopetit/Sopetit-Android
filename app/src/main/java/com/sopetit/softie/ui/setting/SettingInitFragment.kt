@@ -9,7 +9,6 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentSettingInitBinding
 import com.sopetit.softie.ui.login.LoginActivity
 import com.sopetit.softie.ui.setting.SettingActivity.Companion.USER_EXIT
-import com.sopetit.softie.ui.setting.SettingActivity.Companion.USER_SECURITY
 import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
@@ -42,20 +41,18 @@ class SettingInitFragment :
 
     private fun clickUserSecurity() {
         binding.clSettingInitUserSecurity.setSingleOnClickListener {
-            viewModel.setSettingFragment(USER_SECURITY)
-        binding.clSettingInitUserSecurity.setOnClickListener {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
                     Uri.parse(getString(R.string.setting_user_security_link))
                 )
             )
+
         }
     }
 
     private fun clickDocument() {
-        // TODO 서비스 이용 약관
-        binding.clSettingInitDocument.setOnClickListener {
+        binding.clSettingInitDocument.setSingleOnClickListener {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
@@ -66,7 +63,7 @@ class SettingInitFragment :
     }
 
     private fun clickGuide() {
-        binding.clSettingInitGuide.setOnClickListener {
+        binding.clSettingInitGuide.setSingleOnClickListener {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
@@ -77,7 +74,7 @@ class SettingInitFragment :
     }
 
     private fun clickFeedback() {
-        binding.clSettingInitFeedback.setOnClickListener {
+        binding.clSettingInitFeedback.setSingleOnClickListener {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
@@ -123,3 +120,5 @@ class SettingInitFragment :
         }
     }
 }
+
+
