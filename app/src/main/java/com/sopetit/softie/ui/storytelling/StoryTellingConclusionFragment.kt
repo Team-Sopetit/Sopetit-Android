@@ -16,7 +16,7 @@ class StoryTellingConclusionFragment :
     }
 
     private fun initClickListener() {
-        binding.tvStoryTellingConclusion.setOnClickListener {
+        binding.root.setOnClickListener {
             val intent = Intent(requireActivity(), OnboardingActivity::class.java)
             startActivity(intent)
             requireActivity().finish()
