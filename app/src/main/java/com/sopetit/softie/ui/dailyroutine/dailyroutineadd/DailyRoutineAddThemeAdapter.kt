@@ -21,7 +21,7 @@ class DailyRoutineAddThemeAdapter :
     private var onItemClickListener: OnItemClickListener? = null
     private var selectedPosition = 0
     var clickedThemeId: Int = 1
-    lateinit var clickedThemeIcon: String
+    var clickedThemeIcon: String? = null
 
     interface OnItemClickListener {
         fun onItemClick(item: Theme, position: Int)
@@ -112,6 +112,7 @@ class DailyRoutineAddThemeAdapter :
     }
 
     override fun onBindViewHolder(holder: DailyThemeViewHolder, position: Int) {
+        if (clickedThemeIcon == null) clickedThemeIcon = currentList[0].iconImageUrl
         holder.onBind(currentList[position])
     }
 }
