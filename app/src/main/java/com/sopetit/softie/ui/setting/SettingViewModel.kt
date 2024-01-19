@@ -4,10 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sopetit.softie.domain.usecase.GetBearTypeUseCase
 import com.sopetit.softie.domain.usecase.InitSIgnUpStateUseCase
 import com.sopetit.softie.domain.usecase.InitTokenUseCase
 import com.sopetit.softie.domain.usecase.auth.DeleteAuthUseCase
 import com.sopetit.softie.domain.usecase.auth.LogOutUseCase
+import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.BROWN
+import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.GRAY
+import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.RED
+import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.WHITE
 import com.sopetit.softie.ui.setting.SettingActivity.Companion.SETTING_INIT
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -19,7 +24,8 @@ class SettingViewModel @Inject constructor(
     private val deleteAuthUseCase: DeleteAuthUseCase,
     private val logOutUseCase: LogOutUseCase,
     private val initSIgnUpStateUseCase: InitSIgnUpStateUseCase,
-    private val initTokenUseCase: InitTokenUseCase
+    private val initTokenUseCase: InitTokenUseCase,
+    private val getBearTypeUseCase: GetBearTypeUseCase
 ) : ViewModel() {
 
     private val _settingFragment: MutableLiveData<String> = MutableLiveData(SETTING_INIT)
@@ -34,8 +40,22 @@ class SettingViewModel @Inject constructor(
     val isLogOutResponse: LiveData<Boolean>
         get() = _isLogOutResponse
 
+    private val _bearType: MutableLiveData<String> = MutableLiveData()
+    val bearType: LiveData<String>
+        get() = _bearType
+
     fun setSettingFragment(clickFragment: String) {
         _settingFragment.value = clickFragment
+    }
+
+    fun setCryingBearType() {
+        when (getBearTypeUseCase()) {
+            BROWN -> _bearType.value = BROWN
+            GRAY -> _bearType.value = GRAY
+            RED -> _bearType.value = RED
+            WHITE -> _bearType.value = WHITE
+            else -> _bearType.value = BROWN
+        }
     }
 
     fun setDeleteAuth() {

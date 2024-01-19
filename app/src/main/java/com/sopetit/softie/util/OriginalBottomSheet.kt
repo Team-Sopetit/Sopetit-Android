@@ -44,7 +44,7 @@ class OriginalBottomSheet : BindingBottomSheet() {
         if (isContentVisible == true) {
             binding.tvBottomSheetContent.visibility = View.VISIBLE
         } else {
-            binding.tvBottomSheetContent.visibility = View.INVISIBLE
+            binding.tvBottomSheetContent.visibility = View.GONE
         }
     }
 

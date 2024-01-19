@@ -120,6 +120,10 @@ class DailyRoutineViewModel @Inject constructor(
         }
     }
 
+    fun clearEditRoutineIdArray() {
+        editRoutineIdArray.clear()
+    }
+
     fun setEditBtnEnabled(enabled: Boolean) {
         _isEditBtnEnabled.value = enabled
     }

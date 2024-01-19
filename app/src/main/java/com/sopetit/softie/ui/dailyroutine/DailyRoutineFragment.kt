@@ -166,6 +166,7 @@ class DailyRoutineFragment :
             if (isDeleteView) {
                 binding.tvDailyRoutineEdit.setSingleOnClickListener {
                     viewModel.setDeleteView(false)
+                    resetRadioButtons()
                 }
                 clickEditRadioBtn()
             }
@@ -200,7 +201,8 @@ class DailyRoutineFragment :
     }
 
     private fun changeBtnSelectState(button: View, itemId: Int) {
-        button.setSingleOnClickListener {
+        button.setOnClickListener {
+
             it.isSelected = !it.isSelected
             viewModel.setEditRoutineIdArray(itemId)
             setDeleteRoutineBtnContent()
@@ -217,7 +219,6 @@ class DailyRoutineFragment :
         } else {
             viewModel.setEditBtnEnabled(false)
         }
-
         binding.btnDailyRoutineDelete.text = deleteBtnContent
     }
 
@@ -236,18 +237,31 @@ class DailyRoutineFragment :
                 doBtnColor = R.drawable.shape_red_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {
+                    val arraySize = viewModel.editRoutineIdArray.size
                     viewModel.deleteDailyRoutine()
                     viewModel.isDailyRoutineDelete.observe(viewLifecycleOwner) {
                         snackBar(
                             binding.root.rootView,
-                            "데일리 루틴을 ${viewModel.editRoutineIdArray.size}개 삭제했어요"
+                            "데일리 루틴을 ${arraySize}개 삭제했어요"
                         )
                         viewModel.setDeleteView(false)
                         viewModel.getDailyRoutine()
+
+                        resetRadioButtons()
                     }
                 }
             ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
         }
+    }
+
+    private fun resetRadioButtons() {
+        with(binding) {
+            btnDailyRoutineRadioFirst.isSelected = false
+            btnDailyRoutineRadioSecond.isSelected = false
+            btnDailyRoutineRadioThird.isSelected = false
+        }
+        viewModel.clearEditRoutineIdArray()
+        setDeleteRoutineBtnContent()
     }
 
     private fun startDailyRoutineCompleteActivity() {

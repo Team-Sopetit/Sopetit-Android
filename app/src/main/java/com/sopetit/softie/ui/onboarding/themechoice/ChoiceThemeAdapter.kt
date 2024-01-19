@@ -10,7 +10,6 @@ import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.ui.onboarding.OnboardingActivity.Companion.MAXIMUM_THEME_SELECTION
 import com.sopetit.softie.util.ItemDiffCallback
 import com.sopetit.softie.util.binding.BindingAdapter.setCoilImage
-import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.toast
 
 class ChoiceThemeAdapter :
@@ -29,7 +28,7 @@ class ChoiceThemeAdapter :
         fun onBind(data: Theme) {
             binding.tvThemeName.text = data.name
             binding.ivThemeIcon.setCoilImage(data.iconImageUrl)
-            binding.root.setSingleOnClickListener {
+            binding.root.setOnClickListener {
                 themeSelection(binding, data)
                 onItemClickListener?.let { it(data) }
             }
