@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ItemHappyAddListBinding
 import com.sopetit.softie.domain.entity.HappyContent
 import com.sopetit.softie.util.ItemDiffCallback
-import com.sopetit.softie.util.setSingleOnClickListener
 
-class HappyAddListContentAdapter(private val moveToDetail: (Int) -> Unit) :
+class HappyAddListContentAdapter(private val moveToDetail: (Int, String) -> Unit) :
     ListAdapter<HappyContent, HappyAddListContentAdapter.HappyAddListContentViewHolder>(
         ItemDiffCallback<HappyContent>(
             onItemsTheSame = { oldItem, newItem -> oldItem == newItem },
@@ -21,17 +21,19 @@ class HappyAddListContentAdapter(private val moveToDetail: (Int) -> Unit) :
 
     inner class HappyAddListContentViewHolder(
         private val binding: ItemHappyAddListBinding,
-        private val moveToDetail: (Int) -> Unit
+        private val moveToDetail: (Int, String) -> Unit
     ) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: HappyContent) {
             binding.tvHappyListItemTitle.text = data.name
             binding.tvHappyListItemTitle.setTextColor(Color.parseColor(data.nameColor))
             binding.tvHappyListItemContent.text = data.title
-            binding.ivHappyListItemIcon.load(data.iconImageUrl)
-
-            binding.root.setSingleOnClickListener {
-                moveToDetail(data.routineId)
+            binding.ivHappyListItemIcon.load(data.iconImageUrl) {
+                placeholder(R.drawable.ic_bear_base)
+                error(R.drawable.ic_bear_base)
+            }
+            binding.root.setOnClickListener {
+                moveToDetail(data.routineId, data.iconImageUrl)
             }
         }
     }

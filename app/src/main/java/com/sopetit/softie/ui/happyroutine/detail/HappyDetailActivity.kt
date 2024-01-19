@@ -7,14 +7,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityHappyAddDetailBinding
 import com.sopetit.softie.ui.LoadingIndicator
+import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity.Companion.ICON_IMAGE_URL
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity.Companion.ID
-import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.ui.onboarding.OnboardingActivity.Companion.LOADING_DELAY
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingActivity
@@ -41,18 +40,19 @@ class HappyDetailActivity :
         setStatusBarColorFromResource(R.color.background)
 
         val routineId = intent.getIntExtra(ID, -1).toString()
+        val imageUrl = intent.getStringExtra(ICON_IMAGE_URL)
 
-        setInitBinding(routineId)
+        setInitBinding(routineId, imageUrl)
         setCurrentCard()
         setBackEnter()
         setupAdapter(routineId)
         setIndicator()
         initSetLoading()
         initViewPager()
-        initPagerDiv(0, 90)
+        initPagerDiv(0, 20)
     }
 
-    private fun setInitBinding(routineId: String) {
+    private fun setInitBinding(routineId: String, imageUrl: String?) {
         viewModel.getHappyCard(routineId)
         viewModel.happyCardResponse.observe(this) { happyCard ->
             happyCard?.let {
@@ -64,7 +64,9 @@ class HappyDetailActivity :
                 }
                 viewModel.mySubroutineId.observe(this) { mySubRoutineId ->
                     mySubRoutineId?.let {
-                        setBottomSheetEnter(happyCard.iconImageUrl, mySubRoutineId)
+                        imageUrl?.let {
+                            setBottomSheetEnter(it, mySubRoutineId)
+                        }
                     }
                 }
             }
@@ -120,10 +122,8 @@ class HappyDetailActivity :
     }
 
     private fun moveToProgress() {
-        val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("happy_progress_fragment", "happy_progress")
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        startActivity(intent)
+        val intentToHappinessAddRoutine = Intent().putExtra("isAdded", true)
+        setResult(RESULT_OK, intentToHappinessAddRoutine)
         finish()
     }
 
@@ -154,7 +154,7 @@ class HappyDetailActivity :
 
         val dp = resources.getDimensionPixelSize(R.dimen.view_margin)
         val d = resources.displayMetrics.density
-        val margin = (dp * d).toInt()
+        val margin = (dp * d * 0.8).toInt()
 
         with(binding.vpHappyAddDetailCard) {
             clipChildren = false
@@ -162,8 +162,6 @@ class HappyDetailActivity :
             offscreenPageLimit = 3
             setPadding(margin, 0, margin, 0)
         }
-        val compositePageTransformer = CompositePageTransformer()
-        binding.vpHappyAddDetailCard.setPageTransformer(compositePageTransformer)
     }
 
     private fun initPagerDiv(previewWidth: Int, itemMargin: Int) {

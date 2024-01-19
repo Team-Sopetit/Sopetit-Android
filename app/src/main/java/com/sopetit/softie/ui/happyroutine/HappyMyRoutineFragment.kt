@@ -6,10 +6,11 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import coil.load
 import com.sopetit.softie.R
-import com.sopetit.softie.databinding.FragmentHappyProgressBinding
-import com.sopetit.softie.ui.happyroutine.HappyRoutineFragment
+import com.sopetit.softie.databinding.FragmentHappyMyRoutineBinding
+import com.sopetit.softie.ui.happyroutine.HappyMyRoutineViewModel
 import com.sopetit.softie.ui.happyroutine.complete.HappyRoutineCompleteActivity
 import com.sopetit.softie.ui.happyroutine.delete.HappyDeleteFragment
+import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
@@ -17,38 +18,41 @@ import com.sopetit.softie.util.setSingleOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HappyProgressFragment :
-    BindingFragment<FragmentHappyProgressBinding>(R.layout.fragment_happy_progress) {
+class HappyMyRoutineFragment :
+    BindingFragment<FragmentHappyMyRoutineBinding>(R.layout.fragment_happy_my_routine) {
 
-    private val viewModel by viewModels<HappyProgressViewModel>()
+    private val viewModel by viewModels<HappyMyRoutineViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val happyProgress = viewModel.getHappyProgress()
+        binding.viewModel = viewModel
 
-        setCardBinding(happyProgress)
+        initSetBearFace()
+        setMyCardEnter()
         setCardEnter()
         setEditEnter()
+        setClearEnter()
     }
 
-    private fun setCardBinding(happyProgress: Unit) {
-        viewModel.happyProgressResponse.observe(viewLifecycleOwner) { happyProgress ->
-            happyProgress?.let {
-                with(binding) {
-                    tvHappyProgressSubtitle.text = happyProgress.title
-                    ivHappyProgressCardFront.load(happyProgress.contentImageUrl)
-                    tvHappyProgressCardFrontTitle.text =
-                        happyProgress.content
-                    tvHappyProgressCardBackTitle.text =
-                        happyProgress.content
-                    tvHappyProgressCardBackContent.text =
-                        happyProgress.detailContent
-                    tvHappyProgressCardBackTime.text =
-                        happyProgress.timeTaken
-                    tvHappyProgressCardBackPlace.text = happyProgress.place
-                }
-                setClearEnter(happyProgress.iconImageUrl)
+    override fun onResume() {
+        super.onResume()
+        viewModel.getHappyProgress()
+    }
+
+    private fun initSetBearFace() {
+        viewModel.setDollFace()
+        viewModel.bearFace.observe(viewLifecycleOwner) { bearFace ->
+            binding.ivHappyRoutineCharacter.load(bearFace) {
+                placeholder(R.drawable.ic_loading_bear)
+                error(R.drawable.ic_loading_bear)
             }
+        }
+    }
+
+    private fun setMyCardEnter() {
+        binding.ivHappyRoutineEmptyCard.setOnClickListener {
+            val intent = Intent(requireContext(), HappyAddListActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -100,20 +104,13 @@ class HappyProgressFragment :
             doBtnAction = {
                 viewModel.happyProgressResponse.observe(viewLifecycleOwner) { happyProgress ->
                     happyProgress?.let {
+                        startHappyRoutineCompleteActivity()
                         viewModel.patchAchieveHappyRoutine(happyProgress.routineId)
                         startHappyRoutineCompleteActivity()
-                        moveToHappyRoutineEmptyCardView()
                     }
                 }
             }
         ).show(parentFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
-    }
-
-    private fun moveToHappyRoutineEmptyCardView() {
-        val happyRoutineFragment = HappyRoutineFragment()
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fcv_main, happyRoutineFragment)
-            .commit()
     }
 
     private fun startHappyRoutineCompleteActivity() {
@@ -122,9 +119,17 @@ class HappyProgressFragment :
         startActivity(intentToCompleteActivity)
     }
 
-    private fun setClearEnter(icon: String) {
-        binding.btnHappyProgressClear.setSingleOnClickListener {
-            initHappyRoutineCompleteBottomSheet(icon)
+    private fun setClearEnter() {
+        binding.btnHappyProgressClear.setOnClickListener {
+            viewModel.happyProgressResponse.value?.iconImageUrl?.let { url ->
+                initHappyRoutineCompleteBottomSheet(
+                    url
+                )
+            }
         }
+    }
+
+    companion object {
+        private const val REQUEST_CODE_HAPPY_DETAIL = 990320
     }
 }
