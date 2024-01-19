@@ -150,11 +150,13 @@
                 android:id="@+id/iv_happy_progress_mention"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="19dp"
+                android:layout_marginTop="63dp"
                 android:src="@drawable/ic_speech_happy"
                 app:layout_constraintBottom_toTopOf="@id/tv_happy_progress_subtitle"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0" />
 
             <TextView
                 android:id="@+id/tv_happy_progress_mention"
@@ -173,9 +175,9 @@
                 style="@style/head1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginTop="19dp"
                 android:text="@{viewModel.happyProgressResponse.title}"
-                app:layout_constraintBottom_toTopOf="@id/cl_happy_progress_card_front"
+                app:layout_constraintTop_toBottomOf="@id/iv_happy_progress_mention"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="성숙한 사랑을 만나기 위한" />
@@ -184,12 +186,14 @@
                 android:id="@+id/cl_happy_progress_card_front"
                 android:layout_width="280dp"
                 android:layout_height="398dp"
-                android:layout_marginBottom="41dp"
+                android:layout_marginTop="24dp"
                 android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
                 android:visibility="visible"
-                app:layout_constraintBottom_toTopOf="@id/btn_happy_progress_clear"
+                app:layout_constraintTop_toBottomOf="@id/tv_happy_progress_subtitle"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintBottom_toTopOf="@id/btn_happy_progress_clear"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="0">
 
                 <ImageView
                     android:id="@+id/iv_happy_progress_card_front"
@@ -198,8 +202,7 @@
                     setCoilImage="@{viewModel.happyProgressResponse.contentImageUrl}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@drawable/ic_happycard" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_happy_progress_card_front_title"

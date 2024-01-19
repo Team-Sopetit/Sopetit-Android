@@ -14,6 +14,7 @@ import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setSingleOnClickListener
+import com.sopetit.softie.util.setStatusBarColor
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,6 +26,7 @@ class HappyMyRoutineFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
+        setStatusBarColor(R.color.background)
 
         initSetBearFace()
         setMyCardEnter()
