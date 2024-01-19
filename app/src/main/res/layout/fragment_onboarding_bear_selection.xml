@@ -41,8 +41,9 @@
 
         <ImageView
             android:id="@+id/iv_bear_selection_brown_bear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1"
             android:layout_marginBottom="368dp"
             android:onClick="@{() -> viewModel.selectBearType(@string/brown)}"
             android:src="@{viewModel.selectedBearType == @string/brown ? @drawable/ic_bear_brown_up: @drawable/ic_bear_brown_down}"
@@ -53,8 +54,9 @@
 
         <ImageView
             android:id="@+id/iv_bear_selection_gray_bear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1"
             android:layout_marginStart="15dp"
             android:layout_marginBottom="368dp"
             android:onClick="@{() -> viewModel.selectBearType(@string/gray)}"
@@ -66,8 +68,9 @@
 
         <ImageView
             android:id="@+id/iv_bear_selection_panda_bear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1"
             android:layout_marginBottom="193dp"
             android:onClick="@{() -> viewModel.selectBearType(@string/white)}"
             android:src="@{viewModel.selectedBearType == @string/white ? @drawable/ic_bear_panda_up: @drawable/ic_bear_panda_down}"
@@ -78,8 +81,9 @@
 
         <ImageView
             android:id="@+id/iv_bear_selection_red_bear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            app:layout_constraintDimensionRatio="1"
+            android:layout_height="0dp"
             android:layout_marginStart="15dp"
             android:layout_marginBottom="193dp"
             android:onClick="@{() -> viewModel.selectBearType(@string/red)}"
