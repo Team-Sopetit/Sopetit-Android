@@ -12,6 +12,7 @@ import com.sopetit.softie.ui.setting.SettingActivity.Companion.USER_EXIT
 import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
+import com.sopetit.softie.util.setSingleOnClickListener
 import timber.log.Timber
 
 class SettingInitFragment :
@@ -39,7 +40,7 @@ class SettingInitFragment :
     }
 
     private fun clickUserSecurity() {
-        binding.clSettingInitUserSecurity.setOnClickListener {
+        binding.clSettingInitUserSecurity.setSingleOnClickListener {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
@@ -50,8 +51,7 @@ class SettingInitFragment :
     }
 
     private fun clickDocument() {
-        // TODO 서비스 이용 약관
-        binding.clSettingInitDocument.setOnClickListener {
+        binding.clSettingInitDocument.setSingleOnClickListener {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
@@ -62,7 +62,7 @@ class SettingInitFragment :
     }
 
     private fun clickGuide() {
-        binding.clSettingInitGuide.setOnClickListener {
+        binding.clSettingInitGuide.setSingleOnClickListener {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
@@ -73,7 +73,7 @@ class SettingInitFragment :
     }
 
     private fun clickFeedback() {
-        binding.clSettingInitFeedback.setOnClickListener {
+        binding.clSettingInitFeedback.setSingleOnClickListener {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
@@ -84,7 +84,7 @@ class SettingInitFragment :
     }
 
     private fun clickLogOut() {
-        binding.btnSettingInitLogout.setOnClickListener {
+        binding.btnSettingInitLogout.setSingleOnClickListener {
             BindingBottomSheet.Builder().build(
                 isDrawable = true,
                 imageDrawable = R.drawable.ic_bear_face_crying,
@@ -114,7 +114,7 @@ class SettingInitFragment :
     }
 
     private fun clickUserExit() {
-        binding.btnSettingInitUserExit.setOnClickListener {
+        binding.btnSettingInitUserExit.setSingleOnClickListener {
             viewModel.setSettingFragment(USER_EXIT)
         }
     }

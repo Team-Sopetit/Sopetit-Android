@@ -9,6 +9,7 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyRoutineBinding
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity
 import com.sopetit.softie.util.binding.BindingFragment
+import com.sopetit.softie.util.setSingleOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,7 +33,7 @@ class HappyRoutineFragment :
     }
 
     private fun setCardEnter() {
-        binding.ivHappyRoutineEmptyCard.setOnClickListener {
+        binding.ivHappyRoutineEmptyCard.setSingleOnClickListener {
             val intent = Intent(requireContext(), HappyAddListActivity::class.java)
             startActivity(intent)
         }

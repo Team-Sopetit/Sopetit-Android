@@ -9,6 +9,7 @@ import coil.load
 import com.sopetit.softie.databinding.ItemHappyAddListBinding
 import com.sopetit.softie.domain.entity.HappyContent
 import com.sopetit.softie.util.ItemDiffCallback
+import com.sopetit.softie.util.setSingleOnClickListener
 
 class HappyAddListContentAdapter(private val moveToDetail: (Int) -> Unit) :
     ListAdapter<HappyContent, HappyAddListContentAdapter.HappyAddListContentViewHolder>(
@@ -29,7 +30,7 @@ class HappyAddListContentAdapter(private val moveToDetail: (Int) -> Unit) :
             binding.tvHappyListItemContent.text = data.title
             binding.ivHappyListItemIcon.load(data.iconImageUrl)
 
-            binding.root.setOnClickListener {
+            binding.root.setSingleOnClickListener {
                 moveToDetail(data.routineId)
             }
         }

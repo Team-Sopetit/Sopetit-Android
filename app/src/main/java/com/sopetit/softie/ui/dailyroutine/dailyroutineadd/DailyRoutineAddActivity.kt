@@ -17,6 +17,7 @@ import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.binding.BindingBottomSheet
+import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.setStatusBarColorFromResource
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -171,7 +172,7 @@ class DailyRoutineAddActivity :
     }
 
     private fun backToDailyRoutine() {
-        binding.ivDailyRoutineAddBack.setOnClickListener {
+        binding.ivDailyRoutineAddBack.setSingleOnClickListener {
             finish()
         }
     }
@@ -200,7 +201,7 @@ class DailyRoutineAddActivity :
     }
 
     private fun initSetDailyRoutineAdd() {
-        binding.btnDailyRoutineAdd.setOnClickListener {
+        binding.btnDailyRoutineAdd.setSingleOnClickListener {
             BindingBottomSheet.Builder().build(
                 isDrawable = false,
                 imageDrawable = 0,
