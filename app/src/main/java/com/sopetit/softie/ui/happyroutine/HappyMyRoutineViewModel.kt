@@ -1,6 +1,5 @@
 package com.sopetit.softie.ui.happyroutine
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -56,12 +55,10 @@ class HappyMyRoutineViewModel @Inject constructor(
         viewModelScope.launch {
             getHappyProgressUseCase()
                 .onSuccess { response ->
-                    Timber.tag("kang").e("server is onSuccess " + response)
                     _isHappinessRoutineProgress.value = true
                     _happyProgressResponse.value = response
                 }
                 .onFailure { throwable ->
-                    Log.e("kang", "server is issue")
                     _isHappinessRoutineProgress.value = false
                     Timber.e("$throwable")
                 }
