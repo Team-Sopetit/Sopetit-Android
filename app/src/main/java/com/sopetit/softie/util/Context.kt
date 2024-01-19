@@ -25,7 +25,7 @@ fun Context.hideKeyboard(view: View?) {
 
 fun snackBar(
     anchorView: View,
-    message: String
+    message: String,
 ) {
     CustomSnackbar.make(anchorView, message).show()
 }

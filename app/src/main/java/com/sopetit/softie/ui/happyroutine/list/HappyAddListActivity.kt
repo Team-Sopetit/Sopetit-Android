@@ -2,6 +2,7 @@ package com.sopetit.softie.ui.happyroutine.list
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.sopetit.softie.R
@@ -23,6 +24,15 @@ class HappyAddListActivity :
 
     private var happyAddListChipContentAdapter: HappyAddListChipContentAdapter? = null
     private var happyAddListContentAdapter: HappyAddListContentAdapter? = null
+
+    private val addHappinessRoutineResult = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        val isHappinessRoutineAdd = result.data?.getBooleanExtra("isAdded", false) ?: false
+        if (result.resultCode == RESULT_OK && isHappinessRoutineAdd) {
+            finish()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,15 +84,15 @@ class HappyAddListActivity :
     }
 
     private fun moveToDetail(id: Int, iconImageUrl: String) {
-        Intent(this, HappyDetailActivity::class.java).apply {
+        val intentToDetail = Intent(this, HappyDetailActivity::class.java).apply {
             putExtra(ID, id)
-            putExtra(ICONIMAGEURL, iconImageUrl)
-            startActivity(this)
+            putExtra(ICON_IMAGE_URL, iconImageUrl)
         }
+        addHappinessRoutineResult.launch(intentToDetail)
     }
 
     companion object {
         const val ID = "id"
-        const val ICONIMAGEURL = "iconImageUrl"
+        const val ICON_IMAGE_URL = "iconImageUrl"
     }
 }

@@ -6,8 +6,8 @@ import androidx.fragment.app.viewModels
 import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyDeleteBinding
-import com.sopetit.softie.ui.happyroutine.HappyRoutineFragment
-import com.sopetit.softie.ui.happyroutine.progress.HappyProgressViewModel
+import com.sopetit.softie.ui.happyroutine.HappyMyRoutineFragment
+import com.sopetit.softie.ui.happyroutine.HappyMyRoutineViewModel
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
@@ -18,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HappyDeleteFragment :
     BindingFragment<FragmentHappyDeleteBinding>(R.layout.fragment_happy_delete) {
 
-    private val viewModel by viewModels<HappyProgressViewModel>()
+    private val viewModel by viewModels<HappyMyRoutineViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val happyProgress = viewModel.getHappyProgress()
@@ -97,7 +97,7 @@ class HappyDeleteFragment :
                             getString(R.string.happy_routine_delete_snack_bar)
                         )
                         requireActivity().supportFragmentManager.beginTransaction()
-                            .replace(R.id.fcv_main, HappyRoutineFragment())
+                            .replace(R.id.fcv_main, HappyMyRoutineFragment())
                             .commit()
                     }
                 }
