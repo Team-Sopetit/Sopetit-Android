@@ -38,7 +38,6 @@ class DailyRoutineAddActivity :
         dailyRoutineAddViewModel.getThemeList()
         dailyRoutineAddViewModel.setThemeId(6)
         setupAdapter()
-        //setViewPager()
         setupList()
         setIndicator()
         setItemDiv()
@@ -100,8 +99,8 @@ class DailyRoutineAddActivity :
         with(binding.vpDailyRoutineAddCard) {
             clipChildren = false
             clipToPadding = false
-            offscreenPageLimit = 3
-            setPadding(margin, 0, margin, 0)
+            offscreenPageLimit = VIEW_PAGE.toInt()
+            setPadding(margin, PADDING_CARD, margin, PADDING_CARD)
         }
         val compositePageTransformer = CompositePageTransformer()
         binding.vpDailyRoutineAddCard.setPageTransformer(compositePageTransformer)
@@ -113,44 +112,13 @@ class DailyRoutineAddActivity :
         val decoration = PageDecoration(decoMargin)
 
         binding.vpDailyRoutineAddCard.also {
-            it.offscreenPageLimit = 1
+            it.offscreenPageLimit = VIEW_PAGE.toInt()
             it.addItemDecoration(decoration)
             it.setPageTransformer { page, position ->
                 page.translationX = position * -pageTransX
             }
         }
     }
-
-//    private fun initPagerDiv(previewWidth: Int, itemMargin: Int) {
-//        val decoMargin = previewWidth + itemMargin
-//        val pageTransX = decoMargin + previewWidth
-//        val decoration = PageDecoration(decoMargin)
-//
-//        binding.vpDailyRoutineAddCard.also {
-//            it.offscreenPageLimit = VIEW_PAGE.toInt()
-//            it.addItemDecoration(decoration)
-//            it.setPageTransformer { page, position ->
-//                page.translationX = position * -pageTransX
-//            }
-//        }
-//    }
-//
-//    private fun setViewPager() {
-//        with(binding.vpDailyRoutineAddCard) {
-//            adapter = dailyRoutineAddCardPagerAdapter
-//            offscreenPageLimit = VIEW_PAGE.toInt()
-//
-//            val dpValue = PADDING_PAGE
-//            val margin = (dpValue * resources.displayMetrics.density).toInt()
-//            setPadding(margin, PADDING_CARD, margin, PADDING_CARD)
-//
-//            setPageTransformer(
-//                CompositePageTransformer().apply {
-//                    addTransformer(MarginPageTransformer(resources.getDimensionPixelOffset(R.dimen.viewpager_margin)))
-//                }
-//            )
-//        }
-//    }
 
     private fun setIndicator() {
         binding.diDailyRoutineAddIndicator.attachTo(binding.vpDailyRoutineAddCard)
@@ -169,8 +137,51 @@ class DailyRoutineAddActivity :
         }
     }
 
-    class HorizontalItemDecorator(private val divHeight: Int) : RecyclerView.ItemDecoration() {
-        @Override
+//    class HorizontalItemDecorator(private val divHeight: Int) : RecyclerView.ItemDecoration() {
+//        @Override
+//        override fun getItemOffsets(
+//            outRect: Rect,
+//            view: View,
+//            parent: RecyclerView,
+//            state: RecyclerView.State
+//        ) {
+//            super.getItemOffsets(outRect, view, parent, state)
+//            outRect.left = divHeight
+//            outRect.right = divHeight
+//        }
+//    }
+
+//    class HorizontalItemDecorator(private val divHeight: Int) : RecyclerView.ItemDecoration() {
+//        @Override
+//        override fun getItemOffsets(
+//            outRect: Rect,
+//            view: View,
+//            parent: RecyclerView,
+//            state: RecyclerView.State
+//        ) {
+//            super.getItemOffsets(outRect, view, parent, state)
+//
+//            val position = parent.getChildAdapterPosition(view)
+//            val itemCount = parent.adapter?.itemCount ?: 0
+//
+//            if (position == 0) {
+//                outRect.left = 4
+//            }
+//
+//            if (position == itemCount - 1) {
+//                outRect.right = 4
+//            }
+//            outRect.left = divHeight
+//            outRect.right = divHeight
+//
+//        }
+//    }
+
+    class HorizontalItemDecorator(
+        private val marginStart: Int,
+        private val marginEnd: Int,
+        private val itemMargin: Int
+    ) : RecyclerView.ItemDecoration() {
         override fun getItemOffsets(
             outRect: Rect,
             view: View,
@@ -178,13 +189,26 @@ class DailyRoutineAddActivity :
             state: RecyclerView.State
         ) {
             super.getItemOffsets(outRect, view, parent, state)
-            outRect.left = divHeight
-            outRect.right = divHeight
+
+            val position = parent.getChildAdapterPosition(view)
+            val itemCount = parent.adapter?.itemCount ?: 0
+
+            if (position == 0) {
+                outRect.left = marginStart
+                outRect.right = itemMargin
+            } else if (position == itemCount - 1) {
+                outRect.left = itemMargin
+                outRect.right = marginEnd
+            } else {
+                outRect.left = itemMargin
+                outRect.right = itemMargin
+            }
         }
     }
 
+
     private fun setItemDiv() {
-        binding.rvDailyRoutineAddTheme.addItemDecoration(HorizontalItemDecorator(16))
+        binding.rvDailyRoutineAddTheme.addItemDecoration(HorizontalItemDecorator(36, 36, 16))
     }
 
     private fun backToDailyRoutine() {
@@ -247,7 +271,6 @@ class DailyRoutineAddActivity :
 
     companion object {
         const val VIEW_PAGE = 3
-        const val PADDING_PAGE = 40
         const val PADDING_CARD = 0
     }
 }
