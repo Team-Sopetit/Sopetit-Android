@@ -1,8 +1,6 @@
 package com.sopetit.softie.ui.setting
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.Spanned
@@ -27,7 +25,6 @@ class SettingUserExitFragment :
     BindingFragment<FragmentSettingUserExitBinding>(R.layout.fragment_setting_user_exit) {
 
     private lateinit var viewModel: SettingViewModel
-    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,11 +32,7 @@ class SettingUserExitFragment :
         viewModel = ViewModelProvider(requireActivity()).get(SettingViewModel::class.java)
         binding.viewModel = viewModel
 
-        sharedPreferences =
-            this.requireActivity().getSharedPreferences("user", Context.MODE_PRIVATE)
-        val bearType = sharedPreferences.getString("bearType", BROWN)
-
-        initSetBear(bearType)
+        initSetBear()
         initSetSpeechText()
         initSetClickBackBtn()
         initSetClickExitBtn()
@@ -62,12 +55,15 @@ class SettingUserExitFragment :
             }
     }
 
-    private fun initSetBear(bearType: String?) {
-        when (bearType) {
-            BROWN -> setBearImage(R.drawable.ic_bear_brown_crying)
-            GRAY -> setBearImage(R.drawable.ic_bear_gray_crying)
-            RED -> setBearImage(R.drawable.ic_bear_red_crying)
-            WHITE -> setBearImage(R.drawable.ic_bear_panda_crying)
+    private fun initSetBear() {
+        viewModel.setCryingBearType()
+        viewModel.bearType.observe(viewLifecycleOwner) { bearType ->
+            when (bearType) {
+                BROWN -> setBearImage(R.drawable.ic_bear_brown_crying)
+                GRAY -> setBearImage(R.drawable.ic_bear_gray_crying)
+                RED -> setBearImage(R.drawable.ic_bear_red_crying)
+                WHITE -> setBearImage(R.drawable.ic_bear_panda_crying)
+            }
         }
     }
 
