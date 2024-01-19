@@ -5,6 +5,7 @@ import android.view.View
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentStoryTellingMainBinding
 import com.sopetit.softie.util.binding.BindingFragment
+import com.sopetit.softie.util.setSingleOnClickListener
 
 class StoryTellingMainFragment :
     BindingFragment<FragmentStoryTellingMainBinding>(R.layout.fragment_story_telling_main) {
@@ -15,7 +16,7 @@ class StoryTellingMainFragment :
     }
 
     private fun initClickListener() {
-        binding.root.setOnClickListener {
+        binding.root.setSingleOnClickListener {
             val storyTellingConclusionFragment = StoryTellingConclusionFragment()
             (activity as StoryTellingActivity).replaceFragment(storyTellingConclusionFragment)
         }

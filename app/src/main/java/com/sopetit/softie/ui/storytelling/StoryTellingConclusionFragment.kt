@@ -7,6 +7,7 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentStoryTellingConclusionBinding
 import com.sopetit.softie.ui.onboarding.OnboardingActivity
 import com.sopetit.softie.util.binding.BindingFragment
+import com.sopetit.softie.util.setSingleOnClickListener
 
 class StoryTellingConclusionFragment :
     BindingFragment<FragmentStoryTellingConclusionBinding>(R.layout.fragment_story_telling_conclusion) {
@@ -16,7 +17,7 @@ class StoryTellingConclusionFragment :
     }
 
     private fun initClickListener() {
-        binding.root.setOnClickListener {
+        binding.root.setSingleOnClickListener {
             val intent = Intent(requireActivity(), OnboardingActivity::class.java)
             startActivity(intent)
             requireActivity().finish()
