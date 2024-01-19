@@ -110,6 +110,11 @@
     <string name="user_logout_content">“잠시만 안녕.. 다음에 또 봐!”</string>
     <string name="user_logout_back">취소</string>
     <string name="user_logout_exit">로그아웃 할래</string>
+    <string name="setting_user_security_link">https://softie-link.notion.site/c2435b30cfdb45db82f91cae6d1cc789</string>
+    <string name="setting_service_document_link">https://softie-link.notion.site/b8b8c02805924f2ababd4de7b2306d64?pvs=4</string>
+    <string name="setting_service_guide_link">https://softie-link.notion.site/6a65faa32923410a84ff6a63c47cf752</string>
+    <string name="setting_feedback_link">https://docs.google.com/forms/d/e/1FAIpQLSfEtF_qWDu9mI1IcEBPTWsoBVCwPa0wunQK600EcjOMbz8upQ/viewform</string>
+
 
     <!-- bottom sheet -->
     <string name="bottom_sheet_title">정말 로그아웃할까요?</string>
@@ -149,6 +154,7 @@
     <string name="home_happiness_cotton_btn">행복 솜뭉치 주기</string>
     <string name="home_daily_cotton_btn">솜뭉치 주기</string>
     <string name="splash_service_introduce">친구와 함께 하는 일상 속 작은 습관</string>
+    <string name="my_page_policy_link">https://softie-link.notion.site/92fc58e36cf448eca66ee47e1c50bee8</string>
 
     <!-- daily routine add -->
     <string name="daily_routine_add_question">데일리 루틴을 추가할까요?</string>

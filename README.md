@@ -8,13 +8,10 @@
 
 # Contributors 🤎
 
-|View|담당자||
-|------|---|---|
-|Home|강희 ```@stellar-halo```|<img src="https://avatars.githubusercontent.com/u/91793891?v=4"  width="200" height="200"/>|
-|Routine|민정 ```@emjayMJkim```|<img src="https://github.com/Team-Sopetit/Sopetit-Android/assets/125239880/a28bbeab-017f-41cf-af85-0129b0355565"  width="200" height="200"/>|
-|Happy|호연 ```@pump9918```|<img src="https://avatars.githubusercontent.com/u/125239880?v=4"  width="200" height="200"/>|
-|Daily|민회 ```@minemi00```| <img src="https://github.com/Team-Sopetit/Sopetit-Android/assets/125239880/1ef969bf-276e-4892-a72a-40109c6fc566"  width="200" height="200"/>|
-
+| 👑 [박강희](https://github.com/stellar-halo) | [김민정](https://github.com/emjayMJkim) | [박호연](https://github.com/pump9918) | [허민회](https://github.com/minemi00) |
+| --- | --- | --- | --- |
+| <img src = "https://github.com/ahra1221/Sopetit-iOS/assets/79412889/dd547032-4cee-438d-8ad4-f87fb4a5fff0" width = "300">| <img src = "https://github.com/ahra1221/Sopetit-iOS/assets/79412889/07bd4854-50c2-4f00-afa1-776ea27919ec" width = "300"> | <img src = "https://github.com/ahra1221/Sopetit-iOS/assets/79412889/2ed838cf-436a-43ac-835b-36754cb484dc" width = "300"> | <img src = "https://github.com/ahra1221/Sopetit-iOS/assets/79412889/004fb178-d7a4-41b4-a502-407678d29f04" width = "300"> |
+|<p align = "center">`온보딩` `홈` `소셜로그인`|<p align = "center">`온보딩` `설정` `스플래시` |<p align = "center">`행복루틴뷰` `행복루틴 상세뷰`|<p align = "center">`데일리루틴뷰` `데일리루틴 추가뷰`|
 
 ## 📖 Foldering
 📁 data<br/>

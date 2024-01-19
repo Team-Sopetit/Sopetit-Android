@@ -1,6 +1,7 @@
 package com.sopetit.softie.ui.main.home
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -13,6 +14,7 @@ import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.RED
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.WHITE
 import com.sopetit.softie.ui.setting.SettingActivity
 import com.sopetit.softie.util.binding.BindingFragment
+import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.setStatusBarColor
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.random.Random
@@ -63,31 +65,40 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         setClickBear()
         setClickDaily()
         setClickHappy()
+        moveToPaymentView()
     }
 
     private fun setClickSetting() {
-        binding.ivHomeSetting.setOnClickListener {
+        binding.ivHomeSetting.setSingleOnClickListener {
             val intentToSetting = Intent(activity, SettingActivity::class.java)
             startActivity(intentToSetting)
         }
     }
 
     private fun setClickBear() {
-        binding.lottieHomeBear.setOnClickListener {
+        binding.lottieHomeBear.setSingleOnClickListener {
             playLottieAnimation(userLottieList[HELLO])
             setRandomMessage()
         }
     }
 
     private fun setClickDaily() {
-        binding.clHomeSomWhite.setOnClickListener {
+        binding.clHomeSomWhite.setSingleOnClickListener {
             checkCottonRemain(Cotton.DAILY)
         }
     }
 
     private fun setClickHappy() {
-        binding.clHomeSomColor.setOnClickListener {
+        binding.clHomeSomColor.setSingleOnClickListener {
             checkCottonRemain(Cotton.HAPPINESS)
+        }
+    }
+
+    private fun moveToPaymentView() {
+        binding.ivHomeMoney.setOnClickListener {
+            startActivity(
+                Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.my_page_policy_link)))
+            )
         }
     }
 

@@ -15,6 +15,7 @@ import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.NONE
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.RED
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.WHITE
 import com.sopetit.softie.util.binding.BindingFragment
+import com.sopetit.softie.util.setSingleOnClickListener
 
 class BearNamingFragment :
     BindingFragment<FragmentOnboardingBearNamingBinding>(R.layout.fragment_onboarding_bear_naming) {
@@ -76,7 +77,7 @@ class BearNamingFragment :
     }
 
     private fun initChangeFragment() {
-        binding.btnBearSelection.setOnClickListener {
+        binding.btnBearSelection.setSingleOnClickListener {
             activityViewModel.setBearNickname(viewModel.nickname.value ?: "")
             activityViewModel.changeThemeChoiceView()
         }

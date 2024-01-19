@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sopetit.softie.databinding.ItemHappyAddListChipBinding
 import com.sopetit.softie.domain.entity.HappyChip
 import com.sopetit.softie.util.ItemDiffCallback
+import com.sopetit.softie.util.setSingleOnClickListener
 
 class HappyAddListChipContentAdapter :
     ListAdapter<HappyChip, HappyAddListChipContentAdapter.HappyAddListChipContentViewHolder>(
@@ -25,7 +26,7 @@ class HappyAddListChipContentAdapter :
             binding.itemHappyAddChipComponent.text = data.name
             binding.itemHappyAddChipComponent.isChecked = isSelected(adapterPosition)
 
-            binding.root.setOnClickListener {
+            binding.root.setSingleOnClickListener {
                 chipCurrentSelection(adapterPosition)
                 notifyDataSetChanged()
                 onItemClickListener?.let { it(data) }
