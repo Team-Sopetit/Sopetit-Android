@@ -19,7 +19,6 @@
         android:id="@+id/iv_theme_icon"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/ic_theme_1"
         app:layout_constraintTop_toTopOf="@id/iv_theme_background"
         app:layout_constraintBottom_toBottomOf="@id/iv_theme_background"
         app:layout_constraintStart_toStartOf="@id/iv_theme_background"
