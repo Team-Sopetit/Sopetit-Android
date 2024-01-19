@@ -18,6 +18,7 @@ import com.sopetit.softie.ui.onboarding.themechoice.ChoiceThemeFragment
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.binding.BindingAdapter.setImage
 import com.sopetit.softie.util.hideKeyboard
+import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.setStatusBarColorFromResource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -131,7 +132,7 @@ class OnboardingActivity :
     }
 
     private fun initSetTranslucentBackground() {
-        binding.clOnboardingThemeTranslucentBackgroundContent.setOnClickListener {
+        binding.clOnboardingThemeTranslucentBackgroundContent.setSingleOnClickListener {
             viewModel.setLayoutTranslucent(false)
             setStatusBarColorFromResource(R.color.background)
         }
