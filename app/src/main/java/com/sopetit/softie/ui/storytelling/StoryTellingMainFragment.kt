@@ -16,7 +16,7 @@ class StoryTellingMainFragment :
     }
 
     private fun initClickListener() {
-        binding.tvStoryTellingMain.setSingleOnClickListener {
+        binding.root.setSingleOnClickListener {
             val storyTellingConclusionFragment = StoryTellingConclusionFragment()
             (activity as StoryTellingActivity).replaceFragment(storyTellingConclusionFragment)
         }

@@ -10,6 +10,7 @@ import com.sopetit.softie.databinding.FragmentHappyRoutineBinding
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setSingleOnClickListener
+import com.sopetit.softie.util.setStatusBarColor
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,6 +24,7 @@ class HappyRoutineFragment :
 
         initSetBearFace()
         setCardEnter()
+        setStatusBarColor(R.color.background)
     }
 
     private fun initSetBearFace() {
