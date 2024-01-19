@@ -44,7 +44,7 @@ class DailyRoutineAddActivity :
         setItemDiv()
         setCurrentCard()
         initViewPager()
-        initPagerDiv(0, 90)
+        initPagerDiv(0, 20)
         addClickListener()
         observeRoutineCardList()
     }
@@ -95,7 +95,7 @@ class DailyRoutineAddActivity :
 
         val dp = resources.getDimensionPixelSize(R.dimen.view_margin)
         val d = resources.displayMetrics.density
-        val margin = (dp * d).toInt()
+        val margin = (dp * d * 1.3).toInt()
 
         with(binding.vpDailyRoutineAddCard) {
             clipChildren = false

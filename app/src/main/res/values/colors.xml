@@ -36,7 +36,7 @@
     <color name="home_background_error">#FFE0C8B3</color>
 
     <!-- onboarding -->
-    <color name="onboarding_speech">#FF259560</color>
+    <color name="onboarding_speech">#C0804C</color>
     <color name="onboarding_translucent">#80000000</color>
 
     <!-- story telling -->
