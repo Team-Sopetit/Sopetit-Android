@@ -200,7 +200,8 @@ class DailyRoutineFragment :
     }
 
     private fun changeBtnSelectState(button: View, itemId: Int) {
-        button.setSingleOnClickListener {
+        button.setOnClickListener {
+
             it.isSelected = !it.isSelected
             viewModel.setEditRoutineIdArray(itemId)
             setDeleteRoutineBtnContent()
@@ -220,6 +221,7 @@ class DailyRoutineFragment :
 
         binding.btnDailyRoutineDelete.text = deleteBtnContent
     }
+
 
     private fun initSetRoutineDelete() {
         binding.btnDailyRoutineDelete.setSingleOnClickListener {
@@ -244,11 +246,24 @@ class DailyRoutineFragment :
                         )
                         viewModel.setDeleteView(false)
                         viewModel.getDailyRoutine()
+
+                        resetRadioButtons()
                     }
                 }
             ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
         }
     }
+
+    private fun resetRadioButtons() {
+        with(binding) {
+            btnDailyRoutineRadioFirst.isSelected = false
+            btnDailyRoutineRadioSecond.isSelected = false
+            btnDailyRoutineRadioThird.isSelected = false
+        }
+        viewModel.clearEditRoutineIdArray()
+        setDeleteRoutineBtnContent()
+    }
+
 
     private fun startDailyRoutineCompleteActivity() {
         val intentToCompleteActivity =
