@@ -172,11 +172,12 @@ class DailyRoutineAddActivity :
         })
     }
 
-    private fun getCurrentSelectedRoutine(): Routine {
+    private fun getCurrentSelectedRoutine(): Routine? {
         val currentItem = binding.vpDailyRoutineAddCard.currentItem
         val itemId = dailyRoutineAddCardPagerAdapter.getItemId(currentItem)
         val itemContent = dailyRoutineAddCardPagerAdapter.content
-        return Routine(itemId.toInt(), itemContent)
+            ?: dailyRoutineAddViewModel.dailyRoutineCardThemeList.value?.routine?.get(0)?.content
+        return itemContent?.let { content -> Routine(itemId.toInt(), content) }
     }
 
     private fun getCurrentSelectedRoutineId(): Int {
@@ -190,9 +191,10 @@ class DailyRoutineAddActivity :
             BindingBottomSheet.Builder().build(
                 isDrawable = false,
                 imageDrawable = 0,
-                imageUri = dailyRoutineAddThemeAdapter.clickedThemeIcon,
+                imageUri = dailyRoutineAddThemeAdapter.clickedThemeIcon ?: "",
                 title = getString(R.string.daily_routine_add_question),
-                content = getCurrentSelectedRoutine().content,
+                content = getCurrentSelectedRoutine()?.content
+                    ?: getString(R.string.daily_routine_basic_bottom_sheet_content),
                 isContentVisible = true,
                 contentColor = R.color.gray400,
                 backBtnContent = getString(R.string.daily_routine_add_no),
