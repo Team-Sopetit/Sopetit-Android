@@ -64,7 +64,7 @@ class SettingViewModel @Inject constructor(
                 .onSuccess {
                     _isDeleteAuthResponse.value = true
                     initSIgnUpStateUseCase(false)
-                    initTokenUseCase("", "")
+                    initTokenUseCase("", "", false)
                     Timber.d("회원 탈퇴 성공")
                 }.onFailure { throwable ->
                     _isDeleteAuthResponse.value = false
@@ -79,7 +79,7 @@ class SettingViewModel @Inject constructor(
                 .onSuccess {
                     _isLogOutResponse.value = true
                     initSIgnUpStateUseCase(false)
-                    initTokenUseCase("", "")
+                    initTokenUseCase("", "", true)
                     Timber.d("로그 아웃 성공")
                 }.onFailure { throwable ->
                     _isLogOutResponse.value = false

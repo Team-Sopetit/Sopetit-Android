@@ -1,5 +1,6 @@
 package com.sopetit.softie.ui.login
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,16 +18,18 @@ class LoginViewModel @Inject constructor(
     private val postLoginUseCase: PostLoginUseCase,
     private val initTokenUseCase: InitTokenUseCase
 ) : ViewModel() {
-    private val _isKakaoLogin = MutableLiveData(false)
-    val isKakaoLogin get() = _isKakaoLogin
+    private val _isKakaoLogin: MutableLiveData<Boolean> = MutableLiveData(false)
+    val isKakaoLogin: LiveData<Boolean> get() = _isKakaoLogin
 
-    private val _isSignedUp = MutableLiveData(false)
-    val isSignedUp get() = _isSignedUp
+    private val _isSignedUp: MutableLiveData<Boolean> = MutableLiveData(false)
+    val isSignedUp: LiveData<Boolean> get() = _isSignedUp
+    private val _isMember: MutableLiveData<Boolean> = MutableLiveData(false)
+    val isMember: LiveData<Boolean> get() = _isMember
 
     val kakaoLoginCallback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
         KakaoLoginCallback { accessToken ->
             _isKakaoLogin.value = true
-            initTokenUseCase(accessToken = accessToken, refreshToken = "")
+            initTokenUseCase(accessToken = accessToken, refreshToken = "", false)
         }.handleResult(token, error)
     }
 
@@ -34,9 +37,14 @@ class LoginViewModel @Inject constructor(
         viewModelScope.launch {
             postLoginUseCase(SOCIAL_TYPE)
                 .onSuccess { response ->
-                    initTokenUseCase(response.accessToken, response.refreshToken)
+                    initTokenUseCase(
+                        response.accessToken,
+                        response.refreshToken,
+                        response.isMemberDollExist
+                    )
                     _isSignedUp.value = true
-                    Timber.e("accessToken: ${response.accessToken}, refreshToken: ${response.refreshToken}")
+                    _isMember.value = response.isMemberDollExist
+                    Timber.e("accessToken: ${response.accessToken}, refreshToken: ${response.refreshToken}, isMember: ${response.isMemberDollExist}")
                 }.onFailure { throwable ->
                     Timber.e("$throwable")
                 }

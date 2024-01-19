@@ -17,9 +17,10 @@ class AuthRepositoryImpl @Inject constructor(
             requireNotNull(response.data).toToken()
         }
 
-    override fun initToken(accessToken: String, refreshToken: String) {
+    override fun initToken(accessToken: String, refreshToken: String, isMemberDollExist: Boolean) {
         localDataSource.accessToken = accessToken
         localDataSource.refreshToken = refreshToken
+        localDataSource.isMemberDollExist = isMemberDollExist
     }
 
     override fun initSignUpState(isSignUpState: Boolean) {
