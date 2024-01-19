@@ -24,7 +24,7 @@
             android:layout_height="0dp"
             android:background="@drawable/img_homeback_all"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="1:1.7"
+            app:layout_constraintDimensionRatio="1:1.66"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -87,7 +87,7 @@
     <string name="splash_content">친구와 함께 하는 일상 속 작은 습관</string>
 
     <!-- bottom navigation -->
-    <string name="bottom_navigation_progress">진행 중</string>
+    <string name="bottom_navigation_daily_routine">데일리 루틴</string>
     <string name="bottom_navigation_home">홈</string>
     <string name="bottom_navigation_happiness_routine">행복 루틴</string>
 
