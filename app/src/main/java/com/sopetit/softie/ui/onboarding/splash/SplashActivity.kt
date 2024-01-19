@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.sopetit.softie.R
@@ -28,18 +29,23 @@ class SplashActivity : BindingActivity<ActivitySplashBinding>(R.layout.activity_
 
     private fun initCreateRandomVersion() {
         when (Random.nextInt(1, 5)) {
-            1 -> initSplash(R.drawable.ic_splash_backround1, R.color.main2)
-            2 -> initSplash(R.drawable.ic_splash_backround2, R.color.main2)
-            3 -> initSplash(R.drawable.ic_splash_backround3, R.color.main1)
-            4 -> initSplash(R.drawable.ic_splash_backround4, R.color.main1)
+            1 -> initSplash(R.drawable.ic_splash1, R.color.main2, binding.ivSplash1Bear)
+            2 -> initSplash(R.drawable.ic_splash2, R.color.main2, binding.ivSplash23Bear)
+            3 -> initSplash(R.drawable.ic_splash3, R.color.main1, binding.ivSplash23Bear)
+            4 -> initSplash(R.drawable.ic_splash4, R.color.main1, binding.ivSplash4Bear)
         }
     }
 
-    private fun initSplash(image: Int, color: Int) {
+    private fun initSplash(image: Int, color: Int, view: View) {
         makeSplashImg(image)
         setLogoImg(color)
         setServiceIntroduceImg(color)
         setStatusBarColorFromResource(color)
+        setViewVisible(view)
+    }
+
+    private fun setViewVisible(view: View) {
+        view.visibility = View.VISIBLE
     }
 
     private fun setLogoImg(color: Int) {

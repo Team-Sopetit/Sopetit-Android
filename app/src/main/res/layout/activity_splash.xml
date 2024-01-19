@@ -42,5 +42,47 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_splash_logo" />
 
+        <ImageView
+            android:id="@+id/iv_splash4_bear"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="-13dp"
+            android:layout_marginEnd="-47dp"
+            android:layout_marginBottom="-113dp"
+            android:src="@drawable/ic_splash4_bear"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="0.97:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_splash1_bear"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="81dp"
+            android:src="@drawable/ic_splash1_bear"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1.14:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_splash23_bear"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="-50dp"
+            android:layout_marginEnd="124dp"
+            android:layout_marginBottom="-79dp"
+            android:src="@drawable/ic_splash23_bear"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1.74"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
