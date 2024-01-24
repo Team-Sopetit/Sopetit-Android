@@ -31,60 +31,61 @@
             style="@style/body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="18dp"
+            android:layout_marginTop="55dp"
             android:textColor="@color/happyroutine_red"
             app:layout_constraintBottom_toTopOf="@id/iv_happy_add_detail_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
             tools:text="@string/chip_item_happy_relationship" />
 
         <ImageView
             android:id="@+id/iv_happy_add_detail_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toTopOf="@id/tv_happy_add_detail_subtitle"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:src="@drawable/ic_happy_bling_red" />
+            app:layout_constraintTop_toBottomOf="@id/tv_happy_add_detail_title" />
 
         <TextView
             android:id="@+id/tv_happy_add_detail_subtitle"
             style="@style/head1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            app:layout_constraintBottom_toTopOf="@id/vp_happy_add_detail_card"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_happy_add_detail_icon"
             tools:text="성숙한 사랑을 하기 위한" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_happy_add_detail_card"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="91dp"
             android:clipChildren="false"
             android:clipToPadding="false"
-            app:layout_constraintBottom_toTopOf="@id/di_happy_add_detail_indicator"
+            app:layout_constraintBottom_toTopOf="@id/btn_happy_detail_add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_happy_add_detail_subtitle"
             app:layout_constraintVertical_bias="0" />
 
         <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
             android:id="@+id/di_happy_add_detail_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="55dp"
             android:clickable="false"
             android:foregroundGravity="center"
             app:dotsColor="@color/gray200"
             app:dotsSize="6dp"
             app:dotsSpacing="6dp"
             app:dotsWidthFactor="1"
-            app:layout_constraintBottom_toTopOf="@id/btn_happy_detail_add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vp_happy_add_detail_card"
             app:selectedDotColor="@color/main1" />
 
         <androidx.appcompat.widget.AppCompatButton

@@ -1,4 +1,4 @@
-package com.sopetit.softie.ui.happyroutine.progress
+package com.sopetit.softie.ui.happyroutine
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,6 @@ import androidx.fragment.app.viewModels
 import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyMyRoutineBinding
-import com.sopetit.softie.ui.happyroutine.HappyMyRoutineViewModel
 import com.sopetit.softie.ui.happyroutine.complete.HappyRoutineCompleteActivity
 import com.sopetit.softie.ui.happyroutine.delete.HappyDeleteFragment
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity
@@ -15,6 +14,7 @@ import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setSingleOnClickListener
+import com.sopetit.softie.util.setStatusBarColor
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,6 +26,7 @@ class HappyMyRoutineFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
+        setStatusBarColor(R.color.background)
 
         initSetBearFace()
         setMyCardEnter()
@@ -102,13 +103,9 @@ class HappyMyRoutineFragment :
             doBtnColor = R.drawable.shape_main1_fill_12_rect,
             backBtnAction = {},
             doBtnAction = {
-                viewModel.happyProgressResponse.observe(viewLifecycleOwner) { happyProgress ->
-                    happyProgress?.let {
-                        startHappyRoutineCompleteActivity()
-                        viewModel.patchAchieveHappyRoutine(happyProgress.routineId)
-                        startHappyRoutineCompleteActivity()
-                    }
-                }
+                startHappyRoutineCompleteActivity()
+                viewModel.happyProgressResponse.value?.let { viewModel.patchAchieveHappyRoutine(it.routineId) }
+                startHappyRoutineCompleteActivity()
             }
         ).show(parentFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
     }
