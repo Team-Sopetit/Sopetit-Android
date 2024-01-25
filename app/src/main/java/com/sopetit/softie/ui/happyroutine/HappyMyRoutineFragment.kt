@@ -1,5 +1,6 @@
 package com.sopetit.softie.ui.happyroutine
 
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -15,6 +16,7 @@ import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.setStatusBarColor
+import com.sopetit.softie.util.snackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,11 +35,19 @@ class HappyMyRoutineFragment :
         setCardEnter()
         setEditEnter()
         setClearEnter()
+
     }
 
     override fun onResume() {
         super.onResume()
         viewModel.getHappyProgress()
+
+        val sharedPreferences =
+            requireActivity().getSharedPreferences("HappyFirstAdd", MODE_PRIVATE)
+        if (sharedPreferences.getBoolean("isFirstAdded", false)) {
+            snackBar(binding.root.rootView, getString(R.string.happy_routine_add_snack_bar))
+            sharedPreferences.edit().remove("isFirstAdded").apply()
+        }
     }
 
     private fun initSetBearFace() {

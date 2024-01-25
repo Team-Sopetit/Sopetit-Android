@@ -122,6 +122,9 @@ class HappyDetailActivity :
     }
 
     private fun moveToProgress() {
+        val sharedPreferences = getSharedPreferences("HappyFirstAdd", MODE_PRIVATE)
+        sharedPreferences.edit().putBoolean("isFirstAdded", true).apply()
+
         val intentToHappinessAddRoutine = Intent().putExtra("isAdded", true)
         setResult(RESULT_OK, intentToHappinessAddRoutine)
         finish()
