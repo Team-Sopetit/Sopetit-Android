@@ -35,7 +35,6 @@ class HappyMyRoutineFragment :
         setCardEnter()
         setEditEnter()
         setClearEnter()
-
     }
 
     override fun onResume() {
