@@ -8,11 +8,11 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyDeleteBinding
 import com.sopetit.softie.ui.happyroutine.HappyMyRoutineFragment
 import com.sopetit.softie.ui.happyroutine.HappyMyRoutineViewModel
+import com.sopetit.softie.util.CustomSnackbar
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setSingleOnClickListener
-import com.sopetit.softie.util.snackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -93,10 +93,17 @@ class HappyDeleteFragment :
                         happyProgress?.let {
                             viewModel.deleteHappyProgress(happyProgress.routineId)
                         }
-                        snackBar(
+                        val customSnackbar = CustomSnackbar.make(
                             binding.root.rootView,
                             getString(R.string.happy_routine_delete_snack_bar)
                         )
+                        customSnackbar.setMargin(
+                            0,
+                            0,
+                            0,
+                            resources.getDimensionPixelSize(R.dimen.snackbar_delete_margin_bottom)
+                        )
+                        customSnackbar.show()
                         requireActivity().supportFragmentManager.beginTransaction()
                             .replace(R.id.fcv_main, HappyMyRoutineFragment())
                             .commit()

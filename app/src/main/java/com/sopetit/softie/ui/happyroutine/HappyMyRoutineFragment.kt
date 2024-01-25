@@ -11,12 +11,12 @@ import com.sopetit.softie.databinding.FragmentHappyMyRoutineBinding
 import com.sopetit.softie.ui.happyroutine.complete.HappyRoutineCompleteActivity
 import com.sopetit.softie.ui.happyroutine.delete.HappyDeleteFragment
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity
+import com.sopetit.softie.util.CustomSnackbar
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.setStatusBarColor
-import com.sopetit.softie.util.snackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -45,7 +45,17 @@ class HappyMyRoutineFragment :
         val sharedPreferences =
             requireActivity().getSharedPreferences("HappyFirstAdd", MODE_PRIVATE)
         if (sharedPreferences.getBoolean("isFirstAdded", false)) {
-            snackBar(binding.root.rootView, getString(R.string.happy_routine_add_snack_bar))
+            val customSnackbar = CustomSnackbar.make(
+                binding.root.rootView,
+                getString(R.string.happy_routine_add_snack_bar)
+            )
+            customSnackbar.setMargin(
+                0,
+                0,
+                0,
+                resources.getDimensionPixelSize(R.dimen.snackbar_add_margin_bottom)
+            )
+            customSnackbar.show()
             sharedPreferences.edit().remove("isFirstAdded").apply()
         }
     }
@@ -137,6 +147,6 @@ class HappyMyRoutineFragment :
     }
 
     companion object {
-        private const val REQUEST_CODE_HAPPY_DETAIL = 990320
+        private const val REQUEST_CODE_HAPPY_DETAIL = 231217
     }
 }

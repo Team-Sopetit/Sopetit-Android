@@ -1,7 +1,9 @@
 package com.sopetit.softie.util
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.snackbar.Snackbar
@@ -36,6 +38,13 @@ class CustomSnackbar(view: View, private val message: String) {
 
     fun show() {
         snackbar.show()
+    }
+
+    @SuppressLint("RestrictedApi")
+    fun setMargin(left: Int, top: Int, right: Int, bottom: Int) {
+        val params = snackbarLayout.layoutParams as ViewGroup.MarginLayoutParams
+        params.setMargins(left, top, right, bottom)
+        snackbarLayout.layoutParams = params
     }
 
     companion object {
