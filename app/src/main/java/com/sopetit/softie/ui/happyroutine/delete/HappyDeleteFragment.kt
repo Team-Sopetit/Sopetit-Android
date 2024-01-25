@@ -98,9 +98,9 @@ class HappyDeleteFragment :
                             getString(R.string.happy_routine_delete_snack_bar)
                         )
                         customSnackbar.setMargin(
+                            resources.getDimensionPixelSize(R.dimen.snackbar_margin_start),
                             0,
-                            0,
-                            0,
+                            resources.getDimensionPixelSize(R.dimen.snackbar_margin_end),
                             resources.getDimensionPixelSize(R.dimen.snackbar_delete_margin_bottom)
                         )
                         customSnackbar.show()
