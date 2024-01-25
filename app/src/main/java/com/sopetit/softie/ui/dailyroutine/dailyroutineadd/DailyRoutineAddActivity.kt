@@ -44,7 +44,6 @@ class DailyRoutineAddActivity :
         setItemDiv()
         setCurrentCard()
         initViewPager()
-        initPagerDiv(0, 20)
         addClickListener()
         observeRoutineCardList()
     }
@@ -90,53 +89,19 @@ class DailyRoutineAddActivity :
         }
     }
 
+
     private fun initViewPager() {
         viewPager.adapter = dailyRoutineAddCardPagerAdapter
 
-        val dp = resources.getDimensionPixelSize(R.dimen.view_margin)
-        val d = resources.displayMetrics.density
-        val margin = (dp * d * 1.3).toInt()
-
-        with(binding.vpDailyRoutineAddCard) {
-            clipChildren = false
-            clipToPadding = false
-            offscreenPageLimit = VIEW_PAGE.toInt()
-            setPadding(margin, PADDING_CARD, margin, PADDING_CARD)
-        }
         val compositePageTransformer = CompositePageTransformer()
         binding.vpDailyRoutineAddCard.setPageTransformer(compositePageTransformer)
     }
 
-    private fun initPagerDiv(previewWidth: Int, itemMargin: Int) {
-        val decoMargin = previewWidth + itemMargin
-        val pageTransX = decoMargin + previewWidth
-        val decoration = PageDecoration(decoMargin)
-
-        binding.vpDailyRoutineAddCard.also {
-            it.offscreenPageLimit = VIEW_PAGE.toInt()
-            it.addItemDecoration(decoration)
-            it.setPageTransformer { page, position ->
-                page.translationX = position * -pageTransX
-            }
-        }
-    }
 
     private fun setIndicator() {
         binding.diDailyRoutineAddIndicator.attachTo(binding.vpDailyRoutineAddCard)
     }
 
-    private class PageDecoration(private val margin: Int) : RecyclerView.ItemDecoration() {
-
-        override fun getItemOffsets(
-            outRect: Rect,
-            view: View,
-            parent: RecyclerView,
-            state: RecyclerView.State
-        ) {
-            outRect.left = margin
-            outRect.right = margin
-        }
-    }
 
     class HorizontalItemDecorator(
         private val marginStart: Int,
