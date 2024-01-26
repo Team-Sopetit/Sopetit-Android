@@ -140,6 +140,7 @@
     <string name="daily_routine_edit_cancel">취소</string>
     <string name="daily_routine_edit">편집</string>
     <string name="daily_routine_edit_delete">%s개 삭제</string>
+    <string name="daily_routine_edit_delete_num">데일리 루틴을 %d개 삭제했어요</string>
 
     <!-- daily routine -->
     <string name="daily_routine_user_add">이불 개기</string>
@@ -148,6 +149,10 @@
     <string name="daily_routine_fin">달성완료</string>
     <string name="daily_routine_complete_title">데일리 루틴을 완료했어요!</string>
     <string name="daily_routine_complete_subtitle">솜뭉치 1개 획득</string>
+    <string name="daily_routine_complete">데일리 루틴을 완료했나요?</string>
+    <string name="daily_routine_complete_notice">한 번 완료하면 이전으로 되돌릴 수 없어요</string>
+    <string name="daily_routine_complete_yet">아니, 아직이야!</string>
+    <string name="daily_routine_complete_fix">완료했어</string>
 
     <!-- home -->
     <string name="home_som_count">%d개</string>
@@ -163,5 +168,9 @@
     <string name="daily_routine_add_yes">추가할래</string>
     <string name="daily_routine_snack_bar">데일리 루틴을 1개 추가했어요</string>
     <string name="daily_routine_basic_bottom_sheet_content">언제든지 변경할 수 있어요!</string>
+    <string name="daily_routine_edit_delete_notice">루틴을 삭제해도 달성 횟수는 저장돼요</string>
+    <string name="daily_routine_edit_delete_question">정말 삭제할까요?</string>
+    <string name="daily_routine_edit_delete_cancel">취소</string>
+    <string name="daily_routine_edit_delete_fix">삭제할래</string>
 
 </resources>
