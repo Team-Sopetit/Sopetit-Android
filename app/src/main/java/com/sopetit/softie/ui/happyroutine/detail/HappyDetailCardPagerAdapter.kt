@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ItemHappyAddDetailCardBinding
 import com.sopetit.softie.domain.entity.HappyCard
 import com.sopetit.softie.util.ItemDiffCallback
@@ -25,7 +26,10 @@ class HappyDetailCardPagerAdapter() :
 
         fun onBind(data: HappyCard.SubRoutines) {
             with(binding) {
-                ivHappyRoutineAddCard.load(data.contentImageUrl)
+                ivHappyRoutineAddCard.load(data.contentImageUrl) {
+                    placeholder(R.drawable.ic_happy_card_base)
+                    error(R.drawable.ic_happy_card_base)
+                }
                 tvHappyRoutineAddCardDetailTitle.text = data.content
                 tvHappyRoutineAddCardDetailTitleBack.text =
                     data.content

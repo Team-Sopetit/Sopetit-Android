@@ -199,7 +199,7 @@
                     android:id="@+id/iv_happy_progress_card_front"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    setCoilImage="@{viewModel.happyProgressResponse.contentImageUrl}"
+                    setHappyCoilImage="@{viewModel.happyProgressResponse.contentImageUrl}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
