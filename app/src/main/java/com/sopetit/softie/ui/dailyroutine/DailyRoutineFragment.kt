@@ -13,6 +13,7 @@ import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
 import com.sopetit.softie.domain.entity.DailyRoutine
 import com.sopetit.softie.ui.dailyroutine.complete.DailyRoutineCompleteActivity
 import com.sopetit.softie.ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity
+import com.sopetit.softie.util.CustomSnackbar
 import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
 import com.sopetit.softie.util.binding.BindingAdapter.setCoilImage
 import com.sopetit.softie.util.binding.BindingBottomSheet
@@ -131,12 +132,12 @@ class DailyRoutineFragment :
                 isDrawable = false,
                 imageDrawable = 0,
                 imageUri = dailyRoutine.iconImageUrl,
-                title = "데일리 루틴을 완료했나요?",
-                content = "한 번 완료하면 이전으로 되돌릴 수 없어요",
+                title = getString(R.string.daily_routine_complete),
+                content = getString(R.string.daily_routine_complete_notice),
                 isContentVisible = true,
                 contentColor = R.color.gray400,
-                backBtnContent = "아니, 아직이야!",
-                doBtnContent = "완료했어",
+                backBtnContent = getString(R.string.daily_routine_complete_yet),
+                doBtnContent = getString(R.string.daily_routine_complete_fix),
                 doBtnColor = R.drawable.shape_main1_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {
@@ -228,22 +229,29 @@ class DailyRoutineFragment :
                 isDrawable = true,
                 imageDrawable = R.drawable.ic_bear_face_crying,
                 imageUri = "",
-                title = "정말 삭제할까요?",
-                content = "루틴을 삭제해도 달성 횟수는 저장돼요",
+                title = getString(R.string.daily_routine_edit_delete_question),
+                content = getString(R.string.daily_routine_edit_delete_notice),
                 isContentVisible = true,
                 contentColor = R.color.red,
-                backBtnContent = "취소",
-                doBtnContent = "삭제할래",
+                backBtnContent = getString(R.string.daily_routine_edit_delete_cancel),
+                doBtnContent = getString(R.string.daily_routine_edit_delete_fix),
                 doBtnColor = R.drawable.shape_red_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {
                     val arraySize = viewModel.editRoutineIdArray.size
                     viewModel.deleteDailyRoutine()
                     viewModel.isDailyRoutineDelete.observe(viewLifecycleOwner) {
-                        snackBar(
+                        val customSnackbar = CustomSnackbar.make(
                             binding.root.rootView,
-                            "데일리 루틴을 ${arraySize}개 삭제했어요"
+                            getString(R.string.daily_routine_edit_delete_num, arraySize)
                         )
+                        customSnackbar.setMargin(
+                            resources.getDimensionPixelSize(R.dimen.snackbar_margin_start),
+                            0,
+                            resources.getDimensionPixelSize(R.dimen.snackbar_margin_end),
+                            resources.getDimensionPixelSize(R.dimen.snackbar_delete_margin_bottom)
+                        )
+                        customSnackbar.show()
                         viewModel.setDeleteView(false)
                         viewModel.getDailyRoutine()
 
