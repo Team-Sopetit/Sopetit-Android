@@ -36,6 +36,11 @@ class HappyAddListActivity :
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        binding.clHappyAddList.visibility = View.VISIBLE
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHappyAddListBinding.inflate(layoutInflater)
