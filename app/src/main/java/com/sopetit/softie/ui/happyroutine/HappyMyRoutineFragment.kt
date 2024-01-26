@@ -44,19 +44,24 @@ class HappyMyRoutineFragment :
         val sharedPreferences =
             requireActivity().getSharedPreferences("HappyFirstAdd", MODE_PRIVATE)
         if (sharedPreferences.getBoolean("isFirstAdded", false)) {
-            val customSnackbar = CustomSnackbar.make(
-                binding.root.rootView,
-                getString(R.string.happy_routine_add_snack_bar)
-            )
-            customSnackbar.setMargin(
-                resources.getDimensionPixelSize(R.dimen.snackbar_margin_start),
-                0,
-                resources.getDimensionPixelSize(R.dimen.snackbar_margin_end),
-                resources.getDimensionPixelSize(R.dimen.snackbar_add_margin_bottom)
-            )
-            customSnackbar.show()
+            customHappyRoutineAddSnackBar()
             sharedPreferences.edit().remove("isFirstAdded").apply()
         }
+    }
+
+    private fun customHappyRoutineAddSnackBar() {
+        val customSnackbar = CustomSnackbar.make(
+            binding.root.rootView,
+            getString(R.string.happy_routine_add_snack_bar)
+        )
+        customSnackbar.setDuration(1000)
+        customSnackbar.setMargin(
+            resources.getDimensionPixelSize(R.dimen.snackbar_margin_start),
+            0,
+            resources.getDimensionPixelSize(R.dimen.snackbar_margin_end),
+            resources.getDimensionPixelSize(R.dimen.snackbar_add_margin_bottom)
+        )
+        customSnackbar.show()
     }
 
     private fun initSetBearFace() {

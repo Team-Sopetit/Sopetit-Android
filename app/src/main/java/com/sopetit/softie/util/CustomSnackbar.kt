@@ -40,6 +40,11 @@ class CustomSnackbar(view: View, private val message: String) {
         snackbar.show()
     }
 
+    fun setDuration(duration: Int): CustomSnackbar {
+        snackbar.duration = duration
+        return this
+    }
+
     @SuppressLint("RestrictedApi")
     fun setMargin(left: Int, top: Int, right: Int, bottom: Int) {
         val params = snackbarLayout.layoutParams as ViewGroup.MarginLayoutParams

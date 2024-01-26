@@ -93,17 +93,7 @@ class HappyDeleteFragment :
                         happyProgress?.let {
                             viewModel.deleteHappyProgress(happyProgress.routineId)
                         }
-                        val customSnackbar = CustomSnackbar.make(
-                            binding.root.rootView,
-                            getString(R.string.happy_routine_delete_snack_bar)
-                        )
-                        customSnackbar.setMargin(
-                            resources.getDimensionPixelSize(R.dimen.snackbar_margin_start),
-                            0,
-                            resources.getDimensionPixelSize(R.dimen.snackbar_margin_end),
-                            resources.getDimensionPixelSize(R.dimen.snackbar_delete_margin_bottom)
-                        )
-                        customSnackbar.show()
+                        customHappyDeleteSnackBar()
                         requireActivity().supportFragmentManager.beginTransaction()
                             .replace(R.id.fcv_main, HappyMyRoutineFragment())
                             .commit()
@@ -111,5 +101,20 @@ class HappyDeleteFragment :
                 }
             ).show(parentFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
         }
+    }
+
+    private fun customHappyDeleteSnackBar() {
+        val customSnackbar = CustomSnackbar.make(
+            binding.root.rootView,
+            getString(R.string.happy_routine_delete_snack_bar)
+        )
+        customSnackbar.setDuration(1000)
+        customSnackbar.setMargin(
+            resources.getDimensionPixelSize(R.dimen.snackbar_margin_start),
+            0,
+            resources.getDimensionPixelSize(R.dimen.snackbar_margin_end),
+            resources.getDimensionPixelSize(R.dimen.snackbar_delete_margin_bottom)
+        )
+        customSnackbar.show()
     }
 }
