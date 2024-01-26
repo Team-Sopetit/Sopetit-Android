@@ -2,11 +2,8 @@ package com.sopetit.softie.ui.happyroutine.detail
 
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.Rect
 import android.os.Bundle
-import android.view.View
 import androidx.activity.viewModels
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import coil.load
 import com.sopetit.softie.R
@@ -48,8 +45,6 @@ class HappyDetailActivity :
         setupAdapter(routineId)
         setIndicator()
         initSetLoading()
-        initViewPager()
-        initPagerDiv(0, 20)
     }
 
     private fun setInitBinding(routineId: String, imageUrl: String?) {
@@ -146,47 +141,6 @@ class HappyDetailActivity :
             dialog.show()
             delay(LOADING_DELAY)
             dialog.dismiss()
-        }
-    }
-
-    private fun initViewPager() {
-        viewPager.adapter = happyRoutineAddCardPagerAdapter
-
-        val dp = resources.getDimensionPixelSize(R.dimen.view_margin)
-        val d = resources.displayMetrics.density
-        val margin = (dp * d * 0.8).toInt()
-
-        with(binding.vpHappyAddDetailCard) {
-            clipChildren = false
-            clipToPadding = false
-            offscreenPageLimit = 3
-            setPadding(margin, 0, margin, 0)
-        }
-    }
-
-    private fun initPagerDiv(previewWidth: Int, itemMargin: Int) {
-        val decoMargin = previewWidth + itemMargin
-        val pageTransX = decoMargin + previewWidth
-        val decoration = PageDecoration(decoMargin)
-
-        binding.vpHappyAddDetailCard.also {
-            it.offscreenPageLimit = 1
-            it.addItemDecoration(decoration)
-            it.setPageTransformer { page, position ->
-                page.translationX = position * -pageTransX
-            }
-        }
-    }
-
-    private class PageDecoration(private val margin: Int) : RecyclerView.ItemDecoration() {
-        override fun getItemOffsets(
-            outRect: Rect,
-            view: View,
-            parent: RecyclerView,
-            state: RecyclerView.State
-        ) {
-            outRect.left = margin
-            outRect.right = margin
         }
     }
 }
