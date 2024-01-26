@@ -20,7 +20,6 @@ import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.setStatusBarColor
-import com.sopetit.softie.util.snackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -241,17 +240,21 @@ class DailyRoutineFragment :
                     val arraySize = viewModel.editRoutineIdArray.size
                     viewModel.deleteDailyRoutine()
                     viewModel.isDailyRoutineDelete.observe(viewLifecycleOwner) {
+
                         val customSnackbar = CustomSnackbar.make(
                             binding.root.rootView,
                             getString(R.string.daily_routine_edit_delete_num, arraySize)
                         )
+
                         customSnackbar.setMargin(
                             resources.getDimensionPixelSize(R.dimen.snackbar_margin_start),
                             0,
                             resources.getDimensionPixelSize(R.dimen.snackbar_margin_end),
                             resources.getDimensionPixelSize(R.dimen.snackbar_delete_margin_bottom)
                         )
-                        customSnackbar.show()
+
+                        customSnackbar.show(1000)
+
                         viewModel.setDeleteView(false)
                         viewModel.getDailyRoutine()
 
@@ -281,7 +284,17 @@ class DailyRoutineFragment :
     private val addDailyRoutineLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
-                snackBar(binding.root, getString(R.string.daily_routine_snack_bar))
+                val customSnackbar = CustomSnackbar.make(
+                    binding.root.rootView, getString(R.string.daily_routine_add_snack_bar)
+                )
+                customSnackbar.setMargin(
+                    resources.getDimensionPixelSize(R.dimen.snackbar_margin_start),
+                    0,
+                    resources.getDimensionPixelSize(R.dimen.snackbar_margin_end),
+                    resources.getDimensionPixelSize(R.dimen.snackbar_delete_margin_bottom)
+                )
+
+                customSnackbar.show(1000)
             }
         }
 

@@ -47,6 +47,11 @@ class CustomSnackbar(view: View, private val message: String) {
         snackbarLayout.layoutParams = params
     }
 
+    fun show(duration: Int) {
+        snackbar.duration = duration
+        snackbar.show()
+    }
+
     companion object {
         fun make(view: View, message: String) = CustomSnackbar(view, message)
     }

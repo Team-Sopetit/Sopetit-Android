@@ -195,9 +195,4 @@ class DailyRoutineAddActivity :
         setResult(Activity.RESULT_OK, resultIntent)
         finish()
     }
-
-    companion object {
-        const val VIEW_PAGE = 3
-        const val PADDING_CARD = 0
-    }
 }
