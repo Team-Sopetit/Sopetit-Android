@@ -34,6 +34,7 @@ class HappyMyRoutineViewModel @Inject constructor(
     private val _isDeleteHappyCardResponse: MutableLiveData<Boolean> = MutableLiveData()
     private val _isHappinessRoutineProgress: MutableLiveData<Boolean> = MutableLiveData(false)
     val isHappinessRoutineProgress: LiveData<Boolean> get() = _isHappinessRoutineProgress
+
     fun setDollFace() {
         viewModelScope.launch {
             when (getBearTypeUseCase()) {

@@ -3,6 +3,7 @@ package com.sopetit.softie.ui.happyroutine.detail
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import coil.load
@@ -118,6 +119,7 @@ class HappyDetailActivity :
 
     private fun moveToProgress() {
         val intentToHappinessAddRoutine = Intent().putExtra("isAdded", true)
+        binding.clHappyAddDetail.visibility = View.INVISIBLE
         setResult(RESULT_OK, intentToHappinessAddRoutine)
         finish()
     }
