@@ -27,8 +27,6 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
     val isRoutineNoticeVisible: LiveData<Boolean>
         get() = _isRoutineNoticeVisible
 
-    var selectPosition = ArrayList<Int>()
-
     inner class RoutineChoiceViewHolder(private val binding: ItemOnboardingChoiceRoutineBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Routine) {
@@ -130,36 +128,6 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
     }
 
     override fun onBindViewHolder(holder: RoutineChoiceViewHolder, position: Int) {
-
-//        val binding: ItemOnboardingChoiceRoutineBinding =
-//            ItemOnboardingChoiceRoutineBinding.bind(holder.itemView)
-//        if (selectPosition.contains(position)) {
-//            binding.tvRoutineContent.setBackgroundResource(R.drawable.shape_gray100_fill_gray400_stroke_99_rect)
-//        } else {
-//            binding.tvRoutineContent.setBackgroundResource(R.drawable.shape_white_fill_gray000_stroke_99_rect)
-//        }
-//
-//        binding.tvRoutineContent.setOnClickListener {
-//
-//            if (selectedRoutineArray.size == MAXIMUM_ROUTINE_SELECTION) {
-//                if (selectPosition.contains(position)) {
-//                    selectPosition.remove(position)
-//                    setNoticeVisible(false)
-//                } else {
-//                    setNoticeVisible(true)
-//                }
-//            } else {
-//                if (selectPosition.contains(position)) {
-//                    selectPosition.remove(position)
-//                } else {
-//                    selectedRoutineArray.add(position)
-//                }
-//                setNoticeVisible(false)
-//            }
-//
-//            notifyItemChanged(position)
-//        }
-
         holder.onBind(currentList[position])
     }
 }
