@@ -9,20 +9,14 @@ import androidx.viewpager2.widget.ViewPager2
 import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityHappyAddDetailBinding
-import com.sopetit.softie.ui.LoadingIndicator
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity.Companion.ICON_IMAGE_URL
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity.Companion.ID
-import com.sopetit.softie.ui.onboarding.OnboardingActivity.Companion.LOADING_DELAY
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.setStatusBarColorFromResource
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HappyDetailActivity :
@@ -45,7 +39,6 @@ class HappyDetailActivity :
         setBackEnter()
         setupAdapter(routineId)
         setIndicator()
-        initSetLoading()
     }
 
     private fun setInitBinding(routineId: String, imageUrl: String?) {
@@ -54,7 +47,10 @@ class HappyDetailActivity :
             happyCard?.let {
                 with(binding) {
                     tvHappyAddDetailTitle.text = happyCard.name
-                    ivHappyAddDetailIcon.load(happyCard.iconImageUrl)
+                    ivHappyAddDetailIcon.load(happyCard.iconImageUrl) {
+                        placeholder(R.drawable.ic_happy_star_base)
+                        error(R.drawable.ic_happy_star_base)
+                    }
                     tvHappyAddDetailSubtitle.text = happyCard.title
                     tvHappyAddDetailTitle.setTextColor(Color.parseColor(happyCard.nameColor))
                 }
@@ -135,14 +131,5 @@ class HappyDetailActivity :
 
     private fun setIndicator() {
         binding.diHappyAddDetailIndicator.attachTo(binding.vpHappyAddDetailCard)
-    }
-
-    private fun initSetLoading() {
-        val dialog = LoadingIndicator(this@HappyDetailActivity)
-        CoroutineScope(Dispatchers.Main).launch {
-            dialog.show()
-            delay(LOADING_DELAY)
-            dialog.dismiss()
-        }
     }
 }
