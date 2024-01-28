@@ -11,7 +11,7 @@ class BearNamingViewModel : ViewModel() {
     val isNickNameValid: LiveData<Boolean> get() = _isNickNameValid
 
     private val _isSpecialCharacterEntered = MutableLiveData<Boolean>()
-    val isSpecialCharacterEntered: LiveData<Boolean> = _isSpecialCharacterEntered
+    private val isSpecialCharacterEntered: LiveData<Boolean> = _isSpecialCharacterEntered
 
     private val _isLengthExceed = MutableLiveData<Boolean>()
     val isLengthExceed: LiveData<Boolean> = _isLengthExceed
@@ -50,9 +50,13 @@ class BearNamingViewModel : ViewModel() {
         checkWarning()
     }
 
-    private fun checkWarning() {
+    fun setLengthExceed() {
+        _isLengthExceed.value = false
+    }
+
+    fun checkWarning() {
         _isWarning.value =
-            (_isSpecialCharacterEntered.value == true) || (_isLengthExceed.value == true)
+            (isSpecialCharacterEntered.value == true) || (isLengthExceed.value == true)
     }
 
     companion object {

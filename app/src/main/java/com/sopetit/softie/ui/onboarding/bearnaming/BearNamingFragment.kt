@@ -57,6 +57,10 @@ class BearNamingFragment :
     private fun changeNicknameLengthWarning() {
         binding.etBearNaming.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
+                if (s != null && s.length < 10) {
+                    viewModel.setLengthExceed()
+                    viewModel.checkWarning()
+                }
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
