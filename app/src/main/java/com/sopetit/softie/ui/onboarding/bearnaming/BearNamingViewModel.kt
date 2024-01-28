@@ -21,37 +21,47 @@ class BearNamingViewModel : ViewModel() {
 
     val nickname: MutableLiveData<String> = MutableLiveData("")
 
+    val filterLength = InputFilter.LengthFilter(MAXIMUM_LENGTH)
+
     val filterSpecialCharacter = InputFilter { source, _, _, _, _, _ ->
         if (source.isNullOrBlank() || NICKNAME_REGEX.matcher(source).matches()) {
-            _isSpecialCharacterEntered.value = false
-            _isLengthExceed.value = false
-            checkWarning()
+            handleValidInput()
             source
         } else {
-            if ((nickname.value?.length ?: 0) <= MAXIMUM_LENGTH) {
-                _isSpecialCharacterEntered.value = true
-                _isLengthExceed.value = false
-                checkWarning()
-                source.filter { it.isLetter() }
-            } else source
+            handleInvalidInput(source)
         }
     }
 
-    val filterLength = InputFilter.LengthFilter(MAXIMUM_LENGTH)
-
-    fun checkIsNicknameValid() {
-        val nicknameLength = nickname.value?.length ?: 0
-        _isNickNameValid.value = nicknameLength in MINIMUM_LENGTH..MAXIMUM_LENGTH
-    }
-
-    fun warnNicknameLength() {
-        _isSpecialCharacterEntered.value = false
-        _isLengthExceed.value = true
+    private fun handleValidInput() {
+        clearWarningFlags()
         checkWarning()
     }
 
-    fun setLengthExceed() {
-        _isLengthExceed.value = false
+    private fun handleInvalidInput(source: CharSequence) =
+        if ((nickname.value?.length ?: 0) <= MAXIMUM_LENGTH) {
+            setSpecialCharacterWarning(true)
+            setLengthExceedWarning(false)
+            checkWarning()
+            source.filter { it.isLetter() }
+        } else source
+
+    fun warnNicknameLength() {
+        setSpecialCharacterWarning(false)
+        setLengthExceedWarning(true)
+        checkWarning()
+    }
+
+    private fun clearWarningFlags() {
+        setSpecialCharacterWarning(false)
+        setLengthExceedWarning(false)
+    }
+
+    private fun setSpecialCharacterWarning(value: Boolean) {
+        _isSpecialCharacterEntered.value = value
+    }
+
+    fun setLengthExceedWarning(value: Boolean) {
+        _isLengthExceed.value = value
     }
 
     fun checkWarning() {
@@ -60,7 +70,6 @@ class BearNamingViewModel : ViewModel() {
     }
 
     companion object {
-        private const val MINIMUM_LENGTH = 1
         private const val MAXIMUM_LENGTH = 10
         private const val NICKNAME_PATTERN =
             "^[ㄱ-ㅣ가-힣a-zA-Z\\u318D\\u119E\\u11A2\\u2022\\u2025\\u00B7]{1,10}\$"
