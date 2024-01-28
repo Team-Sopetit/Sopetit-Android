@@ -10,8 +10,8 @@ class BearNamingViewModel : ViewModel() {
     private val _isNickNameValid = MutableLiveData(false)
     val isNickNameValid: LiveData<Boolean> get() = _isNickNameValid
 
-    private val _isSpecialCharacterEntered = MutableLiveData<Boolean>()
-    private val isSpecialCharacterEntered: LiveData<Boolean> = _isSpecialCharacterEntered
+    private val _isInvalidInput = MutableLiveData<Boolean>()
+    private val isInvalidInput: LiveData<Boolean> = _isInvalidInput
 
     private val _isLengthExceed = MutableLiveData<Boolean>()
     val isLengthExceed: LiveData<Boolean> = _isLengthExceed
@@ -39,25 +39,29 @@ class BearNamingViewModel : ViewModel() {
 
     private fun handleInvalidInput(source: CharSequence) =
         if ((nickname.value?.length ?: 0) <= MAXIMUM_LENGTH) {
-            setSpecialCharacterWarning(true)
-            setLengthExceedWarning(false)
-            checkWarning()
+            warnInvalidInput()
             source.filter { it.isLetter() }
         } else source
 
     fun warnNicknameLength() {
-        setSpecialCharacterWarning(false)
+        clearWarningFlags()
         setLengthExceedWarning(true)
         checkWarning()
     }
 
+    private fun warnInvalidInput() {
+        clearWarningFlags()
+        setInvalidInputWarning(true)
+        checkWarning()
+    }
+
     private fun clearWarningFlags() {
-        setSpecialCharacterWarning(false)
+        setInvalidInputWarning(false)
         setLengthExceedWarning(false)
     }
 
-    private fun setSpecialCharacterWarning(value: Boolean) {
-        _isSpecialCharacterEntered.value = value
+    private fun setInvalidInputWarning(value: Boolean) {
+        _isInvalidInput.value = value
     }
 
     fun setLengthExceedWarning(value: Boolean) {
@@ -66,7 +70,7 @@ class BearNamingViewModel : ViewModel() {
 
     fun checkWarning() {
         _isWarning.value =
-            (isSpecialCharacterEntered.value == true) || (isLengthExceed.value == true)
+            (isInvalidInput.value == true) || (isLengthExceed.value == true)
     }
 
     companion object {
