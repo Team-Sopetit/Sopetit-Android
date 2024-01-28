@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.sopetit.softie.R
 
 class HorizontalChipItemDecoration(val context: Context) : RecyclerView.ItemDecoration() {
 
@@ -17,10 +18,10 @@ class HorizontalChipItemDecoration(val context: Context) : RecyclerView.ItemDeco
         val position = parent.getChildAdapterPosition(view)
 
         if (position == 0) {
-            outRect.left = 70
+            outRect.left = context.resources.getDimensionPixelSize(R.dimen.chip_first_margin)
         } else {
             outRect.left = 0
         }
-        outRect.right = 21
+        outRect.right = context.resources.getDimensionPixelSize(R.dimen.chip_margin)
     }
 }
