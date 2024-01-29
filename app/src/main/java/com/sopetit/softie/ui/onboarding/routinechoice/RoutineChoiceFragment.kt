@@ -3,10 +3,14 @@ package com.sopetit.softie.ui.onboarding.routinechoice
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.selection.SelectionPredicates
+import androidx.recyclerview.selection.SelectionTracker
+import androidx.recyclerview.selection.StorageStrategy
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sopetit.softie.R
@@ -17,6 +21,7 @@ import com.sopetit.softie.ui.onboarding.OnboardingViewModel
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setSingleOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class RoutineChoiceFragment :
@@ -28,6 +33,8 @@ class RoutineChoiceFragment :
     private var _choiceRoutineAdapter: RoutineChoiceAdapter? = null
     private val choiceRoutineAdapter
         get() = requireNotNull(_choiceRoutineAdapter)
+
+    private lateinit var menu: Menu
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -82,24 +89,58 @@ class RoutineChoiceFragment :
             layoutManager = LinearLayoutManager(requireContext())
             adapter = choiceRoutineAdapter
         }
-        updateRoutines()
-        selectRoutines()
-    }
 
-    private fun updateRoutines() {
         viewModel.selectedThemeArray.value?.let { routineViewModel.getRoutineList(it.toList()) }
         routineViewModel.routineList.observe(viewLifecycleOwner) {
             choiceRoutineAdapter.submitList(it)
         }
+
+        val tracker = SelectionTracker.Builder(
+            "routineSelection",
+            binding.rvOnboardingChoiceRoutine,
+//            StableIdKeyProvider(binding.rvOnboardingChoiceRoutine),
+            RoutineChoiceAdapter.SelectionKeyProvider(binding.rvOnboardingChoiceRoutine),
+            RoutineChoiceAdapter.SelectionDetailsLookup(binding.rvOnboardingChoiceRoutine),
+            StorageStrategy.createLongStorage()
+        ).withSelectionPredicate(
+            SelectionPredicates.createSelectAnything()
+        ).build()
+
+        choiceRoutineAdapter.setSelectionTracker(tracker)
+
+        tracker.addObserver(object : SelectionTracker.SelectionObserver<Long>() {
+            override fun onSelectionChanged() {
+                super.onSelectionChanged()
+
+                Timber.d("routine choice -> 선택된 아이템: ${choiceRoutineAdapter.getSelectedRoutine()}")
+            }
+        })
     }
 
-    private fun selectRoutines() {
-        choiceRoutineAdapter.setOnRoutineClickListener {
-            viewModel.setSelectedRoutineArray(choiceRoutineAdapter.selectedRoutineArray)
-            setNoticeVisible()
-            setRoutineBtn()
-        }
-    }
+//    private fun initMakeRoutineAdapter() {
+//        _choiceRoutineAdapter = RoutineChoiceAdapter()
+//        binding.rvOnboardingChoiceRoutine.apply {
+//            layoutManager = LinearLayoutManager(requireContext())
+//            adapter = choiceRoutineAdapter
+//        }
+//        updateRoutines()
+//        selectRoutines()
+//    }
+//
+//    private fun updateRoutines() {
+//        viewModel.selectedThemeArray.value?.let { routineViewModel.getRoutineList(it.toList()) }
+//        routineViewModel.routineList.observe(viewLifecycleOwner) {
+//            choiceRoutineAdapter.submitList(it)
+//        }
+//    }
+//
+//    private fun selectRoutines() {
+//        choiceRoutineAdapter.setOnRoutineClickListener {
+//            viewModel.setSelectedRoutineArray(choiceRoutineAdapter.selectedRoutineArray)
+//            setNoticeVisible()
+//            setRoutineBtn()
+//        }
+//    }
 
     class HorizontalItemDecorator(
         private val marginTop: Int,
