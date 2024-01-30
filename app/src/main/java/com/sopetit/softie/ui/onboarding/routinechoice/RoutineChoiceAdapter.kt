@@ -3,7 +3,6 @@ package com.sopetit.softie.ui.onboarding.routinechoice
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.ListAdapter
@@ -30,8 +29,10 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
     inner class RoutineChoiceViewHolder(val binding: ItemOnboardingChoiceRoutineBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Routine, onClickListener: View.OnClickListener) {
-            binding.tvRoutineContent.text = data.content
-            binding.root.setOnClickListener(onClickListener)
+            with(binding) {
+                tvRoutineContent.text = data.content
+                root.setOnClickListener(onClickListener)
+            }
         }
     }
 
@@ -90,40 +91,6 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
         selected: Boolean
     ) {
         binding.tvRoutineContent.isActivated = selected
-    }
-
-//    private fun changeRoutineBackground(
-//        binding: ItemOnboardingChoiceRoutineBinding,
-//        selected: Boolean
-//    ) {
-//        when (selected) {
-//            true -> {
-//                setContent(
-//                    R.drawable.shape_gray100_fill_gray400_stroke_99_rect,
-//                    R.color.gray700,
-//                    binding
-//                )
-//            }
-//
-//            false -> {
-//                setContent(
-//                    R.drawable.shape_white_fill_gray000_stroke_99_rect,
-//                    R.color.gray400,
-//                    binding
-//                )
-//            }
-//        }
-//    }
-
-    private fun setContent(
-        background: Int,
-        color: Int,
-        binding: ItemOnboardingChoiceRoutineBinding
-    ) {
-        with(binding.tvRoutineContent) {
-            setBackgroundResource(background)
-            setTextColor(ContextCompat.getColor(binding.root.context, color))
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoutineChoiceViewHolder {
