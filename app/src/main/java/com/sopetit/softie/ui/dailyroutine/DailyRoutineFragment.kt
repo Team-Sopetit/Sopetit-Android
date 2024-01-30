@@ -132,7 +132,7 @@ class DailyRoutineFragment :
                 isDrawable = false,
                 imageDrawable = 0,
                 imageUri = dailyRoutine.iconImageUrl,
-                title = getString(R.string.daily_routine_complete),
+                title = getString(R.string.daily_routine_complete_question),
                 content = getString(R.string.daily_routine_complete_notice),
                 isContentVisible = true,
                 contentColor = R.color.gray400,

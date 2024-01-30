@@ -149,7 +149,7 @@
     <string name="daily_routine_fin">달성완료</string>
     <string name="daily_routine_complete_title">데일리 루틴을 완료했어요!</string>
     <string name="daily_routine_complete_subtitle">솜뭉치 1개 획득</string>
-    <string name="daily_routine_complete">데일리 루틴을 완료했나요?</string>
+    <string name="daily_routine_complete_question">데일리 루틴을 완료했나요?</string>
     <string name="daily_routine_complete_notice">한 번 완료하면 이전으로 되돌릴 수 없어요</string>
     <string name="daily_routine_complete_yet">아니, 아직이야!</string>
     <string name="daily_routine_complete_fix">완료했어</string>
