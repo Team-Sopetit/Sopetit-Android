@@ -8,7 +8,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ItemOnboardingChoiceRoutineBinding
 import com.sopetit.softie.domain.entity.Routine
 import com.sopetit.softie.ui.onboarding.routinechoice.RoutineChoiceFragment.Companion.MAXIMUM_ROUTINE_SELECTION
@@ -90,24 +89,31 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
         binding: ItemOnboardingChoiceRoutineBinding,
         selected: Boolean
     ) {
-        when (selected) {
-            true -> {
-                setContent(
-                    R.drawable.shape_gray100_fill_gray400_stroke_99_rect,
-                    R.color.gray700,
-                    binding
-                )
-            }
-
-            false -> {
-                setContent(
-                    R.drawable.shape_white_fill_gray000_stroke_99_rect,
-                    R.color.gray400,
-                    binding
-                )
-            }
-        }
+        binding.tvRoutineContent.isActivated = selected
     }
+
+//    private fun changeRoutineBackground(
+//        binding: ItemOnboardingChoiceRoutineBinding,
+//        selected: Boolean
+//    ) {
+//        when (selected) {
+//            true -> {
+//                setContent(
+//                    R.drawable.shape_gray100_fill_gray400_stroke_99_rect,
+//                    R.color.gray700,
+//                    binding
+//                )
+//            }
+//
+//            false -> {
+//                setContent(
+//                    R.drawable.shape_white_fill_gray000_stroke_99_rect,
+//                    R.color.gray400,
+//                    binding
+//                )
+//            }
+//        }
+//    }
 
     private fun setContent(
         background: Int,
