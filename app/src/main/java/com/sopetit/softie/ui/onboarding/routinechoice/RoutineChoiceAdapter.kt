@@ -67,7 +67,7 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
                 )
             } else {
                 selectedRoutineArray.add(routine.routineId)
-                changeRoutineBackground(binding, true)
+                binding.tvRoutineContent.isActivated = true
             }
             setNoticeVisible(false)
         }
@@ -83,14 +83,7 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
         binding: ItemOnboardingChoiceRoutineBinding
     ) {
         routineArray.removeAt(selectedIndex)
-        changeRoutineBackground(binding, false)
-    }
-
-    private fun changeRoutineBackground(
-        binding: ItemOnboardingChoiceRoutineBinding,
-        selected: Boolean
-    ) {
-        binding.tvRoutineContent.isActivated = selected
+        binding.tvRoutineContent.isActivated = false
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoutineChoiceViewHolder {
