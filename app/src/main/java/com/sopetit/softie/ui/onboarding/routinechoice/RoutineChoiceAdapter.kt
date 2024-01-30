@@ -97,10 +97,13 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
 
     override fun onBindViewHolder(holder: RoutineChoiceViewHolder, position: Int) {
         holder.apply {
-            onBind(currentList[position], View.OnClickListener {
-                routineSelection(binding, currentList[position])
-                onItemClickListener?.let { it(currentList[position]) }
-            })
+            onBind(
+                currentList[position],
+                View.OnClickListener {
+                    routineSelection(binding, currentList[position])
+                    onItemClickListener?.let { it(currentList[position]) }
+                }
+            )
         }
     }
 }
