@@ -89,7 +89,6 @@ class DailyRoutineAddActivity :
         }
     }
 
-
     private fun initViewPager() {
         viewPager.adapter = dailyRoutineAddCardPagerAdapter
 
@@ -97,11 +96,9 @@ class DailyRoutineAddActivity :
         binding.vpDailyRoutineAddCard.setPageTransformer(compositePageTransformer)
     }
 
-
     private fun setIndicator() {
         binding.diDailyRoutineAddIndicator.attachTo(binding.vpDailyRoutineAddCard)
     }
-
 
     class HorizontalItemDecorator(
         private val marginStart: Int,

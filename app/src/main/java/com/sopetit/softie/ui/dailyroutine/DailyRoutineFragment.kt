@@ -260,7 +260,6 @@ class DailyRoutineFragment :
         }
     }
 
-
     private fun resetRadioButtons() {
         with(binding) {
             btnDailyRoutineRadioFirst.isSelected = false
