@@ -35,7 +35,6 @@ class SettingInitFragment :
         clickUserExit()
         clickUserSecurity()
         clickDocument()
-//        clickGuide()
         clickFeedback()
     }
 
@@ -60,17 +59,6 @@ class SettingInitFragment :
             )
         }
     }
-
-//    private fun clickGuide() {
-//        binding.clSettingInitGuide.setSingleOnClickListener {
-//            startActivity(
-//                Intent(
-//                    Intent.ACTION_VIEW,
-//                    Uri.parse(getString(R.string.setting_service_guide_link))
-//                )
-//            )
-//        }
-//    }
 
     private fun clickFeedback() {
         binding.clSettingInitFeedback.setSingleOnClickListener {

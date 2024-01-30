@@ -116,61 +116,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!--        <com.google.android.material.divider.MaterialDivider-->
-        <!--            android:id="@+id/divider_setting_init_service"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="2dp"-->
-        <!--            android:layout_marginHorizontal="13dp"-->
-        <!--            app:dividerColor="@color/background"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/cl_setting_init_document" />-->
-
-        <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-        <!--            android:id="@+id/cl_setting_init_guide"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:clickable="true"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/divider_setting_init_service">-->
-
-        <!--            <ImageView-->
-        <!--                android:id="@+id/iv_setting_init_guide"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_marginVertical="13dp"-->
-        <!--                android:layout_marginStart="20dp"-->
-        <!--                android:src="@drawable/ic_guide"-->
-        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--                app:layout_constraintStart_toStartOf="parent"-->
-        <!--                app:layout_constraintTop_toTopOf="parent" />-->
-
-        <!--            <TextView-->
-        <!--                android:id="@+id/tv_setting_init_guide"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_marginStart="8dp"-->
-        <!--                android:text="@string/setting_guide"-->
-        <!--                android:textAppearance="@style/body2"-->
-        <!--                android:textColor="@color/gray600"-->
-        <!--                app:layout_constraintBottom_toBottomOf="@id/iv_setting_init_guide"-->
-        <!--                app:layout_constraintStart_toEndOf="@id/iv_setting_init_guide"-->
-        <!--                app:layout_constraintTop_toTopOf="@id/iv_setting_init_guide" />-->
-
-        <!--            <ImageView-->
-        <!--                android:id="@+id/iv_setting_init_guide_right_btn"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_marginEnd="20dp"-->
-        <!--                android:paddingVertical="6dp"-->
-        <!--                android:src="@drawable/ic_right_btn"-->
-        <!--                app:layout_constraintBottom_toBottomOf="@id/iv_setting_init_guide"-->
-        <!--                app:layout_constraintEnd_toEndOf="parent"-->
-        <!--                app:layout_constraintTop_toTopOf="@id/iv_setting_init_guide" />-->
-
-        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-
         <com.google.android.material.divider.MaterialDivider
             android:id="@+id/divider_setting_init_guide"
             android:layout_width="0dp"
