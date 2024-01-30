@@ -18,10 +18,10 @@ class LoginViewModel @Inject constructor(
     private val postLoginUseCase: PostLoginUseCase,
     private val initTokenUseCase: InitTokenUseCase
 ) : ViewModel() {
-    private val _isKakaoLogin: MutableLiveData<Boolean> = MutableLiveData(false)
+    private val _isKakaoLogin: MutableLiveData<Boolean> = MutableLiveData()
     val isKakaoLogin: LiveData<Boolean> get() = _isKakaoLogin
 
-    private val _isSignedUp: MutableLiveData<Boolean> = MutableLiveData(false)
+    private val _isSignedUp: MutableLiveData<Boolean> = MutableLiveData()
     val isSignedUp: LiveData<Boolean> get() = _isSignedUp
     private val _isMember: MutableLiveData<Boolean> = MutableLiveData(false)
     val isMember: LiveData<Boolean> get() = _isMember
