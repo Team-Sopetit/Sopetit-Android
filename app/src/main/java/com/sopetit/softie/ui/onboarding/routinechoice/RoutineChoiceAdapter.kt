@@ -1,6 +1,7 @@
 package com.sopetit.softie.ui.onboarding.routinechoice
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
@@ -44,14 +45,15 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
 //        this.selectionTracker = selectionTracker
 //    }
 
-    inner class RoutineChoiceViewHolder(private val binding: ItemOnboardingChoiceRoutineBinding) :
+    inner class RoutineChoiceViewHolder(val binding: ItemOnboardingChoiceRoutineBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: Routine) {
+        fun onBind(data: Routine, onClickListener: View.OnClickListener) {
             binding.tvRoutineContent.text = data.content
-            binding.root.setOnClickListener {
-                routineSelection(binding, data)
-                onItemClickListener?.let { it(data) }
-            }
+//            binding.root.setOnClickListener {
+//                routineSelection(binding, data)
+//                onItemClickListener?.let { it(data) }
+//            }
+            binding.root.setOnClickListener(onClickListener)
 
 
 //            binding.tvRoutineContent.isActivated = selectionTracker.isSelected(itemId)
@@ -240,8 +242,15 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
     }
 
     override fun onBindViewHolder(holder: RoutineChoiceViewHolder, position: Int) {
-        holder.onBind(currentList[position])
-//        holder.onBind(currentList[position], selectionTracker.isSelected(position.toLong()))
-//        holder.onBind(currentList[position], position)
+        holder.apply {
+            onBind(currentList[position], View.OnClickListener {
+                routineSelection(binding, currentList[position])
+                onItemClickListener?.let { it(currentList[position]) }
+            })
+        }
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
     }
 }
