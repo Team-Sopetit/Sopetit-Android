@@ -3,7 +3,6 @@ package com.sopetit.softie.ui.onboarding.routinechoice
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
-import android.view.Menu
 import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.viewModels
@@ -29,8 +28,6 @@ class RoutineChoiceFragment :
     private var _choiceRoutineAdapter: RoutineChoiceAdapter? = null
     private val choiceRoutineAdapter
         get() = requireNotNull(_choiceRoutineAdapter)
-
-    private lateinit var menu: Menu
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -78,53 +75,6 @@ class RoutineChoiceFragment :
             }
         }
     }
-
-//    private fun initMakeRoutineAdapter() {
-//        _choiceRoutineAdapter = RoutineChoiceAdapter()
-//        binding.rvOnboardingChoiceRoutine.apply {
-//            layoutManager = LinearLayoutManager(requireContext())
-//            adapter = choiceRoutineAdapter
-//        }
-//
-//        viewModel.selectedThemeArray.value?.let { routineViewModel.getRoutineList(it.toList()) }
-//        routineViewModel.routineList.observe(viewLifecycleOwner) {
-//            choiceRoutineAdapter.submitList(it)
-//        }
-//
-//        val tracker = SelectionTracker.Builder(
-//            "routineSelection",
-//            binding.rvOnboardingChoiceRoutine,
-//            StableIdKeyProvider(binding.rvOnboardingChoiceRoutine),
-////            RoutineChoiceAdapter.SelectionKeyProvider(binding.rvOnboardingChoiceRoutine),
-//            RoutineChoiceAdapter.SelectionDetailsLookup(binding.rvOnboardingChoiceRoutine),
-//            StorageStrategy.createLongStorage()
-//        ).withSelectionPredicate(
-//            SelectionPredicates.createSelectAnything()
-//        ).build()
-//
-//        choiceRoutineAdapter.setSelectionTracker(tracker)
-//
-//        tracker.addObserver(object : SelectionTracker.SelectionObserver<Long>() {
-//            override fun onItemStateChanged(key: Long, selected: Boolean) {
-//                super.onItemStateChanged(key, selected)
-//
-//                Timber.d("routine choice -> 아이템: ${choiceRoutineAdapter.getItemId(key.toInt())}")
-//            }
-//
-//            override fun onSelectionChanged() {
-//                super.onSelectionChanged()
-//
-//                if (tracker.hasSelection()) {
-////                    val selectedItems = tracker.selection
-//                    Timber.d("routine choice -> 선택된 아이템 개수: ${tracker.selection.size()}")
-//                    Timber.d("routine choice -> 선택된 아이템: ${tracker.selection}")
-//                }
-//            }
-//        })
-//
-////        Timber.d("routine choice -> tracker: $tracker")
-////        Timber.d("routine choice -> tracker selection: ${tracker.selection}")
-//    }
 
     private fun initMakeRoutineAdapter() {
         _choiceRoutineAdapter = RoutineChoiceAdapter()

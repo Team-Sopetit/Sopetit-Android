@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sopetit.softie.R
@@ -22,12 +21,6 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
     )
 ) {
 
-//    init {
-//        setHasStableIds(true)
-//    }
-
-    private lateinit var selectionTracker: SelectionTracker<Long>
-
     private var onItemClickListener: ((Routine) -> Unit)? = null
     var selectedRoutineArray = arrayListOf<Int>()
 
@@ -35,125 +28,20 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
     val isRoutineNoticeVisible: LiveData<Boolean>
         get() = _isRoutineNoticeVisible
 
-//    override fun getItemId(position: Int): Long {
-////        return getItem(position).routineId.toLong()
-////        return position.toLong()
-//        return currentList[position].routineId.toLong()
-//    }
-
-//    fun setSelectionTracker(selectionTracker: SelectionTracker<Long>) {
-//        this.selectionTracker = selectionTracker
-//    }
-
     inner class RoutineChoiceViewHolder(val binding: ItemOnboardingChoiceRoutineBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Routine, onClickListener: View.OnClickListener) {
             binding.tvRoutineContent.text = data.content
-//            binding.root.setOnClickListener {
-//                routineSelection(binding, data)
-//                onItemClickListener?.let { it(data) }
-//            }
             binding.root.setOnClickListener(onClickListener)
-
-
-//            binding.tvRoutineContent.isActivated = selectionTracker.isSelected(itemId)
-//            Timber.d("routine choice -> 테스트테스트테스트 : ${binding.tvRoutineContent.isActivated}")
-//            binding.root.setOnClickListener {
-//                binding.tvRoutineContent.isActivated = true
-//                selectionTracker.select(itemPosition.toLong())
-//            }
-
-//            binding.tvRoutineContent.isActivated = isSelected
-//            Timber.d("routine choice -> 테스트테스트테스트 : ${binding.tvRoutineContent.isActivated}")
         }
-
-//        fun getItemDetails(viewHolder: RecyclerView.ViewHolder?): ItemDetailsLookup.ItemDetails<Long> {
-//            return object : ItemDetailsLookup.ItemDetails<Long>() {
-//                override fun getSelectionKey(): Long? {
-////                    return viewHolder?.itemId
-//                    return itemId
-//                }
-//
-//                override fun getPosition(): Int {
-//                    if (viewHolder == null) {
-//                        return RecyclerView.NO_POSITION
-//                    }
-//                    return viewHolder.absoluteAdapterPosition
-//                }
-//            }
-//        }
     }
-
-//    class SelectionKeyProvider(private val recyclerView: RecyclerView) :
-//        ItemKeyProvider<Long>(SCOPE_MAPPED) {
-//        override fun getKey(position: Int): Long {
-//            val holder = recyclerView.findViewHolderForAdapterPosition(position)
-//            return holder?.itemId ?: throw IllegalStateException("No Holder")
-//        }
-//
-//        override fun getPosition(key: Long): Int {
-//            val holder = recyclerView.findViewHolderForItemId(key)
-//            return if (holder is RoutineChoiceViewHolder) {
-//                holder.absoluteAdapterPosition
-//            } else {
-//                RecyclerView.NO_POSITION
-//            }
-//        }
-//    }
-
-//    class SelectionDetailsLookup(private val recyclerView: RecyclerView) :
-//        ItemDetailsLookup<Long>() {
-//        override fun getItemDetails(e: MotionEvent): ItemDetails<Long>? {
-//            val view = recyclerView.findChildViewUnder(e.x, e.y) ?: return null
-//
-//            val holder = recyclerView.getChildViewHolder(view)
-//            return if (holder is RoutineChoiceViewHolder) {
-//                object : ItemDetails<Long>() {
-//                    override fun getPosition(): Int {
-//                        return holder.absoluteAdapterPosition
-//                    }
-//
-//                    override fun getSelectionKey(): Long {
-//                        return holder.itemId
-//                    }
-//                }
-//            } else {
-//                null
-//            }
-//        }
-//    }
-
-//    class SelectionDetailsLookup(private val recyclerView: RecyclerView) :
-//        ItemDetailsLookup<Long>() {
-//
-//        @Nullable
-//        override fun getItemDetails(@NonNull motionEvent: MotionEvent): ItemDetails<Long>? {
-//            val view = recyclerView.findChildViewUnder(motionEvent.x, motionEvent.y)
-//
-//            if (view != null) {
-//                return when (val viewHolder = recyclerView.getChildViewHolder(view)) {
-//                    is RoutineChoiceViewHolder -> viewHolder.getItemDetails(
-//                        viewHolder,
-//                    )
-//
-//                    else -> null
-//                }
-//            }
-//            return null
-//        }
-//    }
-
-//    fun getSelectedRoutine(): Routine? {
-//        val selectedItemId = selectionTracker.selection.firstOrNull()
-//        return if (selectedItemId == null) {
-//            null
-//        } else {
-//            currentList[selectedItemId.toInt()]
-//        }
-//    }
 
     fun setOnRoutineClickListener(listener: (Routine) -> Unit) {
         onItemClickListener = listener
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
     }
 
     private fun routineSelection(binding: ItemOnboardingChoiceRoutineBinding, routine: Routine) {
@@ -248,9 +136,5 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
                 onItemClickListener?.let { it(currentList[position]) }
             })
         }
-    }
-
-    override fun getItemViewType(position: Int): Int {
-        return position
     }
 }
