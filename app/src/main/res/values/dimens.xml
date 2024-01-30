@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="viewpager_margin">30dp</dimen>
-    <dimen name="snackbar_delete_margin_bottom">47dp</dimen>
-    <dimen name="snackbar_add_margin_bottom">147dp</dimen>
-    <dimen name="snackbar_margin_start">12dp</dimen>
-    <dimen name="snackbar_margin_end">12dp</dimen>
 </resources>

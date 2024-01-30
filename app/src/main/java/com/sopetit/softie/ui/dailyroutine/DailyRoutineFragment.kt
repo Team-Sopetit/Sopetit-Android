@@ -13,6 +13,7 @@ import com.sopetit.softie.databinding.FragmentDailyRoutineBinding
 import com.sopetit.softie.domain.entity.DailyRoutine
 import com.sopetit.softie.ui.dailyroutine.complete.DailyRoutineCompleteActivity
 import com.sopetit.softie.ui.dailyroutine.dailyroutineadd.DailyRoutineAddActivity
+import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.util.CustomSnackbar
 import com.sopetit.softie.util.OriginalBottomSheet.Companion.BOTTOM_SHEET_TAG
 import com.sopetit.softie.util.binding.BindingAdapter.setCoilImage
@@ -242,15 +243,9 @@ class DailyRoutineFragment :
                     viewModel.isDailyRoutineDelete.observe(viewLifecycleOwner) {
 
                         val customSnackbar = CustomSnackbar.make(
-                            binding.root.rootView,
-                            getString(R.string.daily_routine_edit_delete_num, arraySize)
-                        )
-
-                        customSnackbar.setMargin(
-                            resources.getDimensionPixelSize(R.dimen.snackbar_margin_start),
-                            0,
-                            resources.getDimensionPixelSize(R.dimen.snackbar_margin_end),
-                            resources.getDimensionPixelSize(R.dimen.snackbar_delete_margin_bottom)
+                            (binding.root.rootView),
+                            getString(R.string.daily_routine_edit_delete_num, arraySize),
+                            (requireActivity() as MainActivity).findViewById(R.id.bottom_navigation_home)
                         )
 
                         customSnackbar.show(1000)
@@ -264,6 +259,7 @@ class DailyRoutineFragment :
             ).show(parentFragmentManager, BOTTOM_SHEET_TAG)
         }
     }
+
 
     private fun resetRadioButtons() {
         with(binding) {
@@ -285,15 +281,10 @@ class DailyRoutineFragment :
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
                 val customSnackbar = CustomSnackbar.make(
-                    binding.root.rootView, getString(R.string.daily_routine_add_snack_bar)
+                    binding.root.rootView,
+                    getString(R.string.daily_routine_add_snack_bar),
+                    (requireActivity() as MainActivity).findViewById(R.id.bottom_navigation_home)
                 )
-                customSnackbar.setMargin(
-                    resources.getDimensionPixelSize(R.dimen.snackbar_margin_start),
-                    0,
-                    resources.getDimensionPixelSize(R.dimen.snackbar_margin_end),
-                    resources.getDimensionPixelSize(R.dimen.snackbar_delete_margin_bottom)
-                )
-
                 customSnackbar.show(1000)
             }
         }
