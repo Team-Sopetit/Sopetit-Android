@@ -1,4 +1,4 @@
-package com.sopetit.softie.domain.usecase
+package com.sopetit.softie.domain.usecase.dailyroutine
 
 import com.sopetit.softie.domain.repository.DailyRoutineRepository
 import javax.inject.Inject

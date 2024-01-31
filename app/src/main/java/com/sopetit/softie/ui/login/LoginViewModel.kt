@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kakao.sdk.auth.model.OAuthToken
-import com.sopetit.softie.domain.usecase.InitTokenUseCase
-import com.sopetit.softie.domain.usecase.PostLoginUseCase
+import com.sopetit.softie.domain.usecase.auth.PostLoginUseCase
+import com.sopetit.softie.domain.usecase.local.InitTokenUseCase
 import com.sopetit.softie.util.KakaoLoginCallback
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

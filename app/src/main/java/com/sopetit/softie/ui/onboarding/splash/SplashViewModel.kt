@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sopetit.softie.BuildConfig
 import com.sopetit.softie.domain.entity.UpdateType
-import com.sopetit.softie.domain.usecase.GetSignedUpUseCase
+import com.sopetit.softie.domain.usecase.local.GetSignedUpUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlin.math.pow
