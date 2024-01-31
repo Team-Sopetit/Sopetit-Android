@@ -65,7 +65,7 @@ class SplashViewModel @Inject constructor(
         var result = 0
 
         for (i in versionNumbers.indices) {
-            result += versionNumbers[i] * BASE_POWER.pow((versionNumbers.size - i - 1) * EXPONENT)
+            result += versionNumbers[i] * BASE_POWER.pow((versionNumbers.size - i - 1))
                 .toInt()
         }
 
@@ -74,7 +74,6 @@ class SplashViewModel @Inject constructor(
 
     companion object {
         private const val BASE_POWER = 10.0
-        private const val EXPONENT = 2
         private const val MAXIMUM_STORE_VERSION = "999.9.9"
         private const val MAXIMUM_FORCE_VERSION = "999.0.0"
     }
