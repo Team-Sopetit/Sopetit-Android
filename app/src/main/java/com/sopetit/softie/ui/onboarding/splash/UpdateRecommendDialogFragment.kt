@@ -13,7 +13,9 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.DialogUpdateRecommendBinding
 
 class UpdateRecommendDialogFragment(
-    updateRecommendDialogInterface: UpdateRecommendDialogInterface
+    updateRecommendDialogInterface: UpdateRecommendDialogInterface,
+    val title: String,
+    val content: String
 ) : DialogFragment() {
     private var _binding: DialogUpdateRecommendBinding? = null
     private val binding get() = _binding ?: error(getString(R.string.binding_error))
@@ -32,11 +34,30 @@ class UpdateRecommendDialogFragment(
         val view = binding.root
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
+        setTextView()
+        setBtnClickEvent()
+
+        return view
+    }
+
+    private fun setTextView() {
+        binding.tvUpdateRecommendDialogTitle.text = title
+        binding.tvUpdateRecommendDialogContent.text = content
+    }
+
+    private fun setBtnClickEvent() {
+        setClickDenyBtn()
+        setClickConfirmBtn()
+    }
+
+    private fun setClickDenyBtn() {
         binding.btnUpdateRecommendDialogCancel.setOnClickListener {
             this.updateRecommendDialogInterface?.startApp()
             dismiss()
         }
+    }
 
+    private fun setClickConfirmBtn() {
         binding.btnUpdateRecommendDialogConfirm.setOnClickListener {
             startActivity(
                 Intent(
@@ -47,8 +68,6 @@ class UpdateRecommendDialogFragment(
             dismiss()
             this.updateRecommendDialogInterface?.finishApp()
         }
-
-        return view
     }
 
     override fun onDestroyView() {

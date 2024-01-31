@@ -69,7 +69,7 @@ class SplashActivity :
     }
 
     private fun initUpdateTypeObserver() {
-        viewModel.isUpdate.observe(this) {
+        viewModel.updateVersion.observe(this) {
             handleUpdateType()
         }
     }
@@ -86,13 +86,25 @@ class SplashActivity :
     }
 
     private fun showForceUpdateDialog() {
-        val forceUpdateDialog = UpdateForceDialogFragment(this)
-        forceUpdateDialog.show(this.supportFragmentManager, "forceUpdateDialog")
+        val forceUpdateDialog = UpdateForceDialogFragment(
+            this,
+            viewModel.updateVersion.value?.notificationTitle
+                ?: getString(R.string.dialog_update_title),
+            viewModel.updateVersion.value?.notificationContent
+                ?: getString(R.string.dialog_update_content)
+        )
+        forceUpdateDialog.show(this.supportFragmentManager, forceUpdateDialog.tag)
     }
 
     private fun showRecommendUpdateDialog() {
-        val recommendUpdateDialog = UpdateRecommendDialogFragment(this)
-        recommendUpdateDialog.show(this.supportFragmentManager, "recommendUpdateDialog")
+        val recommendUpdateDialog = UpdateRecommendDialogFragment(
+            this,
+            viewModel.updateVersion.value?.notificationTitle
+                ?: getString(R.string.dialog_update_title),
+            viewModel.updateVersion.value?.notificationContent
+                ?: getString(R.string.dialog_update_content)
+        )
+        recommendUpdateDialog.show(this.supportFragmentManager, recommendUpdateDialog.tag)
     }
 
     override fun startApp() {

@@ -22,7 +22,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="새로운 버전이 업데이트 되었어요!" />
+            tools:text="@string/dialog_update_title" />
 
         <TextView
             android:id="@+id/tv_update_recommend_dialog_content"
@@ -36,7 +36,7 @@
             app:layout_constraintEnd_toEndOf="@id/tv_update_recommend_dialog_title"
             app:layout_constraintStart_toStartOf="@id/tv_update_recommend_dialog_title"
             app:layout_constraintTop_toBottomOf="@id/tv_update_recommend_dialog_title"
-            tools:text="안정적인 서비스 사용을 위해\n최신버전으로 업데이트해주세요." />
+            tools:text="@string/dialog_update_content" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_update_recommend_dialog_cancel"

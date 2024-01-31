@@ -13,7 +13,9 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.DialogUpdateForceBinding
 
 class UpdateForceDialogFragment(
-    updateForceDialogInterface: UpdateForceDialogInterface
+    updateForceDialogInterface: UpdateForceDialogInterface,
+    val title: String,
+    val content: String
 ) : DialogFragment() {
     private var _binding: DialogUpdateForceBinding? = null
     private val binding get() = _binding ?: error(getString(R.string.binding_error))
@@ -32,6 +34,18 @@ class UpdateForceDialogFragment(
         val view = binding.root
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
+        setTextView()
+        setBtnClickEvent()
+
+        return view
+    }
+
+    private fun setTextView() {
+        binding.tvUpdateForceDialogTitle.text = title
+        binding.tvUpdateForceDialogContent.text = content
+    }
+
+    private fun setBtnClickEvent() {
         binding.btnUpdateForceDialogConfirm.setOnClickListener {
             startActivity(
                 Intent(
@@ -42,8 +56,6 @@ class UpdateForceDialogFragment(
             dismiss()
             this.updateForceDialogInterface?.finishApp()
         }
-
-        return view
     }
 
     override fun onDestroyView() {
