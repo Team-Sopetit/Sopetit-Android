@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_white_fill_12_rect">
+
+        <TextView
+            android:id="@+id/tv_update_dialog_title"
+            style="@style/body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:textColor="@color/gray600"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="새로운 버전이 업데이트 되었어요!" />
+
+        <TextView
+            android:id="@+id/tv_update_dialog_content"
+            style="@style/body4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:textColor="@color/gray500"
+            app:layout_constraintEnd_toEndOf="@id/tv_update_dialog_title"
+            app:layout_constraintStart_toStartOf="@id/tv_update_dialog_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_update_dialog_title"
+            tools:text="안정적인 서비스 사용을 위해\n최신버전으로 업데이트해주세요." />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_update_dialog_cancel"
+            style="@style/body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="29dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/shape_gray100_fill_8_rect"
+            android:padding="15dp"
+            android:text="@string/dialog_update_next_time_btn"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_update_dialog_confirm"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_update_dialog_content" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_update_dialog_confirm"
+            style="@style/body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/shape_happyroutineblue_fill_8_rect"
+            android:paddingHorizontal="31dp"
+            android:paddingVertical="15dp"
+            android:text="@string/dialog_update_btn"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/btn_update_dialog_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_update_dialog_cancel"
+            app:layout_constraintTop_toTopOf="@id/btn_update_dialog_cancel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
