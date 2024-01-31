@@ -46,9 +46,3 @@ Kotlin
 - Glide
 - LiveData
 - ListAdapter
-
-## kanban board
-[Github Projects](https://github.com/orgs/Team-Sopetit/projects/1/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C70731101%2C70731102%2C70731097%5D)
-
-## convention
-[Notion](https://airy-hardhat-419.notion.site/02ffb58b83cf4a4fb9a01af863e819a6)
