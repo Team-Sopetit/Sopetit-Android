@@ -28,9 +28,7 @@ class SplashActivity :
         super.onCreate(savedInstanceState)
 
         initCreateRandomVersion()
-        viewModel.isUpdate.observe(this) {
-            handleUpdateType()
-        }
+        initUpdateTypeObserver()
     }
 
     private fun initCreateRandomVersion() {
@@ -68,6 +66,12 @@ class SplashActivity :
 
     private fun makeSplashImg(image: Int) {
         binding.ivSplashBackground.setBackgroundResource(image)
+    }
+
+    private fun initUpdateTypeObserver() {
+        viewModel.isUpdate.observe(this) {
+            handleUpdateType()
+        }
     }
 
     private fun handleUpdateType() {
