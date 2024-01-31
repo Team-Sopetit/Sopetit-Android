@@ -49,6 +49,7 @@
             android:background="@drawable/shape_happyroutineblue_fill_8_rect"
             android:paddingHorizontal="65dp"
             android:paddingVertical="15dp"
+            android:stateListAnimator="@null"
             android:text="@string/dialog_update_force_btn"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"

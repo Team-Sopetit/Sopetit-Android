@@ -168,5 +168,7 @@
     <string name="dialog_update_recommend_deny_btn">다음에 할래요</string>
     <string name="dialog_update_recommend_confirm_btn">업데이트</string>
     <string name="dialog_update_force_btn">업데이트 하러가기</string>
+    <string name="binding_error">Binding not initialized to reference the view.</string>
+    <string name="dialog_update_store_link">https://softie-link.notion.site/675961135bbf436d82a33065c91a61b6</string>
 
 </resources>
