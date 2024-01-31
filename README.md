@@ -5,7 +5,8 @@
 >
 > 프로젝트 기간 : 2023.12.17 ~
 > </br>
-![readme_f]("https://github.com/Team-Sopetit/Sopetit-Android/assets/91793891/678cc045-1f4d-44c8-8fed-b4e8a9d331d4")
+
+![1](https://github.com/Team-Sopetit/Sopetit-Android/assets/91793891/8732807b-4124-41e1-b101-9db04ee5082f)
 
 # Contributors 🤎
 
