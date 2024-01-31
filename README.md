@@ -11,7 +11,7 @@
 
 | 👑 [박강희](https://github.com/stellar-halo) | [김민정](https://github.com/emjayMJkim) | [박호연](https://github.com/pump9918) | [허민회](https://github.com/minemi00) |
 | --- | --- | --- | --- |
-| <img src = "https://github.com/Team-Sopetit/Sopetit-Android/assets/91793891/27350f49-5416-4de4-abe9-068076894b3a" width = "300">| <img src = "https://github.com/Team-Sopetit/Sopetit-Android/assets/91793891/5e8fead5-51eb-4160-9aed-3e008de47e74" width = "300"> | <img src = "https://github.com/Team-Sopetit/Sopetit-Android/assets/91793891/07ef9bbb-c5a9-47cb-b78b-6687661de622" width = "300"> | <img src = "https://github.com/Team-Sopetit/Sopetit-Android/assets/91793891/c9ce6e45-03ef-4bbc-a6d8-c4afa29eb901" width = "300"> |
+| <img src = "https://github.com/Team-Sopetit/Sopetit-Android/assets/91793891/27350f49-5416-4de4-abe9-068076894b3a" width = "300">| <img src = "https://github.com/Team-Sopetit/Sopetit-Android/assets/91793891/5e8fead5-51eb-4160-9aed-3e008de47e74" width = "280"> | <img src = "https://github.com/Team-Sopetit/Sopetit-Android/assets/91793891/07ef9bbb-c5a9-47cb-b78b-6687661de622" width = "290"> | <img src = "https://github.com/Team-Sopetit/Sopetit-Android/assets/91793891/c9ce6e45-03ef-4bbc-a6d8-c4afa29eb901" width = "300"> |
 |<p align = "center">`온보딩` `홈` `소셜로그인`|<p align = "center">`온보딩` `설정` `스플래시` |<p align = "center">`행복루틴뷰` `행복루틴 상세뷰`|<p align = "center">`데일리루틴뷰` `데일리루틴 추가뷰`|
 
 
