@@ -5,11 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.domain.entity.HappyProgress
-import com.sopetit.softie.domain.usecase.DeleteMemberHappyRoutineUseCase
-import com.sopetit.softie.domain.usecase.GetBearTypeUseCase
 import com.sopetit.softie.domain.usecase.doll.GetDollUseCase
-import com.sopetit.softie.domain.usecase.happyroutine.GetHappyProgressUseCase
-import com.sopetit.softie.domain.usecase.happyroutine.PatchMemberHappinessAchieveUseCase
+import com.sopetit.softie.domain.usecase.local.GetBearTypeUseCase
+import com.sopetit.softie.domain.usecase.memberhappinessroutine.DeleteMemberHappyRoutineUseCase
+import com.sopetit.softie.domain.usecase.memberhappinessroutine.GetHappyProgressUseCase
+import com.sopetit.softie.domain.usecase.memberhappinessroutine.PatchMemberHappinessAchieveUseCase
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

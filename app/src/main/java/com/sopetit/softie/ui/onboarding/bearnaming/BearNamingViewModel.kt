@@ -73,6 +73,10 @@ class BearNamingViewModel : ViewModel() {
             (isInvalidInput.value == true) || (isLengthExceed.value == true)
     }
 
+    fun checkIsNickNameValid() {
+        _isNickNameValid.value = !nickname.value.isNullOrBlank() && (isWarning.value == false)
+    }
+
     companion object {
         private const val MAXIMUM_LENGTH = 10
         private const val NICKNAME_PATTERN =

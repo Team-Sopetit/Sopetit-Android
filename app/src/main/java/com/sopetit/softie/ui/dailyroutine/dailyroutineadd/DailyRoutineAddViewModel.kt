@@ -7,9 +7,9 @@ import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.data.entity.request.AddDailyRoutineRequest
 import com.sopetit.softie.domain.entity.DailyCard
 import com.sopetit.softie.domain.entity.Theme
-import com.sopetit.softie.domain.usecase.GetRoutineDailyThemeListUseCase
-import com.sopetit.softie.domain.usecase.PostAddDailyRoutineUseCase
+import com.sopetit.softie.domain.usecase.dailyroutine.GetRoutineDailyThemeListUseCase
 import com.sopetit.softie.domain.usecase.dailyroutine.GetThemeListUseCase
+import com.sopetit.softie.domain.usecase.memberdailyroutine.PostAddDailyRoutineUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber
