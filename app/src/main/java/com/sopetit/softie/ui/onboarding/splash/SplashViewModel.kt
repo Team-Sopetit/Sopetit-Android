@@ -1,14 +1,14 @@
 package com.sopetit.softie.ui.onboarding.splash
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sopetit.softie.domain.usecase.GetMemberUseCase
-import com.sopetit.softie.domain.usecase.GetSignedUpUseCase
 import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.BuildConfig
 import com.sopetit.softie.domain.entity.UpdateType
 import com.sopetit.softie.domain.entity.UpdateVersion
+import com.sopetit.softie.domain.usecase.GetMemberUseCase
 import com.sopetit.softie.domain.usecase.local.GetSignedUpUseCase
 import com.sopetit.softie.domain.usecase.version.GetUpdateVersionUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,7 +21,6 @@ import kotlin.math.pow
 class SplashViewModel @Inject constructor(
     private val getSignedUpUseCase: GetSignedUpUseCase,
     private val getMemberUseCase: GetMemberUseCase,
-    private val getSignedUpUseCase: GetSignedUpUseCase,
     private val getUpdateVersionUseCase: GetUpdateVersionUseCase
 ) : ViewModel() {
     private val versionName: String = BuildConfig.VERSION_NAME
@@ -41,6 +40,7 @@ class SplashViewModel @Inject constructor(
             getUpdateVersionUseCase()
                 .onSuccess { response ->
                     _updateVersion.value = response
+                    Log.e("kang", "${response.forceAppVersion} , ${response.storeAppVersion}")
                     isForceUpdate()
                 }
                 .onFailure { throwable ->
