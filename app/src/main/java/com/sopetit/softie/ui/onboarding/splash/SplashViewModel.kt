@@ -1,6 +1,5 @@
 package com.sopetit.softie.ui.onboarding.splash
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -40,7 +39,6 @@ class SplashViewModel @Inject constructor(
             getUpdateVersionUseCase()
                 .onSuccess { response ->
                     _updateVersion.value = response
-                    Log.e("kang", "${response.forceAppVersion} , ${response.storeAppVersion}")
                     isForceUpdate()
                 }
                 .onFailure { throwable ->
