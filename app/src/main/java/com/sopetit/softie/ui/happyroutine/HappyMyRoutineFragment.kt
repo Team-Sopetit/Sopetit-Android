@@ -40,28 +40,25 @@ class HappyMyRoutineFragment :
     override fun onResume() {
         super.onResume()
         viewModel.getHappyProgress()
+        customHappyRoutineAddSnackBar()
 
         val sharedPreferences =
             requireActivity().getSharedPreferences("HappyFirstAdd", MODE_PRIVATE)
         if (sharedPreferences.getBoolean("isFirstAdded", false)) {
-            customHappyRoutineAddSnackBar()
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fcv_main, HappyMyRoutineFragment())
+                .commit()
             sharedPreferences.edit().remove("isFirstAdded").apply()
         }
     }
 
     private fun customHappyRoutineAddSnackBar() {
         val customSnackbar = CustomSnackbar.make(
-            binding.root.rootView,
-            getString(R.string.happy_routine_add_snack_bar)
+            (binding.root.rootView),
+            getString(R.string.happy_routine_add_snack_bar),
+            binding.btnHappyProgressClear
         )
-        customSnackbar.setDuration(1000)
-        customSnackbar.setMargin(
-            resources.getDimensionPixelSize(R.dimen.snackbar_margin_start),
-            0,
-            resources.getDimensionPixelSize(R.dimen.snackbar_margin_end),
-            resources.getDimensionPixelSize(R.dimen.snackbar_add_margin_bottom)
-        )
-        customSnackbar.show()
+        customSnackbar.show(1000)
     }
 
     private fun initSetBearFace() {

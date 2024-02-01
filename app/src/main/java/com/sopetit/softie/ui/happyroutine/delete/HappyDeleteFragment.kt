@@ -8,6 +8,7 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyDeleteBinding
 import com.sopetit.softie.ui.happyroutine.HappyMyRoutineFragment
 import com.sopetit.softie.ui.happyroutine.HappyMyRoutineViewModel
+import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.util.CustomSnackbar
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
@@ -105,16 +106,10 @@ class HappyDeleteFragment :
 
     private fun customHappyDeleteSnackBar() {
         val customSnackbar = CustomSnackbar.make(
-            binding.root.rootView,
-            getString(R.string.happy_routine_delete_snack_bar)
+            (binding.root.rootView),
+            getString(R.string.happy_routine_delete_snack_bar),
+            (requireActivity() as MainActivity).findViewById(R.id.bottom_navigation_home)
         )
-        customSnackbar.setDuration(1000)
-        customSnackbar.setMargin(
-            resources.getDimensionPixelSize(R.dimen.snackbar_margin_start),
-            0,
-            resources.getDimensionPixelSize(R.dimen.snackbar_margin_end),
-            resources.getDimensionPixelSize(R.dimen.snackbar_delete_margin_bottom)
-        )
-        customSnackbar.show()
+        customSnackbar.show(1000)
     }
 }
