@@ -1,13 +1,12 @@
 package com.sopetit.softie.ui.onboarding.routinechoice
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ItemOnboardingChoiceRoutineBinding
 import com.sopetit.softie.domain.entity.Routine
 import com.sopetit.softie.ui.onboarding.routinechoice.RoutineChoiceFragment.Companion.MAXIMUM_ROUTINE_SELECTION
@@ -27,21 +26,22 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
     val isRoutineNoticeVisible: LiveData<Boolean>
         get() = _isRoutineNoticeVisible
 
-    var selectPosition = ArrayList<Int>()
-
-    inner class RoutineChoiceViewHolder(private val binding: ItemOnboardingChoiceRoutineBinding) :
+    inner class RoutineChoiceViewHolder(val binding: ItemOnboardingChoiceRoutineBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: Routine) {
-            binding.tvRoutineContent.text = data.content
-            binding.root.setOnClickListener {
-                routineSelection(binding, data)
-                onItemClickListener?.let { it(data) }
+        fun onBind(data: Routine, onClickListener: View.OnClickListener) {
+            with(binding) {
+                tvRoutineContent.text = data.content
+                root.setOnClickListener(onClickListener)
             }
         }
     }
 
     fun setOnRoutineClickListener(listener: (Routine) -> Unit) {
         onItemClickListener = listener
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
     }
 
     private fun routineSelection(binding: ItemOnboardingChoiceRoutineBinding, routine: Routine) {
@@ -67,7 +67,7 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
                 )
             } else {
                 selectedRoutineArray.add(routine.routineId)
-                changeRoutineBackground(binding, true)
+                binding.tvRoutineContent.isActivated = true
             }
             setNoticeVisible(false)
         }
@@ -83,41 +83,7 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
         binding: ItemOnboardingChoiceRoutineBinding
     ) {
         routineArray.removeAt(selectedIndex)
-        changeRoutineBackground(binding, false)
-    }
-
-    private fun changeRoutineBackground(
-        binding: ItemOnboardingChoiceRoutineBinding,
-        selected: Boolean
-    ) {
-        when (selected) {
-            true -> {
-                setContent(
-                    R.drawable.shape_gray100_fill_gray400_stroke_99_rect,
-                    R.color.gray700,
-                    binding
-                )
-            }
-
-            false -> {
-                setContent(
-                    R.drawable.shape_white_fill_gray000_stroke_99_rect,
-                    R.color.gray400,
-                    binding
-                )
-            }
-        }
-    }
-
-    private fun setContent(
-        background: Int,
-        color: Int,
-        binding: ItemOnboardingChoiceRoutineBinding
-    ) {
-        with(binding.tvRoutineContent) {
-            setBackgroundResource(background)
-            setTextColor(ContextCompat.getColor(binding.root.context, color))
-        }
+        binding.tvRoutineContent.isActivated = false
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoutineChoiceViewHolder {
@@ -130,36 +96,14 @@ class RoutineChoiceAdapter : ListAdapter<Routine, RoutineChoiceAdapter.RoutineCh
     }
 
     override fun onBindViewHolder(holder: RoutineChoiceViewHolder, position: Int) {
-
-//        val binding: ItemOnboardingChoiceRoutineBinding =
-//            ItemOnboardingChoiceRoutineBinding.bind(holder.itemView)
-//        if (selectPosition.contains(position)) {
-//            binding.tvRoutineContent.setBackgroundResource(R.drawable.shape_gray100_fill_gray400_stroke_99_rect)
-//        } else {
-//            binding.tvRoutineContent.setBackgroundResource(R.drawable.shape_white_fill_gray000_stroke_99_rect)
-//        }
-//
-//        binding.tvRoutineContent.setOnClickListener {
-//
-//            if (selectedRoutineArray.size == MAXIMUM_ROUTINE_SELECTION) {
-//                if (selectPosition.contains(position)) {
-//                    selectPosition.remove(position)
-//                    setNoticeVisible(false)
-//                } else {
-//                    setNoticeVisible(true)
-//                }
-//            } else {
-//                if (selectPosition.contains(position)) {
-//                    selectPosition.remove(position)
-//                } else {
-//                    selectedRoutineArray.add(position)
-//                }
-//                setNoticeVisible(false)
-//            }
-//
-//            notifyItemChanged(position)
-//        }
-
-        holder.onBind(currentList[position])
+        holder.apply {
+            onBind(
+                currentList[position],
+                View.OnClickListener {
+                    routineSelection(binding, currentList[position])
+                    onItemClickListener?.let { it(currentList[position]) }
+                }
+            )
+        }
     }
 }

@@ -14,7 +14,7 @@ interface MemberService {
     @GET("api/v1/members")
     suspend fun getHome(): BaseResponse<HomeResponse>
 
-    @PATCH("api/v1/members/{cottonType}")
+    @PATCH("api/v1/members/cotton/{cottonType}")
     suspend fun patchCotton(@Path("cottonType") cottonType: String): BaseResponse<CottonCountResponse>
 
     @POST("/api/v1/members")

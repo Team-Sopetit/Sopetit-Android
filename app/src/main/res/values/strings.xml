@@ -84,7 +84,7 @@
     <string name="doll_selection_button">이 친구와 함께 할래</string>
 
     <!-- splash -->
-    <string name="splash_content">친구와 함께 하는 일상 속 작은 습관</string>
+    <string name="splash_content">하루를 바꾸는 가장 사소한 루틴</string>
 
     <!-- bottom navigation -->
     <string name="bottom_navigation_daily_routine">데일리 루틴</string>
@@ -111,10 +111,8 @@
     <string name="user_logout_back">취소</string>
     <string name="user_logout_exit">로그아웃 할래</string>
     <string name="setting_user_security_link">https://softie-link.notion.site/c2435b30cfdb45db82f91cae6d1cc789</string>
-    <string name="setting_service_document_link">https://softie-link.notion.site/b8b8c02805924f2ababd4de7b2306d64?pvs=4</string>
-    <string name="setting_service_guide_link">https://softie-link.notion.site/6a65faa32923410a84ff6a63c47cf752</string>
+    <string name="setting_service_document_link">https://softie-link.notion.site/b8b8c02805924f2ababd4de7b2306d64</string>
     <string name="setting_feedback_link">https://docs.google.com/forms/d/e/1FAIpQLSfEtF_qWDu9mI1IcEBPTWsoBVCwPa0wunQK600EcjOMbz8upQ/viewform</string>
-
 
     <!-- bottom sheet -->
     <string name="bottom_sheet_title">정말 로그아웃할까요?</string>
@@ -153,7 +151,6 @@
     <string name="home_som_count">%d개</string>
     <string name="home_happiness_cotton_btn">행복 솜뭉치 주기</string>
     <string name="home_daily_cotton_btn">솜뭉치 주기</string>
-    <string name="splash_service_introduce">친구와 함께 하는 일상 속 작은 습관</string>
     <string name="my_page_policy_link">https://softie-link.notion.site/92fc58e36cf448eca66ee47e1c50bee8</string>
 
     <!-- daily routine add -->
