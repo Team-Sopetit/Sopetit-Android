@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="data"
+            type="com.sopetit.softie.domain.entity.Theme" />
+
+        <variable
             name="dailyRoutineAddViewModel"
             type="com.sopetit.softie.ui.dailyroutine.dailyroutineadd.DailyRoutineAddViewModel" />
 
@@ -37,7 +41,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
-                android:src="@color/red"
+                app:setBaseCoilImage="@{data.iconImageUrl}"
                 app:layout_constraintBottom_toBottomOf="@id/iv_daily_routine_add_theme_background"
                 app:layout_constraintEnd_toEndOf="@id/iv_daily_routine_add_theme_background"
                 app:layout_constraintStart_toStartOf="@id/iv_daily_routine_add_theme_background"
