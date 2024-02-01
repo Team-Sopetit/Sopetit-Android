@@ -30,6 +30,7 @@ class BearNamingFragment :
 
         setLottieFile()
         setNicknameEditTextFilter()
+        initSetNickNameObserver()
         initChangeFragment()
     }
 
@@ -71,6 +72,12 @@ class BearNamingFragment :
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
         })
+    }
+
+    private fun initSetNickNameObserver() {
+        viewModel.nickname.observe(viewLifecycleOwner) {
+            viewModel.checkIsNickNameValid()
+        }
     }
 
     private fun initChangeFragment() {
