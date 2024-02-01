@@ -4,10 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ItemDailyRoutineAddCardBinding
 import com.sopetit.softie.domain.entity.Routine
 import com.sopetit.softie.util.ItemDiffCallback
-import com.sopetit.softie.util.binding.BindingAdapter.setCoilImage
 import timber.log.Timber
 
 class DailyRoutineAddCardPagerAdapter :
@@ -52,7 +53,10 @@ class DailyRoutineAddCardPagerAdapter :
     ) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Routine) {
-            binding.tvDailyRoutineAddCard.setCoilImage(background)
+            binding.tvDailyRoutineAddCard.load(background) {
+                placeholder(R.drawable.ic_daily_routine_card_base)
+                error(R.drawable.ic_daily_routine_card_base)
+            }
             Timber.d("load Image -> $data")
             binding.tvDailyRoutineAddCardName.text = data.content
         }

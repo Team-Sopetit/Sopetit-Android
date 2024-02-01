@@ -29,8 +29,8 @@ class BearNamingFragment :
         binding.viewModel = viewModel
 
         setLottieFile()
-        setEditTextFilter()
-        setNicknameObserver()
+        setNicknameEditTextFilter()
+        initSetNickNameObserver()
         initChangeFragment()
     }
 
@@ -48,7 +48,7 @@ class BearNamingFragment :
         binding.lottieBearNamingGreeting.setAnimation(file)
     }
 
-    private fun setEditTextFilter() {
+    private fun setNicknameEditTextFilter() {
         binding.etBearNaming.filters =
             arrayOf(viewModel.filterLength, viewModel.filterSpecialCharacter)
         changeNicknameLengthWarning()
@@ -57,6 +57,10 @@ class BearNamingFragment :
     private fun changeNicknameLengthWarning() {
         binding.etBearNaming.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
+                if (s != null && s.length < 10) {
+                    viewModel.setLengthExceedWarning(false)
+                    viewModel.checkWarning()
+                }
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -70,9 +74,9 @@ class BearNamingFragment :
         })
     }
 
-    private fun setNicknameObserver() {
+    private fun initSetNickNameObserver() {
         viewModel.nickname.observe(viewLifecycleOwner) {
-            viewModel.checkIsNicknameValid()
+            viewModel.checkIsNickNameValid()
         }
     }
 

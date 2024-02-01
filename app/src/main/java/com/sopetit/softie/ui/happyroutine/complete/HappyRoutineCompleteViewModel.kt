@@ -1,7 +1,7 @@
 package com.sopetit.softie.ui.happyroutine.complete
 
 import androidx.lifecycle.ViewModel
-import com.sopetit.softie.domain.usecase.GetBearTypeUseCase
+import com.sopetit.softie.domain.usecase.local.GetBearTypeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
