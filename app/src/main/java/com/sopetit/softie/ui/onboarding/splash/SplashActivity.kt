@@ -108,7 +108,7 @@ class SplashActivity :
     }
 
     override fun startApp() {
-        val intent: Intent = if (viewModel.isSignedUp()) {
+        val intent: Intent = if (viewModel.isSignedUp() && viewModel.isMember()) {
             Intent(this, MainActivity::class.java)
         } else {
             Intent(this, LoginActivity::class.java)

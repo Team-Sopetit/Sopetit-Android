@@ -29,7 +29,12 @@ class LoginViewModel @Inject constructor(
     val kakaoLoginCallback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
         KakaoLoginCallback { accessToken ->
             _isKakaoLogin.value = true
-            initTokenUseCase(accessToken = accessToken, refreshToken = "", false)
+            initTokenUseCase(
+                accessToken = accessToken,
+                refreshToken = "",
+                isMemberDollExist = false,
+                isSignedUp = false
+            )
         }.handleResult(token, error)
     }
 
@@ -40,11 +45,11 @@ class LoginViewModel @Inject constructor(
                     initTokenUseCase(
                         response.accessToken,
                         response.refreshToken,
-                        response.isMemberDollExist
+                        response.isMemberDollExist,
+                        true
                     )
                     _isSignedUp.value = true
                     _isMember.value = response.isMemberDollExist
-                    Timber.e("accessToken: ${response.accessToken}, refreshToken: ${response.refreshToken}, isMember: ${response.isMemberDollExist}")
                 }.onFailure { throwable ->
                     Timber.e("$throwable")
                 }

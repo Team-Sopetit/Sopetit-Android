@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.BuildConfig
 import com.sopetit.softie.domain.entity.UpdateType
 import com.sopetit.softie.domain.entity.UpdateVersion
+import com.sopetit.softie.domain.usecase.local.GetMemberUseCase
 import com.sopetit.softie.domain.usecase.local.GetSignedUpUseCase
 import com.sopetit.softie.domain.usecase.version.GetUpdateVersionUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,6 +19,7 @@ import kotlin.math.pow
 @HiltViewModel
 class SplashViewModel @Inject constructor(
     private val getSignedUpUseCase: GetSignedUpUseCase,
+    private val getMemberUseCase: GetMemberUseCase,
     private val getUpdateVersionUseCase: GetUpdateVersionUseCase
 ) : ViewModel() {
     private val versionName: String = BuildConfig.VERSION_NAME
@@ -26,6 +28,7 @@ class SplashViewModel @Inject constructor(
     private val _updateVersion: MutableLiveData<UpdateVersion> = MutableLiveData()
     val updateVersion: LiveData<UpdateVersion> get() = _updateVersion
     fun isSignedUp(): Boolean = getSignedUpUseCase()
+    fun isMember(): Boolean = getMemberUseCase()
 
     init {
         getUpdateVersion()

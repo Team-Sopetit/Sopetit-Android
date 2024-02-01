@@ -13,14 +13,20 @@ class AuthRepositoryImpl @Inject constructor(
     override suspend fun deleteAuth(): Result<Unit> = runCatching { authDataSource.deleteAuth() }
 
     override suspend fun postLogin(socialPlatform: String): Result<Token> =
-        kotlin.runCatching { authDataSource.postLogin(socialPlatform) }.map { response ->
+        runCatching { authDataSource.postLogin(socialPlatform) }.map { response ->
             requireNotNull(response.data).toToken()
         }
 
-    override fun initToken(accessToken: String, refreshToken: String, isMemberDollExist: Boolean) {
+    override fun initToken(
+        accessToken: String,
+        refreshToken: String,
+        isMemberDollExist: Boolean,
+        isSignedUp: Boolean
+    ) {
         localDataSource.accessToken = accessToken
         localDataSource.refreshToken = refreshToken
         localDataSource.isMemberDollExist = isMemberDollExist
+        localDataSource.isUserSignUp = isSignedUp
     }
 
     override fun initSignUpState(isSignUpState: Boolean) {
@@ -33,6 +39,7 @@ class AuthRepositoryImpl @Inject constructor(
     }
 
     override fun getSignedUp(): Boolean = localDataSource.isUserSignUp
+    override fun getMember(): Boolean = localDataSource.isMemberDollExist
 
     override suspend fun logOut(): Result<Unit> = runCatching {
         authDataSource.logOut()
