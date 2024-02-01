@@ -111,8 +111,7 @@
     <string name="user_logout_back">취소</string>
     <string name="user_logout_exit">로그아웃 할래</string>
     <string name="setting_user_security_link">https://softie-link.notion.site/c2435b30cfdb45db82f91cae6d1cc789</string>
-    <string name="setting_service_document_link">https://softie-link.notion.site/b8b8c02805924f2ababd4de7b2306d64?pvs=4</string>
-    <string name="setting_service_guide_link">https://softie-link.notion.site/6a65faa32923410a84ff6a63c47cf752</string>
+    <string name="setting_service_document_link">https://softie-link.notion.site/b8b8c02805924f2ababd4de7b2306d64</string>
     <string name="setting_feedback_link">https://docs.google.com/forms/d/e/1FAIpQLSfEtF_qWDu9mI1IcEBPTWsoBVCwPa0wunQK600EcjOMbz8upQ/viewform</string>
 
 
