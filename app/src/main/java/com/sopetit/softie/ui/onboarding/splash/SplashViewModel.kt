@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.BuildConfig
 import com.sopetit.softie.domain.entity.UpdateType
 import com.sopetit.softie.domain.entity.UpdateVersion
-import com.sopetit.softie.domain.usecase.GetMemberUseCase
+import com.sopetit.softie.domain.usecase.local.GetMemberUseCase
 import com.sopetit.softie.domain.usecase.local.GetSignedUpUseCase
 import com.sopetit.softie.domain.usecase.version.GetUpdateVersionUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
