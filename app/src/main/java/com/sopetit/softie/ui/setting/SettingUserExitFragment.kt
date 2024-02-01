@@ -62,7 +62,7 @@ class SettingUserExitFragment :
                 BROWN -> setBearImage(R.drawable.ic_bear_brown_crying)
                 GRAY -> setBearImage(R.drawable.ic_bear_gray_crying)
                 RED -> setBearImage(R.drawable.ic_bear_red_crying)
-                WHITE -> setBearImage(R.drawable.ic_bear_panda_crying)
+                WHITE -> setBearImage(R.drawable.ic_bear_white_crying)
             }
         }
     }
