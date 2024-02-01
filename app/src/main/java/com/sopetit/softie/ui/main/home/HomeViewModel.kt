@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.domain.entity.Cotton
 import com.sopetit.softie.domain.entity.Home
-import com.sopetit.softie.domain.usecase.GetBearTypeUseCase
-import com.sopetit.softie.domain.usecase.GetHomeUseCase
-import com.sopetit.softie.domain.usecase.PatchCottonUseCase
-import com.sopetit.softie.domain.usecase.member.SetBearTypeUseCase
+import com.sopetit.softie.domain.usecase.local.GetBearTypeUseCase
+import com.sopetit.softie.domain.usecase.local.SetBearTypeUseCase
+import com.sopetit.softie.domain.usecase.member.GetHomeUseCase
+import com.sopetit.softie.domain.usecase.member.PatchCottonUseCase
 import com.sopetit.softie.ui.main.home.HomeFragment.Companion.RUN_OUT
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

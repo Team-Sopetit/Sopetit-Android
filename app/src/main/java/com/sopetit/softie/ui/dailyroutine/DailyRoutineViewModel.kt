@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.domain.entity.DailyRoutine
 import com.sopetit.softie.domain.entity.UserDailyRoutine
-import com.sopetit.softie.domain.usecase.DeleteDailyRoutineUseCase
-import com.sopetit.softie.domain.usecase.GetDailyRoutineUseCase
-import com.sopetit.softie.domain.usecase.PatchAchieveDailyUseCase
+import com.sopetit.softie.domain.usecase.memberdailyroutine.DeleteDailyRoutineUseCase
+import com.sopetit.softie.domain.usecase.memberdailyroutine.GetDailyRoutineUseCase
+import com.sopetit.softie.domain.usecase.memberdailyroutine.PatchAchieveDailyUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber

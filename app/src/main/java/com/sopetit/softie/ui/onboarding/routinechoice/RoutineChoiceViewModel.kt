@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.data.entity.request.PostMemberRequest
 import com.sopetit.softie.domain.entity.Routine
-import com.sopetit.softie.domain.usecase.InitSIgnUpStateUseCase
 import com.sopetit.softie.domain.usecase.dailyroutine.GetRoutineListUseCase
+import com.sopetit.softie.domain.usecase.local.InitSIgnUpStateUseCase
 import com.sopetit.softie.domain.usecase.member.PostMemberUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -61,7 +61,9 @@ class RoutineChoiceViewModel @Inject constructor(
         viewModelScope.launch {
             postMemberUseCase.invoke(
                 PostMemberRequest(
-                    dollType, name, routines
+                    dollType,
+                    name,
+                    routines
                 )
             ).onSuccess {
                 _isPostNewMember.value = true

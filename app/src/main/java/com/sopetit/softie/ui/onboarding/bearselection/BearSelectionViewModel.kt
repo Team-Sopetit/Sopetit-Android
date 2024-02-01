@@ -3,7 +3,7 @@ package com.sopetit.softie.ui.onboarding.bearselection
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sopetit.softie.domain.usecase.member.SetBearTypeUseCase
+import com.sopetit.softie.domain.usecase.local.SetBearTypeUseCase
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.NONE
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

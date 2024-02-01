@@ -1,4 +1,4 @@
-package com.sopetit.softie.domain.usecase
+package com.sopetit.softie.domain.usecase.memberdailyroutine
 
 import com.sopetit.softie.data.entity.request.AddDailyRoutineRequest
 import com.sopetit.softie.domain.repository.DailyRoutineRepository

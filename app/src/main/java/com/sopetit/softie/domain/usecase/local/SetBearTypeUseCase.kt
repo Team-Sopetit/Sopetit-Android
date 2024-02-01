@@ -1,4 +1,4 @@
-package com.sopetit.softie.domain.usecase.member
+package com.sopetit.softie.domain.usecase.local
 
 import com.sopetit.softie.domain.repository.AuthRepository
 import javax.inject.Inject
