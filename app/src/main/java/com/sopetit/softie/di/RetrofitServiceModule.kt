@@ -7,6 +7,7 @@ import com.sopetit.softie.data.service.HappinessRoutineService
 import com.sopetit.softie.data.service.MemberHappinessRoutineService
 import com.sopetit.softie.data.service.MemberService
 import com.sopetit.softie.data.service.RefreshTokenService
+import com.sopetit.softie.data.service.VersionService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -44,4 +45,8 @@ object RetrofitServiceModule {
     @Provides
     fun providesMemberHappinessRoutineService(@RetrofitModule.SoftieType retrofit: Retrofit): MemberHappinessRoutineService =
         retrofit.create(MemberHappinessRoutineService::class.java)
+
+    @Provides
+    fun providesVersionService(@VersionModule.VersionType retrofit: Retrofit): VersionService =
+        retrofit.create(VersionService::class.java)
 }

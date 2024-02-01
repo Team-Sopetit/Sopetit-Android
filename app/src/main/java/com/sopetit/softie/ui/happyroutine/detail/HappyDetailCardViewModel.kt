@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.data.entity.request.PostMemberHappyRoutineRequest
 import com.sopetit.softie.domain.entity.HappyCard
 import com.sopetit.softie.domain.usecase.happyroutine.GetHappyCardUseCase
-import com.sopetit.softie.domain.usecase.happyroutine.PostMemberHappyRoutineUseCase
+import com.sopetit.softie.domain.usecase.memberhappinessroutine.PostMemberHappyRoutineUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber

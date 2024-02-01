@@ -85,7 +85,7 @@
     <string name="doll_selection_button">이 친구와 함께 할래</string>
 
     <!-- splash -->
-    <string name="splash_content">친구와 함께 하는 일상 속 작은 습관</string>
+    <string name="splash_content">하루를 바꾸는 가장 사소한 루틴</string>
 
     <!-- bottom navigation -->
     <string name="bottom_navigation_daily_routine">데일리 루틴</string>
@@ -114,7 +114,6 @@
     <string name="setting_user_security_link">https://softie-link.notion.site/c2435b30cfdb45db82f91cae6d1cc789</string>
     <string name="setting_service_document_link">https://softie-link.notion.site/b8b8c02805924f2ababd4de7b2306d64</string>
     <string name="setting_feedback_link">https://docs.google.com/forms/d/e/1FAIpQLSfEtF_qWDu9mI1IcEBPTWsoBVCwPa0wunQK600EcjOMbz8upQ/viewform</string>
-
 
     <!-- bottom sheet -->
     <string name="bottom_sheet_title">정말 로그아웃할까요?</string>
@@ -153,7 +152,6 @@
     <string name="home_som_count">%d개</string>
     <string name="home_happiness_cotton_btn">행복 솜뭉치 주기</string>
     <string name="home_daily_cotton_btn">솜뭉치 주기</string>
-    <string name="splash_service_introduce">친구와 함께 하는 일상 속 작은 습관</string>
     <string name="my_page_policy_link">https://softie-link.notion.site/92fc58e36cf448eca66ee47e1c50bee8</string>
 
     <!-- daily routine add -->
@@ -163,5 +161,14 @@
     <string name="daily_routine_add_yes">추가할래</string>
     <string name="daily_routine_snack_bar">데일리 루틴을 1개 추가했어요</string>
     <string name="daily_routine_basic_bottom_sheet_content">언제든지 변경할 수 있어요!</string>
+
+    <!-- update dialog -->
+    <string name="dialog_update_recommend_deny_btn">다음에 할래요</string>
+    <string name="dialog_update_recommend_confirm_btn">업데이트</string>
+    <string name="dialog_update_force_btn">업데이트 하러가기</string>
+    <string name="dialog_update_title">새로운 버전이 업데이트 되었어요!</string>
+    <string name="dialog_update_content">안정적인 서비스 사용을 위해\n최신버전으로 업데이트해주세요.</string>
+    <string name="binding_error">Binding not initialized to reference the view.</string>
+    <string name="dialog_update_store_link">https://softie-link.notion.site/675961135bbf436d82a33065c91a61b6</string>
 
 </resources>

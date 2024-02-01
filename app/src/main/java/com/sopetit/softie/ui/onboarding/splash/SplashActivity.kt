@@ -9,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivitySplashBinding
+import com.sopetit.softie.domain.entity.UpdateType
 import com.sopetit.softie.ui.login.LoginActivity
 import com.sopetit.softie.ui.main.MainActivity
 import com.sopetit.softie.util.binding.BindingActivity
@@ -17,14 +18,17 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlin.random.Random
 
 @AndroidEntryPoint
-class SplashActivity : BindingActivity<ActivitySplashBinding>(R.layout.activity_splash) {
-
+class SplashActivity :
+    BindingActivity<ActivitySplashBinding>(R.layout.activity_splash),
+    UpdateRecommendDialogInterface,
+    UpdateForceDialogInterface {
     private val viewModel by viewModels<SplashViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         initCreateRandomVersion()
+        initUpdateTypeObserver()
     }
 
     private fun initCreateRandomVersion() {
@@ -62,20 +66,59 @@ class SplashActivity : BindingActivity<ActivitySplashBinding>(R.layout.activity_
 
     private fun makeSplashImg(image: Int) {
         binding.ivSplashBackground.setBackgroundResource(image)
-        initMakeSplash()
     }
 
-    private fun initMakeSplash() {
-        lateinit var intent: Intent
+    private fun initUpdateTypeObserver() {
+        viewModel.updateVersion.observe(this) {
+            handleUpdateType()
+        }
+    }
+
+    private fun handleUpdateType() {
         Handler(Looper.getMainLooper()).postDelayed({
-            intent = if (viewModel.isSignedUp() && viewModel.isMember()) {
-                Intent(this, MainActivity::class.java)
-            } else {
-                Intent(this, LoginActivity::class.java)
+            when (viewModel.isUpdate.value) {
+                UpdateType.NONE -> startApp()
+                UpdateType.FORCE -> showForceUpdateDialog()
+                UpdateType.RECOMMEND -> showRecommendUpdateDialog()
+                else -> {}
             }
-            startActivity(intent)
-            finish()
         }, SPLASH_DELAY)
+    }
+
+    private fun showForceUpdateDialog() {
+        val forceUpdateDialog = UpdateForceDialogFragment(
+            this,
+            viewModel.updateVersion.value?.notificationTitle
+                ?: getString(R.string.dialog_update_title),
+            viewModel.updateVersion.value?.notificationContent
+                ?: getString(R.string.dialog_update_content)
+        )
+        forceUpdateDialog.show(this.supportFragmentManager, forceUpdateDialog.tag)
+    }
+
+    private fun showRecommendUpdateDialog() {
+        val recommendUpdateDialog = UpdateRecommendDialogFragment(
+            this,
+            viewModel.updateVersion.value?.notificationTitle
+                ?: getString(R.string.dialog_update_title),
+            viewModel.updateVersion.value?.notificationContent
+                ?: getString(R.string.dialog_update_content)
+        )
+        recommendUpdateDialog.show(this.supportFragmentManager, recommendUpdateDialog.tag)
+    }
+
+    override fun startApp() {
+        val intent: Intent = if (viewModel.isSignedUp()&& viewModel.isMember()) {
+            Intent(this, MainActivity::class.java)
+        } else {
+            Intent(this, LoginActivity::class.java)
+        }
+        startActivity(intent)
+        finish()
+    }
+
+    override fun finishApp() {
+        finish()
     }
 
     companion object {
