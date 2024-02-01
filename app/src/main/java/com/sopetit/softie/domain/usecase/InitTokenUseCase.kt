@@ -6,6 +6,11 @@ import javax.inject.Inject
 class InitTokenUseCase @Inject constructor(
     private val authRepository: AuthRepository
 ) {
-    operator fun invoke(accessToken: String, refreshToken: String, isMemberDollExist: Boolean) =
-        authRepository.initToken(accessToken, refreshToken, isMemberDollExist)
+    operator fun invoke(
+        accessToken: String,
+        refreshToken: String,
+        isMemberDollExist: Boolean,
+        isSignedUp: Boolean
+    ) =
+        authRepository.initToken(accessToken, refreshToken, isMemberDollExist, isSignedUp)
 }
