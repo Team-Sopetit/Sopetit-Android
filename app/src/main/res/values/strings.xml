@@ -10,6 +10,7 @@
 
     <!-- util -->
     <string name="finish_app_toast_msg">뒤로가기를 한 번 더 누르면 종료됩니다</string>
+    <string name="refresh_error">자동로그인이 만료되었습니다. 다시 로그인해주시기 바랍니다.</string>
 
     <!-- login -->
     <string name="login_content">날 꺼내줘!</string>
