@@ -8,10 +8,12 @@ import com.google.android.material.snackbar.Snackbar
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.SnackbarCustomBinding
 
-class CustomSnackbar(view: View, private val message: String) {
+class CustomSnackbar(view: View, private val message: String, anchor: View) {
 
     private val context = view.context
-    private val snackbar = Snackbar.make(view, "", Snackbar.LENGTH_SHORT)
+    private val snackbar = Snackbar.make(view, "", Snackbar.LENGTH_SHORT).apply {
+        anchorView = anchor
+    }
     private val snackbarLayout = snackbar.view as Snackbar.SnackbarLayout
 
     private val binding: SnackbarCustomBinding =
@@ -38,7 +40,12 @@ class CustomSnackbar(view: View, private val message: String) {
         snackbar.show()
     }
 
+    fun show(duration: Int) {
+        snackbar.duration = duration
+        snackbar.show()
+    }
+
     companion object {
-        fun make(view: View, message: String) = CustomSnackbar(view, message)
+        fun make(view: View, message: String, anchor: View) = CustomSnackbar(view, message, anchor)
     }
 }

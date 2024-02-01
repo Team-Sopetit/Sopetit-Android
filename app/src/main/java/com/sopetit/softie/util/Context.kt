@@ -27,7 +27,7 @@ fun snackBar(
     anchorView: View,
     message: String,
 ) {
-    CustomSnackbar.make(anchorView, message).show()
+    CustomSnackbar.make(anchorView, message, anchorView).show()
 }
 
 fun Context.toast(message: String) {
