@@ -2,7 +2,6 @@ package com.sopetit.softie.ui.happyroutine.list
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.RecyclerView
@@ -87,10 +86,9 @@ class HappyAddListActivity :
             putExtra(ID, id)
             putExtra(ICON_IMAGE_URL, iconImageUrl)
         }
-        binding.clHappyAddList.visibility = View.INVISIBLE
         addHappinessRoutineResult.launch(intentToDetail)
+        finish()
     }
-
 
     companion object {
         const val ID = "id"

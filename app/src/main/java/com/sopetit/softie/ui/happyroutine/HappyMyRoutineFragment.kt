@@ -126,8 +126,4 @@ class HappyMyRoutineFragment :
             }
         }
     }
-
-    companion object {
-        private const val REQUEST_CODE_HAPPY_DETAIL = 990320
-    }
 }
