@@ -3,6 +3,8 @@ package com.sopetit.softie.ui.happyroutine
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import coil.load
 import com.sopetit.softie.R
@@ -10,6 +12,7 @@ import com.sopetit.softie.databinding.FragmentHappyMyRoutineBinding
 import com.sopetit.softie.ui.happyroutine.complete.HappyRoutineCompleteActivity
 import com.sopetit.softie.ui.happyroutine.delete.HappyDeleteFragment
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity
+import com.sopetit.softie.util.CustomSnackbar
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
@@ -22,6 +25,12 @@ class HappyMyRoutineFragment :
     BindingFragment<FragmentHappyMyRoutineBinding>(R.layout.fragment_happy_my_routine) {
 
     private val viewModel by viewModels<HappyMyRoutineViewModel>()
+    private var resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == AppCompatActivity.RESULT_OK) {
+                customHappyRoutineAddSnackBar()
+            }
+        }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,16 +38,25 @@ class HappyMyRoutineFragment :
         setStatusBarColor(R.color.background)
 
         initSetBearFace()
-        setMyCardEnter()
-        setCardEnter()
-        setEditEnter()
-        setClearEnter()
+        startHappyAddListActivity()
+        setCardImageClickListener()
+        startHappyDeleteActivity()
+        startHappyRoutineCompleteBottomSheet()
     }
 
     override fun onResume() {
         super.onResume()
         binding.clHappyEmptyRoutine.visibility = View.INVISIBLE
         viewModel.getHappyProgress()
+    }
+
+    private fun customHappyRoutineAddSnackBar() {
+        val customSnackbar = CustomSnackbar.make(
+            (binding.root.rootView),
+            getString(R.string.happy_routine_add_snack_bar),
+            binding.btnHappyProgressClear
+        )
+        customSnackbar.show(1000)
     }
 
     private fun initSetBearFace() {
@@ -51,25 +69,25 @@ class HappyMyRoutineFragment :
         }
     }
 
-    private fun setMyCardEnter() {
+    private fun startHappyAddListActivity() {
         binding.ivHappyRoutineEmptyCard.setOnClickListener {
             val intent = Intent(requireContext(), HappyAddListActivity::class.java)
-            startActivity(intent)
+            resultLauncher.launch(intent)
         }
     }
 
-    private fun setCardEnter() {
+    private fun setCardImageClickListener() {
         with(binding) {
             clHappyProgressCardFront.setSingleOnClickListener {
-                setCardFlip(clHappyProgressCardFront, clHappyProgressCardBack)
+                setCardImageFlip(clHappyProgressCardFront, clHappyProgressCardBack)
             }
             clHappyProgressCardBack.setSingleOnClickListener {
-                setCardFlip(clHappyProgressCardBack, clHappyProgressCardFront)
+                setCardImageFlip(clHappyProgressCardBack, clHappyProgressCardFront)
             }
         }
     }
 
-    private fun setEditEnter() {
+    private fun startHappyDeleteActivity() {
         binding.tvHappyProgressEdit.setSingleOnClickListener {
             val happyDeleteFragment = HappyDeleteFragment()
             requireActivity().supportFragmentManager.beginTransaction()
@@ -79,7 +97,7 @@ class HappyMyRoutineFragment :
         }
     }
 
-    private fun setCardFlip(viewFront: View, viewToBack: View) {
+    private fun setCardImageFlip(viewFront: View, viewToBack: View) {
         val isVisible = viewFront.visibility == View.VISIBLE
         if (isVisible) {
             viewFront.visibility = View.INVISIBLE
@@ -117,7 +135,7 @@ class HappyMyRoutineFragment :
         startActivity(intentToCompleteActivity)
     }
 
-    private fun setClearEnter() {
+    private fun startHappyRoutineCompleteBottomSheet() {
         binding.btnHappyProgressClear.setOnClickListener {
             viewModel.happyProgressResponse.value?.iconImageUrl?.let { url ->
                 initHappyRoutineCompleteBottomSheet(

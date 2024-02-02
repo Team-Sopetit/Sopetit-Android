@@ -8,11 +8,12 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyDeleteBinding
 import com.sopetit.softie.ui.happyroutine.HappyMyRoutineFragment
 import com.sopetit.softie.ui.happyroutine.HappyMyRoutineViewModel
+import com.sopetit.softie.ui.main.MainActivity
+import com.sopetit.softie.util.CustomSnackbar
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
 import com.sopetit.softie.util.setSingleOnClickListener
-import com.sopetit.softie.util.snackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,9 +26,9 @@ class HappyDeleteFragment :
         val happyProgress = viewModel.getHappyProgress()
 
         setCardBinding(happyProgress)
-        setCardEnter()
+        setCardImageClickListener()
         setCancelEnter()
-        setClearEnter()
+        startHappyDeleteBottomSheet()
     }
 
     private fun setCardBinding(happyProgress: Unit) {
@@ -49,13 +50,13 @@ class HappyDeleteFragment :
         }
     }
 
-    private fun setCardEnter() {
+    private fun setCardImageClickListener() {
         with(binding) {
             clHappyDeleteCardFront.setSingleOnClickListener {
-                setCardFlip(clHappyDeleteCardFront, clHappyDeleteCardBack)
+                setCardImageFlip(clHappyDeleteCardFront, clHappyDeleteCardBack)
             }
             clHappyDeleteCardBack.setSingleOnClickListener {
-                setCardFlip(clHappyDeleteCardBack, clHappyDeleteCardFront)
+                setCardImageFlip(clHappyDeleteCardBack, clHappyDeleteCardFront)
             }
         }
     }
@@ -66,7 +67,7 @@ class HappyDeleteFragment :
         }
     }
 
-    private fun setCardFlip(viewFront: View, viewToBack: View) {
+    private fun setCardImageFlip(viewFront: View, viewToBack: View) {
         val isVisible = viewFront.visibility == View.VISIBLE
         if (isVisible) {
             viewFront.visibility = View.INVISIBLE
@@ -77,7 +78,7 @@ class HappyDeleteFragment :
         }
     }
 
-    private fun setClearEnter() {
+    private fun startHappyDeleteBottomSheet() {
         binding.btnHappyDeleteClear.setSingleOnClickListener {
             BindingBottomSheet.Builder().build(
                 isDrawable = true,
@@ -96,10 +97,7 @@ class HappyDeleteFragment :
                         happyProgress?.let {
                             viewModel.deleteHappyProgress(happyProgress.routineId)
                         }
-                        snackBar(
-                            binding.root.rootView,
-                            getString(R.string.happy_routine_delete_snack_bar)
-                        )
+                        customHappyDeleteSnackBar()
                         requireActivity().supportFragmentManager.beginTransaction()
                             .replace(R.id.fcv_main, HappyMyRoutineFragment())
                             .commit()
@@ -107,5 +105,14 @@ class HappyDeleteFragment :
                 }
             ).show(parentFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
         }
+    }
+
+    private fun customHappyDeleteSnackBar() {
+        val customSnackbar = CustomSnackbar.make(
+            (binding.root.rootView),
+            getString(R.string.happy_routine_delete_snack_bar),
+            (requireActivity() as MainActivity).findViewById(R.id.bottom_navigation_home)
+        )
+        customSnackbar.show(1000)
     }
 }

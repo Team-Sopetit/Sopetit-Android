@@ -26,11 +26,13 @@ class HappyAddListActivity :
     private var happyAddListChipContentAdapter: HappyAddListChipContentAdapter? = null
     private var happyAddListContentAdapter: HappyAddListContentAdapter? = null
 
-    private val addHappinessRoutineResult = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) {
-        finish()
-    }
+    private val startForDetailResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                setResult(RESULT_OK)
+                finish()
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,12 +45,12 @@ class HappyAddListActivity :
         setChipAdapters()
         setBackEnter()
         setItemDeco()
-        setupAdapter()
+        setHappyAddListAdapter()
     }
 
     private fun setChipAdapters() {
         happyAddListChipContentAdapter = HappyAddListChipContentAdapter()
-        happyAddListContentAdapter = HappyAddListContentAdapter(::moveToDetail)
+        happyAddListContentAdapter = HappyAddListContentAdapter(::startDetailActivity)
     }
 
     private fun setBackEnter() {
@@ -64,7 +66,7 @@ class HappyAddListActivity :
         binding.rvHappyAddListChip.addItemDecoration(chipDeco)
     }
 
-    private fun setupAdapter() {
+    private fun setHappyAddListAdapter() {
         with(binding) {
             rvHappyAddListChip.adapter = happyAddListChipContentAdapter
             rvHappyAddList.adapter = happyAddListContentAdapter
@@ -81,13 +83,12 @@ class HappyAddListActivity :
         }
     }
 
-    private fun moveToDetail(id: Int, iconImageUrl: String) {
-        val intentToDetail = Intent(this, HappyDetailActivity::class.java).apply {
+    private fun startDetailActivity(id: Int, iconImageUrl: String) {
+        val intent = Intent(this, HappyDetailActivity::class.java).apply {
             putExtra(ID, id)
             putExtra(ICON_IMAGE_URL, iconImageUrl)
         }
-        addHappinessRoutineResult.launch(intentToDetail)
-        finish()
+        startForDetailResult.launch(intent)
     }
 
     companion object {

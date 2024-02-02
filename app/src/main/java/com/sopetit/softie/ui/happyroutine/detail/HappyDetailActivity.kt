@@ -1,6 +1,5 @@
 package com.sopetit.softie.ui.happyroutine.detail
 
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -36,7 +35,7 @@ class HappyDetailActivity :
         setInitBinding(routineId, imageUrl)
         setCurrentCard()
         setBackEnter()
-        setupAdapter(routineId)
+        setHappyDetailCardPagerAdapter(routineId)
         setIndicator()
     }
 
@@ -56,7 +55,7 @@ class HappyDetailActivity :
                 viewModel.mySubroutineId.observe(this) { mySubRoutineId ->
                     mySubRoutineId?.let {
                         imageUrl?.let {
-                            setBottomSheetEnter(it, mySubRoutineId)
+                            startHappyRoutineAddBottomSheet(it, mySubRoutineId)
                         }
                     }
                 }
@@ -86,7 +85,7 @@ class HappyDetailActivity :
         }
     }
 
-    private fun setBottomSheetEnter(icon: String, subRoutineId: Int) {
+    private fun startHappyRoutineAddBottomSheet(icon: String, subRoutineId: Int) {
         binding.btnHappyDetailAdd.setSingleOnClickListener {
             initHappyRoutineAddBottomSheet(icon, subRoutineId)
         }
@@ -106,18 +105,18 @@ class HappyDetailActivity :
             doBtnColor = R.drawable.shape_main1_fill_12_rect,
             backBtnAction = {},
             doBtnAction = {
-                moveToProgress()
                 viewModel.postAddRoutine(subRoutineId)
+                moveToProgress()
             }
         ).show(this.supportFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
     }
 
     private fun moveToProgress() {
-        setResult(RESULT_OK, Intent())
+        setResult(RESULT_OK)
         finish()
     }
 
-    private fun setupAdapter(routineId: String) {
+    private fun setHappyDetailCardPagerAdapter(routineId: String) {
         with(binding) {
             vpHappyAddDetailCard.adapter = happyRoutineAddCardPagerAdapter
         }
