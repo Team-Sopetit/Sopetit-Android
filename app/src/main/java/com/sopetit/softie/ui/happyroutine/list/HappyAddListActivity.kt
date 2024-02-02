@@ -2,7 +2,6 @@ package com.sopetit.softie.ui.happyroutine.list
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.RecyclerView
@@ -30,7 +29,6 @@ class HappyAddListActivity :
     private val startForDetailResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
-                Log.d("HappyAddListActivity", "Setting RESULT_OK")
                 setResult(RESULT_OK)
                 finish()
             }
@@ -90,7 +88,6 @@ class HappyAddListActivity :
             putExtra(ID, id)
             putExtra(ICON_IMAGE_URL, iconImageUrl)
         }
-        // 필요한 데이터를 인텐트에 추가
         startForDetailResult.launch(intent)
     }
 
