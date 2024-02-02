@@ -3,7 +3,6 @@ package com.sopetit.softie.ui.happyroutine
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
@@ -26,14 +25,18 @@ class HappyMyRoutineFragment :
     BindingFragment<FragmentHappyMyRoutineBinding>(R.layout.fragment_happy_my_routine) {
 
     private val viewModel by viewModels<HappyMyRoutineViewModel>()
-    private lateinit var resultLauncher: ActivityResultLauncher<Intent>
+    private var resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == AppCompatActivity.RESULT_OK) {
+                customHappyRoutineAddSnackBar()
+            }
+        }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         setStatusBarColor(R.color.background)
 
-        startProgressSnackbar()
         initSetBearFace()
         setNewCardEnter()
         setCardEnter()
@@ -44,15 +47,6 @@ class HappyMyRoutineFragment :
     override fun onResume() {
         super.onResume()
         viewModel.getHappyProgress()
-    }
-
-    private fun startProgressSnackbar() {
-        resultLauncher =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-                if (result.resultCode == AppCompatActivity.RESULT_OK) {
-                    customHappyRoutineAddSnackBar()
-                }
-            }
     }
 
     private fun customHappyRoutineAddSnackBar() {
