@@ -29,16 +29,8 @@ class HappyAddListActivity :
 
     private val addHappinessRoutineResult = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        val isHappinessRoutineAdd = result.data?.getBooleanExtra("isAdded", false) ?: false
-        if (result.resultCode == RESULT_OK && isHappinessRoutineAdd) {
-            finish()
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        binding.clHappyAddList.visibility = View.VISIBLE
+    ) {
+        finish()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -98,6 +90,7 @@ class HappyAddListActivity :
         binding.clHappyAddList.visibility = View.INVISIBLE
         addHappinessRoutineResult.launch(intentToDetail)
     }
+
 
     companion object {
         const val ID = "id"
