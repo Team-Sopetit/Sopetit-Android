@@ -35,7 +35,10 @@ class HappyDeleteFragment :
             happyProgress?.let {
                 with(binding) {
                     tvHappyDeleteSubtitle.text = happyProgress.title
-                    ivHappyDeleteCardFront.load(happyProgress.contentImageUrl)
+                    ivHappyDeleteCardFront.load(happyProgress.contentImageUrl) {
+                        placeholder(R.drawable.ic_bear_base)
+                        error(R.drawable.ic_bear_base)
+                    }
                     tvHappyDeleteCardFrontTitle.text = happyProgress.content
                     tvHappyDeleteCardBackTitle.text = happyProgress.content
                     tvHappyDeleteCardBackContent.text = happyProgress.detailContent

@@ -28,11 +28,8 @@ class HappyAddListActivity :
 
     private val addHappinessRoutineResult = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        val isHappinessRoutineAdd = result.data?.getBooleanExtra("isAdded", false) ?: false
-        if (result.resultCode == RESULT_OK && isHappinessRoutineAdd) {
-            finish()
-        }
+    ) {
+        finish()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,6 +87,7 @@ class HappyAddListActivity :
             putExtra(ICON_IMAGE_URL, iconImageUrl)
         }
         addHappinessRoutineResult.launch(intentToDetail)
+        finish()
     }
 
     companion object {

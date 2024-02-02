@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.sopetit.softie.R
 
 class VerticalItemDecoration(val context: Context) : RecyclerView.ItemDecoration() {
 
@@ -17,10 +18,10 @@ class VerticalItemDecoration(val context: Context) : RecyclerView.ItemDecoration
         val position = parent.getChildAdapterPosition(view)
 
         if (position == 0) {
-            outRect.top = 50
+            outRect.top = context.resources.getDimensionPixelSize(R.dimen.happy_list_first_margin)
         } else {
             outRect.top = 0
         }
-        outRect.bottom = 34
+        outRect.bottom = context.resources.getDimensionPixelSize(R.dimen.happy_list_margin)
     }
 }

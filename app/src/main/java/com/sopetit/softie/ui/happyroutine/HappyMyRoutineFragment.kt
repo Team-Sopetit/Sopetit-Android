@@ -37,6 +37,7 @@ class HappyMyRoutineFragment :
 
     override fun onResume() {
         super.onResume()
+        binding.clHappyEmptyRoutine.visibility = View.INVISIBLE
         viewModel.getHappyProgress()
     }
 
@@ -103,8 +104,8 @@ class HappyMyRoutineFragment :
             doBtnColor = R.drawable.shape_main1_fill_12_rect,
             backBtnAction = {},
             doBtnAction = {
-                startHappyRoutineCompleteActivity()
                 viewModel.happyProgressResponse.value?.let { viewModel.patchAchieveHappyRoutine(it.routineId) }
+                binding.clHappyProgressRoutine.visibility = View.INVISIBLE
                 startHappyRoutineCompleteActivity()
             }
         ).show(parentFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
@@ -124,9 +125,5 @@ class HappyMyRoutineFragment :
                 )
             }
         }
-    }
-
-    companion object {
-        private const val REQUEST_CODE_HAPPY_DETAIL = 990320
     }
 }

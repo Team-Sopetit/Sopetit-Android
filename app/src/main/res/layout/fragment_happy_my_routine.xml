@@ -20,8 +20,8 @@
             android:id="@+id/cl_happy_empty_routine"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="@{viewModel.isHappinessRoutineProgress ? View.INVISIBLE : View.VISIBLE}"
-            android:background="@color/background">
+            android:background="@color/background"
+            android:visibility="@{viewModel.isHappinessRoutineProgress ? View.INVISIBLE : View.VISIBLE}">
 
             <TextView
                 android:id="@+id/tv_happy_routine_title"
@@ -31,6 +31,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/happy_title"
+                android:textColor="@color/gray700"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,21 +47,25 @@
 
             <ImageView
                 android:id="@+id/iv_happy_routine_default_mention"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="14dp"
-                android:src="@drawable/ic_speech_long"
+                android:background="@drawable/ic_speech_long"
                 app:layout_constraintBottom_toBottomOf="@id/iv_happy_routine_character"
                 app:layout_constraintStart_toEndOf="@id/iv_happy_routine_character"
                 app:layout_constraintTop_toTopOf="@id/iv_happy_routine_character" />
 
             <TextView
                 android:id="@+id/tv_happy_routine_default_mention"
-                style="@style/bubble14"
+                style="@style/bubble16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="14dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginEnd="25dp"
                 android:gravity="center"
                 android:text="@string/happy_default_mention"
+                android:textColor="@color/gray700"
                 app:layout_constraintBottom_toBottomOf="@id/iv_happy_routine_default_mention"
                 app:layout_constraintEnd_toEndOf="@id/iv_happy_routine_default_mention"
                 app:layout_constraintStart_toStartOf="@id/iv_happy_routine_default_mention"
@@ -92,8 +97,9 @@
                     style="@style/body2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="82dp"
+                    android:layout_marginTop="84dp"
                     android:gravity="center"
+                    android:lineSpacingExtra="4dp"
                     android:text="@string/happy_empty_card"
                     android:textColor="@color/gray300"
                     app:layout_constraintBottom_toTopOf="@id/iv_happy_routine_empty_card_bear"
@@ -105,7 +111,7 @@
                     android:id="@+id/iv_happy_routine_empty_card_bear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="62dp"
+                    android:layout_marginTop="64dp"
                     android:src="@drawable/ic_happy_add"
                     app:layout_constraintEnd_toEndOf="@id/iv_happy_routine_empty_card"
                     app:layout_constraintStart_toStartOf="@id/iv_happy_routine_empty_card"
@@ -119,18 +125,18 @@
             android:id="@+id/cl_happy_progress_routine"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="@{viewModel.isHappinessRoutineProgress ? View.VISIBLE : View.INVISIBLE}"
-            android:background="@color/background">
+            android:background="@color/background"
+            android:visibility="@{viewModel.isHappinessRoutineProgress ? View.VISIBLE : View.INVISIBLE}">
 
             <TextView
                 android:id="@+id/tv_happy_progress_title"
                 style="@style/body1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/happy_progress_title"
-                android:visibility="invisible"
+                android:textColor="@color/gray700"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -139,7 +145,7 @@
                 style="@style/body4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="19dp"
+                android:layout_marginEnd="20dp"
                 android:text="@string/happy_progress_edit"
                 android:textColor="@color/gray400"
                 app:layout_constraintBottom_toBottomOf="@id/tv_happy_progress_title"
@@ -165,6 +171,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
                 android:text="@string/happy_progress_mention"
+                android:textColor="@color/gray700"
                 app:layout_constraintBottom_toBottomOf="@id/iv_happy_progress_mention"
                 app:layout_constraintEnd_toEndOf="@id/iv_happy_progress_mention"
                 app:layout_constraintStart_toStartOf="@id/iv_happy_progress_mention"
@@ -177,9 +184,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="19dp"
                 android:text="@{viewModel.happyProgressResponse.title}"
-                app:layout_constraintTop_toBottomOf="@id/iv_happy_progress_mention"
+                android:textColor="@color/gray500"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_happy_progress_mention"
                 tools:text="성숙한 사랑을 만나기 위한" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -189,36 +197,37 @@
                 android:layout_marginTop="24dp"
                 android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
                 android:visibility="visible"
-                app:layout_constraintTop_toBottomOf="@id/tv_happy_progress_subtitle"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/btn_happy_progress_clear"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_happy_progress_subtitle"
                 app:layout_constraintVertical_bias="0">
 
                 <ImageView
                     android:id="@+id/iv_happy_progress_card_front"
+                    setHappyCoilImage="@{viewModel.happyProgressResponse.contentImageUrl}"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    setCoilImage="@{viewModel.happyProgressResponse.contentImageUrl}"
+                    android:src="@drawable/ic_happy_card_base"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_happy_progress_card_front_title"
+                    style="@style/body2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="70dp"
+                    android:layout_marginTop="166dp"
                     android:gravity="center"
-                    android:text="@{viewModel.happyProgressResponse.content}"
                     android:lineSpacingExtra="4dp"
-                    android:textAppearance="@style/body2"
-                    app:layout_constraintBottom_toBottomOf="@id/iv_happy_progress_card_front"
+                    android:text="@{viewModel.happyProgressResponse.content}"
+                    android:textColor="@color/gray700"
+                    app:layout_constraintBottom_toTopOf="@id/iv_happy_progress_card_front_magnify"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/iv_happy_progress_card_front"
-                    tools:text="10년이 가도" />
+                    tools:text="난 너를 믿었던만큼,\n난 내 친구도 믿었기에,\n난 아무런 부담없이" />
 
                 <ImageView
                     android:id="@+id/iv_happy_progress_card_front_magnify"
@@ -251,9 +260,9 @@
                     android:layout_centerInParent="true"
                     android:layout_marginHorizontal="20dp"
                     android:gravity="center"
-                    android:text="@{viewModel.happyProgressResponse.content}"
                     android:lineSpacingExtra="4dp"
-                    android:textAppearance="@style/body2"
+                    android:text="@{viewModel.happyProgressResponse.content}"
+                    android:textColor="@color/gray700"
                     app:layout_constraintBottom_toBottomOf="@id/md_happy_progress_card_back_divider"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -265,7 +274,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginStart="18dp"
-                    android:layout_marginTop="123dp"
+                    android:layout_marginTop="145dp"
                     android:layout_marginEnd="18dp"
                     app:dividerColor="@color/gray100"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -281,8 +290,8 @@
                     android:layout_marginTop="17dp"
                     android:layout_marginEnd="20dp"
                     android:breakStrategy="simple"
-                    android:text="@{viewModel.happyProgressResponse.detailContent}"
                     android:lineSpacingMultiplier="1.3"
+                    android:text="@{viewModel.happyProgressResponse.detailContent}"
                     android:textColor="@color/gray400"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -302,11 +311,11 @@
 
                 <TextView
                     android:id="@+id/tv_happy_progress_card_back_time"
-                    style="@style/caption1"
+                    style="@style/caption2"
                     android:layout_width="wrap_content"
-                    android:text="@{viewModel.happyProgressResponse.timeTaken}"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
+                    android:text="@{viewModel.happyProgressResponse.timeTaken}"
                     android:textAppearance="@style/body2"
                     android:textColor="@color/gray400"
                     app:layout_constraintBottom_toBottomOf="@id/iv_happy_progress_card_back_time"
@@ -326,12 +335,11 @@
 
                 <TextView
                     android:id="@+id/tv_happy_progress_card_back_place"
-                    style="@style/caption1"
+                    style="@style/caption2"
                     android:layout_width="wrap_content"
-                    android:text="@{viewModel.happyProgressResponse.place}"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
-                    android:textAppearance="@style/body2"
+                    android:text="@{viewModel.happyProgressResponse.place}"
                     android:textColor="@color/gray400"
                     app:layout_constraintBottom_toBottomOf="@id/iv_happy_progress_card_back_place"
                     app:layout_constraintStart_toEndOf="@id/iv_happy_progress_card_back_place"
@@ -354,9 +362,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="55dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="34dp"
+                android:layout_marginBottom="29dp"
                 android:background="@drawable/shape_black_fill_12_rect"
                 android:outlineProvider="none"
                 android:text="@string/happy_progress_button"
