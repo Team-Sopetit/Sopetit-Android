@@ -84,7 +84,6 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="35dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_daily"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toStartOf="@id/tv_daily_routine_add_name_first"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -136,8 +135,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="16dp"
                 android:background="@{viewModel.isRoutineAchieveFirst ? @drawable/shape_gray100_fill_10_rect : @drawable/shape_main1_fill_10_rect}"
-                android:clickable="@{!viewModel.isRoutineAchieveFirst}"
-                android:enabled="@{!viewModel.isRoutineAchieveFirst}"
+                android:clickable="@{!(viewModel.isRoutineAchieveFirst || viewModel.isDeleteView)}"
+                android:enabled="@{!(viewModel.isRoutineAchieveFirst || viewModel.isDeleteView)}"
                 android:minHeight="0dp"
                 android:outlineProvider="none"
                 android:paddingTop="10dp"
@@ -187,7 +186,6 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="35dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_daily"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toStartOf="@id/tv_daily_routine_add_name_second"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -239,8 +237,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="16dp"
                 android:background="@{viewModel.isRoutineAchieveSecond ? @drawable/shape_gray100_fill_10_rect : @drawable/shape_main1_fill_10_rect}"
-                android:clickable="@{!viewModel.isRoutineAchieveSecond}"
-                android:enabled="@{!viewModel.isRoutineAchieveSecond}"
+                android:clickable="@{!(viewModel.isRoutineAchieveSecond || viewModel.isDeleteView)}"
+                android:enabled="@{!(viewModel.isRoutineAchieveSecond || viewModel.isDeleteView)}"
                 android:outlineProvider="none"
                 android:text="@{viewModel.isRoutineAchieveSecond ? @string/daily_routine_fin : @string/daily_routine_fin_btn}"
                 android:textAppearance="@style/body4"
@@ -270,8 +268,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13dp"
                 android:layout_marginEnd="14dp"
-                android:padding="7dp"
                 android:background="@drawable/selector_daily_edit"
+                android:padding="7dp"
                 android:visibility="@{viewModel.isDeleteView ? View.VISIBLE: View.INVISIBLE}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -285,13 +283,12 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="35dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_daily"
-                app:layout_constraintEnd_toStartOf="@id/tv_daily_routine_add_name_third"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/tv_daily_routine_add_name_third"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="0.0"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/tv_daily_routine_add_name_third"
@@ -337,8 +334,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="16dp"
                 android:background="@{viewModel.isRoutineAchieveThird ? @drawable/shape_gray100_fill_10_rect : @drawable/shape_main1_fill_10_rect}"
-                android:clickable="@{!viewModel.isRoutineAchieveThird}"
-                android:enabled="@{!viewModel.isRoutineAchieveThird}"
+                android:clickable="@{!(viewModel.isRoutineAchieveThird || viewModel.isDeleteView)}"
+                android:enabled="@{!(viewModel.isRoutineAchieveThird || viewModel.isDeleteView)}"
                 android:minHeight="0dp"
                 android:outlineProvider="none"
                 android:paddingTop="10dp"
@@ -396,6 +393,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

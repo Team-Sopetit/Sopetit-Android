@@ -4,11 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sopetit.softie.domain.usecase.GetBearTypeUseCase
-import com.sopetit.softie.domain.usecase.InitSIgnUpStateUseCase
-import com.sopetit.softie.domain.usecase.InitTokenUseCase
 import com.sopetit.softie.domain.usecase.auth.DeleteAuthUseCase
 import com.sopetit.softie.domain.usecase.auth.LogOutUseCase
+import com.sopetit.softie.domain.usecase.local.GetBearTypeUseCase
+import com.sopetit.softie.domain.usecase.local.InitSIgnUpStateUseCase
+import com.sopetit.softie.domain.usecase.local.InitTokenUseCase
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.BROWN
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.GRAY
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.RED
@@ -64,7 +64,7 @@ class SettingViewModel @Inject constructor(
                 .onSuccess {
                     _isDeleteAuthResponse.value = true
                     initSIgnUpStateUseCase(false)
-                    initTokenUseCase("", "", false)
+                    initTokenUseCase("", "", isMemberDollExist = false, isSignedUp = false)
                     Timber.d("회원 탈퇴 성공")
                 }.onFailure { throwable ->
                     _isDeleteAuthResponse.value = false
@@ -79,7 +79,7 @@ class SettingViewModel @Inject constructor(
                 .onSuccess {
                     _isLogOutResponse.value = true
                     initSIgnUpStateUseCase(false)
-                    initTokenUseCase("", "", true)
+                    initTokenUseCase("", "", isMemberDollExist = true, isSignedUp = false)
                     Timber.d("로그 아웃 성공")
                 }.onFailure { throwable ->
                     _isLogOutResponse.value = false

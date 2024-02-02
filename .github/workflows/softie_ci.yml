@@ -44,7 +44,7 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_TITLE: 'Sofite/PR Check SUCCESS💚'
         MSG_MINIMAL: true
-        SLACK_USERNAME: Peekabook-AOS
+        SLACK_USERNAME: Sofite-AOS
         SLACK_MESSAGE: 'PR이 완료되었습니다'
 
     - name: On Failed, Notify in Slack
@@ -55,5 +55,5 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_TITLE: 'Sofite/Android Debug build Fail❌'
         MSG_MINIMAL: true
-        SLACK_USERNAME: Peekabook-AOS
+        SLACK_USERNAME: Sofite-AOS
         SLACK_MESSAGE: '에러를 확인해주세요'

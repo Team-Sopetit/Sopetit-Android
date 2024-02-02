@@ -3,10 +3,12 @@ package com.sopetit.softie.di
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.sopetit.softie.BuildConfig
 import com.sopetit.softie.data.source.LocalDataSource
+import com.sopetit.softie.domain.repository.RefreshTokenRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
@@ -25,6 +27,7 @@ object RetrofitModule {
     private const val APPLICATION_JSON = "application/json"
     private const val BEARER = "Bearer "
     private const val AUTHORIZATION = "Authorization"
+    private const val EXPIRED_TOKEN = 401
 
     @Qualifier
     @Retention(AnnotationRetention.BINARY)
@@ -34,6 +37,7 @@ object RetrofitModule {
     @Singleton
     @SoftieType
     fun providesSoftieInterceptor(
+        refreshTokenRepository: RefreshTokenRepository,
         localDataSource: LocalDataSource
     ): Interceptor = Interceptor { chain ->
         val request = chain.request()
@@ -44,6 +48,25 @@ object RetrofitModule {
                 .addHeader(AUTHORIZATION, BEARER + localDataSource.accessToken)
                 .build()
         )
+        when (response.code) {
+            EXPIRED_TOKEN -> {
+                runBlocking {
+                    refreshTokenRepository.postRefreshToken().onSuccess { accessToken ->
+                        refreshTokenRepository.setAccessToken(accessToken.accessToken)
+                        response = chain.proceed(
+                            request
+                                .newBuilder()
+                                .addHeader(CONTENT_TYPE, APPLICATION_JSON)
+                                .addHeader(
+                                    AUTHORIZATION,
+                                    BEARER + localDataSource.accessToken
+                                )
+                                .build()
+                        )
+                    }
+                }
+            }
+        }
         response
     }
 

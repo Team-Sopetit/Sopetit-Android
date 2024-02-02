@@ -29,6 +29,21 @@ object BindingAdapter {
         }
     }
 
+    @BindingAdapter("setBaseCoilImage")
+    @JvmStatic
+    fun ImageView.setBaseCoilImage(imgUrl: String?) {
+        this.let {
+            it.load(imgUrl) {
+                if (imgUrl?.endsWith(".svg") == true) {
+                    decoderFactory { result, options, _ -> SvgDecoder(result.source, options) }
+                }
+                crossfade(true)
+                placeholder(R.drawable.ic_loading_bear)
+                error(R.drawable.ic_loading_bear)
+            }
+        }
+    }
+
     @BindingAdapter("setHappyCoilImage")
     @JvmStatic
     fun ImageView.setHappyCoilImage(imgUrl: String?) {
