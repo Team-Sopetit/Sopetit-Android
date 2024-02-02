@@ -35,7 +35,7 @@ class HappyDetailActivity :
         setInitBinding(routineId, imageUrl)
         setCurrentCard()
         setBackEnter()
-        setupAdapter(routineId)
+        setHappyDetailCardPagerAdapter(routineId)
         setIndicator()
     }
 
@@ -55,7 +55,7 @@ class HappyDetailActivity :
                 viewModel.mySubroutineId.observe(this) { mySubRoutineId ->
                     mySubRoutineId?.let {
                         imageUrl?.let {
-                            setBottomSheetEnter(it, mySubRoutineId)
+                            startHappyRoutineAddBottomSheet(it, mySubRoutineId)
                         }
                     }
                 }
@@ -85,7 +85,7 @@ class HappyDetailActivity :
         }
     }
 
-    private fun setBottomSheetEnter(icon: String, subRoutineId: Int) {
+    private fun startHappyRoutineAddBottomSheet(icon: String, subRoutineId: Int) {
         binding.btnHappyDetailAdd.setSingleOnClickListener {
             initHappyRoutineAddBottomSheet(icon, subRoutineId)
         }
@@ -116,7 +116,7 @@ class HappyDetailActivity :
         finish()
     }
 
-    private fun setupAdapter(routineId: String) {
+    private fun setHappyDetailCardPagerAdapter(routineId: String) {
         with(binding) {
             vpHappyAddDetailCard.adapter = happyRoutineAddCardPagerAdapter
         }

@@ -38,10 +38,10 @@ class HappyMyRoutineFragment :
         setStatusBarColor(R.color.background)
 
         initSetBearFace()
-        setNewCardEnter()
-        setCardEnter()
-        setEditEnter()
-        setClearEnter()
+        startHappyAddListActivity()
+        setCardImageClickListener()
+        startHappyDeleteActivity()
+        startHappyRoutineCompleteBottomSheet()
     }
 
     override fun onResume() {
@@ -69,25 +69,25 @@ class HappyMyRoutineFragment :
         }
     }
 
-    private fun setNewCardEnter() {
+    private fun startHappyAddListActivity() {
         binding.ivHappyRoutineEmptyCard.setOnClickListener {
             val intent = Intent(context, HappyAddListActivity::class.java)
             resultLauncher.launch(intent)
         }
     }
 
-    private fun setCardEnter() {
+    private fun setCardImageClickListener() {
         with(binding) {
             clHappyProgressCardFront.setSingleOnClickListener {
-                setCardFlip(clHappyProgressCardFront, clHappyProgressCardBack)
+                setCardImageFlip(clHappyProgressCardFront, clHappyProgressCardBack)
             }
             clHappyProgressCardBack.setSingleOnClickListener {
-                setCardFlip(clHappyProgressCardBack, clHappyProgressCardFront)
+                setCardImageFlip(clHappyProgressCardBack, clHappyProgressCardFront)
             }
         }
     }
 
-    private fun setEditEnter() {
+    private fun startHappyDeleteActivity() {
         binding.tvHappyProgressEdit.setSingleOnClickListener {
             val happyDeleteFragment = HappyDeleteFragment()
             requireActivity().supportFragmentManager.beginTransaction()
@@ -97,7 +97,7 @@ class HappyMyRoutineFragment :
         }
     }
 
-    private fun setCardFlip(viewFront: View, viewToBack: View) {
+    private fun setCardImageFlip(viewFront: View, viewToBack: View) {
         val isVisible = viewFront.visibility == View.VISIBLE
         if (isVisible) {
             viewFront.visibility = View.INVISIBLE
@@ -135,7 +135,7 @@ class HappyMyRoutineFragment :
         startActivity(intentToCompleteActivity)
     }
 
-    private fun setClearEnter() {
+    private fun startHappyRoutineCompleteBottomSheet() {
         binding.btnHappyProgressClear.setOnClickListener {
             viewModel.happyProgressResponse.value?.iconImageUrl?.let { url ->
                 initHappyRoutineCompleteBottomSheet(

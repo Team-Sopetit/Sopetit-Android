@@ -45,7 +45,7 @@ class HappyAddListActivity :
         setChipAdapters()
         setBackEnter()
         setItemDeco()
-        setupAdapter()
+        setHappyAddListAdapter()
     }
 
     private fun setChipAdapters() {
@@ -66,7 +66,7 @@ class HappyAddListActivity :
         binding.rvHappyAddListChip.addItemDecoration(chipDeco)
     }
 
-    private fun setupAdapter() {
+    private fun setHappyAddListAdapter() {
         with(binding) {
             rvHappyAddListChip.adapter = happyAddListChipContentAdapter
             rvHappyAddList.adapter = happyAddListContentAdapter

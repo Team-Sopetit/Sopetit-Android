@@ -26,9 +26,9 @@ class HappyDeleteFragment :
         val happyProgress = viewModel.getHappyProgress()
 
         setCardBinding(happyProgress)
-        setCardEnter()
+        setCardImageClickListener()
         setCancelEnter()
-        setClearEnter()
+        startHappyDeleteBottomSheet()
     }
 
     private fun setCardBinding(happyProgress: Unit) {
@@ -50,13 +50,13 @@ class HappyDeleteFragment :
         }
     }
 
-    private fun setCardEnter() {
+    private fun setCardImageClickListener() {
         with(binding) {
             clHappyDeleteCardFront.setSingleOnClickListener {
-                setCardFlip(clHappyDeleteCardFront, clHappyDeleteCardBack)
+                setCardImageFlip(clHappyDeleteCardFront, clHappyDeleteCardBack)
             }
             clHappyDeleteCardBack.setSingleOnClickListener {
-                setCardFlip(clHappyDeleteCardBack, clHappyDeleteCardFront)
+                setCardImageFlip(clHappyDeleteCardBack, clHappyDeleteCardFront)
             }
         }
     }
@@ -67,7 +67,7 @@ class HappyDeleteFragment :
         }
     }
 
-    private fun setCardFlip(viewFront: View, viewToBack: View) {
+    private fun setCardImageFlip(viewFront: View, viewToBack: View) {
         val isVisible = viewFront.visibility == View.VISIBLE
         if (isVisible) {
             viewFront.visibility = View.INVISIBLE
@@ -78,7 +78,7 @@ class HappyDeleteFragment :
         }
     }
 
-    private fun setClearEnter() {
+    private fun startHappyDeleteBottomSheet() {
         binding.btnHappyDeleteClear.setSingleOnClickListener {
             BindingBottomSheet.Builder().build(
                 isDrawable = true,
