@@ -71,7 +71,7 @@ class HappyMyRoutineFragment :
 
     private fun startHappyAddListActivity() {
         binding.ivHappyRoutineEmptyCard.setOnClickListener {
-            val intent = Intent(context, HappyAddListActivity::class.java)
+            val intent = Intent(requireContext(), HappyAddListActivity::class.java)
             resultLauncher.launch(intent)
         }
     }
