@@ -1,17 +1,19 @@
 package com.sopetit.softie.ui.happyroutine
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyMyRoutineBinding
-import com.sopetit.softie.ui.happyroutine.complete.HappyRoutineCompleteActivity
 import com.sopetit.softie.ui.happyroutine.delete.HappyDeleteFragment
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity
 import com.sopetit.softie.util.CustomSnackbar
-import com.sopetit.softie.util.HappyFirstAddCheck.happyFirstAdd
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
@@ -24,6 +26,7 @@ class HappyMyRoutineFragment :
     BindingFragment<FragmentHappyMyRoutineBinding>(R.layout.fragment_happy_my_routine) {
 
     private val viewModel by viewModels<HappyMyRoutineViewModel>()
+    private lateinit var resultLauncher: ActivityResultLauncher<Intent>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,21 +38,21 @@ class HappyMyRoutineFragment :
         setCardEnter()
         setEditEnter()
         setClearEnter()
-        observeHappyProgress()
+
+        resultLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                Log.d("실행되었다", "실행, showing snackbar")
+                if (result.resultCode == Activity.RESULT_OK) {
+                    Log.d("HappyMyRoutineFragment", "Received RESULT_OK, showing snackbar")
+                    // 스낵바를 띄우는 로직
+                    customHappyRoutineAddSnackBar()
+                }
+            }
     }
 
     override fun onResume() {
         super.onResume()
         viewModel.getHappyProgress()
-    }
-
-    private fun observeHappyProgress() {
-        viewModel.isHappinessRoutineProgress.observe(viewLifecycleOwner) { isProgress ->
-            if (isProgress && happyFirstAdd) {
-                customHappyRoutineAddSnackBar()
-                happyFirstAdd = false
-            }
-        }
     }
 
     private fun customHappyRoutineAddSnackBar() {
@@ -124,17 +127,15 @@ class HappyMyRoutineFragment :
             doBtnColor = R.drawable.shape_main1_fill_12_rect,
             backBtnAction = {},
             doBtnAction = {
-                startHappyRoutineCompleteActivity()
                 viewModel.happyProgressResponse.value?.let { viewModel.patchAchieveHappyRoutine(it.routineId) }
-                startHappyRoutineCompleteActivity()
+                startAddListActivity()
             }
         ).show(parentFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
     }
 
-    private fun startHappyRoutineCompleteActivity() {
-        val intentToCompleteActivity =
-            Intent(requireActivity(), HappyRoutineCompleteActivity::class.java)
-        startActivity(intentToCompleteActivity)
+    private fun startAddListActivity() {
+        val intent = Intent(context, HappyAddListActivity::class.java)
+        resultLauncher.launch(intent)
     }
 
     private fun setClearEnter() {

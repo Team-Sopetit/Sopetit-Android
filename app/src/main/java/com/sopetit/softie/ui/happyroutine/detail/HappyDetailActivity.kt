@@ -1,9 +1,9 @@
 package com.sopetit.softie.ui.happyroutine.detail
 
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +15,6 @@ import com.sopetit.softie.ui.LoadingIndicator
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity.Companion.ICON_IMAGE_URL
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity.Companion.ID
 import com.sopetit.softie.ui.onboarding.OnboardingActivity.Companion.LOADING_DELAY
-import com.sopetit.softie.util.HappyFirstAddCheck.happyFirstAdd
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.binding.BindingBottomSheet
@@ -118,14 +117,13 @@ class HappyDetailActivity :
             doBtnAction = {
                 viewModel.postAddRoutine(subRoutineId)
                 moveToProgress()
-                happyFirstAdd = true
             }
         ).show(this.supportFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
     }
 
     private fun moveToProgress() {
-        val intentToHappinessAddList = Intent().putExtra("isAdded", true)
-        setResult(RESULT_OK, intentToHappinessAddList)
+        Log.d("HappyDetailActivity", "Setting RESULT_OK")
+        setResult(RESULT_OK) // 기본적으로 성공을 나타내는 RESULT_OK 사용
         finish()
     }
 

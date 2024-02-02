@@ -2,6 +2,7 @@ package com.sopetit.softie.ui.happyroutine.list
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.RecyclerView
@@ -26,14 +27,14 @@ class HappyAddListActivity :
     private var happyAddListChipContentAdapter: HappyAddListChipContentAdapter? = null
     private var happyAddListContentAdapter: HappyAddListContentAdapter? = null
 
-    private val addHappinessRoutineResult = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        val isHappinessRoutineAdd = result.data?.getBooleanExtra("isAdded", false) ?: false
-        if (result.resultCode == RESULT_OK && isHappinessRoutineAdd) {
-            finish()
+    private val startForDetailResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                Log.d("HappyAddListActivity", "Setting RESULT_OK")
+                setResult(RESULT_OK)
+                finish()
+            }
         }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +52,7 @@ class HappyAddListActivity :
 
     private fun setChipAdapters() {
         happyAddListChipContentAdapter = HappyAddListChipContentAdapter()
-        happyAddListContentAdapter = HappyAddListContentAdapter(::moveToDetail)
+        happyAddListContentAdapter = HappyAddListContentAdapter(::startDetailActivity)
     }
 
     private fun setBackEnter() {
@@ -84,12 +85,13 @@ class HappyAddListActivity :
         }
     }
 
-    private fun moveToDetail(id: Int, iconImageUrl: String) {
-        val intentToDetail = Intent(this, HappyDetailActivity::class.java).apply {
+    private fun startDetailActivity(id: Int, iconImageUrl: String) {
+        val intent = Intent(this, HappyDetailActivity::class.java).apply {
             putExtra(ID, id)
             putExtra(ICON_IMAGE_URL, iconImageUrl)
         }
-        addHappinessRoutineResult.launch(intentToDetail)
+        // 필요한 데이터를 인텐트에 추가
+        startForDetailResult.launch(intent)
     }
 
     companion object {
