@@ -1,6 +1,5 @@
 package com.sopetit.softie.ui.happyroutine
 
-import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -10,6 +9,7 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyMyRoutineBinding
 import com.sopetit.softie.ui.happyroutine.complete.HappyRoutineCompleteActivity
 import com.sopetit.softie.ui.happyroutine.delete.HappyDeleteFragment
+import com.sopetit.softie.ui.happyroutine.detail.HappyDetailActivity.Companion.HappyFirstAdd
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity
 import com.sopetit.softie.util.CustomSnackbar
 import com.sopetit.softie.util.OriginalBottomSheet
@@ -35,20 +35,20 @@ class HappyMyRoutineFragment :
         setCardEnter()
         setEditEnter()
         setClearEnter()
+        observeHappyProgress()
     }
 
     override fun onResume() {
         super.onResume()
         viewModel.getHappyProgress()
-        customHappyRoutineAddSnackBar()
+    }
 
-        val sharedPreferences =
-            requireActivity().getSharedPreferences("HappyFirstAdd", MODE_PRIVATE)
-        if (sharedPreferences.getBoolean("isFirstAdded", false)) {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fcv_main, HappyMyRoutineFragment())
-                .commit()
-            sharedPreferences.edit().remove("isFirstAdded").apply()
+    private fun observeHappyProgress() {
+        viewModel.isHappinessRoutineProgress.observe(viewLifecycleOwner) { isProgress ->
+            if (isProgress && HappyFirstAdd) {
+                customHappyRoutineAddSnackBar()
+                HappyFirstAdd = false
+            }
         }
     }
 

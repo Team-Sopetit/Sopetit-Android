@@ -115,18 +115,16 @@ class HappyDetailActivity :
             doBtnColor = R.drawable.shape_main1_fill_12_rect,
             backBtnAction = {},
             doBtnAction = {
-                moveToProgress()
                 viewModel.postAddRoutine(subRoutineId)
+                moveToProgress()
+                HappyFirstAdd = true
             }
         ).show(this.supportFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
     }
 
     private fun moveToProgress() {
-        val sharedPreferences = getSharedPreferences("HappyFirstAdd", MODE_PRIVATE)
-        sharedPreferences.edit().putBoolean("isFirstAdded", true).apply()
-
-        val intentToHappinessAddRoutine = Intent().putExtra("isAdded", true)
-        setResult(RESULT_OK, intentToHappinessAddRoutine)
+        val intentToHappinessAddList = Intent().putExtra("isAdded", true)
+        setResult(RESULT_OK, intentToHappinessAddList)
         finish()
     }
 
@@ -191,5 +189,9 @@ class HappyDetailActivity :
             outRect.left = margin
             outRect.right = margin
         }
+    }
+
+    companion object {
+        var HappyFirstAdd: Boolean = false
     }
 }
