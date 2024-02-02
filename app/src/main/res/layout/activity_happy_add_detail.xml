@@ -11,6 +11,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_happy_add_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background">
@@ -31,7 +32,7 @@
             style="@style/body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="53dp"
             android:textColor="@color/happyroutine_red"
             app:layout_constraintBottom_toTopOf="@id/iv_happy_add_detail_icon"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,9 +43,9 @@
 
         <ImageView
             android:id="@+id/iv_happy_add_detail_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_width="18dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_happy_add_detail_title" />
@@ -93,7 +94,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="55dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="34dp"
             android:background="@drawable/shape_black_fill_12_rect"

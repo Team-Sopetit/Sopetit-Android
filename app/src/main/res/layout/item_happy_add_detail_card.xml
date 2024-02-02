@@ -29,18 +29,19 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_happy_card_base" />
 
             <TextView
                 android:id="@+id/tv_happy_routine_add_card_detail_title"
+                style="@style/body2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="166dp"
                 android:gravity="center"
                 android:lineSpacingExtra="4dp"
-                android:textAppearance="@style/body2"
-                app:layout_constraintBottom_toBottomOf="@id/iv_happy_routine_add_card"
+                android:textColor="@color/gray700"
+                app:layout_constraintBottom_toTopOf="@id/iv_happy_routine_add_card_detail_magnify"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/iv_happy_routine_add_card"
@@ -78,7 +79,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:gravity="center"
                 android:lineSpacingExtra="4dp"
-                android:textAppearance="@style/body2"
+                android:textColor="@color/gray700"
                 app:layout_constraintBottom_toBottomOf="@id/md_happy_routine_add_card_divider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginStart="18dp"
-                android:layout_marginTop="123dp"
+                android:layout_marginTop="145dp"
                 android:layout_marginEnd="18dp"
                 app:dividerColor="@color/gray100"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -127,7 +128,7 @@
 
             <TextView
                 android:id="@+id/tv_happy_routine_add_card_detail_time_back"
-                style="@style/caption1"
+                style="@style/caption2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
@@ -150,11 +151,10 @@
 
             <TextView
                 android:id="@+id/tv_happy_routine_add_card_detail_place_back"
-                style="@style/caption1"
+                style="@style/caption2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:textAppearance="@style/body2"
                 android:textColor="@color/gray400"
                 app:layout_constraintBottom_toBottomOf="@id/iv_happy_routine_add_card_detail_place_back"
                 app:layout_constraintStart_toEndOf="@id/iv_happy_routine_add_card_detail_place_back"

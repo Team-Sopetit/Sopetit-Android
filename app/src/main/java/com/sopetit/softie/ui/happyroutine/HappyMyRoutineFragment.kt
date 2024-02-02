@@ -46,6 +46,7 @@ class HappyMyRoutineFragment :
 
     override fun onResume() {
         super.onResume()
+        binding.clHappyEmptyRoutine.visibility = View.INVISIBLE
         viewModel.getHappyProgress()
     }
 
@@ -122,6 +123,7 @@ class HappyMyRoutineFragment :
             backBtnAction = {},
             doBtnAction = {
                 viewModel.happyProgressResponse.value?.let { viewModel.patchAchieveHappyRoutine(it.routineId) }
+                binding.clHappyProgressRoutine.visibility = View.INVISIBLE
                 startHappyRoutineCompleteActivity()
             }
         ).show(parentFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)

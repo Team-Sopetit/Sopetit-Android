@@ -1,29 +1,20 @@
 package com.sopetit.softie.ui.happyroutine.detail
 
 import android.graphics.Color
-import android.graphics.Rect
 import android.os.Bundle
-import android.view.View
 import androidx.activity.viewModels
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityHappyAddDetailBinding
-import com.sopetit.softie.ui.LoadingIndicator
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity.Companion.ICON_IMAGE_URL
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity.Companion.ID
-import com.sopetit.softie.ui.onboarding.OnboardingActivity.Companion.LOADING_DELAY
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.setSingleOnClickListener
 import com.sopetit.softie.util.setStatusBarColorFromResource
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HappyDetailActivity :
@@ -46,9 +37,6 @@ class HappyDetailActivity :
         setBackEnter()
         setupAdapter(routineId)
         setIndicator()
-        initSetLoading()
-        initViewPager()
-        initPagerDiv(0, 20)
     }
 
     private fun setInitBinding(routineId: String, imageUrl: String?) {
@@ -57,7 +45,10 @@ class HappyDetailActivity :
             happyCard?.let {
                 with(binding) {
                     tvHappyAddDetailTitle.text = happyCard.name
-                    ivHappyAddDetailIcon.load(happyCard.iconImageUrl)
+                    ivHappyAddDetailIcon.load(happyCard.iconImageUrl) {
+                        placeholder(R.drawable.ic_happy_star_base)
+                        error(R.drawable.ic_happy_star_base)
+                    }
                     tvHappyAddDetailSubtitle.text = happyCard.title
                     tvHappyAddDetailTitle.setTextColor(Color.parseColor(happyCard.nameColor))
                 }
@@ -136,55 +127,5 @@ class HappyDetailActivity :
 
     private fun setIndicator() {
         binding.diHappyAddDetailIndicator.attachTo(binding.vpHappyAddDetailCard)
-    }
-
-    private fun initSetLoading() {
-        val dialog = LoadingIndicator(this@HappyDetailActivity)
-        CoroutineScope(Dispatchers.Main).launch {
-            dialog.show()
-            delay(LOADING_DELAY)
-            dialog.dismiss()
-        }
-    }
-
-    private fun initViewPager() {
-        viewPager.adapter = happyRoutineAddCardPagerAdapter
-
-        val dp = resources.getDimensionPixelSize(R.dimen.view_margin)
-        val d = resources.displayMetrics.density
-        val margin = (dp * d * 0.8).toInt()
-
-        with(binding.vpHappyAddDetailCard) {
-            clipChildren = false
-            clipToPadding = false
-            offscreenPageLimit = 3
-            setPadding(margin, 0, margin, 0)
-        }
-    }
-
-    private fun initPagerDiv(previewWidth: Int, itemMargin: Int) {
-        val decoMargin = previewWidth + itemMargin
-        val pageTransX = decoMargin + previewWidth
-        val decoration = PageDecoration(decoMargin)
-
-        binding.vpHappyAddDetailCard.also {
-            it.offscreenPageLimit = 1
-            it.addItemDecoration(decoration)
-            it.setPageTransformer { page, position ->
-                page.translationX = position * -pageTransX
-            }
-        }
-    }
-
-    private class PageDecoration(private val margin: Int) : RecyclerView.ItemDecoration() {
-        override fun getItemOffsets(
-            outRect: Rect,
-            view: View,
-            parent: RecyclerView,
-            state: RecyclerView.State
-        ) {
-            outRect.left = margin
-            outRect.right = margin
-        }
     }
 }
