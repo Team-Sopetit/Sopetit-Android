@@ -1,44 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
+    <ImageView
+        android:id="@+id/tv_daily_routine_add_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="0.7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <variable
-            name="data"
-            type="com.sopetit.softie.domain.entity.Theme" />
-    </data>
+    <TextView
+        android:id="@+id/tv_daily_routine_add_card_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="44dp"
+        android:layout_marginTop="84dp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:text="@string/daily_routine_add_card_name"
+        android:textAppearance="@style/head1"
+        app:layout_constraintEnd_toEndOf="@id/tv_daily_routine_add_card"
+        app:layout_constraintStart_toStartOf="@id/tv_daily_routine_add_card"
+        app:layout_constraintTop_toTopOf="@id/tv_daily_routine_add_card" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/tv_daily_routine_add_card"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="0.7"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_daily_routine_add_card_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="44dp"
-            android:layout_marginTop="84dp"
-            android:gravity="center"
-            android:lineSpacingExtra="4dp"
-            android:text="@string/daily_routine_add_card_name"
-            android:textAppearance="@style/head1"
-            app:layout_constraintEnd_toEndOf="@id/tv_daily_routine_add_card"
-            app:layout_constraintStart_toStartOf="@id/tv_daily_routine_add_card"
-            app:layout_constraintTop_toTopOf="@id/tv_daily_routine_add_card" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>
