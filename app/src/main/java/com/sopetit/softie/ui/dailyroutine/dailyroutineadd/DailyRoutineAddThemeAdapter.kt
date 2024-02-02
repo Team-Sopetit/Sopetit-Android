@@ -9,7 +9,7 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ItemDailyRoutineAddThemeBinding
 import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.util.ItemDiffCallback
-import com.sopetit.softie.util.binding.BindingAdapter.setBaseCoilImage
+import com.sopetit.softie.util.binding.BindingAdapter.setCoilImage
 import com.sopetit.softie.util.setSingleOnClickListener
 
 class DailyRoutineAddThemeAdapter :
@@ -38,7 +38,7 @@ class DailyRoutineAddThemeAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Theme) {
             binding.tvDailyRoutineAddThemeName.text = data.name
-            binding.ivDailyRoutineAddThemeIcon.setBaseCoilImage(data.iconImageUrl)
+            binding.ivDailyRoutineAddThemeIcon.setCoilImage(data.iconImageUrl)
             if (selectedPosition == absoluteAdapterPosition) {
                 changeThemeBackground(binding, true)
                 changeThemeTextColor(binding, true)
