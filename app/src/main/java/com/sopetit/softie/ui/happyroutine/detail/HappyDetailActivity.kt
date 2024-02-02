@@ -15,6 +15,7 @@ import com.sopetit.softie.ui.LoadingIndicator
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity.Companion.ICON_IMAGE_URL
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity.Companion.ID
 import com.sopetit.softie.ui.onboarding.OnboardingActivity.Companion.LOADING_DELAY
+import com.sopetit.softie.util.HappyFirstAddCheck.happyFirstAdd
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.binding.BindingBottomSheet
@@ -117,7 +118,7 @@ class HappyDetailActivity :
             doBtnAction = {
                 viewModel.postAddRoutine(subRoutineId)
                 moveToProgress()
-                HappyFirstAdd = true
+                happyFirstAdd = true
             }
         ).show(this.supportFragmentManager, OriginalBottomSheet.BOTTOM_SHEET_TAG)
     }
@@ -189,9 +190,5 @@ class HappyDetailActivity :
             outRect.left = margin
             outRect.right = margin
         }
-    }
-
-    companion object {
-        var HappyFirstAdd: Boolean = false
     }
 }

@@ -9,9 +9,9 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyMyRoutineBinding
 import com.sopetit.softie.ui.happyroutine.complete.HappyRoutineCompleteActivity
 import com.sopetit.softie.ui.happyroutine.delete.HappyDeleteFragment
-import com.sopetit.softie.ui.happyroutine.detail.HappyDetailActivity.Companion.HappyFirstAdd
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity
 import com.sopetit.softie.util.CustomSnackbar
+import com.sopetit.softie.util.HappyFirstAddCheck.happyFirstAdd
 import com.sopetit.softie.util.OriginalBottomSheet
 import com.sopetit.softie.util.binding.BindingBottomSheet
 import com.sopetit.softie.util.binding.BindingFragment
@@ -45,9 +45,9 @@ class HappyMyRoutineFragment :
 
     private fun observeHappyProgress() {
         viewModel.isHappinessRoutineProgress.observe(viewLifecycleOwner) { isProgress ->
-            if (isProgress && HappyFirstAdd) {
+            if (isProgress && happyFirstAdd) {
                 customHappyRoutineAddSnackBar()
-                HappyFirstAdd = false
+                happyFirstAdd = false
             }
         }
     }
