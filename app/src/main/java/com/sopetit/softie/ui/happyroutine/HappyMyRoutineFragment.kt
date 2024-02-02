@@ -33,12 +33,12 @@ class HappyMyRoutineFragment :
         binding.viewModel = viewModel
         setStatusBarColor(R.color.background)
 
+        startProgressSnackbar()
         initSetBearFace()
-        setMyCardEnter()
+        setNewCardEnter()
         setCardEnter()
         setEditEnter()
         setClearEnter()
-        startProgressSnackbar()
     }
 
     override fun onResume() {
@@ -74,7 +74,7 @@ class HappyMyRoutineFragment :
         }
     }
 
-    private fun setMyCardEnter() {
+    private fun setNewCardEnter() {
         binding.ivHappyRoutineEmptyCard.setOnClickListener {
             val intent = Intent(context, HappyAddListActivity::class.java)
             resultLauncher.launch(intent)
