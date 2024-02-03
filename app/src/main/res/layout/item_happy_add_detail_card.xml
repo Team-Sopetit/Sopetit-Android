@@ -9,15 +9,18 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingHorizontal="40dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_happy_routine_add_card"
-            android:layout_width="280dp"
-            android:layout_height="398dp"
-            android:visibility="visible"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
+            android:src="@color/background"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="0.7"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -26,6 +29,8 @@
                 android:id="@+id/iv_happy_routine_add_card"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -54,8 +59,8 @@
                 android:layout_marginEnd="22dp"
                 android:layout_marginBottom="22dp"
                 android:src="@drawable/ic_magnify"
-                app:layout_constraintBottom_toBottomOf="@id/iv_happy_routine_add_card"
-                app:layout_constraintEnd_toEndOf="@id/iv_happy_routine_add_card" />
+                app:layout_constraintBottom_toBottomOf="@id/cl_happy_routine_add_card"
+                app:layout_constraintEnd_toEndOf="@id/cl_happy_routine_add_card" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -64,7 +69,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
-            android:visibility="invisible"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@id/cl_happy_routine_add_card"
             app:layout_constraintEnd_toEndOf="@id/cl_happy_routine_add_card"
             app:layout_constraintStart_toStartOf="@id/cl_happy_routine_add_card"
@@ -91,7 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginStart="18dp"
-                android:layout_marginTop="145dp"
+                android:layout_marginTop="140dp"
                 android:layout_marginEnd="18dp"
                 app:dividerColor="@color/gray100"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -107,6 +112,7 @@
                 android:layout_marginTop="17dp"
                 android:layout_marginEnd="20dp"
                 android:breakStrategy="simple"
+                android:includeFontPadding="false"
                 android:lineSpacingMultiplier="1.3"
                 android:textColor="@color/gray400"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -144,7 +150,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginBottom="65dp"
+                android:layout_marginBottom="45dp"
                 android:src="@drawable/ic_place"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

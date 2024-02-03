@@ -65,19 +65,19 @@
             android:id="@+id/vp_happy_add_detail_card"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="24dp"
             android:layout_marginBottom="91dp"
-            android:clipChildren="false"
             android:clipToPadding="false"
             app:layout_constraintBottom_toTopOf="@id/btn_happy_detail_add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_happy_add_detail_subtitle"
-            app:layout_constraintVertical_bias="0" />
+            app:layout_constraintTop_toBottomOf="@id/tv_happy_add_detail_subtitle" />
 
         <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
             android:id="@+id/di_happy_add_detail_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:clickable="false"
             android:foregroundGravity="center"
             app:dotsColor="@color/gray200"
