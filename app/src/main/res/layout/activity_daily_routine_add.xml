@@ -66,8 +66,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginBottom="91dp"
-            android:clipChildren="false"
-            android:clipToPadding="false"
             app:layout_constraintBottom_toTopOf="@id/btn_daily_routine_add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
