@@ -34,7 +34,7 @@ class HappyDetailCardPagerAdapter() :
                 tvHappyRoutineAddCardDetailTitleBack.text =
                     data.content
                 tvHappyRoutineAddCardDetailContentBack.text =
-                    data.detailContent
+                    data.detailContent.replace(" ", "\u00A0")
                 tvHappyRoutineAddCardDetailTimeBack.text =
                     data.timeTaken
                 tvHappyRoutineAddCardDetailPlaceBack.text = data.place
