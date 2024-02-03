@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/tv_daily_routine_add_card"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="280dp"
+        android:layout_height="398dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
