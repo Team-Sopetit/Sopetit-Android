@@ -14,19 +14,12 @@ class BearSelectionViewModel @Inject constructor(
 ) : ViewModel() {
     private val _selectedBearType: MutableLiveData<String> = MutableLiveData(NONE)
     val selectedBearType: LiveData<String> get() = _selectedBearType
-    private val _isBearSelected: MutableLiveData<Boolean> = MutableLiveData(false)
-    val isBearSelected: LiveData<Boolean> get() = _isBearSelected
 
     fun selectBearType(dollType: String) {
         val isSameBearSelected = _selectedBearType.value == dollType
 
-        if (isSameBearSelected) {
-            _selectedBearType.value = NONE
-            _isBearSelected.value = false
-        } else {
-            _selectedBearType.value = dollType
-            _isBearSelected.value = true
-        }
+        if (isSameBearSelected) _selectedBearType.value = NONE
+        else _selectedBearType.value = dollType
     }
 
     fun setBearType() {
