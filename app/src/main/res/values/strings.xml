@@ -6,7 +6,6 @@
     <string name="red">RED</string>
     <string name="white">WHITE</string>
     <string name="gray">GRAY</string>
-    <string name="none"></string>
 
     <!-- util -->
     <string name="finish_app_toast_msg">뒤로가기를 한 번 더 누르면 종료됩니다</string>
