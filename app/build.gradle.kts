@@ -8,6 +8,8 @@ plugins {
     id("kotlin-parcelize")
     id("org.jlleitschuh.gradle.ktlint")
     id("org.jetbrains.kotlin.plugin.serialization") version "1.9.0"
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -33,6 +35,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
 
@@ -108,8 +111,9 @@ dependencies {
     implementation("androidx.exifinterface:exifinterface:1.3.7")
 
     // Firebase
-    implementation(platform("com.google.firebase:firebase-bom:29.0.0"))
-    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation(platform("com.google.firebase:firebase-bom:32.7.3"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-crashlytics")
     implementation("com.google.android.gms:play-services-tagmanager:18.0.4")
 
     // viewPager2
