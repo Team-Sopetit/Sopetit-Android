@@ -17,9 +17,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: gradle
-
+        
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+      
+    - name: Access GOOGLE SERVICES JSON
+      run: echo '${{ secrets.GOOGLE_SERVICES_JSON }}' > ./app/google-services.json
 
     - name: Create Local Properties
       run: touch local.properties
@@ -44,7 +47,7 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_TITLE: 'Sofite/PR Check SUCCESS💚'
         MSG_MINIMAL: true
-        SLACK_USERNAME: Sofite-AOS
+        SLACK_USERNAME: Sofite-Android
         SLACK_MESSAGE: 'PR이 완료되었습니다'
 
     - name: On Failed, Notify in Slack
@@ -55,5 +58,5 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_TITLE: 'Sofite/Android Debug build Fail❌'
         MSG_MINIMAL: true
-        SLACK_USERNAME: Sofite-AOS
+        SLACK_USERNAME: Sofite-Android
         SLACK_MESSAGE: '에러를 확인해주세요'
