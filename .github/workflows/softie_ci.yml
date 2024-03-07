@@ -30,12 +30,13 @@ jobs:
       run: |
         echo BASE_URI=\"$API_KEY\" >> local.properties
 
-    - name: create-json
-      id: create-json
-      uses: jsdaniell/create-json@1.1.2
-      with:
-        name: "google-services.json"
-        json: ${{ secrets.GOOGLE_SERVICE_JSON }}
+    - name: Create Google-Services.json
+      env:
+        GOOGLE_SERVICES: ${{ secrets.GOOGLE_SERVICES }}
+      run: |
+        touch ./app/google-services.json
+        echo $GOOGLE_SERVICES >> ./app/google-services.json
+        cat ./app/google-services.json
         
     - name: Lint Check
       run: ./gradlew ktlintCheck -PcompileSdkVersion=34
