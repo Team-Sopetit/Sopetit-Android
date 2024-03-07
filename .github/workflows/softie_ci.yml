@@ -18,6 +18,14 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
+    - name: Create Google-Services.json
+      env:
+        GOOGLE_SERVICES: ${{ secrets.GOOGLE_SERVICES }}
+      run: |
+        touch ./app/google-services.json
+        echo $GOOGLE_SERVICES > ./app/google-services.json
+        cat ./app/google-services.json
+        
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
@@ -29,14 +37,6 @@ jobs:
         API_KEY: ${{ secrets.API_KEY }}
       run: |
         echo BASE_URI=\"$API_KEY\" >> local.properties
-
-    - name: Create Google-Services.json
-      env:
-        GOOGLE_SERVICES: ${{ secrets.GOOGLE_SERVICES }}
-      run: |
-        touch ./app/google-services.json
-        echo $GOOGLE_SERVICES > ./app/google-services.json
-        cat ./app/google-services.json
         
     - name: Lint Check
       run: ./gradlew ktlintCheck -PcompileSdkVersion=34
