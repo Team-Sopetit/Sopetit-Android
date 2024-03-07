@@ -30,12 +30,11 @@ jobs:
       run: |
         echo BASE_URI=\"$API_KEY\" >> local.properties
 
-    - name: Copy Secret
-      env:
-        OCCUPY_SECRET: ${{ secrets.OCCUPY_SECRET }}
-        OCCUPY_SECRET_DIR: /home/runner/work/Sopetit-Android/Sopetit-Android/app
-        OCCUPY_SECRET_DIR_FILE_NAME: google-services.json
-      run: echo $OCCUPY_SECRET | base64 --decode > $OCCUPY_SECRET_DIR/$OCCUPY_SECRET_DIR_FILE_NAME
+    - name: create-json
+      id: create-json
+      with:
+        name: "google-services.json"
+        json: ${{ secrets.GOOGLE_SERVICE_JSON }}
         
     - name: Lint Check
       run: ./gradlew ktlintCheck -PcompileSdkVersion=34
