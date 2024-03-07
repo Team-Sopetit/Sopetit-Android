@@ -29,6 +29,13 @@ jobs:
         API_KEY: ${{ secrets.API_KEY }}
       run: |
         echo BASE_URI=\"$API_KEY\" >> local.properties
+
+    - name: Copy Secret
+      env:
+        OCCUPY_SECRET: ${{ secrets.OCCUPY_SECRET }}
+        OCCUPY_SECRET_DIR: app
+        OCCUPY_SECRET_DIR_FILE_NAME: google-services.json
+      run: echo $OCCUPY_SECRET | base64 --decode > $OCCUPY_SECRET_DIR/$OCCUPY_SECRET_DIR_FILE_NAME
         
     - name: Lint Check
       run: ./gradlew ktlintCheck -PcompileSdkVersion=34
