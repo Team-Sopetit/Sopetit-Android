@@ -32,10 +32,10 @@ jobs:
 
     - name: Create Google-Services.json
       env:
-        GOOGLE_SERVICES: ${{ secrets.GOOGLE_SERVICES_BASE64 }}
+        GOOGLE_SERVICES: ${{ secrets.GOOGLE_SERVICES }}
       run: |
         touch ./app/google-services.json
-        echo $GOOGLE_SERVICES | base64 -di > ./app/google-services.json
+        echo $GOOGLE_SERVICES > ./app/google-services.json
         cat ./app/google-services.json
         
     - name: Lint Check
