@@ -77,12 +77,14 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_happy_delete_card_front"
-            android:layout_width="280dp"
-            android:layout_height="398dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginTop="24dp"
+            android:layout_marginBottom="41dp"
             android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
             android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@id/btn_happy_delete_clear"
+            app:layout_constraintDimensionRatio="0.7"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_happy_delete_subtitle"
@@ -90,8 +92,10 @@
 
             <ImageView
                 android:id="@+id/iv_happy_delete_card_front"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
                 android:src="@drawable/ic_happy_card_base"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -126,8 +130,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_happy_delete_card_back"
-            android:layout_width="280dp"
-            android:layout_height="398dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/shape_white_fill_gray100_stroke_20_rect"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@id/cl_happy_delete_card_front"
