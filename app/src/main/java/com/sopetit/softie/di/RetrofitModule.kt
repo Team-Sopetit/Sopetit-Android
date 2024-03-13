@@ -50,6 +50,7 @@ object RetrofitModule {
         )
         when (response.code) {
             EXPIRED_TOKEN -> {
+                response.close()
                 runBlocking {
                     refreshTokenRepository.postRefreshToken().onSuccess { accessToken ->
                         refreshTokenRepository.setAccessToken(accessToken.accessToken)
