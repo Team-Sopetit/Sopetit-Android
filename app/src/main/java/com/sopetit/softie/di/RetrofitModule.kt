@@ -15,6 +15,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import javax.inject.Qualifier
 import javax.inject.Singleton
@@ -49,26 +50,29 @@ object RetrofitModule {
                 .build()
         )
         when (response.code) {
-            EXPIRED_TOKEN -> {
-                response.close()
+
+            EXPIRED_TOKEN -> try {
                 runBlocking {
                     refreshTokenRepository.postRefreshToken().onSuccess { accessToken ->
                         refreshTokenRepository.setAccessToken(accessToken.accessToken)
-                        response = chain.proceed(
-                            request
-                                .newBuilder()
-                                .addHeader(CONTENT_TYPE, APPLICATION_JSON)
-                                .addHeader(
-                                    AUTHORIZATION,
-                                    BEARER + localDataSource.accessToken
-                                )
-                                .build()
-                        )
                     }
                 }
+                response.close()
+
+                val newRequest = chain.request()
+                var newResponse = chain.proceed(
+                    newRequest
+                        .newBuilder()
+                        .addHeader(CONTENT_TYPE, APPLICATION_JSON)
+                        .addHeader(AUTHORIZATION, BEARER + localDataSource.accessToken)
+                        .build()
+                )
+                return@Interceptor newResponse
+            } catch (t: Throwable) {
+                Timber.e(t.message)
             }
         }
-        response
+        return@Interceptor response
     }
 
     @Provides
