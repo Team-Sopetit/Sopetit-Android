@@ -28,7 +28,6 @@ class LoginViewModel @Inject constructor(
 
     val kakaoLoginCallback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
         KakaoLoginCallback { accessToken ->
-            _isKakaoLogin.value = true
             initTokenUseCase(
                 accessToken = accessToken,
                 refreshToken = "",
@@ -36,6 +35,7 @@ class LoginViewModel @Inject constructor(
                 isSignedUp = false
             )
         }.handleResult(token, error)
+        _isKakaoLogin.value = true
     }
 
     fun postLogin() {
