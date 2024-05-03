@@ -71,7 +71,7 @@ class DailyRoutineAddViewModel @Inject constructor(
 
     fun getDailyRoutine() {
         viewModelScope.launch {
-            getRoutineDailyThemeListUseCase(themeId.value ?: 6)
+            getRoutineDailyThemeListUseCase(themeId.value ?: _themeList.value?.get(0)?.themeId ?: 5)
                 .onSuccess { response ->
                     _dailyRoutineCardThemeList.value = response
                 }
