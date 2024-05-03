@@ -37,8 +37,8 @@ class DailyRoutineAddActivity :
         setStatusBarColorFromResource(R.color.background)
 
         dailyRoutineAddViewModel.getThemeList()
-        dailyRoutineAddViewModel.themeList.observe(this){list ->
-            if(list.isNotEmpty()){
+        dailyRoutineAddViewModel.themeList.observe(this) { list ->
+            if (list.isNotEmpty()) {
                 dailyRoutineAddViewModel.setThemeId(list[0].themeId)
             }
         }
