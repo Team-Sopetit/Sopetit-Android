@@ -37,7 +37,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginVertical="17dp"
                 android:textAppearance="@style/body3"
-                android:textColor="@color/white"
+                android:textColor="@color/gray0"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/iv_snackbar_custom_check"

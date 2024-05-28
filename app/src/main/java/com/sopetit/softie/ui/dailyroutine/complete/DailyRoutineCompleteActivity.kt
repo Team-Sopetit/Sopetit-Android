@@ -17,7 +17,7 @@ class DailyRoutineCompleteActivity : RoutineCompleteActivity(Cotton.DAILY) {
     private val viewModel by viewModels<DailyRoutineCompleteViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStatusBarColorFromResource(R.color.white)
+        setStatusBarColorFromResource(R.color.gray0)
 
         setDailyRoutineImage()
     }

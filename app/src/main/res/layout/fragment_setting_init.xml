@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@color/gray0"
         android:fitsSystemWindows="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,7 +43,7 @@
                 android:layout_marginStart="8dp"
                 android:text="@string/setting_user_security"
                 android:textAppearance="@style/body2"
-                android:textColor="@color/gray600"
+                android:textColor="@color/gray700"
                 app:layout_constraintBottom_toBottomOf="@id/iv_setting_init_user_security"
                 app:layout_constraintStart_toEndOf="@id/iv_setting_init_user_security"
                 app:layout_constraintTop_toTopOf="@id/iv_setting_init_user_security" />
@@ -98,7 +98,7 @@
                 android:layout_marginStart="8dp"
                 android:text="@string/setting_document"
                 android:textAppearance="@style/body2"
-                android:textColor="@color/gray600"
+                android:textColor="@color/gray700"
                 app:layout_constraintBottom_toBottomOf="@id/iv_setting_init_document"
                 app:layout_constraintStart_toEndOf="@id/iv_setting_init_document"
                 app:layout_constraintTop_toTopOf="@id/iv_setting_init_document" />
@@ -152,7 +152,7 @@
                 android:layout_marginStart="8dp"
                 android:text="@string/setting_feedback"
                 android:textAppearance="@style/body2"
-                android:textColor="@color/gray600"
+                android:textColor="@color/gray700"
                 app:layout_constraintBottom_toBottomOf="@id/iv_setting_init_feedback"
                 app:layout_constraintStart_toEndOf="@id/iv_setting_init_feedback"
                 app:layout_constraintTop_toTopOf="@id/iv_setting_init_feedback" />
@@ -196,7 +196,7 @@
                 android:layout_marginStart="20dp"
                 android:text="@string/setting_version"
                 android:textAppearance="@style/body2"
-                android:textColor="@color/gray600"
+                android:textColor="@color/gray700"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -221,7 +221,7 @@
             android:paddingVertical="10dp"
             android:text="@string/setting_logout"
             android:textAppearance="@style/body4"
-            android:textColor="@color/gray300"
+            android:textColor="@color/gray400"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/divider_setting_init_version" />
 
@@ -232,7 +232,7 @@
             android:paddingVertical="10dp"
             android:text="@string/setting_user_exit"
             android:textAppearance="@style/body4"
-            android:textColor="@color/gray300"
+            android:textColor="@color/gray400"
             app:layout_constraintStart_toStartOf="@id/btn_setting_init_logout"
             app:layout_constraintTop_toBottomOf="@id/btn_setting_init_logout" />
 

@@ -80,7 +80,7 @@
             android:layout_marginTop="30dp"
             android:clickable="false"
             android:foregroundGravity="center"
-            app:dotsColor="@color/gray200"
+            app:dotsColor="@color/gray300"
             app:dotsSize="6dp"
             app:dotsSpacing="6dp"
             app:dotsWidthFactor="1"
@@ -100,7 +100,7 @@
             android:outlineProvider="none"
             android:text="@string/happy_detail_button"
             android:textAppearance="@style/body1"
-            android:textColor="@color/gray000"
+            android:textColor="@color/gray100"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

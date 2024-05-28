@@ -5,18 +5,31 @@
     <color name="main2">#FFFFF7E6</color>
 
     <!-- gray -->
-    <color name="white">#FFFFFFFF</color>
-    <color name="gray000">#FFF4F4F4</color>
-    <color name="gray100">#FFE9EBED</color>
-    <color name="gray200">#FFCACDD2</color>
-    <color name="gray300">#FF9FA4A9</color>
-    <color name="gray400">#FF73787E</color>
-    <color name="gray500">#FF464C52</color>
-    <color name="gray600">#FF26282B</color>
-    <color name="gray700">#FF1B1D1F</color>
+    <color name="gray0">#FFFFFFFF</color>
+    <color name="gray50">#FFF8F8F8</color>
+    <color name="gray100">#FFF4F4F4</color>
+    <color name="gray200">#FFE9EBED</color>
+    <color name="gray300">#FFCACDD2</color>
+    <color name="gray400">#FF9FA4A9</color>
+    <color name="gray500">#FF73787E</color>
+    <color name="gray600">#FF464C52</color>
+    <color name="gray650">#FF4A4A4A</color>
+    <color name="gray700">#FF26282B</color>
+    <color name="gray800">#FF1B1D1F</color>
+    <color name="gray950">#80000000</color>
+    <color name="gray1000">#E3000000</color>
 
-    <!-- system -->
-    <color name="red">#FFF76D6D</color>
+    <!-- red -->
+    <color name="red200">#FFF76D6D</color>
+
+    <!-- brown -->
+    <color name="brown100">#FFD4BBA5</color>
+    <color name="brown200">#FFC4AC98</color>
+
+    <!-- purple -->
+    <color name="purple200">#FF8E77F5</color>
+    <color name="purple_gradient_0">#FFAE9CFF</color>
+    <color name="purple_gradient_100">#FFE09EFF</color>
 
     <!-- back -->
     <color name="background_home">#FFFBF9F1</color>
@@ -30,8 +43,6 @@
     <color name="happyroutine_orange">#FFF27400</color>
 
     <!-- home name -->
-    <color name="name_fill">#FFD4BBA5</color>
-    <color name="name_stroke">#FFC4AC98</color>
     <color name="home_background">#FFFBF9F1</color>
     <color name="home_background_error">#FFE0C8B3</color>
 

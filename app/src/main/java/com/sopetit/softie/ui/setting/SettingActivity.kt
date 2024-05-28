@@ -18,7 +18,7 @@ class SettingActivity : BindingActivity<ActivitySettingBinding>(R.layout.activit
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.viewModel = viewModel
-        setStatusBarColorFromResource(R.color.white)
+        setStatusBarColorFromResource(R.color.gray0)
 
         initMakeInitFragment()
         initChangeFragment()

@@ -17,7 +17,7 @@ class HappyRoutineCompleteActivity : RoutineCompleteActivity(Cotton.HAPPINESS) {
     private val viewModel by viewModels<HappyRoutineCompleteViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStatusBarColorFromResource(R.color.white)
+        setStatusBarColorFromResource(R.color.gray0)
 
         setHappyRoutineImage()
     }

@@ -45,7 +45,7 @@ class SettingUserExitFragment :
                     ForegroundColorSpan(
                         ContextCompat.getColor(
                             requireActivity(),
-                            R.color.red
+                            R.color.red200
                         )
                     ),
                     SETTING_SPAN_START,

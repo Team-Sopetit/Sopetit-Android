@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="1dp"
             android:layout_marginTop="12dp"
-            app:dividerColor="@color/gray100"
+            app:dividerColor="@color/gray200"
             app:layout_constraintBottom_toTopOf="@id/rv_happy_add_list"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

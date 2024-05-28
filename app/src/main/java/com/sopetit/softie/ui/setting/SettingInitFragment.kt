@@ -80,7 +80,7 @@ class SettingInitFragment :
                 title = getString(R.string.user_logout_title),
                 content = getString(R.string.user_logout_content),
                 isContentVisible = true,
-                contentColor = R.color.gray300,
+                contentColor = R.color.gray400,
                 backBtnContent = getString(R.string.user_logout_back),
                 doBtnContent = getString(R.string.user_logout_exit),
                 doBtnColor = R.drawable.shape_red_fill_12_rect,

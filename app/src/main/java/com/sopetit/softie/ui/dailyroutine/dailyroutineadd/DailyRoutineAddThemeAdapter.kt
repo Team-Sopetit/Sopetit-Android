@@ -87,7 +87,7 @@ class DailyRoutineAddThemeAdapter :
                 binding.tvDailyRoutineAddThemeName.setTextColor(
                     ContextCompat.getColor(
                         binding.root.context,
-                        R.color.gray700
+                        R.color.gray800
                     )
                 )
             }
@@ -96,7 +96,7 @@ class DailyRoutineAddThemeAdapter :
                 binding.tvDailyRoutineAddThemeName.setTextColor(
                     ContextCompat.getColor(
                         binding.root.context,
-                        R.color.gray400
+                        R.color.gray500
                     )
                 )
             }

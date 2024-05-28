@@ -26,7 +26,7 @@
             android:gravity="center"
             android:lineSpacingExtra="4dp"
             android:text="@string/bear_naming_question"
-            android:textColor="@color/gray700"
+            android:textColor="@color/gray800"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/bear_naming_subtitle"
-            android:textColor="@color/gray400"
+            android:textColor="@color/gray500"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_bear_naming_question" />
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@{viewModel.isLengthExceed?@string/bear_naming_length_warning : @string/bear_naming_special_character_warning}"
-            android:textColor="@color/red"
+            android:textColor="@color/red200"
             android:visibility="@{viewModel.isWarning? View.VISIBLE: View.INVISIBLE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -102,7 +102,7 @@
             android:enabled="@{viewModel.isNickNameValid ? true : false}"
             android:text="@string/bear_naming_button"
             android:textAppearance="@style/body1"
-            android:textColor="@color/gray000"
+            android:textColor="@color/gray100"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

@@ -39,7 +39,7 @@
             android:paddingVertical="12dp"
             android:text="@{viewModel.isDeleteView ? @string/daily_routine_edit_cancel : @string/daily_routine_edit}"
             android:textAppearance="@style/body4"
-            android:textColor="@color/gray400"
+            android:textColor="@color/gray500"
             app:layout_constraintBottom_toBottomOf="@id/tv_daily_routine_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_daily_routine_name" />
@@ -123,7 +123,7 @@
                 android:layout_marginBottom="21dp"
                 android:text="@{@string/daily_routine_ing(viewModel.dailyRoutineListResponse[0].achieveCount)}"
                 android:textAppearance="@style/caption1"
-                android:textColor="@color/gray300"
+                android:textColor="@color/gray400"
                 app:layout_constraintStart_toEndOf="@id/iv_daily_routine_fin_first"
                 app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_add_name_first" />
 
@@ -143,7 +143,7 @@
                 android:paddingBottom="11dp"
                 android:text="@{viewModel.isRoutineAchieveFirst ? @string/daily_routine_fin : @string/daily_routine_fin_btn}"
                 android:textAppearance="@style/body4"
-                android:textColor="@color/white"
+                android:textColor="@color/gray0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -225,7 +225,7 @@
                 android:layout_marginBottom="21dp"
                 android:text="@{@string/daily_routine_ing(viewModel.dailyRoutineListResponse[1].achieveCount)}"
                 android:textAppearance="@style/caption1"
-                android:textColor="@color/gray300"
+                android:textColor="@color/gray400"
                 app:layout_constraintStart_toEndOf="@id/iv_daily_routine_fin_second"
                 app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_add_name_second" />
 
@@ -242,7 +242,7 @@
                 android:outlineProvider="none"
                 android:text="@{viewModel.isRoutineAchieveSecond ? @string/daily_routine_fin : @string/daily_routine_fin_btn}"
                 android:textAppearance="@style/body4"
-                android:textColor="@color/white"
+                android:textColor="@color/gray0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -322,7 +322,7 @@
                 android:layout_marginBottom="21dp"
                 android:text="@{@string/daily_routine_ing(viewModel.dailyRoutineListResponse[2].achieveCount)}"
                 android:textAppearance="@style/caption1"
-                android:textColor="@color/gray300"
+                android:textColor="@color/gray400"
                 app:layout_constraintStart_toEndOf="@id/iv_daily_routine_fin_third"
                 app:layout_constraintTop_toBottomOf="@id/tv_daily_routine_add_name_third" />
 
@@ -342,7 +342,7 @@
                 android:paddingBottom="11dp"
                 android:text="@{viewModel.isRoutineAchieveThird ? @string/daily_routine_fin : @string/daily_routine_fin_btn}"
                 android:textAppearance="@style/body4"
-                android:textColor="@color/white"
+                android:textColor="@color/gray0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -388,7 +388,7 @@
             android:paddingBottom="18dp"
             android:text="@{@string/daily_routine_edit_delete(viewModel.editRoutineIdArray.size)}"
             android:textAppearance="@style/body1"
-            android:textColor="@color/gray000"
+            android:textColor="@color/gray100"
             android:visibility="@{viewModel.isDeleteView ? View.VISIBLE : View.INVISIBLE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -50,7 +50,7 @@ class OriginalBottomSheet : BindingBottomSheet() {
 
     override fun setContentColor() {
         binding.tvBottomSheetContent.setTextColor(
-            ContextCompat.getColor(requireContext(), contentColor ?: R.color.gray400)
+            ContextCompat.getColor(requireContext(), contentColor ?: R.color.gray500)
         )
     }
 

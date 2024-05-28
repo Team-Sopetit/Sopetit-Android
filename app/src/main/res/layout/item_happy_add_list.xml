@@ -46,7 +46,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/happy_add_list_item_content"
             android:textAppearance="@style/body2"
-            android:textColor="@color/gray700"
+            android:textColor="@color/gray800"
             app:layout_constraintStart_toEndOf="@id/iv_happy_list_item_icon"
             app:layout_constraintTop_toBottomOf="@id/tv_happy_list_item_title" />
 

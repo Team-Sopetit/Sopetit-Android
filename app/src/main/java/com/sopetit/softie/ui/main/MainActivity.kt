@@ -61,7 +61,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         binding.bnvMain.itemIconTintList = null
 
         val selectedTextColor = ContextCompat.getColor(this, R.color.main1)
-        val unselectedTextColor = ContextCompat.getColor(this, R.color.gray200)
+        val unselectedTextColor = ContextCompat.getColor(this, R.color.gray300)
 
         binding.bnvMain.itemTextColor = ColorStateList(
             arrayOf(
