@@ -47,6 +47,9 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         setClickListener()
         setObserveHomeResponse()
         moveToPaymentView()
+
+        val bottomSheet = HomeTutorialFragment()
+        bottomSheet.show(requireActivity().supportFragmentManager, "HomeTutorialFragment")
     }
 
     private fun setLottiesListener() {
