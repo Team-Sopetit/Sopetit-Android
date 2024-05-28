@@ -180,7 +180,7 @@ class DailyRoutineAddActivity :
                 contentColor = R.color.gray500,
                 backBtnContent = getString(R.string.daily_routine_add_no),
                 doBtnContent = getString(R.string.daily_routine_add_yes),
-                doBtnColor = R.drawable.shape_main1_fill_12_rect,
+                doBtnColor = R.drawable.shape_gray650_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {
                     tossMsg()

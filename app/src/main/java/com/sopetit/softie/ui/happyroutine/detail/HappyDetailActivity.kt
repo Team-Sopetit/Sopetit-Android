@@ -99,10 +99,10 @@ class HappyDetailActivity :
             title = getString(R.string.happy_add_bottom_sheet_title),
             content = "",
             isContentVisible = true,
-            contentColor = R.color.main1,
+            contentColor = R.color.gray650,
             backBtnContent = getString(R.string.happy_add_bottom_sheet_back_btn),
             doBtnContent = getString(R.string.happy_add_bottom_sheet_do_btn),
-            doBtnColor = R.drawable.shape_main1_fill_12_rect,
+            doBtnColor = R.drawable.shape_gray650_fill_12_rect,
             backBtnAction = {},
             doBtnAction = {
                 viewModel.postAddRoutine(subRoutineId)

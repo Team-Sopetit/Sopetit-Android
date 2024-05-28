@@ -60,7 +60,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
     private fun setBottomNavigationTint() {
         binding.bnvMain.itemIconTintList = null
 
-        val selectedTextColor = ContextCompat.getColor(this, R.color.main1)
+        val selectedTextColor = ContextCompat.getColor(this, R.color.gray650)
         val unselectedTextColor = ContextCompat.getColor(this, R.color.gray300)
 
         binding.bnvMain.itemTextColor = ColorStateList(

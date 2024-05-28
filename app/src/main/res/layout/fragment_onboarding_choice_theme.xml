@@ -42,7 +42,7 @@
             android:text="@string/onboarding_choice_theme_btn"
             android:textAppearance="@style/body1"
             android:textColor="@color/gray100"
-            android:background="@{themeViewModel.themeBtnEnabled ? @drawable/shape_main1_fill_12_rect : @drawable/shape_gray200_fill_12_rect}"
+            android:background="@{themeViewModel.themeBtnEnabled ? @drawable/shape_gray650_fill_12_rect : @drawable/shape_gray300_fill_12_rect}"
             android:enabled="@{themeViewModel.themeBtnEnabled ? true : false}"
             android:clickable="@{themeViewModel.themeBtnEnabled ? true : false}"
             android:outlineProvider="none"

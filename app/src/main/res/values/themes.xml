@@ -21,7 +21,7 @@
     </style>
 
     <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/shape_gray000_fill_top20_rect</item>
+        <item name="android:background">@drawable/shape_gray100_fill_top20_rect</item>
     </style>
 
     <!-- Chip Style -->

@@ -35,8 +35,8 @@ class SplashActivity :
         when (Random.nextInt(1, 5)) {
             1 -> initSplash(R.drawable.ic_splash1, R.color.main2, binding.ivSplash1Bear)
             2 -> initSplash(R.drawable.ic_splash2, R.color.main2, binding.ivSplash23Bear)
-            3 -> initSplash(R.drawable.ic_splash3, R.color.main1, binding.ivSplash23Bear)
-            4 -> initSplash(R.drawable.ic_splash4, R.color.main1, binding.ivSplash4Bear)
+            3 -> initSplash(R.drawable.ic_splash3, R.color.gray650, binding.ivSplash23Bear)
+            4 -> initSplash(R.drawable.ic_splash4, R.color.gray650, binding.ivSplash4Bear)
         }
     }
 
@@ -53,15 +53,15 @@ class SplashActivity :
     }
 
     private fun setLogoImg(color: Int) {
-        if (color == R.color.main1) binding.ivSplashLogo.setImageResource(R.drawable.ic_logo_main2)
+        if (color == R.color.gray650) binding.ivSplashLogo.setImageResource(R.drawable.ic_logo_main2)
         else binding.ivSplashLogo.setImageResource(R.drawable.ic_logo_main1)
     }
 
     private fun setServiceIntroduceImg(color: Int) {
-        if (color == R.color.main1) binding.tvSplashSubtitle.setTextColor(
+        if (color == R.color.gray650) binding.tvSplashSubtitle.setTextColor(
             ContextCompat.getColor(this, R.color.main2)
         )
-        else binding.tvSplashSubtitle.setTextColor(ContextCompat.getColor(this, R.color.main1))
+        else binding.tvSplashSubtitle.setTextColor(ContextCompat.getColor(this, R.color.gray650))
     }
 
     private fun makeSplashImg(image: Int) {

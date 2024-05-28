@@ -83,7 +83,7 @@ class SettingInitFragment :
                 contentColor = R.color.gray400,
                 backBtnContent = getString(R.string.user_logout_back),
                 doBtnContent = getString(R.string.user_logout_exit),
-                doBtnColor = R.drawable.shape_red_fill_12_rect,
+                doBtnColor = R.drawable.shape_red200_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {
                     viewModel.setLogOut()

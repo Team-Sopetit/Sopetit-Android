@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_white_fill_12_rect">
+        android:background="@drawable/shape_gray0_fill_12_rect">
 
         <TextView
             android:id="@+id/tv_update_force_dialog_title"

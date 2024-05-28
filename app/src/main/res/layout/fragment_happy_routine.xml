@@ -75,7 +75,7 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/shape_white_fill_gray000_stroke_radius_20"
+                android:src="@drawable/shape_gray0_fill_gray100_stroke_radius_20"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

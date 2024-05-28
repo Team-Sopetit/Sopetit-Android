@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- main -->
-    <color name="main1">#FF4A4A4A</color>
     <color name="main2">#FFFFF7E6</color>
 
     <!-- gray -->

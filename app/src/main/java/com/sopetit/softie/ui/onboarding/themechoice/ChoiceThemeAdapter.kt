@@ -81,11 +81,11 @@ class ChoiceThemeAdapter :
     ) {
         when (selected) {
             true -> {
-                binding.ivThemeBackground.setBackgroundResource(R.drawable.shape_gray100_fill_gray400_stroke_100_circle)
+                binding.ivThemeBackground.setBackgroundResource(R.drawable.shape_gray200_fill_gray500_stroke_100_circle)
             }
 
             false -> {
-                binding.ivThemeBackground.setBackgroundResource(R.drawable.shape_white_fill_gray100_stroke_100_circle)
+                binding.ivThemeBackground.setBackgroundResource(R.drawable.shape_gray0_fill_gray200_stroke_100_circle)
             }
         }
     }

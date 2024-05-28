@@ -90,7 +90,7 @@ class HappyDeleteFragment :
                 contentColor = R.color.gray500,
                 backBtnContent = getString(R.string.happy_delete_bottom_sheet_back_btn),
                 doBtnContent = getString(R.string.happy_delete_bottom_sheet_do_btn),
-                doBtnColor = R.drawable.shape_red_fill_12_rect,
+                doBtnColor = R.drawable.shape_red200_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {
                     viewModel.happyProgressResponse.observe(viewLifecycleOwner) { happyProgress ->
