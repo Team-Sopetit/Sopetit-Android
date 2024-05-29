@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.data.entity.request.PostMemberRequest
 import com.sopetit.softie.domain.entity.Routine
 import com.sopetit.softie.domain.usecase.dailyroutine.GetRoutineListUseCase
-import com.sopetit.softie.domain.usecase.local.InitSIgnUpStateUseCase
+import com.sopetit.softie.domain.usecase.local.InitIsSignUpStateUseCase
 import com.sopetit.softie.domain.usecase.member.PostMemberUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -18,7 +18,7 @@ import javax.inject.Inject
 class RoutineChoiceViewModel @Inject constructor(
     private val getRoutineListUseCase: GetRoutineListUseCase,
     private val postMemberUseCase: PostMemberUseCase,
-    private val initSIgnUpStateUseCase: InitSIgnUpStateUseCase
+    private val initIsSignUpStateUseCase: InitIsSignUpStateUseCase
 ) : ViewModel() {
 
     private val _routineList = MutableLiveData<List<Routine>>()
@@ -67,10 +67,10 @@ class RoutineChoiceViewModel @Inject constructor(
                 )
             ).onSuccess {
                 _isPostNewMember.value = true
-                initSIgnUpStateUseCase(true)
+                initIsSignUpStateUseCase(true)
             }.onFailure { throwable ->
                 _isPostNewMember.value = false
-                initSIgnUpStateUseCase(false)
+                initIsSignUpStateUseCase(false)
                 Timber.e("서버 통신 실패 ${throwable.message}")
             }
         }
