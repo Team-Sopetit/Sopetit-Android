@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHomeTutorialBottomsheetBinding
 import com.sopetit.softie.domain.entity.Tutorial
+import java.lang.reflect.Field
 
 class HomeTutorialFragment : BottomSheetDialogFragment() {
 
@@ -52,6 +54,7 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
         setupAdapter()
         setupIndicators()
         updateIndicators()
+        setBottomSheetCallback()
     }
 
     private fun setupAdapter() {
@@ -118,6 +121,29 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
                 imageView.setImageDrawable(
                     ContextCompat.getDrawable(requireContext(), R.drawable.ic_indicator_unselected)
                 )
+            }
+        }
+    }
+    private fun setBottomSheetCallback() {
+        dialog?.let { dialog ->
+            try {
+                val behaviorField: Field = dialog.javaClass.getDeclaredField("behavior")
+                behaviorField.isAccessible = true
+                val behavior = behaviorField.get(dialog) as BottomSheetBehavior<*>
+                behavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+
+                    override fun onStateChanged(bottomSheet: View, newState: Int) {
+                        if (newState == BottomSheetBehavior.STATE_DRAGGING) {
+                            behavior.state = BottomSheetBehavior.STATE_EXPANDED
+                        }
+                    }
+
+                    override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                        // Do nothing
+                    }
+                })
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
     }
