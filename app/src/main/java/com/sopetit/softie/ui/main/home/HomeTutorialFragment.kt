@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
-import androidx.core.view.marginLeft
-import androidx.core.view.marginStart
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.sopetit.softie.R
@@ -42,8 +40,15 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewPager = binding.vpTutorial
+
+        setupAdapter()
+        setupIndicators()
+        updateIndicators()
+    }
+
+    private fun setupAdapter() {
         homeTutorialAdapter = HomeTutorialAdapter()
+        viewPager = binding.vpTutorial
         binding.vpTutorial.adapter = homeTutorialAdapter
         binding.vpTutorial.registerOnPageChangeCallback(pageCallback)
         homeTutorialAdapter.submitList(
@@ -53,8 +58,6 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
                 Tutorial(2, R.drawable.tutorial_cotton)
             )
         )
-        setupIndicators()
-        updateIndicators()
     }
 
     private fun setupIndicators() {

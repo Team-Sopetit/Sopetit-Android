@@ -52,7 +52,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         bottomSheet.show(requireActivity().supportFragmentManager, "HomeTutorialFragment")
     }
 
-    private fun setLottiesListener() {
+    private fun setLottieListener() {
         setLottieListener(helloLottie)
         setLottieListener(dailyLottie)
         setLottieListener(happinessLottie)
@@ -85,7 +85,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     }
 
     private fun setClickListener() {
-        setLottiesListener()
+        setLottieListener()
         setClickSetting()
         setClickBear()
         setClickDaily()
