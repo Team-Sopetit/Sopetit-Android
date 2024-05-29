@@ -35,10 +35,12 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
     override fun onStart() {
         super.onStart()
         if (dialog != null) {
-            val touchSideView = dialog!!.window?.decorView?.findViewById<View>(com.google.android.material.R.id.touch_outside)
+            val touchSideView =
+                dialog!!.window?.decorView?.findViewById<View>(com.google.android.material.R.id.touch_outside)
             touchSideView?.setOnClickListener { null }
         }
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -60,8 +62,10 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
     private fun setupAdapter() {
         homeTutorialAdapter = HomeTutorialAdapter()
         viewPager = binding.vpTutorial
-        binding.vpTutorial.adapter = homeTutorialAdapter
-        binding.vpTutorial.registerOnPageChangeCallback(pageCallback)
+        with(binding.vpTutorial) {
+            adapter = homeTutorialAdapter
+            registerOnPageChangeCallback(pageCallback)
+        }
         homeTutorialAdapter.submitList(
             listOf(
                 Tutorial(TUTORIAL_DAILY, R.drawable.tutorial_daily),
@@ -124,6 +128,7 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
             }
         }
     }
+
     private fun setBottomSheetCallback() {
         dialog?.let { dialog ->
             try {

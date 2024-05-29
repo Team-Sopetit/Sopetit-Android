@@ -38,6 +38,12 @@ class AuthRepositoryImpl @Inject constructor(
         localDataSource.bearType = bearType
     }
 
+    override fun getTutorial(): Boolean = localDataSource.isHomeTutorial
+
+    override fun setTutorial(isTutorial: Boolean) {
+        localDataSource.isHomeTutorial = isTutorial
+    }
+
     override fun getSignedUp(): Boolean = localDataSource.isUserSignUp
     override fun getMember(): Boolean = localDataSource.isMemberDollExist
 
