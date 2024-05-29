@@ -30,6 +30,13 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
     }
     private lateinit var homeTutorialAdapter: HomeTutorialAdapter
 
+    override fun onStart() {
+        super.onStart()
+        if (dialog != null) {
+            val touchSideView = dialog!!.window?.decorView?.findViewById<View>(com.google.android.material.R.id.touch_outside)
+            touchSideView?.setOnClickListener { null }
+        }
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
