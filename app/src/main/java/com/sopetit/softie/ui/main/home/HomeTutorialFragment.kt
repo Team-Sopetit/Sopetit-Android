@@ -23,6 +23,7 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 currentIndex = position
+                updateTitle()
                 updateIndicators()
             }
         }
@@ -53,9 +54,9 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
         binding.vpTutorial.registerOnPageChangeCallback(pageCallback)
         homeTutorialAdapter.submitList(
             listOf(
-                Tutorial(0, R.drawable.tutorial_daily),
-                Tutorial(1, R.drawable.tutorial_challenge),
-                Tutorial(2, R.drawable.tutorial_cotton)
+                Tutorial(TUTORIAL_DAILY, R.drawable.tutorial_daily),
+                Tutorial(TUTORIAL_CHALLENGE, R.drawable.tutorial_challenge),
+                Tutorial(TUTORIAL_COTTON, R.drawable.tutorial_cotton)
             )
         )
     }
@@ -73,12 +74,29 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
                     ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
                 ).apply {
-                    setMargins(8, 0, 8, 0)
+                    setMargins(
+                        INDICATOR_HORIZONTAL_MARGIN,
+                        INDICATOR_VERTICAL_MARGIN,
+                        INDICATOR_HORIZONTAL_MARGIN,
+                        INDICATOR_VERTICAL_MARGIN
+                    )
                 }
             }
         }
         indicators.forEach { indicator ->
             binding.llTutorialIndicator.addView(indicator)
+        }
+    }
+
+    private fun updateTitle() {
+        binding.tvTutorialTitle.text = when (currentIndex) {
+            TUTORIAL_COTTON -> getString(R.string.home_tutorial_title_cotton)
+            else -> getString(R.string.home_tutorial_title_routine)
+        }
+
+        binding.btnNext.text = when (currentIndex) {
+            TUTORIAL_COTTON -> getString(R.string.home_tutorial_btn_start)
+            else -> getString(R.string.home_tutorial_btn_next)
         }
     }
 
@@ -101,5 +119,13 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
         super.onDestroyView()
         _binding = null
         viewPager.unregisterOnPageChangeCallback(pageCallback)
+    }
+
+    companion object {
+        const val INDICATOR_VERTICAL_MARGIN = 0
+        const val INDICATOR_HORIZONTAL_MARGIN = 8
+        const val TUTORIAL_DAILY = 0
+        const val TUTORIAL_CHALLENGE = 1
+        const val TUTORIAL_COTTON = 2
     }
 }

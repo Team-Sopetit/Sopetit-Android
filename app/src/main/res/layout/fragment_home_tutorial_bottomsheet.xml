@@ -51,6 +51,7 @@
             app:layout_constraintTop_toBottomOf="@id/vp_tutorial" />
 
         <TextView
+            android:id="@+id/btn_next"
             style="@style/body1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
