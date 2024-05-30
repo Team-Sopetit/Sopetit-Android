@@ -6,12 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHomeTutorialBottomsheetBinding
 import com.sopetit.softie.domain.entity.Tutorial
+import com.sopetit.softie.ui.main.home.HomeFragment.Companion.FINISH
+import com.sopetit.softie.ui.main.home.HomeFragment.Companion.REQUEST_KEY
+import com.sopetit.softie.ui.main.home.HomeFragment.Companion.RESULT_KEY
 import java.lang.reflect.Field
 
 class HomeTutorialFragment : BottomSheetDialogFragment() {
@@ -34,11 +39,7 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        if (dialog != null) {
-            val touchSideView =
-                dialog!!.window?.decorView?.findViewById<View>(com.google.android.material.R.id.touch_outside)
-            touchSideView?.setOnClickListener { null }
-        }
+        preventHorizontalSliding()
     }
 
     override fun onCreateView(
@@ -53,10 +54,30 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setBtnAction()
         setupAdapter()
         setupIndicators()
         updateIndicators()
         setBottomSheetCallback()
+    }
+
+    private fun setBtnAction() {
+        binding.btnNext.setOnClickListener {
+            if (currentIndex == TUTORIAL_COTTON) {
+                setFragmentResult(REQUEST_KEY, bundleOf(RESULT_KEY to FINISH))
+                dismiss()
+            } else {
+                viewPager.currentItem = currentIndex + 1
+            }
+        }
+    }
+
+    private fun preventHorizontalSliding() {
+        if (dialog != null) {
+            val touchSideView =
+                dialog!!.window?.decorView?.findViewById<View>(com.google.android.material.R.id.touch_outside)
+            touchSideView?.setOnClickListener { null }
+        }
     }
 
     private fun setupAdapter() {

@@ -7,7 +7,9 @@ import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.domain.entity.Cotton
 import com.sopetit.softie.domain.entity.Home
 import com.sopetit.softie.domain.usecase.local.GetBearTypeUseCase
+import com.sopetit.softie.domain.usecase.local.GetIsTutorialUseCase
 import com.sopetit.softie.domain.usecase.local.SetBearTypeUseCase
+import com.sopetit.softie.domain.usecase.local.SetIsTutorialUseCase
 import com.sopetit.softie.domain.usecase.member.GetHomeUseCase
 import com.sopetit.softie.domain.usecase.member.PatchCottonUseCase
 import com.sopetit.softie.ui.main.home.HomeFragment.Companion.RUN_OUT
@@ -21,7 +23,9 @@ class HomeViewModel @Inject constructor(
     private val getBearTypeUseCase: GetBearTypeUseCase,
     private val getHomeUseCase: GetHomeUseCase,
     private val patchCottonUseCase: PatchCottonUseCase,
-    private val setBearTypeUseCase: SetBearTypeUseCase
+    private val setBearTypeUseCase: SetBearTypeUseCase,
+    private val getIsTutorialUseCase: GetIsTutorialUseCase,
+    private val setIsTutorialUseCase: SetIsTutorialUseCase
 ) : ViewModel() {
     private val _homeResponse = MutableLiveData<Home>()
     val homeResponse: LiveData<Home> get() = _homeResponse
@@ -30,10 +34,16 @@ class HomeViewModel @Inject constructor(
 
     private val _helloLottieVisible: MutableLiveData<Boolean> = MutableLiveData(false)
     val helloLottieVisible: LiveData<Boolean> get() = _helloLottieVisible
+    private val _isHomeTutorial: MutableLiveData<Boolean> = MutableLiveData(false)
+    val isHomeTutorial: LiveData<Boolean> get() = _isHomeTutorial
     private val _dailyLottieVisible: MutableLiveData<Boolean> = MutableLiveData(true)
     val dailyLottieVisible: LiveData<Boolean> get() = _dailyLottieVisible
     private val _happinessLottieVisible: MutableLiveData<Boolean> = MutableLiveData(false)
     val happinessLottieVisible: LiveData<Boolean> get() = _happinessLottieVisible
+
+    init {
+        checkHomeTutorial()
+    }
 
     fun getBearType(): String {
         return getBearTypeUseCase()
@@ -101,5 +111,14 @@ class HomeViewModel @Inject constructor(
             Cotton.HAPPINESS -> _homeResponse.value?.copy(happinessCottonCount = cottonCount - 1)
         }
         _homeResponse.value = changeData ?: homeResponse.value
+    }
+
+    private fun checkHomeTutorial() {
+        _isHomeTutorial.value = getIsTutorialUseCase()
+    }
+
+    fun updateHomeTutorial() {
+        _isHomeTutorial.value = false
+        setIsTutorialUseCase(isHomeTutorial.value ?: false)
     }
 }
