@@ -39,7 +39,7 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        preventHorizontalSliding()
+        preventVerticalSliding()
     }
 
     override fun onCreateView(
@@ -72,7 +72,7 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
         }
     }
 
-    private fun preventHorizontalSliding() {
+    private fun preventVerticalSliding() {
         if (dialog != null) {
             val touchSideView =
                 dialog!!.window?.decorView?.findViewById<View>(com.google.android.material.R.id.touch_outside)
