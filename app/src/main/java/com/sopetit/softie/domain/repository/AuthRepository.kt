@@ -19,4 +19,6 @@ interface AuthRepository {
     suspend fun logOut(): Result<Unit>
     fun getBearType(): String
     fun setBearType(bearType: String)
+    fun getTutorial(): Boolean
+    fun setTutorial(isTutorial: Boolean)
 }

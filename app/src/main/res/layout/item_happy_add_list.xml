@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="101dp"
         android:layout_marginHorizontal="20dp"
-        android:background="@drawable/shape_white_fill_gray000_stroke_radius_20">
+        android:background="@drawable/shape_gray0_fill_gray100_stroke_radius_20">
 
         <ImageView
             android:id="@+id/iv_happy_list_item_icon"
@@ -46,7 +46,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/happy_add_list_item_content"
             android:textAppearance="@style/body2"
-            android:textColor="@color/gray700"
+            android:textColor="@color/gray800"
             app:layout_constraintStart_toEndOf="@id/iv_happy_list_item_icon"
             app:layout_constraintTop_toBottomOf="@id/tv_happy_list_item_title" />
 

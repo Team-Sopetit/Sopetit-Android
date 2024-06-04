@@ -116,10 +116,10 @@ class HappyMyRoutineFragment :
             title = getString(R.string.happy_progress_bottom_sheet_title),
             content = getString(R.string.happy_progress_bottom_sheet_content),
             isContentVisible = true,
-            contentColor = R.color.gray400,
+            contentColor = R.color.gray500,
             backBtnContent = getString(R.string.happy_progress_sheet_back_btn),
             doBtnContent = getString(R.string.happy_progress_sheet_do_btn),
-            doBtnColor = R.drawable.shape_main1_fill_12_rect,
+            doBtnColor = R.drawable.shape_gray650_fill_12_rect,
             backBtnAction = {},
             doBtnAction = {
                 viewModel.happyProgressResponse.value?.let { viewModel.patchAchieveHappyRoutine(it.routineId) }

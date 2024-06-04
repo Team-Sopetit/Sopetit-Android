@@ -177,10 +177,10 @@ class DailyRoutineAddActivity :
                 content = getCurrentSelectedRoutine()?.content
                     ?: getString(R.string.daily_routine_basic_bottom_sheet_content),
                 isContentVisible = true,
-                contentColor = R.color.gray400,
+                contentColor = R.color.gray500,
                 backBtnContent = getString(R.string.daily_routine_add_no),
                 doBtnContent = getString(R.string.daily_routine_add_yes),
-                doBtnColor = R.drawable.shape_main1_fill_12_rect,
+                doBtnColor = R.drawable.shape_gray650_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {
                     tossMsg()

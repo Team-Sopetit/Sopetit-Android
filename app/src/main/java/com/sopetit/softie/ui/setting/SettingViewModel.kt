@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.sopetit.softie.domain.usecase.auth.DeleteAuthUseCase
 import com.sopetit.softie.domain.usecase.auth.LogOutUseCase
 import com.sopetit.softie.domain.usecase.local.GetBearTypeUseCase
-import com.sopetit.softie.domain.usecase.local.InitSIgnUpStateUseCase
+import com.sopetit.softie.domain.usecase.local.InitIsSignUpStateUseCase
 import com.sopetit.softie.domain.usecase.local.InitTokenUseCase
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.BROWN
 import com.sopetit.softie.ui.onboarding.OnboardingViewModel.Companion.GRAY
@@ -23,7 +23,7 @@ import javax.inject.Inject
 class SettingViewModel @Inject constructor(
     private val deleteAuthUseCase: DeleteAuthUseCase,
     private val logOutUseCase: LogOutUseCase,
-    private val initSIgnUpStateUseCase: InitSIgnUpStateUseCase,
+    private val initIsSignUpStateUseCase: InitIsSignUpStateUseCase,
     private val initTokenUseCase: InitTokenUseCase,
     private val getBearTypeUseCase: GetBearTypeUseCase
 ) : ViewModel() {
@@ -63,7 +63,7 @@ class SettingViewModel @Inject constructor(
             deleteAuthUseCase()
                 .onSuccess {
                     _isDeleteAuthResponse.value = true
-                    initSIgnUpStateUseCase(false)
+                    initIsSignUpStateUseCase(false)
                     initTokenUseCase("", "", isMemberDollExist = false, isSignedUp = false)
                     Timber.d("회원 탈퇴 성공")
                 }.onFailure { throwable ->
@@ -78,7 +78,7 @@ class SettingViewModel @Inject constructor(
             logOutUseCase()
                 .onSuccess {
                     _isLogOutResponse.value = true
-                    initSIgnUpStateUseCase(false)
+                    initIsSignUpStateUseCase(false)
                     initTokenUseCase("", "", isMemberDollExist = true, isSignedUp = false)
                     Timber.d("로그 아웃 성공")
                 }.onFailure { throwable ->

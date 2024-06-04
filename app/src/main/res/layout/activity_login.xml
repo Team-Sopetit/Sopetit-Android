@@ -32,7 +32,7 @@
             android:paddingBottom="19dp"
             android:text="@string/login_content"
             android:textAppearance="@style/caption1"
-            android:textColor="@color/gray100"
+            android:textColor="@color/gray200"
             app:layout_constraintBottom_toTopOf="@id/iv_login_bear"
             app:layout_constraintEnd_toEndOf="@id/iv_login_bear"
             app:layout_constraintStart_toStartOf="@id/iv_login_bear" />

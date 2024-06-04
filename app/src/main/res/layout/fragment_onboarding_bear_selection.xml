@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="38dp"
             android:text="@string/bear_selection_question"
-            android:textColor="@color/gray700"
+            android:textColor="@color/gray800"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/bear_selection_subtitle"
-            android:textColor="@color/gray400"
+            android:textColor="@color/gray500"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_bear_selection_question" />
@@ -100,12 +100,12 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="34dp"
             style="?android:attr/borderlessButtonStyle"
-            android:background="@{viewModel.selectedBearType.equals(@string/none) ? @drawable/shape_gray200_fill_12_rect:@drawable/shape_main1_fill_12_rect}"
+            android:background="@{viewModel.selectedBearType.equals(@string/none) ? @drawable/shape_gray300_fill_12_rect:@drawable/shape_gray650_fill_12_rect}"
             android:clickable="@{viewModel.selectedBearType.equals(@string/none) ? false: true}"
             android:enabled="@{viewModel.selectedBearType.equals(@string/none) ? false: true}"
             android:text="@string/bear_selection_button"
             android:textAppearance="@style/body1"
-            android:textColor="@color/gray000"
+            android:textColor="@color/gray100"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

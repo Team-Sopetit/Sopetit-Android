@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_white_fill_12_rect">
+        android:background="@drawable/shape_gray0_fill_12_rect">
 
         <TextView
             android:id="@+id/tv_update_recommend_dialog_title"
@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
-            android:textColor="@color/gray600"
+            android:textColor="@color/gray700"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -32,7 +32,7 @@
             android:layout_marginTop="9dp"
             android:gravity="center"
             android:lineSpacingExtra="4dp"
-            android:textColor="@color/gray500"
+            android:textColor="@color/gray600"
             app:layout_constraintEnd_toEndOf="@id/tv_update_recommend_dialog_title"
             app:layout_constraintStart_toStartOf="@id/tv_update_recommend_dialog_title"
             app:layout_constraintTop_toBottomOf="@id/tv_update_recommend_dialog_title"
@@ -46,11 +46,11 @@
             android:layout_marginStart="11dp"
             android:layout_marginTop="29dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/shape_gray100_fill_8_rect"
+            android:background="@drawable/shape_gray200_fill_8_rect"
             android:padding="15dp"
             android:stateListAnimator="@null"
             android:text="@string/dialog_update_recommend_deny_btn"
-            android:textColor="@color/white"
+            android:textColor="@color/gray0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/btn_update_recommend_dialog_confirm"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -69,7 +69,7 @@
             android:paddingVertical="15dp"
             android:stateListAnimator="@null"
             android:text="@string/dialog_update_recommend_confirm_btn"
-            android:textColor="@color/white"
+            android:textColor="@color/gray0"
             app:layout_constraintBottom_toBottomOf="@id/btn_update_recommend_dialog_cancel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/btn_update_recommend_dialog_cancel"

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import com.airbnb.lottie.LottieAnimationView
 import com.sopetit.softie.R
@@ -30,10 +31,19 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     companion object {
         const val RUN_OUT = 0
-        val START = 0
-        val HELLO = 0
-        val DAILY = 1
-        val HAPPINESS = 2
+        const val REQUEST_KEY = "request_key"
+        const val RESULT_KEY = "result_key"
+        const val FINISH = "finish"
+        const val START = 0
+        const val HELLO = 0
+        const val DAILY = 1
+        const val HAPPINESS = 2
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setResultListener()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,6 +51,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         binding.viewModel = viewModel
         setStatusBarColor(R.color.home_background)
 
+        checkHomeTutorial()
         setLottieVariable()
         viewModel.getHome()
         setUserLottieList()
@@ -49,7 +60,25 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         moveToPaymentView()
     }
 
-    private fun setLottiesListener() {
+    private fun checkHomeTutorial() {
+        viewModel.isHomeTutorial.observe(viewLifecycleOwner) { isTutorial ->
+            if (isTutorial) {
+                val bottomSheet = HomeTutorialFragment()
+                bottomSheet.show(requireActivity().supportFragmentManager, this.tag)
+            }
+        }
+    }
+
+    private fun setResultListener() {
+        setFragmentResultListener(REQUEST_KEY) { _, bundle ->
+            val result = bundle.getString(RESULT_KEY)
+            if (result == FINISH) {
+                viewModel.updateHomeTutorial()
+            }
+        }
+    }
+
+    private fun setLottieListener() {
         setLottieListener(helloLottie)
         setLottieListener(dailyLottie)
         setLottieListener(happinessLottie)
@@ -82,7 +111,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     }
 
     private fun setClickListener() {
-        setLottiesListener()
+        setLottieListener()
         setClickSetting()
         setClickBear()
         setClickDaily()

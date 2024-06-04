@@ -135,10 +135,10 @@ class DailyRoutineFragment :
                 title = getString(R.string.daily_routine_complete_question),
                 content = getString(R.string.daily_routine_complete_notice),
                 isContentVisible = true,
-                contentColor = R.color.gray400,
+                contentColor = R.color.gray500,
                 backBtnContent = getString(R.string.daily_routine_complete_yet),
                 doBtnContent = getString(R.string.daily_routine_complete_fix),
-                doBtnColor = R.drawable.shape_main1_fill_12_rect,
+                doBtnColor = R.drawable.shape_gray650_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {
                     startDailyRoutineCompleteActivity()
@@ -232,10 +232,10 @@ class DailyRoutineFragment :
                 title = getString(R.string.daily_routine_edit_delete_question),
                 content = getString(R.string.daily_routine_edit_delete_notice),
                 isContentVisible = true,
-                contentColor = R.color.red,
+                contentColor = R.color.red200,
                 backBtnContent = getString(R.string.daily_routine_edit_delete_cancel),
                 doBtnContent = getString(R.string.daily_routine_edit_delete_fix),
-                doBtnColor = R.drawable.shape_red_fill_12_rect,
+                doBtnColor = R.drawable.shape_red200_fill_12_rect,
                 backBtnAction = {},
                 doBtnAction = {
                     val arraySize = viewModel.editRoutineIdArray.size

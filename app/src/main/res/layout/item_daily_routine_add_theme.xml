@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:textAppearance="@style/caption1"
-            android:textColor="@color/gray400"
+            android:textColor="@color/gray500"
             app:layout_constraintEnd_toEndOf="@id/fl_daily_routine_add_theme"
             app:layout_constraintStart_toStartOf="@id/fl_daily_routine_add_theme"
             app:layout_constraintTop_toBottomOf="@id/fl_daily_routine_add_theme"

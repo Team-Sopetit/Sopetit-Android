@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
+        android:background="@color/gray0">
 
         <TextView
             android:id="@+id/tv_routine_complete_title"
@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="91dp"
-            android:textColor="@color/gray700"
+            android:textColor="@color/gray800"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,9 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            android:background="@drawable/shape_gray100_fill_8_rect"
+            android:background="@drawable/shape_gray200_fill_8_rect"
             android:padding="10dp"
-            android:textColor="@color/gray500"
+            android:textColor="@color/gray600"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
