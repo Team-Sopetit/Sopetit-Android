@@ -124,11 +124,6 @@ class HomeTutorialFragment : BottomSheetDialogFragment() {
     }
 
     private fun updateTitle() {
-        binding.tvTutorialTitle.text = when (currentIndex) {
-            TUTORIAL_COTTON -> getString(R.string.home_tutorial_title_cotton)
-            else -> getString(R.string.home_tutorial_title_routine)
-        }
-
         binding.btnNext.text = when (currentIndex) {
             TUTORIAL_COTTON -> getString(R.string.home_tutorial_btn_start)
             else -> getString(R.string.home_tutorial_btn_next)

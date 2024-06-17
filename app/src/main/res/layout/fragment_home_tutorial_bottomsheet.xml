@@ -16,18 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tv_tutorial_title"
-            style="@style/head3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:gravity="center"
-            android:text="@string/home_tutorial_title_routine"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_tutorial"
             android:layout_width="0dp"
@@ -35,10 +23,10 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="24dp"
             android:overScrollMode="never"
-            app:layout_constraintDimensionRatio="0.98"
+            app:layout_constraintDimensionRatio="0.83"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_tutorial_title"
+            app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/item_home_tutorial" />
 
         <LinearLayout
