@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/bottom_navigation_daily_routine"
-        android:icon="@drawable/selector_bottom_navigation_progress"
-        android:title="@string/bottom_navigation_daily_routine" />
+        android:id="@+id/bottom_navigation_ongoing"
+        android:icon="@drawable/selector_bottom_navigation_ongoing"
+        android:title="@string/bottom_navigation_ongoing" />
     <item
         android:id="@+id/bottom_navigation_home"
         android:icon="@drawable/selector_bottom_navigation_home"
         android:title="@string/bottom_navigation_home" />
     <item
-        android:id="@+id/bottom_navigation_happiness_routine"
-        android:icon="@drawable/selector_bottom_navigation_happiness_routine"
-        android:title="@string/bottom_navigation_happiness_routine" />
+        android:id="@+id/bottom_navigation_achievement"
+        android:icon="@drawable/selector_bottom_navigation_achievement"
+        android:title="@string/bottom_navigation_achievement" />
 </menu>

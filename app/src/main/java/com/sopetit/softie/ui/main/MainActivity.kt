@@ -28,9 +28,9 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
     private fun setBottomNavigationClickListener() {
         binding.bnvMain.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.bottom_navigation_daily_routine -> changeFragment(OngoingRoutineFragment())
+                R.id.bottom_navigation_ongoing -> changeFragment(OngoingRoutineFragment())
                 R.id.bottom_navigation_home -> changeFragment(HomeFragment())
-                R.id.bottom_navigation_happiness_routine -> changeFragment(HappyMyRoutineFragment())
+                R.id.bottom_navigation_achievement -> changeFragment(HappyMyRoutineFragment())
                 else -> true
             }
         }
