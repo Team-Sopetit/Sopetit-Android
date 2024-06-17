@@ -29,7 +29,7 @@
 
         <TextView
             android:id="@+id/tv_bear_selection_subtitle"
-            style="@style/body4"
+            style="@style/body2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

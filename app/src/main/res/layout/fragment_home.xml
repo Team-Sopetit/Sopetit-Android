@@ -73,7 +73,7 @@
 
         <TextView
             android:id="@+id/tv_home_bear_speech"
-            style="@style/bubble18"
+            style="@style/bubble1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="6dp"
@@ -139,7 +139,7 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            style="@style/bubble16"
+            style="@style/bubble2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -178,7 +178,7 @@
 
             <TextView
                 android:id="@+id/tv_home_som_white_count"
-                style="@style/body4"
+                style="@style/body2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="7dp"
@@ -192,7 +192,7 @@
 
             <TextView
                 android:id="@+id/tv_home_som_white_title"
-                style="@style/body4"
+                style="@style/body2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
@@ -229,7 +229,7 @@
 
             <TextView
                 android:id="@+id/tv_home_som_color_count"
-                style="@style/body4"
+                style="@style/body2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="7dp"
@@ -243,7 +243,7 @@
 
             <TextView
                 android:id="@+id/tv_home_som_color_title"
-                style="@style/body4"
+                style="@style/body2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"

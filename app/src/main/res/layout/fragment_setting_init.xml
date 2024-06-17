@@ -220,7 +220,7 @@
             android:layout_marginTop="10dp"
             android:paddingVertical="10dp"
             android:text="@string/setting_logout"
-            android:textAppearance="@style/body4"
+            android:textAppearance="@style/body2"
             android:textColor="@color/gray400"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/divider_setting_init_version" />
@@ -231,7 +231,7 @@
             android:layout_height="wrap_content"
             android:paddingVertical="10dp"
             android:text="@string/setting_user_exit"
-            android:textAppearance="@style/body4"
+            android:textAppearance="@style/body2"
             android:textColor="@color/gray400"
             app:layout_constraintStart_toStartOf="@id/btn_setting_init_logout"
             app:layout_constraintTop_toBottomOf="@id/btn_setting_init_logout" />

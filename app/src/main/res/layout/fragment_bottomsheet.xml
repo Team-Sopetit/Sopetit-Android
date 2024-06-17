@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:textAppearance="@style/body4"
+            android:textAppearance="@style/body2"
             android:textColor="@color/gray500"
             app:layout_constraintStart_toStartOf="@id/tv_bottom_sheet_title"
             app:layout_constraintEnd_toEndOf="@id/tv_bottom_sheet_title"

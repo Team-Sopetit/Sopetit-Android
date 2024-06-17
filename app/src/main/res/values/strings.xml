@@ -186,4 +186,7 @@
     <string name="home_tutorial_btn_next">다음</string>
     <string name="home_tutorial_btn_start">시작하기</string>
 
+    <!-- ongoing -->
+    <string name="ongoing_complete_btn">완료하기</string>
+
 </resources>

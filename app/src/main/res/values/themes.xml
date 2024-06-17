@@ -2,7 +2,6 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Softie" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
-        <item name="android:includeFontPadding">false</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowIsTranslucent">true</item>

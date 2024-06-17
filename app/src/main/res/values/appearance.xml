@@ -5,99 +5,71 @@
     <style name="head1">
         <item name="android:fontFamily">@font/pretendard_semibold</item>
         <item name="android:textStyle">normal</item>
+        <item name="lineHeight">56dp</item>
         <item name="android:textSize">20dp</item>
     </style>
 
     <style name="head2">
         <item name="android:fontFamily">@font/pretendard_medium</item>
         <item name="android:textStyle">normal</item>
+        <item name="lineHeight">28dp</item>
         <item name="android:textSize">20dp</item>
     </style>
 
     <style name="head3">
         <item name="android:fontFamily">@font/pretendard_semibold</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textSize">18dp</item>
+        <item name="lineHeight">24dp</item>
+        <item name="android:textSize">16dp</item>
     </style>
 
     <style name="head4">
         <item name="android:fontFamily">@font/pretendard_semibold</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textSize">18dp</item>
+        <item name="lineHeight">20dp</item>
+        <item name="android:textSize">14dp</item>
     </style>
 
     <!-- body -->
     <style name="body1">
-        <item name="android:fontFamily">@font/pretendard_semibold</item>
+        <item name="android:fontFamily">@font/pretendard_medium</item>
         <item name="android:textStyle">normal</item>
+        <item name="lineHeight">24dp</item>
         <item name="android:textSize">16dp</item>
     </style>
 
     <style name="body2">
         <item name="android:fontFamily">@font/pretendard_medium</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textSize">16dp</item>
-    </style>
-
-    <style name="body3">
-        <item name="android:fontFamily">@font/pretendard_semibold</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textSize">14dp</item>
-    </style>
-
-    <style name="body4">
-        <item name="android:fontFamily">@font/pretendard_medium</item>
-        <item name="android:textStyle">normal</item>
+        <item name="lineHeight">20dp</item>
         <item name="android:textSize">14dp</item>
     </style>
 
     <!-- caption -->
     <style name="caption1">
-        <item name="android:fontFamily">@font/pretendard_semibold</item>
+        <item name="android:fontFamily">@font/pretendard_medium</item>
         <item name="android:textStyle">normal</item>
+        <item name="lineHeight">18dp</item>
         <item name="android:textSize">12dp</item>
     </style>
 
     <style name="caption2">
         <item name="android:fontFamily">@font/pretendard_medium</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textSize">12dp</item>
-    </style>
-
-    <style name="caption3">
-        <item name="android:fontFamily">@font/pretendard_semibold</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textSize">10dp</item>
-    </style>
-
-    <style name="caption4">
-        <item name="android:fontFamily">@font/pretendard_medium</item>
-        <item name="android:textStyle">normal</item>
+        <item name="lineHeight">12dp</item>
         <item name="android:textSize">10dp</item>
     </style>
 
     <!-- speech bubble -->
-    <style name="bubble20">
-        <item name="android:fontFamily">@font/omyu_pretty</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textSize">20dp</item>
-    </style>
-
-    <style name="bubble18">
+    <style name="bubble1">
         <item name="android:fontFamily">@font/omyu_pretty</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">18dp</item>
     </style>
 
-    <style name="bubble16">
+    <style name="bubble2">
         <item name="android:fontFamily">@font/omyu_pretty</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">16dp</item>
-    </style>
-
-    <style name="bubble14">
-        <item name="android:fontFamily">@font/omyu_pretty</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textSize">14dp</item>
     </style>
 </resources>
