@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_ongoing_routine_challenge"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_ongoing_routine_challenge_title"
+                style="@style/head4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="하루에 한 번, 오늘의 도전!"
+                android:textColor="@color/gray700"
+                app:layout_constraintBottom_toBottomOf="@id/iv_ongoing_routine_challenge_help"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_ongoing_routine_challenge_help" />
+
+            <ImageView
+                android:id="@+id/iv_ongoing_routine_challenge_help"
+                android:layout_width="38dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1"
+                android:src="@drawable/ic_help"
+                android:layout_marginEnd="11dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_ongoing_routine_challenge_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/shape_pink50_fill_gray200_stroke_10_rect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_ongoing_routine_challenge_help">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="71dp"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/ic_challenge_card_pink"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1.66"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1" />
+
+                <ImageView
+                    android:id="@+id/iv_ongoing_routine_challenge_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_margin="20dp"
+                    app:layout_constraintDimensionRatio="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/ic_pink" />
+
+                <TextView
+                    android:id="@+id/tv_ongoing_routine_challenge_name"
+                    style="@style/caption1"
+                    android:layout_marginStart="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gray500"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_ongoing_routine_challenge_icon"
+                    app:layout_constraintStart_toEndOf="@id/iv_ongoing_routine_challenge_icon"
+                    app:layout_constraintTop_toTopOf="@id/iv_ongoing_routine_challenge_icon"
+                    tools:text="관계쌓기" />
+
+                <TextView
+                    android:id="@+id/tv_ongoing_routine_challenge_description"
+                    style="@style/body2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:textColor="@color/gray700"
+                    app:layout_constraintStart_toStartOf="@id/iv_ongoing_routine_challenge_icon"
+                    app:layout_constraintTop_toBottomOf="@id/iv_ongoing_routine_challenge_more"
+                    tools:text="주변인의 관심사와 작은 변화를 기록해보고,\n그 사람의 장점을 생각해보기" />
+
+                <TextView
+                    style="@style/caption1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/shape_gray650_fill_100_rect"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="8dp"
+                    android:text="@string/ongoing_complete_btn"
+                    android:textColor="@color/gray0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/tv_ongoing_routine_challenge_description"
+                    app:layout_constraintTop_toBottomOf="@id/tv_ongoing_routine_challenge_description" />
+
+                <ImageView
+                    android:id="@+id/iv_ongoing_routine_challenge_more"
+                    android:layout_width="38dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="1"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_more"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/view_ongoing_routine_divider"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/gray200"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cl_ongoing_routine_challenge_card" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

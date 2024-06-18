@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_gray400_fill_99_rect"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -24,7 +24,7 @@
                 android:id="@+id/iv_snackbar_custom_check"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="19dp"
+                android:layout_marginStart="16dp"
                 android:src="@drawable/ic_check"
                 app:layout_constraintBottom_toBottomOf="@id/tv_snackbar_custom_content"
                 app:layout_constraintStart_toStartOf="parent"
@@ -35,10 +35,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="17dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="16dp"
                 android:textAppearance="@style/body2"
                 android:textColor="@color/gray0"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/iv_snackbar_custom_check"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="데일리 루틴을 1개 삭제했어요" />

@@ -54,4 +54,7 @@
 
     <!-- splash -->
     <color name="splash_bottom">#CEB59E</color>
+
+    <!-- routine -->
+    <color name="pink_50">#F9EAEC</color>
 </resources>

@@ -125,7 +125,7 @@
             android:text="@{viewModel.layoutTranslucent ? @string/onboarding_choice_theme_speech(viewModel.bearNickname) : @string/onboarding_choice_theme_speech_after}"
             android:visibility="@{viewModel.layoutTranslucent ? View.VISIBLE : View.GONE}"
             android:textColor="@color/gray800"
-            android:textAppearance="@style/bubble16"
+            android:textAppearance="@style/bubble2"
             android:bufferType="spannable"
             app:layout_constraintTop_toTopOf="@id/iv_onboarding_theme_speech_background"
             app:layout_constraintBottom_toBottomOf="@id/iv_onboarding_theme_speech_background"
