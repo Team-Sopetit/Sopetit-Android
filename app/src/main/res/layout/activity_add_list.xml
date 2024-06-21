@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_add_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:fitsSystemWindows="true">
+
+        <ImageView
+            android:id="@+id/iv_add_list_back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:padding="7dp"
+            android:src="@drawable/ic_back_arrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_add_list_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/add_list_title"
+            android:textAppearance="@style/body1"
+            app:layout_constraintBottom_toBottomOf="@id/iv_add_list_back_arrow"
+            app:layout_constraintStart_toEndOf="@id/iv_add_list_back_arrow"
+            app:layout_constraintTop_toTopOf="@id/iv_add_list_back_arrow" />
+
+        <TextView
+            android:id="@+id/tv_add_list_maker_recommend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="29dp"
+            android:text="@string/add_list_maker_recommend"
+            android:textAppearance="@style/body1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_add_list_title" />
+
+        <ImageView
+            android:id="@+id/iv_add_list_maker_chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/ic_maker_chip"
+            app:layout_constraintBottom_toBottomOf="@id/tv_add_list_maker_recommend"
+            app:layout_constraintStart_toEndOf="@id/tv_add_list_maker_recommend"
+            app:layout_constraintTop_toTopOf="@id/tv_add_list_maker_recommend" />
+
+        <ImageView
+            android:id="@+id/iv_add_list_maker_help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:padding="9dp"
+            android:src="@drawable/ic_maker_help"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/iv_add_list_maker_chip"
+            app:layout_constraintTop_toTopOf="@id/iv_add_list_maker_chip" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_add_list_maker_card"
+            android:layout_width="match_parent"
+            android:layout_height="196dp"
+            android:layout_marginTop="15dp"
+            android:clipToPadding="false"
+            app:layout_constraintBottom_toTopOf="@id/tv_add_list_theme_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_add_list_maker_recommend" />
+
+        <TextView
+            android:id="@+id/tv_add_list_theme_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/add_list_theme_title"
+            android:textAppearance="@style/body1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/rv_happy_add_list"
+            app:layout_constraintTop_toBottomOf="@id/vp_add_list_maker_card" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_happy_add_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_add_list_theme_title"
+            tools:listitem="@layout/item_add_list" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

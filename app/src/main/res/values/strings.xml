@@ -37,6 +37,15 @@
     <string name="story_telling_main">어? 집 앞에 이건 뭐지?</string>
     <string name="story_telling_conclusion">한 번 열어볼까?</string>
 
+
+    <!-- add list -->
+    <string name="add_list_title">루틴 추가</string>
+    <string name="add_list_maker_recommend">이런 루틴은 어때요?</string>
+    <string name="add_list_theme_title">전체 루틴 테마</string>
+    <string name="chip_add_list_item_content">사람들과 어울리는</string>
+    <string name="chip_add_list_item_title">관계 쌓기</string>
+
+
     <!-- happy routine -->
     <string name="happy_title">행복 루틴</string>
     <string name="happy_default_mention">행복 루틴은 행복한 나를 매일\n조금씩 만들어 가는 특별한 루틴이야</string>

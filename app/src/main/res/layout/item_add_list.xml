@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chip_add_list_component"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/shape_gray0_fill_gray200_stroke_10_rect">
+
+        <ImageView
+            android:id="@+id/iv_add_list_item_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/ic_bear_base"
+            app:layout_constraintBottom_toBottomOf="@id/chip_add_list_component"
+            app:layout_constraintStart_toStartOf="@id/chip_add_list_component"
+            app:layout_constraintTop_toTopOf="@id/chip_add_list_component" />
+
+        <TextView
+            android:id="@+id/tv_add_list_item_content"
+            style="@style/caption2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/chip_add_list_item_content"
+            android:textColor="@color/gray500"
+            app:layout_constraintBottom_toTopOf="@id/tv_add_list_item_title"
+            app:layout_constraintStart_toEndOf="@id/iv_add_list_item_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_add_list_item_title"
+            style="@style/head3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/chip_add_list_item_title"
+            android:textColor="@color/gray700"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_add_list_item_icon"
+            app:layout_constraintTop_toBottomOf="@id/tv_add_list_item_content" />
+
+        <ImageView
+            android:id="@+id/iv_add_list_item_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
