@@ -77,7 +77,8 @@
             app:layout_constraintBottom_toTopOf="@id/tv_add_list_theme_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_add_list_maker_recommend" />
+            app:layout_constraintTop_toBottomOf="@id/tv_add_list_maker_recommend"
+            tools:listitem="@layout/item_add_list_maker_card" />
 
         <TextView
             android:id="@+id/tv_add_list_theme_title"
