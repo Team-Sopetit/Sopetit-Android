@@ -5,4 +5,6 @@
     <dimen name="chip_margin">6dp</dimen>
     <dimen name="happy_list_first_margin">8dp</dimen>
     <dimen name="happy_list_margin">4dp</dimen>
+    <dimen name="maker_help_dialog_top_margin">112dp</dimen>
+    <dimen name="maker_help_dialog_end_margin">20dp</dimen>
 </resources>

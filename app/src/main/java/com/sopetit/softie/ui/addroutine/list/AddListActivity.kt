@@ -26,14 +26,25 @@ class AddListActivity : BindingActivity<ActivityAddListBinding>(R.layout.activit
         viewPager = binding.vpAddListMakerCard
         setStatusBarColorFromResource(R.color.background)
 
+        setBackEnter()
+        startMakerHelpModal()
         setInitBinding()
         setHappyDetailCardPagerAdapter()
         setCurrentCard()
-        setBackEnter()
-        startMakerHelpModal()
         setRoutineThemeListAdapter()
         setItemDeco()
         setupObservers()
+    }
+    private fun setBackEnter() { // 이전 버튼
+        binding.ivAddListBackArrow.setSingleOnClickListener {
+            finish()
+        }
+    }
+
+    private fun startMakerHelpModal() { // 메이커 도움말 모달 실행
+        binding.ivAddListMakerHelp.setSingleOnClickListener {
+            MakerHelpDialogFragment().show(supportFragmentManager, "MakerHelpDialog")
+        }
     }
 
     private fun setInitBinding() { // 초기 바인딩 설정
@@ -63,17 +74,7 @@ class AddListActivity : BindingActivity<ActivityAddListBinding>(R.layout.activit
         return itemId.toInt()
     }
 
-    private fun setBackEnter() { // 이전 버튼
-        binding.ivAddListBackArrow.setSingleOnClickListener {
-            finish()
-        }
-    }
 
-    private fun startMakerHelpModal() { // 메이커 도움말 모달 실행
-        binding.ivAddListMakerHelp.setSingleOnClickListener {
-            // 모달 띄우기
-        }
-    }
 
     private fun setRoutineThemeListAdapter() {
         with(binding) {
