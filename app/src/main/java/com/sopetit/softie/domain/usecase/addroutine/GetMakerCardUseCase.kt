@@ -11,4 +11,3 @@ class GetMakerCardUseCase @Inject constructor(
         return addRoutineRepository.getMakerCard()
     }
 }
-

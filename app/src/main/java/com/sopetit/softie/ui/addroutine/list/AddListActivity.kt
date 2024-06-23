@@ -75,7 +75,6 @@ class AddListActivity : BindingActivity<ActivityAddListBinding>(R.layout.activit
         return itemId.toInt()
     }
 
-
     private fun setRoutineThemeListAdapter() {
         with(binding) {
             routineThemeListAdapter = RoutineThemeListAdapter()
