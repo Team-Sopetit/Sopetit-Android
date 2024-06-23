@@ -26,8 +26,8 @@ class AddListActivity : BindingActivity<ActivityAddListBinding>(R.layout.activit
         viewPager = binding.vpAddListMakerCard
         setStatusBarColorFromResource(R.color.background)
 
-        setBackEnter()
         startMakerHelpModal()
+        setBackEnter()
         setInitBinding()
         setHappyDetailCardPagerAdapter()
         setCurrentCard()
@@ -35,30 +35,31 @@ class AddListActivity : BindingActivity<ActivityAddListBinding>(R.layout.activit
         setItemDeco()
         setupObservers()
     }
-    private fun setBackEnter() { // 이전 버튼
-        binding.ivAddListBackArrow.setSingleOnClickListener {
-            finish()
-        }
-    }
 
-    private fun startMakerHelpModal() { // 메이커 도움말 모달 실행
+    private fun startMakerHelpModal() {
         binding.ivAddListMakerHelp.setSingleOnClickListener {
             MakerHelpDialogFragment().show(supportFragmentManager, "MakerHelpDialog")
         }
     }
 
-    private fun setInitBinding() { // 초기 바인딩 설정
+    private fun setBackEnter() {
+        binding.ivAddListBackArrow.setSingleOnClickListener {
+            finish()
+        }
+    }
+
+    private fun setInitBinding() {
         viewModel.getMakerCard()
         viewModel.getRoutineTheme()
     }
 
-    private fun setHappyDetailCardPagerAdapter() { // maker 카드 뷰페이저 어댑터
+    private fun setHappyDetailCardPagerAdapter() {
         with(binding) {
             vpAddListMakerCard.adapter = makerCardPagerAdapter
         }
     }
 
-    private fun setCurrentCard() { // 현재 보고 있는 카드 선택
+    private fun setCurrentCard() {
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
@@ -68,12 +69,11 @@ class AddListActivity : BindingActivity<ActivityAddListBinding>(R.layout.activit
         })
     }
 
-    private fun getCurrentSelectedMakerId(): Int { // 현재 보고 있는 뷰페이저의 maker's id 가져오기
+    private fun getCurrentSelectedMakerId(): Int {
         val currentItem = binding.vpAddListMakerCard.currentItem
         val itemId = makerCardPagerAdapter.getItemId(currentItem)
         return itemId.toInt()
     }
-
 
 
     private fun setRoutineThemeListAdapter() {
