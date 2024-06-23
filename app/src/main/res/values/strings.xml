@@ -37,6 +37,15 @@
     <string name="story_telling_main">어? 집 앞에 이건 뭐지?</string>
     <string name="story_telling_conclusion">한 번 열어볼까?</string>
 
+
+    <!-- add list -->
+    <string name="add_list_title">루틴 추가</string>
+    <string name="add_list_maker_recommend">이런 루틴은 어때요?</string>
+    <string name="add_list_theme_title">전체 루틴 테마</string>
+    <string name="chip_add_list_item_content">사람들과 어울리는</string>
+    <string name="chip_add_list_item_title">관계 쌓기</string>
+
+
     <!-- happy routine -->
     <string name="happy_title">행복 루틴</string>
     <string name="happy_default_mention">행복 루틴은 행복한 나를 매일\n조금씩 만들어 가는 특별한 루틴이야</string>
@@ -179,6 +188,10 @@
     <string name="dialog_update_content">안정적인 서비스 사용을 위해\n최신버전으로 업데이트해주세요.</string>
     <string name="binding_error">Binding not initialized to reference the view.</string>
     <string name="dialog_update_store_link">https://play.google.com/store/apps/details?id=com.sopetit.softie</string>
+
+    <!-- maker dialog -->
+    <string name="maker_help_dialog_title">루틴메이커 테마란?</string>
+    <string name="maker_help_dialog_content">전문가들이 만드는 루틴을 직접 실천해 볼 수 있는 테마에요.</string>
 
     <!-- tutorial -->
     <string name="home_tutorial_title_routine">소프티엔 총 2가지 루틴이 있어요!</string>

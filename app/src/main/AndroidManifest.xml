@@ -47,6 +47,11 @@
         </activity>
 
         <activity
+            android:name=".ui.addroutine.list.AddListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".ui.happyroutine.list.HappyAddListActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
