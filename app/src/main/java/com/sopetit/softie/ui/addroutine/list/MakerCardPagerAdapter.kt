@@ -8,8 +8,7 @@ import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ItemAddListMakerCardBinding
 import com.sopetit.softie.domain.entity.MakerCard
 
-class MakerCardPagerAdapter :
-    RecyclerView.Adapter<MakerCardPagerAdapter.MakerPagerViewHolder>() {
+class MakerCardPagerAdapter : RecyclerView.Adapter<MakerCardPagerAdapter.MakerPagerViewHolder>() {
 
     private var dataList = listOf<MakerCard>()
 
@@ -52,4 +51,9 @@ class MakerCardPagerAdapter :
     }
 
     override fun getItemCount(): Int = dataList.size
+
+    fun submitList(newDataList: List<MakerCard>) {
+        dataList = newDataList
+        notifyDataSetChanged()
+    }
 }

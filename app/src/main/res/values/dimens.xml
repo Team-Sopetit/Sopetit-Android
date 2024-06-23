@@ -3,6 +3,6 @@
     <dimen name="viewpager_margin">30dp</dimen>
     <dimen name="chip_first_margin">20dp</dimen>
     <dimen name="chip_margin">6dp</dimen>
-    <dimen name="happy_list_first_margin">12dp</dimen>
-    <dimen name="happy_list_margin">8dp</dimen>
+    <dimen name="happy_list_first_margin">8dp</dimen>
+    <dimen name="happy_list_margin">4dp</dimen>
 </resources>

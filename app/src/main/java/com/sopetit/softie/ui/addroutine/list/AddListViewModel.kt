@@ -18,8 +18,8 @@ class AddListViewModel @Inject constructor(
     private val getMakerCardUseCase: GetMakerCardUseCase,
     private val getRoutineThemeListUseCase: GetRoutineThemeListUseCase
 ) : ViewModel() {
-    private val _addMakerCardResponse = MutableLiveData<MakerCard>()
-    val addMakerCardResponse: LiveData<MakerCard> get() = _addMakerCardResponse
+    private val _addMakerCardResponse = MutableLiveData<List<MakerCard>>()
+    val addMakerCardResponse: LiveData<List<MakerCard>> get() = _addMakerCardResponse
 
     private val _addRoutineThemeListResponse = MutableLiveData<RoutineTheme>()
     val addRoutineThemeListResponse: LiveData<RoutineTheme> get() = _addRoutineThemeListResponse
@@ -42,15 +42,15 @@ class AddListViewModel @Inject constructor(
         }
     }
 
-//    fun getRoutineTheme() {
-//        viewModelScope.launch {
-//            getRoutineThemeListUseCase
-//                .onSuccess { response ->
-//                    _addRoutineThemeListResponse.value = response
-//                }
-//                .onFailure { throwable ->
-//                    Timber.e("$throwable")
-//                }
-//        }
-//    }
+    fun getRoutineTheme() {
+        viewModelScope.launch {
+            val result = getRoutineThemeListUseCase()
+
+            result.onSuccess { response ->
+                _addRoutineThemeListResponse.value = response
+            }.onFailure { throwable ->
+                Timber.e("$throwable")
+            }
+        }
+    }
 }

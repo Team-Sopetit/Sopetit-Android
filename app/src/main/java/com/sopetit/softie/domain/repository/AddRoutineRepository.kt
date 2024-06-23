@@ -4,6 +4,6 @@ import com.sopetit.softie.domain.entity.MakerCard
 import com.sopetit.softie.domain.entity.RoutineTheme
 
 interface AddRoutineRepository {
-    suspend fun getMakerCard(): Result<MakerCard>
+    suspend fun getMakerCard(): Result<List<MakerCard>>
     suspend fun getRoutineTheme(): Result<RoutineTheme>
 }

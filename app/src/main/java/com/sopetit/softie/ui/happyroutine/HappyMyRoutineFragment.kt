@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import coil.load
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentHappyMyRoutineBinding
+import com.sopetit.softie.ui.addroutine.list.AddListActivity
 import com.sopetit.softie.ui.happyroutine.complete.HappyRoutineCompleteActivity
 import com.sopetit.softie.ui.happyroutine.delete.HappyDeleteFragment
 import com.sopetit.softie.ui.happyroutine.list.HappyAddListActivity
@@ -71,7 +72,7 @@ class HappyMyRoutineFragment :
 
     private fun startHappyAddListActivity() {
         binding.ivHappyRoutineEmptyCard.setOnClickListener {
-            val intent = Intent(requireContext(), HappyAddListActivity::class.java)
+            val intent = Intent(requireContext(), AddListActivity::class.java)
             resultLauncher.launch(intent)
         }
     }
