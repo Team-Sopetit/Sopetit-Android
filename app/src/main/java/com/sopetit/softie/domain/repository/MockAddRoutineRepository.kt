@@ -14,9 +14,9 @@ class MockAddRoutineRepository @Inject constructor() : AddRoutineRepository {
                     subTitle = "하이브의 주인은 누구?",
                     title = "뉴진스가 돌아왔다",
                     hashtag = listOf(
-                        MakerCard.Hashtag(hashtagId = 1, content = "민희진"),
-                        MakerCard.Hashtag(hashtagId = 2, content = "방시혁"),
-                        MakerCard.Hashtag(hashtagId = 2, content = "하이브")
+                        MakerCard.Hashtag(hashtagId = 1, content = "#민희진"),
+                        MakerCard.Hashtag(hashtagId = 2, content = "#방시혁"),
+                        MakerCard.Hashtag(hashtagId = 2, content = "#하이브")
                     )
                 ),
                 MakerCard(
@@ -25,8 +25,8 @@ class MockAddRoutineRepository @Inject constructor() : AddRoutineRepository {
                     subTitle = "더이상 웹툰작가로는 못산다",
                     title = "침착맨의 시크릿",
                     hashtag = listOf(
-                        MakerCard.Hashtag(hashtagId = 3, content = "침착침착"),
-                        MakerCard.Hashtag(hashtagId = 4, content = "이말년")
+                        MakerCard.Hashtag(hashtagId = 3, content = "#침착침착"),
+                        MakerCard.Hashtag(hashtagId = 4, content = "#이말년")
                     )
                 ),
                 MakerCard(
@@ -35,8 +35,8 @@ class MockAddRoutineRepository @Inject constructor() : AddRoutineRepository {
                     subTitle = "선재업고 얼마나 뛸 수 있어?",
                     title = "변우석의 성공담",
                     hashtag = listOf(
-                        MakerCard.Hashtag(hashtagId = 5, content = "류선재"),
-                        MakerCard.Hashtag(hashtagId = 6, content = "드라마")
+                        MakerCard.Hashtag(hashtagId = 5, content = "#류선재"),
+                        MakerCard.Hashtag(hashtagId = 6, content = "#드라마")
                     )
                 )
             )
