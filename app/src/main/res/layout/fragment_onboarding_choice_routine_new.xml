@@ -54,27 +54,53 @@
             app:layout_constraintStart_toStartOf="@id/iv_onboarding_choice_routine_speech_background"
             app:layout_constraintEnd_toEndOf="@id/iv_onboarding_choice_routine_speech_background" />
 
-        <TableLayout
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_onboarding_choice_routine"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="42dp"
             android:layout_marginTop="20dp"
             android:layout_marginHorizontal="22dp"
+            app:tabTextColor="@color/gray500"
+            app:tabSelectedTextColor="@color/gray700"
+            app:tabTextAppearance="@style/caption1"
+            android:background="@drawable/shape_gray200_fill_8_rect"
+            app:tabBackground="@drawable/selector_onboarding_routine_tab"
+            app:tabIndicatorHeight="0dp"
+            app:tabRippleColor="@android:color/transparent"
             app:layout_constraintTop_toBottomOf="@id/iv_onboarding_choice_routine_speech_background"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="관계 쌓기" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="한 걸음 성장" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="건강한 몸" />
+
+        </com.google.android.material.tabs.TabLayout>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager_onboarding_choice_routine"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="12dp"
+            android:layout_marginBottom="21dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tab_onboarding_choice_routine"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toTopOf="@id/btn_onboarding_choice_routine" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_onboarding_choice_routine"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/onboarding_routine_choice_btn"
