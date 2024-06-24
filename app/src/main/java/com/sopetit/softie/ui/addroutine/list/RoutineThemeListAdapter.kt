@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.sopetit.softie.R
-import com.sopetit.softie.databinding.ItemAddListBinding
+import com.sopetit.softie.databinding.ItemAddRoutineListBinding
 import com.sopetit.softie.domain.entity.RoutineTheme
 import com.sopetit.softie.util.ItemDiffCallback
 
@@ -18,23 +18,25 @@ class RoutineThemeListAdapter :
         )
     ) {
 
-    inner class RoutineThemeListViewHolder(private val binding: ItemAddListBinding) :
+    inner class RoutineThemeListViewHolder(private val binding: ItemAddRoutineListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(data: RoutineTheme.Themes) {
             with(binding) {
-                when (data.themeId) {
-                    1 -> ivAddListItemIcon.load(R.drawable.ic_theme1_pink)
-                    2 -> ivAddListItemIcon.load(R.drawable.ic_theme2_red)
-                    3 -> ivAddListItemIcon.load(R.drawable.ic_theme3_orange)
-                    4 -> ivAddListItemIcon.load(R.drawable.ic_theme4_yellow)
-                    5 -> ivAddListItemIcon.load(R.drawable.ic_theme5_green)
-                    6 -> ivAddListItemIcon.load(R.drawable.ic_theme6_sky)
-                    7 -> ivAddListItemIcon.load(R.drawable.ic_theme7_blue)
-                    else -> ivAddListItemIcon.load(R.drawable.ic_bear_base)
+                val iconItem = when (data.themeId) {
+                    1 -> R.drawable.ic_theme1_pink
+                    2 -> R.drawable.ic_theme2_red
+                    3 -> R.drawable.ic_theme3_orange
+                    4 -> R.drawable.ic_theme4_yellow
+                    5 -> R.drawable.ic_theme5_green
+                    6 -> R.drawable.ic_theme6_sky
+                    7 -> R.drawable.ic_theme7_blue
+                    else -> R.drawable.ic_bear_base
                 }
-                tvAddListItemContent.text = data.modifier
-                tvAddListItemTitle.text = data.name
+
+                ivAddRoutineListItemIcon.load(iconItem)
+                tvAddRoutineListItemModifier.text = data.modifier
+                tvAddRoutineListItemName.text = data.name
             }
         }
     }
@@ -43,7 +45,7 @@ class RoutineThemeListAdapter :
         parent: ViewGroup,
         viewType: Int
     ): RoutineThemeListViewHolder {
-        val binding = ItemAddListBinding.inflate(
+        val binding = ItemAddRoutineListBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false

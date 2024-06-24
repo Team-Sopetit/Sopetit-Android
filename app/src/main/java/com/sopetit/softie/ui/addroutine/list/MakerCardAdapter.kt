@@ -5,32 +5,32 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.sopetit.softie.R
-import com.sopetit.softie.databinding.ItemAddListMakerCardBinding
+import com.sopetit.softie.databinding.ItemAddRoutineListMakerCardBinding
 import com.sopetit.softie.domain.entity.MakerCard
 
-class MakerCardPagerAdapter : RecyclerView.Adapter<MakerCardPagerAdapter.MakerPagerViewHolder>() {
+class MakerCardAdapter : RecyclerView.Adapter<MakerCardAdapter.MakerPagerViewHolder>() {
 
     private var dataList = listOf<MakerCard>()
 
-    class MakerPagerViewHolder(private val binding: ItemAddListMakerCardBinding) :
+    class MakerPagerViewHolder(private val binding: ItemAddRoutineListMakerCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        private val hashtagAdapter = MakerCardPagerHashtagAdapter(emptyList())
+        private val hashtagAdapter = MakerCardHashtagAdapter(emptyList())
 
         init {
-            binding.rvAddListMakerHashtagChip.adapter = hashtagAdapter
+            binding.rvAddRoutineListMakerHashtag.adapter = hashtagAdapter
         }
 
         fun onBind(data: MakerCard) {
             with(binding) {
-                ivAddListMakerCardImage.load(data.artistImageUrl) {
+                ivAddRoutineListMakerCardImage.load(data.artistImageUrl) {
                     placeholder(R.drawable.ic_happy_card_base)
                     error(R.drawable.ic_happy_card_base)
                 }
-                tvAddListMakerCardDetailSubtitle.text = data.subTitle
-                tvAddListMakerCardDetailTitle.text = data.title
+                tvAddRoutineListMakerCardDetailSubtitle.text = data.subTitle
+                tvAddRoutineListMakerCardDetailTitle.text = data.title
 
-                (binding.rvAddListMakerHashtagChip.adapter as MakerCardPagerHashtagAdapter)?.submitList(
+                (binding.rvAddRoutineListMakerHashtag.adapter as MakerCardHashtagAdapter)?.submitList(
                     data.hashtag
                 )
             }
@@ -38,7 +38,7 @@ class MakerCardPagerAdapter : RecyclerView.Adapter<MakerCardPagerAdapter.MakerPa
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MakerPagerViewHolder {
-        val binding = ItemAddListMakerCardBinding.inflate(
+        val binding = ItemAddRoutineListMakerCardBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false

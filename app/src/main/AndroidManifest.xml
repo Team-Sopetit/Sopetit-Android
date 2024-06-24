@@ -47,7 +47,7 @@
         </activity>
 
         <activity
-            android:name=".ui.addroutine.list.AddListActivity"
+            android:name=".ui.addroutine.list.AddRoutineActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 

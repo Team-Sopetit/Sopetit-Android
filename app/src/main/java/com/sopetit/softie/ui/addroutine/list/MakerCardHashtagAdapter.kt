@@ -3,24 +3,24 @@ package com.sopetit.softie.ui.addroutine.list
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.sopetit.softie.databinding.ItemAddListMakerHashtagChipBinding
+import com.sopetit.softie.databinding.ItemAddRoutineListMakerHashtagBinding
 import com.sopetit.softie.domain.entity.MakerCard
 
-class MakerCardPagerHashtagAdapter(private var hashtags: List<MakerCard.Hashtag>) :
-    RecyclerView.Adapter<MakerCardPagerHashtagAdapter.HashtagViewHolder>() {
+class MakerCardHashtagAdapter(private var hashtags: List<MakerCard.Hashtag>) :
+    RecyclerView.Adapter<MakerCardHashtagAdapter.HashtagViewHolder>() {
 
-    class HashtagViewHolder(private val binding: ItemAddListMakerHashtagChipBinding) :
+    class HashtagViewHolder(private val binding: ItemAddRoutineListMakerHashtagBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(hashtag: MakerCard.Hashtag) {
             with(binding) {
-                tvAddListItemContent.text = hashtag.content
+                tvAddRoutineListMakerHashtagContent.text = hashtag.content
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HashtagViewHolder {
-        val binding = ItemAddListMakerHashtagChipBinding.inflate(
+        val binding = ItemAddRoutineListMakerHashtagBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -36,6 +36,5 @@ class MakerCardPagerHashtagAdapter(private var hashtags: List<MakerCard.Hashtag>
 
     fun submitList(newHashtags: List<MakerCard.Hashtag>) {
         hashtags = newHashtags
-        notifyDataSetChanged()
     }
 }

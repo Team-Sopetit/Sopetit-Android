@@ -14,7 +14,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class AddListViewModel @Inject constructor(
+class AddRoutineViewModel @Inject constructor(
     private val getMakerCardUseCase: GetMakerCardUseCase,
     private val getRoutineThemeListUseCase: GetRoutineThemeListUseCase
 ) : ViewModel() {
@@ -23,12 +23,6 @@ class AddListViewModel @Inject constructor(
 
     private val _addRoutineThemeListResponse = MutableLiveData<RoutineTheme>()
     val addRoutineThemeListResponse: LiveData<RoutineTheme> get() = _addRoutineThemeListResponse
-
-    private val _myMakerId: MutableLiveData<Int> = MutableLiveData()
-
-    fun setMakerId(makerId: Int) {
-        _myMakerId.value = makerId
-    }
 
     fun getMakerCard() {
         viewModelScope.launch {
