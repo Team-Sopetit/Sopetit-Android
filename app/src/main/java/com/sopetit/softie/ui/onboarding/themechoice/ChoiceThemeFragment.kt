@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.FragmentOnboardingChoiceThemeBinding
 import com.sopetit.softie.ui.onboarding.OnboardingActivity.Companion.MAXIMUM_THEME_SELECTION
@@ -38,10 +37,8 @@ class ChoiceThemeFragment :
     private fun initMakeThemeAdapter() {
         _choiceThemeAdapter = ChoiceThemeAdapter()
 //        themeViewModel.getThemeList()
-        binding.rvOnboardingChoiceTheme.apply {
-            layoutManager = GridLayoutManager(requireContext(), 3)
-            adapter = choiceThemeAdapter
-        }
+
+        binding.rvOnboardingChoiceTheme.adapter = choiceThemeAdapter
 
         setThemeList()
         selectThemes()
