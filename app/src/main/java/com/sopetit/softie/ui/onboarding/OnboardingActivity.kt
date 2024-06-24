@@ -13,7 +13,7 @@ import com.sopetit.softie.databinding.ActivityOnboardingBinding
 import com.sopetit.softie.ui.LoadingIndicator
 import com.sopetit.softie.ui.onboarding.bearnaming.BearNamingFragment
 import com.sopetit.softie.ui.onboarding.bearselection.BearSelectionFragment
-import com.sopetit.softie.ui.onboarding.routinechoice.RoutineChoiceFragment
+import com.sopetit.softie.ui.onboarding.newroutinechoice.NewRoutineChoiceFragment
 import com.sopetit.softie.ui.onboarding.themechoice.ChoiceThemeFragment
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.binding.BindingAdapter.setImage
@@ -141,7 +141,7 @@ class OnboardingActivity :
     private fun initChangeRoutineChoice() {
         viewModel.routineChoiceView.observe(this) { routineChoiceView ->
             if (routineChoiceView) {
-                changeFragment(RoutineChoiceFragment())
+                changeFragment(NewRoutineChoiceFragment())
             }
         }
     }
