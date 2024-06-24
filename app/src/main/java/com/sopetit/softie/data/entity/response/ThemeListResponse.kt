@@ -15,18 +15,18 @@ data class ThemeListResponse(
         val themeId: Int,
         @SerialName("name")
         val name: String,
-        @SerialName("iconImageUrl")
-        val iconImageUrl: String,
-        @SerialName("backgroundImageUrl")
-        val backgroundImageUrl: String
+        @SerialName("modifier")
+        val modifier: String,
+        @SerialName("description")
+        val description: String
     )
 
     fun toTheme() = themes.map {
         Theme(
             themeId = it.themeId,
             name = it.name,
-            iconImageUrl = it.iconImageUrl,
-            backgroundImageUrl = it.backgroundImageUrl
+            modifier = it.modifier,
+            description = it.description
         )
     }
 }

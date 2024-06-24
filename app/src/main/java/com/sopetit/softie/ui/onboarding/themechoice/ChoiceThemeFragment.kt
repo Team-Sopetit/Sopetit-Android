@@ -37,7 +37,7 @@ class ChoiceThemeFragment :
 
     private fun initMakeThemeAdapter() {
         _choiceThemeAdapter = ChoiceThemeAdapter()
-        themeViewModel.getThemeList()
+//        themeViewModel.getThemeList()
         binding.rvOnboardingChoiceTheme.apply {
             layoutManager = GridLayoutManager(requireContext(), 3)
             adapter = choiceThemeAdapter

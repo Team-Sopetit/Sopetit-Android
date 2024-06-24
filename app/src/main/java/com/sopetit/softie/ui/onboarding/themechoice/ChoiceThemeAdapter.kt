@@ -9,7 +9,6 @@ import com.sopetit.softie.databinding.ItemOnboardingChoiceThemeBinding
 import com.sopetit.softie.domain.entity.Theme
 import com.sopetit.softie.ui.onboarding.OnboardingActivity.Companion.MAXIMUM_THEME_SELECTION
 import com.sopetit.softie.util.ItemDiffCallback
-import com.sopetit.softie.util.binding.BindingAdapter.setCoilImage
 import com.sopetit.softie.util.toast
 
 class ChoiceThemeAdapter :
@@ -26,8 +25,9 @@ class ChoiceThemeAdapter :
     inner class ChoiceThemeViewHolder(private val binding: ItemOnboardingChoiceThemeBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: Theme) {
-            binding.tvThemeName.text = data.name
-            binding.ivThemeIcon.setCoilImage(data.iconImageUrl)
+            binding.item = data
+            // TODO 이미지 관련 재작업 예정 (동일 icon 재사용 위해 이전 pr 머지 후 작업)
+//            binding.ivThemeIcon.setCoilImage(data.iconImageUrl)
             binding.root.setOnClickListener {
                 themeSelection(binding, data)
                 onItemClickListener?.let { it(data) }
