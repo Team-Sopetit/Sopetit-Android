@@ -85,7 +85,7 @@ class ChoiceThemeAdapter :
             }
 
             false -> {
-                binding.ivThemeBackground.setBackgroundResource(R.drawable.shape_gray0_fill_gray200_stroke_100_circle)
+                binding.ivThemeBackground.setBackgroundResource(R.drawable.shape_gray0_fill_gray200_stroke_circle)
             }
         }
     }

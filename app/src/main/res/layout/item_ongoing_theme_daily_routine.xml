@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/shape_gray0_fil_gray200_stroke_10_rect">
+
+        <CheckBox
+            android:id="@+id/cb_ongoing_theme_daily_routine"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginVertical="16dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/selector_ongoing_daily_routine"
+            android:button="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray700"
+            app:layout_constraintBottom_toBottomOf="@id/cb_ongoing_theme_daily_routine"
+            app:layout_constraintStart_toEndOf="@id/cb_ongoing_theme_daily_routine"
+            app:layout_constraintTop_toTopOf="@id/cb_ongoing_theme_daily_routine"
+            tools:text="일어나면 5분 안에 이불 개기" />
+
+        <ImageView
+            android:layout_width="38dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_more"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

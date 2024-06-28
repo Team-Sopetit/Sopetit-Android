@@ -88,9 +88,9 @@
     <string name="splash_content">하루를 바꾸는 가장 사소한 루틴</string>
 
     <!-- bottom navigation -->
-    <string name="bottom_navigation_daily_routine">데일리 루틴</string>
+    <string name="bottom_navigation_ongoing">진행중</string>
     <string name="bottom_navigation_home">홈</string>
-    <string name="bottom_navigation_happiness_routine">행복 루틴</string>
+    <string name="bottom_navigation_achievement">달성도</string>
 
     <!-- setting -->
     <string name="setting_title">설정</string>
@@ -185,5 +185,8 @@
     <string name="home_tutorial_title_cotton">솜뭉치를 얻으면?</string>
     <string name="home_tutorial_btn_next">다음</string>
     <string name="home_tutorial_btn_start">시작하기</string>
+
+    <!-- ongoing -->
+    <string name="ongoing_complete_btn">완료하기</string>
 
 </resources>

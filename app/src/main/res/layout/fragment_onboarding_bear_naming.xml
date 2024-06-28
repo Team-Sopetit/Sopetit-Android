@@ -33,7 +33,7 @@
 
         <TextView
             android:id="@+id/tv_bear_naming_subtitle"
-            style="@style/body4"
+            style="@style/body2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -59,7 +59,7 @@
 
         <EditText
             android:id="@+id/et_bear_naming"
-            style="@style/body4"
+            style="@style/body2"
             android:layout_width="158dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="-70dp"

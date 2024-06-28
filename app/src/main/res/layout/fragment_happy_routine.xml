@@ -44,7 +44,7 @@
 
         <TextView
             android:id="@+id/tv_happy_routine_default_mention"
-            style="@style/bubble14"
+            style="@style/bubble2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"

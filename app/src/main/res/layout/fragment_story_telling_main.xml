@@ -44,7 +44,7 @@
 
         <TextView
             android:id="@+id/tv_story_telling_main"
-            style="@style/bubble20"
+            style="@style/bubble1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
