@@ -4,9 +4,12 @@ import android.content.Context
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.sopetit.softie.R
 
-class HorizontalChipItemDecoration(val context: Context) : RecyclerView.ItemDecoration() {
+class HorizontalItemDecoration(
+    val context: Context,
+    val firstItemMargin: Int,
+    val itemMargin: Int
+) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
         outRect: Rect,
@@ -18,10 +21,10 @@ class HorizontalChipItemDecoration(val context: Context) : RecyclerView.ItemDeco
         val position = parent.getChildAdapterPosition(view)
 
         if (position == 0) {
-            outRect.left = context.resources.getDimensionPixelSize(R.dimen.chip_first_margin)
+            outRect.left = context.resources.getDimensionPixelSize(firstItemMargin)
         } else {
             outRect.left = 0
         }
-        outRect.right = context.resources.getDimensionPixelSize(R.dimen.chip_margin)
+        outRect.right = context.resources.getDimensionPixelSize(itemMargin)
     }
 }

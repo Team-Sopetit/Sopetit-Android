@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sopetit.softie.R
 import com.sopetit.softie.databinding.ActivityHappyAddListBinding
 import com.sopetit.softie.ui.happyroutine.detail.HappyDetailActivity
-import com.sopetit.softie.util.HorizontalChipItemDecoration
+import com.sopetit.softie.util.HorizontalItemDecoration
 import com.sopetit.softie.util.VerticalItemDecoration
 import com.sopetit.softie.util.binding.BindingActivity
 import com.sopetit.softie.util.setSingleOnClickListener
@@ -20,8 +20,6 @@ class HappyAddListActivity :
     BindingActivity<ActivityHappyAddListBinding>(R.layout.activity_happy_add_list) {
 
     private val viewModel by viewModels<HappyAddListViewModel>()
-    private lateinit var itemDeco: RecyclerView.ItemDecoration
-    private lateinit var chipDeco: RecyclerView.ItemDecoration
 
     private var happyAddListChipContentAdapter: HappyAddListChipContentAdapter? = null
     private var happyAddListContentAdapter: HappyAddListContentAdapter? = null
@@ -44,7 +42,6 @@ class HappyAddListActivity :
 
         setChipAdapters()
         setBackEnter()
-        setItemDeco()
         setHappyAddListAdapter()
     }
 
@@ -57,13 +54,6 @@ class HappyAddListActivity :
         binding.ivHappyAddBackArrow.setSingleOnClickListener {
             finish()
         }
-    }
-
-    private fun setItemDeco() {
-        itemDeco = VerticalItemDecoration(applicationContext)
-        binding.rvHappyAddList.addItemDecoration(itemDeco)
-        chipDeco = HorizontalChipItemDecoration(applicationContext)
-        binding.rvHappyAddListChip.addItemDecoration(chipDeco)
     }
 
     private fun setHappyAddListAdapter() {

@@ -8,12 +8,14 @@ import com.sopetit.softie.data.repositoryImpl.MemberHappinessRoutineRepositoryIm
 import com.sopetit.softie.data.repositoryImpl.MemberRepositoryImpl
 import com.sopetit.softie.data.repositoryImpl.RefreshTokenRepositoryImpl
 import com.sopetit.softie.data.repositoryImpl.VersionRepositoryImpl
+import com.sopetit.softie.domain.repository.AddRoutineRepository
 import com.sopetit.softie.domain.repository.AuthRepository
 import com.sopetit.softie.domain.repository.DailyRoutineRepository
 import com.sopetit.softie.domain.repository.DollRepository
 import com.sopetit.softie.domain.repository.HappinessRoutineRepository
 import com.sopetit.softie.domain.repository.MemberHappinessRoutineRepository
 import com.sopetit.softie.domain.repository.MemberRepository
+import com.sopetit.softie.domain.repository.MockAddRoutineRepository
 import com.sopetit.softie.domain.repository.RefreshTokenRepository
 import com.sopetit.softie.domain.repository.VersionRepository
 import dagger.Binds
@@ -54,6 +56,12 @@ abstract class RepositoryModule {
     abstract fun bindToMemberHappinessRoutineRepository(
         memberHappinessRoutineRepositoryImpl: MemberHappinessRoutineRepositoryImpl
     ): MemberHappinessRoutineRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindAddRoutineRepository(
+        mockAddRoutineRepository: MockAddRoutineRepository
+    ): AddRoutineRepository
 
     @Binds
     @Singleton

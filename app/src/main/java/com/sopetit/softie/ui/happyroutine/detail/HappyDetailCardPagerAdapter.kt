@@ -39,11 +39,11 @@ class HappyDetailCardPagerAdapter() :
                     data.timeTaken
                 tvHappyRoutineAddCardDetailPlaceBack.text = data.place
 
-                clHappyRoutineAddCard.setOnClickListener {
-                    setCardFlip(clHappyRoutineAddCard, clHappyRoutineAddCardBack)
+                clHappyRoutineAddCardBack.setOnClickListener {
+                    setCardFlip(clHappyRoutineAddCardBack, clHappyRoutineAddCardBack)
                 }
                 clHappyRoutineAddCardBack.setOnClickListener {
-                    setCardFlip(clHappyRoutineAddCardBack, clHappyRoutineAddCard)
+                    setCardFlip(clHappyRoutineAddCardBack, clHappyRoutineAddCardBack)
                 }
             }
         }

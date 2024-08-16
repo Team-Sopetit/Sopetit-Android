@@ -4,9 +4,12 @@ import android.content.Context
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.sopetit.softie.R
 
-class VerticalItemDecoration(val context: Context) : RecyclerView.ItemDecoration() {
+class VerticalItemDecoration(
+    val context: Context,
+    val firstItemMargin: Int,
+    val itemMargin: Int
+) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
         outRect: Rect,
@@ -18,10 +21,10 @@ class VerticalItemDecoration(val context: Context) : RecyclerView.ItemDecoration
         val position = parent.getChildAdapterPosition(view)
 
         if (position == 0) {
-            outRect.top = context.resources.getDimensionPixelSize(R.dimen.happy_list_first_margin)
+            outRect.top = context.resources.getDimensionPixelSize(firstItemMargin)
         } else {
             outRect.top = 0
         }
-        outRect.bottom = context.resources.getDimensionPixelSize(R.dimen.happy_list_margin)
+        outRect.bottom = context.resources.getDimensionPixelSize(itemMargin)
     }
 }
