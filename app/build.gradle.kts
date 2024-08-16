@@ -137,6 +137,9 @@ dependencies {
 
     // Coroutine
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.3")
+
+    // Tool Tip
+    implementation("com.github.skydoves:balloon:1.6.5")
 }
 
 fun getApiKey(propertyKey: String): String {

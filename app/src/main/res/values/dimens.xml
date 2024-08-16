@@ -11,4 +11,5 @@
     <dimen name="maker_recycler_view_margin">8dp</dimen>
     <dimen name="add_routine_recycler_view_first_margin">8dp</dimen>
     <dimen name="add_routine_recycler_view_margin">4dp</dimen>
+    <dimen name="add_routine_maker_help_radius">10dp</dimen>
 </resources>
